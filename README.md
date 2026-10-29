@@ -8,8 +8,13 @@ gebaut hat. Das Spiel erscheint in Teilen; in Arbeit ist **Teil 1: Der Zugang**.
 
 | Pfad | Inhalt | Im Repo |
 |---|---|---|
-| `story/` | Story-Konzepte, je Teil ein Dokument (`kyphi_teil_1_der_zugang.md`) | nein (`.gitignore`) |
+| `concept/game.md` | Grundlagen des Spiels: Genre, Sprache, Aufbau, Regeln für die Geschichte | ja |
+| `concept/part_*.md` | Story, je Teil ein Dokument (`part_1_access.md`) | nein (`.gitignore`) |
 | `work/` | Arbeitsdateien: generierte Bilder, Stimmen, Videos, 3D-Modelle, Entwürfe | nein (`.gitignore`) |
+
+## Sprache
+
+Das Spiel ist deutsch: Texte, Dialoge und Sprachausgabe. Verzeichnisse, Dateinamen und Code sind englisch.
 
 ## Asset-Erzeugung
 
