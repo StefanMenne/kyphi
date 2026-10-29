@@ -607,5 +607,91 @@
    "original": "work/depot.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
    "edits": {}
   }
+ },
+ "characters": {
+  "ackermann": {
+   "idle": {
+    "tool": "qwen-image-edit",
+    "job_id": "68c49376bd52",
+    "seed": 900,
+    "inputs": [
+     "Lobby-Hintergrund, Ausschnitt 300,120,700,344, 3-fach",
+     "work/ackermann.png (Entwurf)"
+    ],
+    "prompt": "The woman from image 2 stands behind the reception counter of image 1, in the middle of the counter between the two telephones, facing the viewer. Only her head and upper body are visible above the countertop, the counter hides her from the waist down. Both hands rest on the countertop, empty. Her size fits the scene: her head is a little larger than a telephone. Same drawing style as image 1 with bold black ink outlines. Keep the counter, the telephones, the lamp, the key board, the wall boards and the wall of image 1 exactly unchanged."
+   },
+   "talk_open": {
+    "tool": "qwen-image-edit",
+    "job_id": "186074ba8b23",
+    "seed": 910,
+    "inputs": [
+     "idle (image_900)"
+    ],
+    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet",
+    "prompt": "The woman is speaking: her mouth is open in the middle of a word. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes and everything else in the picture exactly unchanged."
+   },
+   "talk_small": {
+    "tool": "qwen-image-edit",
+    "job_id": "42d250524d3d",
+    "seed": 920,
+    "inputs": [
+     "idle (image_900)"
+    ],
+    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet",
+    "prompt": "The woman is speaking: her mouth is slightly open, a narrow opening, as in a soft vowel. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes and everything else in the picture exactly unchanged."
+   },
+   "incense_cone": {
+    "tool": "qwen-image-edit",
+    "job_id": "b1a97a75a1cf",
+    "seed": 931,
+    "inputs": [
+     "idle (image_900)"
+    ],
+    "prompt": "The woman raises her right hand to her face and holds a small dark brown resin incense cone under her nose, smelling it with her eyes closed and a soft, nostalgic smile. Her other hand stays on the countertop. Keep her face shape, glasses, hair, clothes, the counter, the telephones and everything else in the picture exactly unchanged."
+   }
+  },
+  "martin": {
+   "restyle": {
+    "tool": "qwen-image-edit",
+    "job_id": "c6eb67f80a3f",
+    "seed": 901,
+    "inputs": [
+     "work/martin.png (Entwurf)",
+     "assets/scenes/werkstatt/background.png (Stilreferenz)"
+    ],
+    "prompt": "Redraw the man from image 1 in the drawing style of image 2: clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style. Same man, same clothes (beige work coat with glasses in the breast pocket, green shirt, belt, blue jeans, brown shoes), same face, same standing pose facing the viewer, full body from head to shoes. Plain flat solid magenta background, no shadow, nothing else in the picture."
+   },
+   "apose": {
+    "tool": "qwen-image-edit",
+    "job_id": "e68548417101",
+    "seed": 941,
+    "inputs": [
+     "restyle image_901"
+    ],
+    "prompt": "Same man, same clothes, same face and same drawing style, standing straight facing the viewer in a relaxed A-pose: both arms hang slightly away from the body with a small gap between arms and coat, hands open, legs straight and slightly apart with a gap between them, feet flat. Plain flat light grey background, no shadow on the floor, nothing else in the picture."
+   },
+   "model": {
+    "tool": "pixal3d (image_to_3d)",
+    "job_id": "9fc3c1e1c029",
+    "seed": 951,
+    "params": "max_faces 40000, texture_size 2048"
+   },
+   "post": {
+    "tool": "blender glb_post",
+    "job_id": "7ee43e0b0b0c",
+    "args": "--height 1.8"
+   },
+   "rig": {
+    "tool": "blender rig_biped",
+    "job_id": "39c3a4f3b206",
+    "args": "--landmarks human2.json (eigenes Menschenprofil) --walk 1.0 --stride 0.4",
+    "note": "danach eigene Gewichtskorrektur (Job 2baef9570707): Arm-Gewichte komplett auf chest, Bein-Gewichte oberhalb des Mantelsaums (z>0.62 m) auf hips, damit der Mantel nicht aufreißt"
+   },
+   "sprites": {
+    "tool": "blender (eigener Code, EEVEE)",
+    "job_id": "aa18b176266a",
+    "note": "Orthografische Kamera, 10° von oben, 4 Richtungen x (1 Stand + 8 Lauf), transparenter Hintergrund; danach gemeinsamer Zuschnitt und 3 px Außenkontur per Python"
+   }
+  }
  }
 }

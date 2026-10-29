@@ -435,5 +435,102 @@
    ],
    "layers": {}
   }
+ },
+ "characters": {
+  "ackermann": {
+   "name": "Frau Ackermann",
+   "scene": "lobby",
+   "note": "Oberkörper hinter dem Tresen; alle Zustände deckungsgleich an derselben Position (Lobby-Koordinaten). Sprechen: idle, talk_small und talk_open wechseln.",
+   "x": 438,
+   "y": 127,
+   "w": 124,
+   "h": 188,
+   "states": {
+    "idle": {
+     "file": "characters/ackermann/idle.png",
+     "name": "Grundzustand, Hände auf dem Tresen"
+    },
+    "talk_small": {
+     "file": "characters/ackermann/talk_small.png",
+     "name": "Sprechen, Mund leicht offen"
+    },
+    "talk_open": {
+     "file": "characters/ackermann/talk_open.png",
+     "name": "Sprechen, Mund weit offen"
+    },
+    "incense_cone": {
+     "file": "characters/ackermann/incense_cone.png",
+     "name": "riecht am Räucherkegel (Kapitel 6a)"
+    }
+   }
+  },
+  "martin": {
+   "name": "Martin Kessler",
+   "size": [
+    212,
+    443
+   ],
+   "anchor": [
+    106,
+    431
+   ],
+   "height_px": 421,
+   "note": "Anker = Mitte zwischen den Füßen. Laufzyklus auf der Stelle, 8 Bilder pro Richtung, 1 s pro Zyklus (zwei Schritte). Die Arme bewegen sich mit dem Oberkörper. Laufzyklus auf der Stelle: die Spiel-Engine verschiebt die Figur.",
+   "directions": {
+    "front": {
+     "idle": "characters/martin/front_idle.png",
+     "walk": [
+      "characters/martin/front_walk_0.png",
+      "characters/martin/front_walk_1.png",
+      "characters/martin/front_walk_2.png",
+      "characters/martin/front_walk_3.png",
+      "characters/martin/front_walk_4.png",
+      "characters/martin/front_walk_5.png",
+      "characters/martin/front_walk_6.png",
+      "characters/martin/front_walk_7.png"
+     ]
+    },
+    "back": {
+     "idle": "characters/martin/back_idle.png",
+     "walk": [
+      "characters/martin/back_walk_0.png",
+      "characters/martin/back_walk_1.png",
+      "characters/martin/back_walk_2.png",
+      "characters/martin/back_walk_3.png",
+      "characters/martin/back_walk_4.png",
+      "characters/martin/back_walk_5.png",
+      "characters/martin/back_walk_6.png",
+      "characters/martin/back_walk_7.png"
+     ]
+    },
+    "left": {
+     "idle": "characters/martin/left_idle.png",
+     "walk": [
+      "characters/martin/left_walk_0.png",
+      "characters/martin/left_walk_1.png",
+      "characters/martin/left_walk_2.png",
+      "characters/martin/left_walk_3.png",
+      "characters/martin/left_walk_4.png",
+      "characters/martin/left_walk_5.png",
+      "characters/martin/left_walk_6.png",
+      "characters/martin/left_walk_7.png"
+     ]
+    },
+    "right": {
+     "idle": "characters/martin/right_idle.png",
+     "walk": [
+      "characters/martin/right_walk_0.png",
+      "characters/martin/right_walk_1.png",
+      "characters/martin/right_walk_2.png",
+      "characters/martin/right_walk_3.png",
+      "characters/martin/right_walk_4.png",
+      "characters/martin/right_walk_5.png",
+      "characters/martin/right_walk_6.png",
+      "characters/martin/right_walk_7.png"
+     ]
+    }
+   },
+   "model": "characters/martin/martin.glb"
+  }
  }
 }
