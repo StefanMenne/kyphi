@@ -1,0 +1,28 @@
+{
+ "name": "Lobby",
+ "size": [
+  2048,
+  576
+ ],
+ "background": "background.png",
+ "layers": {
+  "stairs_door_open": {
+   "name": "Tür zum Treppenhaus/Keller offen",
+   "type": "door",
+   "file": "sprites/stairs_door_open.png",
+   "x": 85,
+   "y": 118,
+   "w": 120,
+   "h": 356
+  },
+  "workshop_door_open": {
+   "name": "Tür zur Werkstatt offen",
+   "type": "door",
+   "file": "sprites/workshop_door_open.png",
+   "x": 1403,
+   "y": 154,
+   "w": 85,
+   "h": 233
+  }
+ }
+}

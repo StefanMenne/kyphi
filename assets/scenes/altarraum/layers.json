@@ -1,0 +1,47 @@
+{
+ "name": "Altarraum",
+ "size": [
+  2048,
+  576
+ ],
+ "background": "background.png",
+ "layers": {
+  "detector_taped": {
+   "name": "Rauchmelder abgeklebt (Hintergrund: Melder frei)",
+   "type": "state",
+   "file": "sprites/detector_taped.png",
+   "x": 984,
+   "y": 0,
+   "w": 67,
+   "h": 43
+  },
+  "workshop_door_open": {
+   "name": "Tür zur Werkstatt offen",
+   "type": "door",
+   "file": "sprites/workshop_door_open.png",
+   "x": 43,
+   "y": 165,
+   "w": 101,
+   "h": 315
+  },
+  "steel_door_closed": {
+   "name": "Paneel 4 abgenommen: Stahltür mit Kartenleser",
+   "type": "state",
+   "file": "sprites/steel_door_closed.png",
+   "x": 1776,
+   "y": 48,
+   "w": 176,
+   "h": 428
+  },
+  "steel_door_open": {
+   "name": "Stahltür offen, Treppe nach unten (über „Paneel 4 abgenommen“)",
+   "type": "door",
+   "file": "sprites/steel_door_open.png",
+   "x": 1760,
+   "y": 124,
+   "w": 205,
+   "h": 391,
+   "requires": "steel_door_closed"
+  }
+ }
+}

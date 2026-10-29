@@ -1,0 +1,611 @@
+{
+ "date": "2026-10-29",
+ "tools": "gb10-assets 0.1.3 (flux2-klein, qwen-image-edit); Freistellen und Zusammensetzen per Python (Pillow, NumPy, SciPy)",
+ "method": "Icons: auf Magenta/Grau erzeugt, Hintergrund per Skript entfernt. Szenen: Ausschnitt mit qwen-image-edit bearbeitet, ausgerichtet und nur im veränderten Bereich übernommen; offene Türen nur innerhalb der Öffnung des Originalrahmens. Werkstatt komplett neu über qwen-image-edit (werkstatt_full_with_items), Hintergrund daraus abgeleitet.",
+ "items": {
+  "dictaphone": {
+   "tool": "flux2-klein",
+   "job_id": "15f22b3d6b23",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "small black handheld digital voice recorder with a little display and a red record button, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "batteries": {
+   "tool": "flux2-klein",
+   "job_id": "606bb5a79d32",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "two AA batteries lying side by side, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "ladder": {
+   "tool": "flux2-klein",
+   "job_id": "e78b0c9f3fc6",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "folded aluminium painter's step ladder with five steps, paint splatters, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "tweezers": {
+   "tool": "flux2-klein",
+   "job_id": "87dc05a2d925",
+   "seed": 702,
+   "size": "1024x1024",
+   "prompt": "a pair of fine stainless steel tweezers made from one single piece of bent metal, the two arms joined at the rear end, pointed tips slightly apart, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "brush": {
+   "tool": "flux2-klein",
+   "job_id": "07455740f298",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "restorer's flat paint brush with a wooden handle and soft natural bristles, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "spatula": {
+   "tool": "flux2-klein",
+   "job_id": "b604f289383a",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "small steel restorer's spatula with a flat thin blade and a wooden handle, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "masking_tape": {
+   "tool": "flux2-klein",
+   "job_id": "2de28ea4f516",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "roll of beige masking tape with a red warning stripe, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "caliper": {
+   "tool": "flux2-klein",
+   "job_id": "124b6b367b42",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "stainless steel vernier caliper with depth rod, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "uv_lamp": {
+   "tool": "flux2-klein",
+   "job_id": "70eb4bba1a5b",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "small handheld black UV flashlight with a purple lens, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "depot_key": {
+   "tool": "flux2-klein",
+   "job_id": "e77621a33f79",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "old brass key on a ring with a small paper key tag, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "notebook": {
+   "tool": "flux2-klein",
+   "job_id": "9da7af88e963",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "worn brown leather notebook with an elastic band, slightly stained, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "incense_cone": {
+   "tool": "flux2-klein",
+   "job_id": "577fc719a8f0",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "dark brown resin incense cone, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "lighter": {
+   "tool": "flux2-klein",
+   "job_id": "4825471a9271",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "cheap red plastic disposable lighter, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "saucer": {
+   "tool": "flux2-klein",
+   "job_id": "26e60676d91f",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "small white porcelain saucer with dried paint smudges, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "drill": {
+   "tool": "flux2-klein",
+   "job_id": "454c77fae850",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "red and black cordless drill driver with battery pack, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "evidence_bag": {
+   "tool": "flux2-klein",
+   "job_id": "5617ab183b42",
+   "seed": 301,
+   "size": "1024x1024",
+   "prompt": "small empty clear plastic zip lock evidence bag with a white label strip, frosted translucent plastic, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid light grey background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "index_card": {
+   "tool": "flux2-klein",
+   "job_id": "3ae0adabfed1",
+   "seed": 301,
+   "size": "1024x1024",
+   "prompt": "single blank cream colored archive index card with thin blue ruled lines and a red header line, no lettering, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "brush_soot": {
+   "tool": "qwen-image-edit",
+   "job_id": "9d8b34a73d16",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Blacken the bristle tip of the brush with soft black soot powder. Keep the brush shape, the handle and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/brush/image_101.png"
+   ]
+  },
+  "spatula_soot": {
+   "tool": "qwen-image-edit",
+   "job_id": "647ba5f9dcc7",
+   "seed": 300,
+   "size": "wie Eingabe",
+   "prompt": "Put a small heap of black soot powder on the tip of the spatula blade. Keep the spatula shape, the handle and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/spatula/image_101.png"
+   ]
+  },
+  "id_card": {
+   "tool": "qwen-image-edit",
+   "job_id": "62ea476df4fd",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Replace the portrait photo on the badge in image 1 with a small passport photo of the man from image 2, head and shoulders, with a very serious expression. Keep the badge, the clip, the drawing style and the plain magenta background of image 1 exactly unchanged.",
+   "inputs": [
+    "items/raw/id_card/image_100.png",
+    "hollmann.png"
+   ]
+  },
+  "screw_bit": {
+   "tool": "flux2-klein",
+   "job_id": "92398f32f5c6",
+   "seed": 803,
+   "size": "1024x1024",
+   "prompt": "one short steel screwdriver bit as sold in a bit set, 25 mm long, lying diagonally: a hexagonal shank with six flat sides and a small groove, ending in a short tip shaped like a three-pointed triangle, the tip looks like a small triangular star, the bit is compact and stubby, shiny grey metal, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "drill_bit": {
+   "tool": "qwen-image-edit",
+   "job_id": "88e14ca96da6",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Insert a short steel screwdriver bit with a three-bladed triangular tri-wing tip into the chuck of the drill. Keep the drill and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/drill/image_101.png"
+   ]
+  },
+  "cone_saucer": {
+   "tool": "qwen-image-edit",
+   "job_id": "6926a09a0d53",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Place the incense cone from image 2, smaller, in the middle of the saucer from image 1. The tip of the cone glows and a thin wisp of smoke rises. Keep the saucer, the drawing style and the plain magenta background of image 1 exactly unchanged.",
+   "inputs": [
+    "items/raw/saucer/image_100.png",
+    "items/raw/incense_cone/image_100.png"
+   ]
+  },
+  "evidence_bag_hair": {
+   "tool": "qwen-image-edit",
+   "job_id": "ae8e9f38271b",
+   "seed": 300,
+   "size": "wie Eingabe",
+   "prompt": "Put a single long thin grey hair inside the clear plastic bag, curving loosely across it, clearly visible. Keep the bag, the white label and the plain light grey background exactly unchanged.",
+   "inputs": [
+    "items/raw/evidence_bag_v2/image_301.png"
+   ]
+  },
+  "index_card_revealed": {
+   "tool": "qwen-image-edit",
+   "job_id": "f9a57ccfad1e",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Cover the lower part of the index card with a thin smudgy layer of black soot, in which a few lines of pale indented handwriting stand out light against the black. Keep the card shape, the red header line and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/index_card_v2/image_301.png"
+   ]
+  },
+  "remote": {
+   "tool": "flux2-klein",
+   "job_id": "de06294e9a85",
+   "seed": 401,
+   "size": "1024x1024",
+   "prompt": "black TV remote control with grey rubber buttons and a small battery cover on the back, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  }
+ },
+ "scenes": {
+  "wohnung": {
+   "original": "work/wohnung.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "wohnung_door_v3": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open only the wooden apartment door on the right: it is hinged on the LEFT side of its frame and swings away from the viewer into the stairwell behind it. The open door leaf is seen at a steep angle inside the doorway along the left jamb, entirely within the door opening. Through the rest of the doorway we see a dim stairwell landing with a staircase railing. The door frame, the walls, the floor, the other doors and everything else in the picture stay exactly unchanged.",
+     "box": [
+      0,
+      0,
+      1344,
+      768
+     ],
+     "scale": 1,
+     "jobs": [
+      {
+       "job_id": "5803e0ff7389",
+       "seed": 601
+      }
+     ],
+     "mask": "closed door opening (quad 1060 84 1168 38 1168 602 1060 530); Qwen öffnete zum Betrachter, nur die Öffnung übernommen"
+    },
+    "wohnung_remove_dictaphone": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the small black device with the red dot lying on the right side of the desk. The desk surface continues there, empty. Keep everything else exactly unchanged.",
+     "box": [
+      640,
+      296,
+      896,
+      424
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "10e78227a9e2",
+       "seed": 200
+      }
+     ]
+    },
+    "wohnung_remove_remote": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the black TV remote control lying on the sofa seat. The sofa cushion continues there, empty. Keep everything else exactly unchanged.",
+     "box": [
+      136,
+      440,
+      328,
+      536
+     ],
+     "scale": 6,
+     "jobs": [
+      {
+       "job_id": "6163021c53c1",
+       "seed": 400
+      }
+     ]
+    }
+   }
+  },
+  "lobby": {
+   "original": "work/lobby.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "lobby_stairs_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the grey door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the stairwell behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a concrete staircase leads DOWN to the basement: right behind the threshold the steps drop away downwards, we look down onto the treads, with a metal handrail going down. Keep the door frame, the walls, the baseboard, the cardboard sheets and the floor exactly unchanged.",
+     "box": [
+      20,
+      60,
+      300,
+      572
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "b6f4ded8d20b",
+       "seed": 410
+      }
+     ],
+     "followup": {
+      "job": "lobby_stairs_down",
+      "input": "edits/lobby_stairs_door_open/image_402.png",
+      "prompt": "Change only the staircase seen through the open doorway: behind the door there is a small floor landing, and from it a concrete staircase goes DOWNWARD away from the viewer into a darker basement, the steps sink below the landing level so we look down onto the tops of the treads, they get smaller and darker further down, the handrail slopes downward. Keep the door, the door frame, the wall, the floor and the cardboard sheets exactly unchanged."
+     },
+     "mask": "closed door opening (quad 88 121 198 147 198 440 88 470)"
+    },
+    "lobby_workshop_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the grey door wide: the door leaf swings inward away from the viewer, and through the open doorway a workshop with a wooden workbench and a tool wall is visible. Keep the door frame, the stone wall, the walls and the floor exactly unchanged.",
+     "box": [
+      1340,
+      120,
+      1520,
+      420
+     ],
+     "scale": 3.2,
+     "jobs": [
+      {
+       "job_id": "504a5d7acdcf",
+       "seed": 620
+      }
+     ],
+     "followup": {
+      "job": "lobby_workshop_door_open_c",
+      "input": "edits/lobby_workshop_door_open_in.png",
+      "prompt": "The grey door is now open, pushed away from us into the workshop behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the workshop, hinged at the right jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the right side of the frame, smaller because it is further away. The doorway opening shows a workshop with a wooden workbench and a tool wall. Nothing sticks out of the frame toward us. Keep the door frame, the stone wall, the walls and the floor of our room exactly unchanged."
+     }
+    }
+   }
+  },
+  "werkstatt": {
+   "original": "work/werkstatt.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "werkstatt_altar_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the wooden door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the dark room behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a dim room with dark walls and a painted ancient Egyptian column in red and green is visible. Keep the door frame, the light switch, the walls, the shelf, the box and the floor exactly unchanged.",
+     "box": [
+      1100,
+      60,
+      1340,
+      540
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "87655becd781",
+       "seed": 423
+      }
+     ],
+     "followup": {
+      "job": "werkstatt_altar_door_open_b",
+      "input": "edits/werkstatt_altar_door_open_in.png",
+      "prompt": "The wooden door is now open, pushed away from us into the dark room behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the dark room, hinged at the left jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the left side of the frame, smaller because it is further away. The doorway opening shows a dim room with dark walls and a painted ancient Egyptian column in red and green. Nothing sticks out of the frame toward us. Keep the door frame, the light switch, the walls, the shelf, the box and the floor of our room exactly unchanged."
+     },
+     "mask": "closed door opening (quad 1200 140 1279 108 1279 517 1200 480)"
+    },
+    "werkstatt_bench_items": {
+     "tool": "qwen-image-edit",
+     "prompt": "On the wooden tabletop of the workbench place these objects clearly separated from each other with generous gaps, lying flat on the table, from left to right: a red and black cordless drill lying on its side, a small black UV flashlight with a purple lens, a pair of steel tweezers, two small clear plastic zip bags, a steel vernier caliper, a small white saucer, a roll of beige masking tape. Hang a flat paint brush with a wooden handle and light bristles on the empty left part of the pegboard. All objects in the same drawing style with bold ink outlines, clearly readable. Keep the two desk lamps, the paint can, the jar, the wrenches, the pegboard, the wall and the shelf unchanged.",
+     "box": [
+      380,
+      150,
+      980,
+      358
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "6420fa9af5ff",
+       "seed": 403
+      }
+     ]
+    },
+    "werkstatt_full_empty": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove these objects and nothing else: on the tabletop the red cordless drill, the black UV flashlight, the tweezers, the small plastic bag, the caliper, the white saucer and the roll of tape; on the pegboard the large paint brush on the far left and the flat scraper spatula; and the aluminium step ladder standing in front of the cardboard boxes. The empty tabletop, the empty pegboard with its holes and the boxes and wall behind the ladder continue there. Keep the two desk lamps, the paint can, the jar, all other tools, the doors, the shelves and everything else exactly unchanged.",
+     "box": [
+      0,
+      0,
+      1344,
+      768
+     ],
+     "scale": 1,
+     "jobs": [
+      {
+       "job_id": "70f904eb9dcb",
+       "seed": 490
+      }
+     ],
+     "note": "Nur der Tischbereich aus image_490.png übernommen."
+    },
+    "werkstatt_full_with_items": {
+     "tool": "qwen-image-edit",
+     "prompt": "Clean up this drawing: the workbench tabletop is one continuous straight wooden plank from its left end to its right end with a single crisp black front edge, the right desk lamp has one clean round base, the pegboard has clean corners. Remove all faint doubled ghost lines, steps and breaks. Keep every object, its position and size, the ladder, the doors, the shelves, the boxes, the colors and the lighting exactly unchanged.",
+     "box": [
+      0,
+      0,
+      1344,
+      768
+     ],
+     "scale": 1,
+     "jobs": [
+      {
+       "job_id": "60ceb7195e11",
+       "seed": 481
+      }
+     ],
+     "note": "Eingabe: alter Hintergrund + Gegenstände aus werkstatt_bench_items/image_403.png + Leiter. Ergebnis image_481.png ist die neue Werkstatt mit allen Gegenständen."
+    },
+    "werkstatt_ladder_removed": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the aluminium step ladder. The stacked cardboard boxes, the wall with its corner and baseboard, and the grey floor continue behind it, complete and clean. Keep the boxes, the wall, the floor and the table leg exactly unchanged. Same framing, do not zoom.",
+     "box": [
+      300,
+      230,
+      420,
+      480
+     ],
+     "scale": 3.2,
+     "jobs": [
+      {
+       "job_id": "78e8982dade9",
+       "seed": 500
+      }
+     ]
+    },
+    "werkstatt_lobby_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the wooden door: it is hinged on the RIGHT side of the door frame and swings away from the viewer into the bright lobby behind it, so the open door leaf is seen at an angle inside the doorway along the right side. Through the open doorway a bright modern museum lobby with white walls and a light grey tiled floor is visible. Keep the door frame, the light switches, the walls, the boxes and the floor exactly unchanged.",
+     "box": [
+      40,
+      60,
+      280,
+      540
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "9a14c7719aad",
+       "seed": 423
+      }
+     ],
+     "followup": {
+      "job": "werkstatt_lobby_door_open_b",
+      "input": "edits/werkstatt_lobby_door_open_in.png",
+      "prompt": "The wooden door is now open, pushed away from us into the bright lobby behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the lobby, hinged at the right jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the right side of the frame, smaller because it is further away. The doorway opening shows a bright modern museum lobby with white walls and a light grey tiled floor. Nothing sticks out of the frame toward us. Keep the door frame, the light switches, the walls, the boxes and the floor of our room exactly unchanged."
+     },
+     "mask": "closed door opening (quad 102 111 188 140 188 476 103 510)"
+    },
+    "werkstatt_peg_left_empty": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the large paint brush with the red wooden handle hanging on the far left, and the flat grey scraper spatula hanging on the right. The empty pegboard with its regular rows of holes continues there. Keep the tool rail with the small hanging tools, the small brush head, the wrench, the lamp and everything else exactly unchanged. Same framing, do not zoom.",
+     "box": [
+      440,
+      150,
+      620,
+      250
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "665a5ff5d46b",
+       "seed": 500
+      }
+     ]
+    },
+    "werkstatt_peg_spatula_empty": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the grey flat scraper spatula with the black handle hanging in the middle of the pegboard. The empty pegboard with its regular rows of round holes continues there. Keep everything else exactly unchanged. Same framing, do not zoom.",
+     "box": [
+      540,
+      150,
+      660,
+      260
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "6305e7ec1f75",
+       "seed": 511
+      }
+     ]
+    },
+    "werkstatt_tape_sprite": {
+     "tool": "qwen-image-edit",
+     "prompt": "Keep only the roll of beige masking tape in the middle, complete and unchanged in shape, size, position, colors and outlines. Replace everything else (the wall, the table, the objects on the left and right) with a plain flat solid magenta background.",
+     "box": [
+      816,
+      304,
+      880,
+      352
+     ],
+     "scale": 8,
+     "jobs": [
+      {
+       "job_id": "c8ee8e03a100",
+       "seed": 701
+      }
+     ]
+    }
+   }
+  },
+  "altarraum": {
+   "original": "work/altarraum.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "altarraum_detector_taped": {
+     "tool": "qwen-image-edit",
+     "prompt": "Tape over the round white smoke detector: two crossing strips of beige masking tape are stuck over its front, covering the red LED, the tape ends stick onto the dark ceiling. Same drawing style with bold ink outlines. Keep the smoke detector shape and the dark sooty ceiling exactly unchanged.",
+     "box": [
+      880,
+      0,
+      1168,
+      144
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "57daa559691a",
+       "seed": 632
+      }
+     ]
+    },
+    "altarraum_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the wooden door wide: the door leaf swings inward away from the viewer, and through the open doorway a lit restorer's workshop with a light grey floor is visible. Keep the door frame, the light switch, the walls and the floor exactly unchanged.",
+     "box": [
+      0,
+      110,
+      240,
+      510
+     ],
+     "scale": 2.4,
+     "jobs": [
+      {
+       "job_id": "b8b093fdd5d5",
+       "seed": 621
+      }
+     ],
+     "followup": {
+      "job": "altarraum_door_open_c",
+      "input": "edits/altarraum_door_open_in.png",
+      "prompt": "The wooden door is now open, pushed away from us into the lit workshop behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the workshop, hinged at the right jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the right side of the frame, smaller because it is further away. The doorway opening shows a lit restorer's workshop with a light grey floor. Nothing sticks out of the frame toward us. Keep the door frame, the light switch, the walls and the floor of our room exactly unchanged."
+     }
+    },
+    "altarraum_panel_removed": {
+     "tool": "qwen-image-edit",
+     "prompt": "The wide wooden wall panel in the middle has been taken off. In the rectangular opening where it was, a plain modern grey steel door is set into the wall, with a metal lever handle and a small black card reader with a red LED mounted next to it. Keep the neighbouring wooden panels, the floor and the lighting exactly unchanged.",
+     "box": [
+      1776,
+      48,
+      1952,
+      480
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "e722615e735e",
+       "seed": 201
+      }
+     ]
+    },
+    "altarraum_remove_door": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the door on the right and continue the wooden wall paneling in its place, so that the whole right wall is covered by six equally wide tall oak panels separated by vertical wooden strips. Keep the column, the steps, the floor and the lighting exactly unchanged.",
+     "box": [
+      1504,
+      64,
+      2048,
+      480
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "20556ce8fe47",
+       "seed": 201
+      }
+     ]
+    },
+    "altarraum_smoke_detector": {
+     "tool": "qwen-image-edit",
+     "prompt": "Redraw the small object at the top edge as a clearly visible round white ceiling smoke detector mounted on the dark sooty ceiling, a flat white disc with a small red LED dot, bold black ink outline, completely free, no tape on it. Keep the dark ceiling with its black soot stains and everything else exactly unchanged.",
+     "box": [
+      880,
+      0,
+      1168,
+      144
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "492d51b92d44",
+       "seed": 610
+      }
+     ]
+    },
+    "altarraum_steel_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the grey steel door: it is hinged on the RIGHT side of the door frame and swings away from the viewer into the dark space behind it, so the open door leaf is seen at an angle inside the doorway along the right side. Through the open doorway a narrow concrete staircase leads DOWN: right behind the threshold the steps drop away downwards into darkness, we look down onto the treads, a weak lamp on the side wall far below. The card reader next to the door shows a green LED. Keep the wooden panels, the floor and the lighting exactly unchanged.",
+     "box": [
+      1702,
+      40,
+      1990,
+      520
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "169a72332256",
+       "seed": 431
+      }
+     ],
+     "note": "Eingabe gespiegelt (altarraum_steel_door_open_in_mirror.png), Ergebnis zurückgespiegelt (unmirrored_431.png); Prompt sagt dort LEFT, nach dem Spiegeln hängt die Tür rechts.",
+     "prompt_mirror": "Open the grey steel door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the dark space behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a narrow concrete staircase leads DOWN: right behind the threshold the steps drop away downwards into darkness, we look down onto the treads, a weak lamp on the side wall far below. The card reader next to the door shows a green LED. Keep the wooden panels, the floor and the lighting exactly unchanged."
+    }
+   }
+  },
+  "depot": {
+   "original": "work/depot.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {}
+  }
+ }
+}

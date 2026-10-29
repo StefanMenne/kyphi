@@ -1,0 +1,37 @@
+{
+ "name": "Martins Wohnung",
+ "size": [
+  1344,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "remote": {
+   "name": "Fernbedienung",
+   "type": "item",
+   "file": "sprites/remote.png",
+   "x": 183,
+   "y": 475,
+   "w": 88,
+   "h": 35
+  },
+  "dictaphone": {
+   "name": "Diktiergerät",
+   "type": "item",
+   "file": "sprites/dictaphone.png",
+   "x": 747,
+   "y": 353,
+   "w": 91,
+   "h": 33
+  },
+  "door_open": {
+   "name": "Wohnungstür offen (zur Lobby)",
+   "type": "door",
+   "file": "sprites/door_open.png",
+   "x": 1057,
+   "y": 35,
+   "w": 115,
+   "h": 571
+  }
+ }
+}

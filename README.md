@@ -10,6 +10,7 @@ gebaut hat. Das Spiel erscheint in Teilen; in Arbeit ist **Teil 1: Der Zugang**.
 |---|---|---|
 | `concept/game.md` | Grundlagen des Spiels: Genre, Sprache, Aufbau, Regeln für die Geschichte | ja |
 | `concept/part_*.md` | Story, je Teil ein Dokument (`part_1_access.md`) | nein (`.gitignore`) |
+| `assets/` | Fertige Assets: Szenen-Hintergründe mit Ebenen (`scenes/`), Inventar-Icons (`items/`), Katalog, Herkunft, Übersicht (`overview.html`) | ja |
 | `work/` | Arbeitsdateien: generierte Bilder, Stimmen, Videos, 3D-Modelle, Entwürfe | nein (`.gitignore`) |
 
 ## Sprache
@@ -51,6 +52,8 @@ Hinweise zu den Lizenzen, die nicht Apache-2.0 oder MIT sind:
 Damit sich für jedes Asset belegen lässt, wie es entstanden ist, wird beim Übernehmen ins Spiel festgehalten:
 Tool, Prompt, Seed, Referenzbilder und Datum. gb10-assets liefert diese Angaben pro Job (Job-ID, Parameter).
 Fremdmaterial (Fotos, Fonts, Musik, Geräusche aus anderen Quellen) kommt nur mit dokumentierter Lizenz ins Spiel.
+
+Für die Assets in `assets/` stehen diese Angaben in `assets/provenance.json`.
 
 Bilder entstehen in der Regel in zwei Schritten: ein Entwurf mit `flux2-klein`, danach Bearbeitung und
 Angleichung mit `qwen-image-edit`. So sind auch die bisherigen Entwürfe in `work/` entstanden (Figuren Martin,

@@ -1,0 +1,439 @@
+{
+ "items": {
+  "remote": {
+   "name": "Fernbedienung",
+   "found": "Sofa (Wohnung)",
+   "use": "Batterien herausnehmen",
+   "icon": "items/remote.png",
+   "icon_small": "items/remote_128.png",
+   "scene_layer": "wohnung/sprites/remote.png"
+  },
+  "batteries": {
+   "name": "Batterien",
+   "found": "aus der Fernbedienung",
+   "use": "Diktiergerät in Betrieb nehmen",
+   "icon": "items/batteries.png",
+   "icon_small": "items/batteries_128.png"
+  },
+  "dictaphone": {
+   "name": "Diktiergerät",
+   "found": "Schreibtisch (Wohnung)",
+   "use": "Aufnahme im Altarraum (VOX)",
+   "icon": "items/dictaphone.png",
+   "icon_small": "items/dictaphone_128.png",
+   "scene_layer": "wohnung/sprites/dictaphone.png"
+  },
+  "ladder": {
+   "name": "Malerleiter",
+   "found": "Werkstatt, Ecke links",
+   "use": "Rauchmelder, Ruß von der Decke",
+   "icon": "items/ladder.png",
+   "icon_small": "items/ladder_128.png",
+   "scene_layer": "werkstatt/sprites/ladder.png"
+  },
+  "tweezers": {
+   "name": "Pinzette",
+   "found": "Werkbank",
+   "use": "Graues Haar sichern",
+   "icon": "items/tweezers.png",
+   "icon_small": "items/tweezers_128.png",
+   "scene_layer": "werkstatt/sprites/tweezers.png"
+  },
+  "evidence_bag": {
+   "name": "Fundtütchen",
+   "found": "Werkbank",
+   "use": "Graues Haar sichern",
+   "icon": "items/evidence_bag.png",
+   "icon_small": "items/evidence_bag_128.png",
+   "scene_layer": "werkstatt/sprites/evidence_bags.png"
+  },
+  "evidence_bag_hair": {
+   "name": "Fundtütchen mit Haar",
+   "found": "Rauchmelder (Altarraum)",
+   "use": "Spur für Teil 2",
+   "icon": "items/evidence_bag_hair.png",
+   "icon_small": "items/evidence_bag_hair_128.png"
+  },
+  "brush": {
+   "name": "Pinsel",
+   "found": "Lochwand (Werkstatt)",
+   "use": "mit Ruß kombinieren",
+   "icon": "items/brush.png",
+   "icon_small": "items/brush_128.png",
+   "scene_layer": "werkstatt/sprites/brush.png"
+  },
+  "brush_soot": {
+   "name": "Pinsel mit Ruß",
+   "found": "Pinsel + Ruß",
+   "use": "auf Karteikarte „Holtz“",
+   "icon": "items/brush_soot.png",
+   "icon_small": "items/brush_soot_128.png"
+  },
+  "spatula": {
+   "name": "Spatel",
+   "found": "Lochwand (Werkstatt)",
+   "use": "Ruß, doppelter Boden, Holzzapfen",
+   "icon": "items/spatula.png",
+   "icon_small": "items/spatula_128.png",
+   "scene_layer": "werkstatt/sprites/spatula.png"
+  },
+  "spatula_soot": {
+   "name": "Spatel mit Ruß",
+   "found": "Leiter + Spatel an der Altarraum-Decke",
+   "use": "mit Pinsel kombinieren",
+   "icon": "items/spatula_soot.png",
+   "icon_small": "items/spatula_soot_128.png"
+  },
+  "index_card": {
+   "name": "Karteikarte „Holtz“",
+   "found": "Archivkartei (Lobby)",
+   "use": "Druckspuren sichtbar machen",
+   "icon": "items/index_card.png",
+   "icon_small": "items/index_card_128.png"
+  },
+  "index_card_revealed": {
+   "name": "Karteikarte mit Druckschrift",
+   "found": "Rußpinsel auf Karte",
+   "use": "ergibt D-0912",
+   "icon": "items/index_card_revealed.png",
+   "icon_small": "items/index_card_revealed_128.png"
+  },
+  "masking_tape": {
+   "name": "Kreppband",
+   "found": "Werkbank",
+   "use": "Lichtschalter im Depot, Rauchmelder",
+   "icon": "items/masking_tape.png",
+   "icon_small": "items/masking_tape_128.png",
+   "scene_layer": "werkstatt/sprites/masking_tape.png"
+  },
+  "caliper": {
+   "name": "Messschieber",
+   "found": "Werkbank",
+   "use": "Kiste ausmessen",
+   "icon": "items/caliper.png",
+   "icon_small": "items/caliper_128.png",
+   "scene_layer": "werkstatt/sprites/caliper.png"
+  },
+  "uv_lamp": {
+   "name": "UV-Lampe",
+   "found": "Werkbank",
+   "use": "Licht im Depot, neue Zapfen erkennen",
+   "icon": "items/uv_lamp.png",
+   "icon_small": "items/uv_lamp_128.png",
+   "scene_layer": "werkstatt/sprites/uv_lamp.png"
+  },
+  "depot_key": {
+   "name": "Depotschlüssel",
+   "found": "Frau Ackermann",
+   "use": "Depot öffnen, zurückgeben",
+   "icon": "items/depot_key.png",
+   "icon_small": "items/depot_key_128.png"
+  },
+  "id_card": {
+   "name": "Mitarbeiterausweis",
+   "found": "Hollmanns Kiste",
+   "use": "Stahltür öffnen",
+   "icon": "items/id_card.png",
+   "icon_small": "items/id_card_128.png"
+  },
+  "notebook": {
+   "name": "Notizbuch",
+   "found": "Hollmanns Kiste",
+   "use": "Hinweis auf die Westwand",
+   "icon": "items/notebook.png",
+   "icon_small": "items/notebook_128.png"
+  },
+  "incense_cone": {
+   "name": "Räucherkegel",
+   "found": "Hollmanns Kiste",
+   "use": "Frau Ackermann geben, Rauchprobe",
+   "icon": "items/incense_cone.png",
+   "icon_small": "items/incense_cone_128.png"
+  },
+  "screw_bit": {
+   "name": "Schrauberbit (Dreikant)",
+   "found": "Hollmanns Kiste",
+   "use": "mit Akkuschrauber kombinieren",
+   "icon": "items/screw_bit.png",
+   "icon_small": "items/screw_bit_128.png"
+  },
+  "lighter": {
+   "name": "Feuerzeug",
+   "found": "Frau Ackermann (gegen Räucherkegel)",
+   "use": "Räucherkegel anzünden",
+   "icon": "items/lighter.png",
+   "icon_small": "items/lighter_128.png"
+  },
+  "saucer": {
+   "name": "Untertasse",
+   "found": "Werkbank",
+   "use": "Kegel an der Wand entlangtragen",
+   "icon": "items/saucer.png",
+   "icon_small": "items/saucer_128.png",
+   "scene_layer": "werkstatt/sprites/saucer.png"
+  },
+  "cone_saucer": {
+   "name": "Brennender Kegel auf Untertasse",
+   "found": "Kegel + Untertasse + Feuerzeug",
+   "use": "Luftzug an Paneel 4 finden",
+   "icon": "items/cone_saucer.png",
+   "icon_small": "items/cone_saucer_128.png"
+  },
+  "drill": {
+   "name": "Akkuschrauber",
+   "found": "Werkbank",
+   "use": "mit Bit kombinieren",
+   "icon": "items/drill.png",
+   "icon_small": "items/drill_128.png",
+   "scene_layer": "werkstatt/sprites/drill.png"
+  },
+  "drill_bit": {
+   "name": "Akkuschrauber mit Bit",
+   "found": "Akkuschrauber + Bit",
+   "use": "Schrauben an Paneel 4 lösen",
+   "icon": "items/drill_bit.png",
+   "icon_small": "items/drill_bit_128.png"
+  }
+ },
+ "scenes": {
+  "wohnung": {
+   "name": "Martins Wohnung",
+   "background": "scenes/wohnung/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "remote": {
+     "name": "Fernbedienung",
+     "type": "item",
+     "file": "scenes/wohnung/sprites/remote.png",
+     "x": 183,
+     "y": 475,
+     "w": 88,
+     "h": 35
+    },
+    "dictaphone": {
+     "name": "Diktiergerät",
+     "type": "item",
+     "file": "scenes/wohnung/sprites/dictaphone.png",
+     "x": 747,
+     "y": 353,
+     "w": 91,
+     "h": 33
+    },
+    "door_open": {
+     "name": "Wohnungstür offen (zur Lobby)",
+     "type": "door",
+     "file": "scenes/wohnung/sprites/door_open.png",
+     "x": 1057,
+     "y": 35,
+     "w": 115,
+     "h": 571
+    }
+   }
+  },
+  "lobby": {
+   "name": "Lobby",
+   "background": "scenes/lobby/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {
+    "stairs_door_open": {
+     "name": "Tür zum Treppenhaus/Keller offen",
+     "type": "door",
+     "file": "scenes/lobby/sprites/stairs_door_open.png",
+     "x": 85,
+     "y": 118,
+     "w": 120,
+     "h": 356
+    },
+    "workshop_door_open": {
+     "name": "Tür zur Werkstatt offen",
+     "type": "door",
+     "file": "scenes/lobby/sprites/workshop_door_open.png",
+     "x": 1403,
+     "y": 154,
+     "w": 85,
+     "h": 233
+    }
+   }
+  },
+  "werkstatt": {
+   "name": "Werkstatt",
+   "background": "scenes/werkstatt/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "ladder": {
+     "name": "Malerleiter",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/ladder.png",
+     "x": 320,
+     "y": 237,
+     "w": 92,
+     "h": 243
+    },
+    "brush": {
+     "name": "Pinsel",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/brush.png",
+     "x": 450,
+     "y": 153,
+     "w": 42,
+     "h": 91
+    },
+    "spatula": {
+     "name": "Spatel",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/spatula.png",
+     "x": 576,
+     "y": 158,
+     "w": 41,
+     "h": 88
+    },
+    "caliper": {
+     "name": "Messschieber",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/caliper.png",
+     "x": 732,
+     "y": 314,
+     "w": 60,
+     "h": 31
+    },
+    "uv_lamp": {
+     "name": "UV-Lampe",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/uv_lamp.png",
+     "x": 639,
+     "y": 304,
+     "w": 26,
+     "h": 42
+    },
+    "tweezers": {
+     "name": "Pinzette",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/tweezers.png",
+     "x": 662,
+     "y": 308,
+     "w": 29,
+     "h": 37
+    },
+    "evidence_bags": {
+     "name": "Fundtütchen",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/evidence_bags.png",
+     "x": 689,
+     "y": 311,
+     "w": 45,
+     "h": 36
+    },
+    "saucer": {
+     "name": "Untertasse",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/saucer.png",
+     "x": 785,
+     "y": 321,
+     "w": 44,
+     "h": 24
+    },
+    "drill": {
+     "name": "Akkuschrauber",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/drill.png",
+     "x": 559,
+     "y": 300,
+     "w": 82,
+     "h": 47
+    },
+    "masking_tape": {
+     "name": "Kreppband",
+     "type": "item",
+     "file": "scenes/werkstatt/sprites/masking_tape.png",
+     "x": 831,
+     "y": 319,
+     "w": 29,
+     "h": 25
+    },
+    "lobby_door_open": {
+     "name": "Tür zur Lobby offen",
+     "type": "door",
+     "file": "scenes/werkstatt/sprites/lobby_door_open.png",
+     "x": 99,
+     "y": 108,
+     "w": 93,
+     "h": 406
+    },
+    "altar_door_open": {
+     "name": "Tür zum Altarraum offen",
+     "type": "door",
+     "file": "scenes/werkstatt/sprites/altar_door_open.png",
+     "x": 1197,
+     "y": 105,
+     "w": 86,
+     "h": 416
+    }
+   }
+  },
+  "altarraum": {
+   "name": "Altarraum",
+   "background": "scenes/altarraum/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {
+    "detector_taped": {
+     "name": "Rauchmelder abgeklebt (Hintergrund: Melder frei)",
+     "type": "state",
+     "file": "scenes/altarraum/sprites/detector_taped.png",
+     "x": 984,
+     "y": 0,
+     "w": 67,
+     "h": 43
+    },
+    "workshop_door_open": {
+     "name": "Tür zur Werkstatt offen",
+     "type": "door",
+     "file": "scenes/altarraum/sprites/workshop_door_open.png",
+     "x": 43,
+     "y": 165,
+     "w": 101,
+     "h": 315
+    },
+    "steel_door_closed": {
+     "name": "Paneel 4 abgenommen: Stahltür mit Kartenleser",
+     "type": "state",
+     "file": "scenes/altarraum/sprites/steel_door_closed.png",
+     "x": 1776,
+     "y": 48,
+     "w": 176,
+     "h": 428
+    },
+    "steel_door_open": {
+     "name": "Stahltür offen, Treppe nach unten (über „Paneel 4 abgenommen“)",
+     "type": "door",
+     "file": "scenes/altarraum/sprites/steel_door_open.png",
+     "x": 1760,
+     "y": 124,
+     "w": 205,
+     "h": 391,
+     "requires": "steel_door_closed"
+    }
+   }
+  },
+  "depot": {
+   "name": "Keller mit Depot",
+   "background": "scenes/depot/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {}
+  }
+ }
+}
