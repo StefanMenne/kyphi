@@ -1,6 +1,6 @@
 {
  "date": "2026-10-29",
- "tools": "gb10-assets 0.1.3 (flux2-klein, qwen-image-edit); Freistellen und Zusammensetzen per Python (Pillow, NumPy, SciPy)",
+ "tools": "gb10-assets 0.1.3 (flux2-klein, qwen-image-edit); Freistellen und Zusammensetzen per Python (Pillow, NumPy, SciPy); qwen-tts (design_voice, speak); Filter per ffmpeg",
  "method": "Icons: auf Magenta/Grau erzeugt, Hintergrund per Skript entfernt. Szenen: Ausschnitt mit qwen-image-edit bearbeitet, ausgerichtet und nur im veränderten Bereich übernommen; offene Türen nur innerhalb der Öffnung des Originalrahmens. Werkstatt komplett neu über qwen-image-edit (werkstatt_full_with_items), Hintergrund daraus abgeleitet.",
  "items": {
   "dictaphone": {
@@ -691,6 +691,255 @@
     "tool": "blender (eigener Code, EEVEE)",
     "job_id": "aa18b176266a",
     "note": "Orthografische Kamera, 10° von oben, 4 Richtungen x (1 Stand + 8 Lauf), transparenter Hintergrund; danach gemeinsamer Zuschnitt und 3 px Außenkontur per Python"
+   }
+  }
+ },
+ "voices": {
+  "martin": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "6234a14a6c26",
+    "seed": 1002,
+    "text": "Asche auf dem Altar und Ruß an der Decke. Offenes Feuer ist hier streng verboten. Und der Rauchmelder hat nichts gemerkt? Interessant.",
+    "voice_description": "German man, mid thirties, medium-low pitch, calm and precise, dry ironic understatement, slightly tired, natural conversational pace, clear standard German pronunciation",
+    "language": "de"
+   },
+   "lines": {
+    "tv_overrated": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "contamination": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "empty_file": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "the_new_one": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "hollmann_missing": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "science": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "box_too_heavy": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "false_bottom": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "notebook": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "kyphi": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "got_fire": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "lighter_in_hand": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "no_advent_wreath": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "one_of_them": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "no_white_glue": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "old_fox": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "badge_not_blocked": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    }
+   }
+  },
+  "ackermann": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "38c48441fc00",
+    "seed": 1000,
+    "text": "Ich muss das eintragen, Herr Kessler. Jeder Schlüssel kommt ins Ausleihbuch, mit Datum und Uhrzeit. Ordnung muss sein.",
+    "voice_description": "German woman, early sixties, medium pitch, strict and correct receptionist, crisp clear articulation, a little sharp but with hidden warmth, brisk pace, standard German",
+    "language": "de"
+   },
+   "lines": {
+    "answering_machine": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 300-3400 Hz, Kompressor, 8 kHz"
+    },
+    "glass_door": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "home_at_five": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000,
+     "spoken_text": "Ich bin um siebzehn Uhr zu Hause. Ich habe einen Kater, der wartet nicht."
+    },
+    "key_log": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "fingers": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "no_smoking": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "advent_wreath": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "not_yet": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "advent_wreath_again": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "incense_memory": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "not_from_me": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "alarm_1": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "alarm_2": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000,
+     "spoken_text": "Schon wieder?! Ich habe einen Kater, Herr Kessler. Der wartet nicht."
+    },
+    "alarm_3": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "key_return": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    }
+   }
+  },
+  "cult1": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "322ae99c4730",
+    "seed": 1000,
+    "text": "Der Melder ist frei. Dann heute ohne Räucherwerk. Nur das Gebet. Und lasst ihn so, genau so, wie er ist.",
+    "voice_description": "German man, about forty, low voice, quiet and controlled, speaks in a hushed tone as if not to be overheard, authoritative, slow and deliberate",
+    "language": "de"
+   },
+   "lines": {
+    "detector_free": {
+     "tool": "qwen-tts speak",
+     "job_id": "a61b26afaca8",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    },
+    "only_prayer": {
+     "tool": "qwen-tts speak",
+     "job_id": "a61b26afaca8",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    }
+   }
+  },
+  "cult2": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "0b2caa54b78f",
+    "seed": 1002,
+    "text": "Jemand war hier. Seht ihr das nicht? Jemand war hier, heute, ganz sicher. Wir müssen vorsichtig sein.",
+    "voice_description": "German woman, about thirty, whispering softly, tense and alarmed, hushed, breathy, slow",
+    "language": "de"
+   },
+   "lines": {
+    "someone_was_here": {
+     "tool": "qwen-tts speak",
+     "job_id": "d413a1d305a2",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    }
+   }
+  },
+  "elder": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "a8ab81846959",
+    "seed": 1000,
+    "text": "Hollmanns Kiste steht immer noch unten im Depot. Im Frühjahr ist Inventur. Holt sie raus, bevor der Neue sie findet.",
+    "voice_description": "German man, about seventy, calm, soft and deep elderly voice, unhurried, quietly commanding, slightly hoarse, speaks very calmly as if nothing could disturb him",
+    "language": "de"
+   },
+   "lines": {
+    "hollmanns_box": {
+     "tool": "qwen-tts speak",
+     "job_id": "8187f43657a4",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    }
    }
   }
  }

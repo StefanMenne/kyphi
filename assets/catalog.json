@@ -532,5 +532,191 @@
    },
    "model": "characters/martin/martin.glb"
   }
+ },
+ "voices": {
+  "martin": {
+   "name": "Martin Kessler",
+   "reference": "voices/martin/reference.wav",
+   "lines": {
+    "tv_overrated": {
+     "file": "voices/martin/tv_overrated.wav",
+     "text": "Fernsehen wird ohnehin überschätzt."
+    },
+    "contamination": {
+     "file": "voices/martin/contamination.wav",
+     "text": "Kontamination. Nein."
+    },
+    "empty_file": {
+     "file": "voices/martin/empty_file.wav",
+     "text": "Wenn da nachts niemand ist, habe ich morgen eine sehr leere Datei und ein sehr gutes Gewissen."
+    },
+    "the_new_one": {
+     "file": "voices/martin/the_new_one.wav",
+     "text": "Der Neue. … Das bin ich."
+    },
+    "hollmann_missing": {
+     "file": "voices/martin/hollmann_missing.wav",
+     "text": "Hollmann fehlt. … Ich nehme die nächste Karte. Holtz."
+    },
+    "science": {
+     "file": "voices/martin/science.wav",
+     "text": "Wissenschaft."
+    },
+    "box_too_heavy": {
+     "file": "voices/martin/box_too_heavy.wav",
+     "text": "Nichts. … Aber die Kiste ist zu schwer für das bisschen Werkzeug."
+    },
+    "false_bottom": {
+     "file": "voices/martin/false_bottom.wav",
+     "text": "Vier Zentimeter fehlen. Da ist ein doppelter Boden."
+    },
+    "notebook": {
+     "file": "voices/martin/notebook.wav",
+     "text": "Sie kommen durch die Wand. Rauch lügt nicht."
+    },
+    "kyphi": {
+     "file": "voices/martin/kyphi.wav",
+     "text": "Honig, Wacholder, Harz … das ist Kyphi. Tempelräucherwerk. Dasselbe wie in der Asche."
+    },
+    "got_fire": {
+     "file": "voices/martin/got_fire.wav",
+     "text": "Haben Sie Feuer?"
+    },
+    "lighter_in_hand": {
+     "file": "voices/martin/lighter_in_hand.wav",
+     "text": "Und das Feuerzeug in Ihrer Hand?"
+    },
+    "no_advent_wreath": {
+     "file": "voices/martin/no_advent_wreath.wav",
+     "text": "Wir haben keinen Adventskranz."
+    },
+    "one_of_them": {
+     "file": "voices/martin/one_of_them.wav",
+     "text": "Großartig. Jetzt bin ich einer von denen."
+    },
+    "no_white_glue": {
+     "file": "voices/martin/no_white_glue.wav",
+     "text": "Die Zwanzigerjahre hatten keinen Weißleim."
+    },
+    "old_fox": {
+     "file": "voices/martin/old_fox.wav",
+     "text": "Hollmann, du alter Fuchs. Du hast es gewusst."
+    },
+    "badge_not_blocked": {
+     "file": "voices/martin/badge_not_blocked.wav",
+     "text": "Zwei Jahre verschwunden, und keiner hat seinen Ausweis gesperrt. Ordnung muss sein, Frau Ackermann."
+    }
+   }
+  },
+  "ackermann": {
+   "name": "Frau Ackermann",
+   "reference": "voices/ackermann/reference.wav",
+   "lines": {
+    "answering_machine": {
+     "file": "voices/ackermann/answering_machine.wav",
+     "text": "Herr Kessler, an Ihrem Altar ist … Dreck. Ich hab nichts angefasst. Ordnung muss sein.",
+     "filtered": "voices/ackermann/answering_machine_phone.wav",
+     "filter": "Telefonklang"
+    },
+    "glass_door": {
+     "file": "voices/ackermann/glass_door.wav",
+     "text": "Da drüben ist Publikumsverkehr, Herr Kessler. Sie mit Ihrem Staubkittel? Nein."
+    },
+    "home_at_five": {
+     "file": "voices/ackermann/home_at_five.wav",
+     "text": "Ich bin um 17 Uhr zu Hause. Ich habe einen Kater, der wartet nicht."
+    },
+    "key_log": {
+     "file": "voices/ackermann/key_log.wav",
+     "text": "Ich muss das eintragen, Herr Kessler. Ordnung muss sein."
+    },
+    "fingers": {
+     "file": "voices/ackermann/fingers.wav",
+     "text": "Was haben Sie denn da an den Fingern?"
+    },
+    "no_smoking": {
+     "file": "voices/ackermann/no_smoking.wav",
+     "text": "Ich rauche nicht."
+    },
+    "advent_wreath": {
+     "file": "voices/ackermann/advent_wreath.wav",
+     "text": "Das ist für den Adventskranz."
+    },
+    "not_yet": {
+     "file": "voices/ackermann/not_yet.wav",
+     "text": "Noch nicht. Ordnung muss sein."
+    },
+    "advent_wreath_again": {
+     "file": "voices/ackermann/advent_wreath_again.wav",
+     "text": "Für den Adventskranz, Herr Kessler."
+    },
+    "incense_memory": {
+     "file": "voices/ackermann/incense_memory.wav",
+     "text": "Ein Räucherkegel … So einen hatte meine Mutter immer im Räuchermännchen. Weihnachten, die ganze Wohnung hat danach gerochen."
+    },
+    "not_from_me": {
+     "file": "voices/ackermann/not_from_me.wav",
+     "text": "Aber nicht hier in der Lobby. Und Sie haben das nicht von mir."
+    },
+    "alarm_1": {
+     "file": "voices/ackermann/alarm_1.wav",
+     "text": "Herr Kessler! Offenes Feuer! Im Altarraum! Haben Sie den Verstand verloren?"
+    },
+    "alarm_2": {
+     "file": "voices/ackermann/alarm_2.wav",
+     "text": "Schon WIEDER? Ich habe einen Kater, Herr Kessler. Der wartet nicht."
+    },
+    "alarm_3": {
+     "file": "voices/ackermann/alarm_3.wav",
+     "text": "Ordnung. Muss. Sein."
+    },
+    "key_return": {
+     "file": "voices/ackermann/key_return.wav",
+     "text": "Ordnung muss sein."
+    }
+   }
+  },
+  "cult1": {
+   "name": "Stimme 1 (Aufnahme)",
+   "reference": "voices/cult1/reference.wav",
+   "lines": {
+    "detector_free": {
+     "file": "voices/cult1/detector_free.wav",
+     "text": "Der Melder ist frei.",
+     "filtered": "voices/cult1/detector_free_recorder.wav",
+     "filter": "Diktiergerät-Klang"
+    },
+    "only_prayer": {
+     "file": "voices/cult1/only_prayer.wav",
+     "text": "Dann heute ohne Räucherwerk. Nur das Gebet. Und lasst ihn so. Wenn er morgen wieder zu ist, weiß er, dass wir es wissen.",
+     "filtered": "voices/cult1/only_prayer_recorder.wav",
+     "filter": "Diktiergerät-Klang"
+    }
+   }
+  },
+  "cult2": {
+   "name": "Stimme 2 (Aufnahme)",
+   "reference": "voices/cult2/reference.wav",
+   "lines": {
+    "someone_was_here": {
+     "file": "voices/cult2/someone_was_here.wav",
+     "text": "… Jemand war hier.",
+     "filtered": "voices/cult2/someone_was_here_recorder.wav",
+     "filter": "Diktiergerät-Klang"
+    }
+   }
+  },
+  "elder": {
+   "name": "Ältere Stimme (Aufnahme)",
+   "reference": "voices/elder/reference.wav",
+   "lines": {
+    "hollmanns_box": {
+     "file": "voices/elder/hollmanns_box.wav",
+     "text": "… Hollmanns Kiste steht immer noch unten im Depot. Im Frühjahr ist Inventur. Holt sie raus, bevor der Neue sie findet.",
+     "filtered": "voices/elder/hollmanns_box_recorder.wav",
+     "filter": "Diktiergerät-Klang"
+    }
+   }
+  }
  }
 }
