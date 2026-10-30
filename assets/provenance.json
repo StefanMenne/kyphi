@@ -486,6 +486,20 @@
        "seed": 701
       }
      ]
+    },
+    "werkstatt_pegboard_tools": {
+     "tool": "qwen-image-edit",
+     "job_id": "ab8fc77193cb",
+     "seed": 4904,
+     "input": "Ausschnitt x 428-612, y 128-272 des Hintergrunds mit rotem Markierungskasten (x 490-544, y 162-236), 6-fach vergrößert",
+     "prompt": "Edit only the area inside the red rectangle, then remove the red rectangle completely. Inside it, the four unclear grey strips hanging from the metal rod and the loose fragment below them become clearly drawn real workshop tools hanging from the rod, such as a screwdriver, a small file, a chisel and a putty knife, each complete with handle and tip, ending above the lower rows of pegboard holes. Nothing floats loose. Everything outside the red rectangle stays exactly unchanged: the rod, the wrench on the right, the pegboard and its holes, the lamp, the wall. Same drawing style with clean bold black ink outlines and flat cel shading, muted natural colors.",
+     "box": [
+      490,
+      162,
+      545,
+      237
+     ],
+     "note": "Ergebnis verkleinert und nur innerhalb des Kastens mit 1 px weichem Rand in den Hintergrund eingesetzt (work/scenes/werkstatt_tools/paste.py)"
     }
    }
   },
