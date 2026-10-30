@@ -5,8 +5,9 @@ extends Node2D
 ## Beim Seitenwechsel dreht er sich über die Vorderseite (rechts -> links vorwärts, links -> rechts rückwärts).
 ## Aus dem Stand läuft er mit einem Anlauf los, der nahtlos in den Laufzyklus übergeht; angehalten wird bei
 ## einem Zyklusbild, das dem Stand nahekommt. Im Stand atmet er (Schleife); beim Sprechen bewegt sich der Mund.
-## Nur auf steilen, längeren Wegen in die Tiefe dreht er sich in die Rückansicht (eigener Laufzyklus von hinten,
-## für links gespiegelt); Gesten und Hotspot-Blickrichtungen nutzen immer die Seitenansicht.
+## Auf Wegen in die Tiefe dreht er sich je nach Winkel schräg (45°) oder ganz in die Rückansicht (eigene
+## Laufzyklen, für links gespiegelt); Drehungen gehen immer eine Stufe weiter (Seite <-> schräg <-> hinten).
+## Gesten und Hotspot-Blickrichtungen nutzen immer die Seitenansicht.
 
 ## Mitte zwischen den Füßen und Körperhöhe in Pixeln
 const ANCHOR := Vector2(135, 637)
@@ -33,20 +34,25 @@ const IDLE_FPS := 12.0
 ## Gesten (gleicher Fußpunkt wie das Standbild, Bild 0 und letztes Bild nahe am Standbild)
 const GESTURES := {"use": 35, "pickup": 54}
 const GESTURE_FPS := 30.0
-## Rückansicht: Anker im eigenen Zuschnitt, Zyklus (Bild BACK_IDLE entspricht dem Standbild von hinten)
-const BACK_ANCHOR := Vector2(133, 649)
-const BACK_FRAMES := 26
-const BACK_IDLE := 12
-## Weg pro Bild auf dem Bildschirm (Körperhöhen); kürzer als seitlich, weil die Tiefe verkürzt wirkt
-const BACK_STRIDE := 0.0096
-## Drehung Seite rechts -> hinten (rückwärts: hinten -> Seite); Anker von Seite nach hinten
-const TURN_BACK_FRAMES := 15
-const TURN_BACK_ANCHOR_FROM := Vector2(135, 644)
-## Rückansicht nur, wenn der Weg steil nach hinten geht (|dy| > BACK_ENTER * |dx|) und lang genug ist;
-## zurück zur Seite erst unter BACK_LEAVE (Hysterese)
-const BACK_ENTER := 1.2
-const BACK_LEAVE := 0.85
-const BACK_MIN_LEN := 0.12
+## Ansichten in die Tiefe (1 = schräg von hinten, 2 = von hinten): Anker im eigenen Zuschnitt, Zyklus, Bild des
+## Zyklus, das dem Standbild entspricht (dort beginnt der Lauf), Haltebilder relativ dazu, Weg pro Bild auf dem
+## Bildschirm (kürzer als seitlich, weil die Tiefe verkürzt wirkt)
+const VIEWS := {
+	1: {"name": "diag", "anchor": Vector2(119, 653), "frames": 32, "idle": 2, "stops": [0, 23], "stride": 0.0115},
+	2: {"name": "back", "anchor": Vector2(133, 649), "frames": 26, "idle": 12, "stops": [0], "stride": 0.0096},
+}
+## Drehungen Seite -> schräg und schräg -> hinten (rückwärts für die Gegenrichtung), Anker von/nach
+const VIEW_TURNS := {
+	1: {"name": "turn_diag", "frames": 12, "from": Vector2(135, 644), "to": Vector2(119, 653)},
+	2: {"name": "turn_diag_back", "frames": 12, "from": Vector2(119, 653), "to": Vector2(133, 649)},
+}
+## Grenzwinkel des Weges nach hinten (Grad über der Waagerechten): Seite | schräg | hinten; Hysterese
+const VIEW_ANGLES := [20.0, 55.0]
+const VIEW_HYST := 6.0
+## kürzere Wege bleiben in der Seitenansicht (Körperhöhen)
+const VIEW_MIN_LEN := 0.12
+## Tempo beim Auslaufen vor einer Drehung (relativ zum Gehen)
+const SETTLE_RATE := 1.3
 ## Weicher Schatten unter den Füßen (Ellipse), Größe in Sprite-Pixeln
 const SHADOW_SIZE := Vector2(402, 70)
 
@@ -66,11 +72,10 @@ var _idle_t := 0.0
 var _turning := false
 var _gesturing := false
 var _gestures := {}
-## Rückansicht aktiv
-var _back := false
-var _back_idle: Texture2D
-var _back_walk := []
-var _turn_back := []
+## 0 = Seite, 1 = schräg von hinten, 2 = von hinten
+var _view := 0
+## je Ansicht 1, 2: {"idle": Texture2D, "walk": [...], "turn": [...]}
+var _vtex := {}
 ## läuft gerade (ein neues Ziel während des Laufens setzt den Zyklus fort statt neu anzulaufen)
 var _moving := false
 var _sprite := Sprite2D.new()
@@ -78,6 +83,8 @@ var _shadow := Sprite2D.new()
 var show_shadow := true
 var _token := 0
 var _anim := 0.0
+## Richtung des letzten Schritts
+var _heading := Vector2.RIGHT
 
 
 func _init() -> void:
@@ -94,11 +101,14 @@ func _init() -> void:
 		_gestures[kind] = []
 		for i in GESTURES[kind]:
 			_gestures[kind].append(load("res://assets/characters/martin/%s_%02d.png" % [kind, i]))
-	_back_idle = load("res://assets/characters/martin/back_idle.png")
-	for i in BACK_FRAMES:
-		_back_walk.append(load("res://assets/characters/martin/back_walk_%02d.png" % i))
-	for i in TURN_BACK_FRAMES:
-		_turn_back.append(load("res://assets/characters/martin/turn_back_%02d.png" % i))
+	for v in VIEWS:
+		var n: String = VIEWS[v]["name"]
+		var t := {"idle": load("res://assets/characters/martin/%s_idle.png" % n), "walk": [], "turn": []}
+		for i in VIEWS[v]["frames"]:
+			t["walk"].append(load("res://assets/characters/martin/%s_walk_%02d.png" % [n, i]))
+		for i in VIEW_TURNS[v]["frames"]:
+			t["turn"].append(load("res://assets/characters/martin/%s_%02d.png" % [VIEW_TURNS[v]["name"], i]))
+		_vtex[v] = t
 	for state in ["talk_small", "talk_open"]:
 		_talk.append(load("res://assets/characters/martin/%s.png" % state))
 	_talk.append(_idle)
@@ -116,8 +126,8 @@ func _process(dt: float) -> void:
 	if _moving or _turning or _gesturing:
 		_idle_t = 0.0
 		return
-	if _back:
-		_set_texture(_back_idle)
+	if _view > 0:
+		_set_texture(_idle_tex())
 		return
 	if talking:
 		_talk_t -= dt
@@ -131,7 +141,7 @@ func _process(dt: float) -> void:
 
 func _set_texture(tex: Texture2D, anchor := Vector2.INF) -> void:
 	if anchor == Vector2.INF:
-		anchor = BACK_ANCHOR if _back else ANCHOR
+		anchor = VIEWS[_view]["anchor"] if _view > 0 else ANCHOR
 	_sprite.texture = tex
 	_sprite.flip_h = dir == "left"
 	_sprite.offset = -Vector2(tex.get_width() - anchor.x if _sprite.flip_h else anchor.x, anchor.y)
@@ -141,49 +151,54 @@ func _set_texture(tex: Texture2D, anchor := Vector2.INF) -> void:
 ## (aus der Rückansicht zuerst zurück) (instant: ohne Drehung).
 func face(d: String, instant := false) -> void:
 	if instant:
-		_back = false
+		_view = 0
 		if d in ["left", "right"]:
 			dir = d
 		_set_texture(_idle)
 		return
-	if d in ["left", "right"] and (_back or d != dir):
+	if d in ["left", "right"] and (_view > 0 or d != dir):
 		_face_side(d)
 		return
-	_set_texture(_back_idle if _back else _idle)
+	_set_texture(_idle_tex())
+
+
+func _idle_tex() -> Texture2D:
+	return _vtex[_view]["idle"] if _view > 0 else _idle
 
 
 func _face_side(d: String) -> void:
-	if _back and not await _turn_view(false):
-		return
+	while _view > 0:
+		if not await _turn_view(_view - 1):
+			return
 	if d != dir:
 		await _turn_to(d)
 
 
-## Dreht ihn zwischen Seiten- und Rückansicht (auf der Seite von dir); false bei Abbruch.
-func _turn_view(to_back: bool) -> bool:
+## Dreht ihn eine Stufe weiter (Seite <-> schräg <-> hinten, auf der Seite von dir). Läuft immer zu Ende,
+## damit nichts springt; false, wenn währenddessen ein neuer Befehl kam.
+func _turn_view(to: int) -> bool:
 	var my := _token
-	if Game.fast or to_back == _back:
-		_back = to_back
-		_set_texture(_back_idle if _back else _idle)
+	if Game.fast or to == _view:
+		_view = to
+		_set_texture(_idle_tex())
 		return true
+	var deeper := to > _view
+	var turn: Dictionary = VIEW_TURNS[maxi(to, _view)]
+	var frames: Array = _vtex[maxi(to, _view)]["turn"]
+	var n_frames: int = turn["frames"]
 	_turning = true
-	for n in TURN_BACK_FRAMES:
-		var i := n if to_back else TURN_BACK_FRAMES - 1 - n
-		var t := (i + 1) / float(TURN_BACK_FRAMES + 1)
-		_set_texture(_turn_back[i], TURN_BACK_ANCHOR_FROM.lerp(BACK_ANCHOR, t))
+	for n in n_frames:
+		var i := n if deeper else n_frames - 1 - n
+		var t := (i + 1) / float(n_frames + 1)
+		_set_texture(frames[i], (turn["from"] as Vector2).lerp(turn["to"], t))
 		await get_tree().create_timer(1.0 / TURN_FPS).timeout
-		if my != _token:
-			if n * 2 >= TURN_BACK_FRAMES:
-				_back = to_back
-			_turning = false
-			return false
-	_back = to_back
+	_view = to
 	_turning = false
-	_set_texture(_back_idle if _back else _idle)
-	return true
+	_set_texture(_idle_tex())
+	return my == _token
 
 
-## Dreht ihn auf die andere Seite; false, wenn ein neuer Befehl die Drehung abbricht.
+## Dreht ihn auf die andere Seite (immer zu Ende); false, wenn währenddessen ein neuer Befehl kam.
 func _turn_to(d: String) -> bool:
 	var my := _token
 	if Game.fast or d == dir:
@@ -198,16 +213,10 @@ func _turn_to(d: String) -> bool:
 		_sprite.flip_h = false
 		_sprite.offset = -Vector2(lerpf(TURN_ANCHOR_RIGHT, TURN_ANCHOR_LEFT, t), ANCHOR.y)
 		await get_tree().create_timer(1.0 / TURN_FPS).timeout
-		if my != _token:
-			# abgebrochen: auf der Seite weiter, der er schon näher ist
-			if n * 2 >= TURN_FRAMES:
-				dir = d
-			_turning = false
-			return false
 	dir = d
 	_turning = false
 	_set_texture(_idle)
-	return true
+	return my == _token
 
 
 ## Spielt eine Geste ("use": Hand nach vorn, "pickup": bücken) und endet im Standbild.
@@ -216,8 +225,9 @@ func gesture(kind: String) -> void:
 		return
 	while _turning:
 		await get_tree().process_frame
-	if _back:
-		await _turn_view(false)
+	while _view > 0:
+		if not await _turn_view(_view - 1):
+			return
 	var my := _token
 	_gesturing = true
 	for tex in _gestures[kind]:
@@ -245,25 +255,27 @@ func head_screen_pos() -> Vector2:
 func stop() -> void:
 	_token += 1
 	_moving = false
-	_set_texture(_back_idle if _back else _idle)
+	if not _turning:
+		_set_texture(_idle_tex())
 
 
-## Bild zur Position in Anlauf + Zyklus; von hinten ohne Anlauf, ab dem Standbild im Zyklus
+## Bild zur Position in Anlauf + Zyklus; in die Tiefe ohne Anlauf, ab dem Standbild im Zyklus
 func _walk_frame() -> Texture2D:
 	var i := int(_anim)
-	if _back:
-		return _back_walk[(BACK_IDLE + i) % BACK_FRAMES]
+	if _view > 0:
+		var v: Dictionary = VIEWS[_view]
+		return _vtex[_view]["walk"][(v["idle"] + i) % v["frames"]]
 	return _start[i] if i < START_FRAMES else _walk[(i - START_FRAMES) % FRAMES]
 
 
 ## Faktor für die Bildfolge, damit er bei einem Haltebild ankommt; rest = Restweg in Bildern.
 func _stop_rate(rest: float) -> float:
-	if rest > STOP_PLAN or rest <= 0.0 or (not _back and _anim < START_FRAMES):
+	if rest > STOP_PLAN or rest <= 0.0 or (_view == 0 and _anim < START_FRAMES):
 		return 1.0
-	var frames := BACK_FRAMES if _back else FRAMES
-	var c := fmod(_anim, frames) if _back else fmod(_anim - START_FRAMES, frames)
+	var frames: int = VIEWS[_view]["frames"] if _view > 0 else FRAMES
+	var c := fmod(_anim, frames) if _view > 0 else fmod(_anim - START_FRAMES, frames)
 	var best := INF
-	for f in ([0] if _back else STOP_FRAMES):
+	for f in (VIEWS[_view]["stops"] if _view > 0 else STOP_FRAMES):
 		var need := fposmod(f + 0.5 - c, frames)
 		for k in 2:
 			var r := (need + k * frames) / rest
@@ -272,13 +284,42 @@ func _stop_rate(rest: float) -> float:
 	return clampf(best, 0.6, 1.6)
 
 
-## Soll der Weg d von hinten gezeigt werden? h = Körperhöhe an der Stelle
-func _wants_back(d: Vector2, h: float) -> bool:
-	if d.y >= 0.0:
-		return false
-	if _back:
-		return -d.y > BACK_LEAVE * absf(d.x)
-	return -d.y > BACK_ENTER * absf(d.x) and d.length() > BACK_MIN_LEN * h
+## Ansicht für den Weg d nach dem Winkel nach hinten; h = Körperhöhe an der Stelle
+func _view_for(d: Vector2, h: float) -> int:
+	if d.y >= 0.0 or (_view == 0 and d.length() < VIEW_MIN_LEN * h):
+		return 0
+	var a := rad_to_deg(atan2(-d.y, absf(d.x)))
+	# Hysterese: die Grenzen zur aktuellen Ansicht hin verschieben
+	var b1: float = VIEW_ANGLES[0] + (-VIEW_HYST if _view >= 1 else VIEW_HYST)
+	var b2: float = VIEW_ANGLES[1] + (-VIEW_HYST if _view == 2 else VIEW_HYST)
+	return 0 if a < b1 else (1 if a < b2 else 2)
+
+
+## Läuft aus dem Gehen bis zum nächsten Haltebild weiter (Richtung des letzten Schritts), damit eine Drehung
+## aus dem Stand beginnt; früh im Anlauf geht er stattdessen auf der Stelle zurück ins Standbild.
+func _settle() -> void:
+	var start := 0 if _view > 0 else START_FRAMES
+	var frames: int = VIEWS[_view]["frames"] if _view > 0 else FRAMES
+	var stride: float = VIEWS[_view]["stride"] if _view > 0 else STRIDE
+	var rate := SETTLE_RATE * SPEED / stride
+	if _view == 0 and _anim < START_FRAMES * 0.5:
+		while _anim > 0.0:
+			await get_tree().process_frame
+			_anim = maxf(0.0, _anim - rate * get_process_delta_time())
+			_set_texture(_walk_frame())
+		return
+	var base := maxf(_anim - start, 0.0)
+	var goal := INF
+	for f in (VIEWS[_view]["stops"] if _view > 0 else STOP_FRAMES):
+		goal = minf(goal, start + f + ceilf((base - f) / frames) * frames)
+	var slow := lerpf(1.0, 0.55, absf(_heading.y))
+	while _anim < goal:
+		await get_tree().process_frame
+		var da := minf(rate * get_process_delta_time(), goal - _anim)
+		_anim += da
+		position = room.clamp_to_floor(position + _heading * da * stride * room.height_at(position.y) * slow)
+		update_scale()
+		_set_texture(_walk_frame())
 
 
 ## Läuft zum Punkt (auf den Laufbereich begrenzt); false, wenn ein neuer Befehl den Weg abbricht.
@@ -291,6 +332,11 @@ func walk_to(target: Vector2) -> bool:
 		update_scale()
 		await get_tree().process_frame
 		return true
+	# eine laufende Drehung erst beenden
+	while _turning:
+		await get_tree().process_frame
+	if my != _token:
+		return false
 	if not _moving:
 		_anim = 0.0
 	_moving = true
@@ -306,24 +352,36 @@ func walk_to(target: Vector2) -> bool:
 		var slow := lerpf(1.0, 0.55, absf(d.normalized().y))
 		var h := room.height_at(position.y)
 		var step := SPEED * h * slow * dt
-		var back := _wants_back(d, h)
-		if back != _back:
-			_moving = false
-			if not await _turn_view(back):
-				return false
-			_anim = 0.0
-			_moving = true
-			continue
+		var side := "right" if d.x > 0 else "left"
 		# fast senkrechte Wege behalten die bisherige Seite, damit er nicht hin- und herspringt
-		if not _back and absf(d.x) > 0.2 * absf(d.y) and dir != ("right" if d.x > 0 else "left"):
+		var flip := absf(d.x) > 0.2 * absf(d.y) and dir != side
+		var view := _view_for(d, h)
+		if flip and _view == 2:
+			# von hinten fast symmetrisch: Seite ohne Drehung wechseln
+			dir = side
+		elif flip or view != _view:
+			_turning = true
+			if _moving:
+				await _settle()
 			_moving = false
-			if not await _turn_to("right" if d.x > 0 else "left"):
+			var ok: bool
+			if flip and _view == 0:
+				ok = await _turn_to(side)
+			elif flip:
+				# schräg auf die andere Seite: über die Rückansicht
+				ok = await _turn_view(2)
+				dir = side
+			else:
+				ok = await _turn_view(_view + (1 if view > _view else -1))
+			_turning = false
+			if not ok or my != _token:
 				return false
 			_anim = 0.0
 			_moving = true
 			continue
-		if _back:
-			_anim += minf(step, d.length()) / h / BACK_STRIDE * _stop_rate(d.length() / h / BACK_STRIDE)
+		if _view > 0:
+			var stride: float = VIEWS[_view]["stride"]
+			_anim += minf(step, d.length()) / h / stride * _stop_rate(d.length() / h / stride)
 		elif _anim < START_FRAMES:
 			# Anlauf: Bilder im Takt des Gehens, Tempo steigt mit dem Anlauf
 			_anim += step / h / STRIDE
@@ -331,9 +389,10 @@ func walk_to(target: Vector2) -> bool:
 		else:
 			# Bildfolge nach zurückgelegtem Weg, damit die Füße nicht rutschen
 			_anim += minf(step, d.length()) / h / STRIDE * _stop_rate(d.length() / h / STRIDE)
+		_heading = d.normalized()
 		position = target if d.length() <= step else position + d.normalized() * step
 		update_scale()
 		_set_texture(_walk_frame())
 	_moving = false
-	_set_texture(_back_idle if _back else _idle)
+	_set_texture(_idle_tex())
 	return true

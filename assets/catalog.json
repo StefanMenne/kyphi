@@ -813,23 +813,6 @@
      "characters/martin/back_walk_24.png",
      "characters/martin/back_walk_25.png"
     ],
-    "turn": [
-     "characters/martin/turn_back_00.png",
-     "characters/martin/turn_back_01.png",
-     "characters/martin/turn_back_02.png",
-     "characters/martin/turn_back_03.png",
-     "characters/martin/turn_back_04.png",
-     "characters/martin/turn_back_05.png",
-     "characters/martin/turn_back_06.png",
-     "characters/martin/turn_back_07.png",
-     "characters/martin/turn_back_08.png",
-     "characters/martin/turn_back_09.png",
-     "characters/martin/turn_back_10.png",
-     "characters/martin/turn_back_11.png",
-     "characters/martin/turn_back_12.png",
-     "characters/martin/turn_back_13.png",
-     "characters/martin/turn_back_14.png"
-    ],
     "size": [
      290,
      661
@@ -838,22 +821,89 @@
      133,
      649
     ],
-    "turn_size": [
+    "note": "gerade Rückansicht, für links gespiegelt; auf Wegen steiler als etwa 55-61° nach hinten (Player.VIEW_ANGLES). back_idle = Zyklusbild 12 (Füße beieinander), der Lauf beginnt und endet dort."
+   },
+   "diag": {
+    "idle": "characters/martin/diag_idle.png",
+    "walk": [
+     "characters/martin/diag_walk_00.png",
+     "characters/martin/diag_walk_01.png",
+     "characters/martin/diag_walk_02.png",
+     "characters/martin/diag_walk_03.png",
+     "characters/martin/diag_walk_04.png",
+     "characters/martin/diag_walk_05.png",
+     "characters/martin/diag_walk_06.png",
+     "characters/martin/diag_walk_07.png",
+     "characters/martin/diag_walk_08.png",
+     "characters/martin/diag_walk_09.png",
+     "characters/martin/diag_walk_10.png",
+     "characters/martin/diag_walk_11.png",
+     "characters/martin/diag_walk_12.png",
+     "characters/martin/diag_walk_13.png",
+     "characters/martin/diag_walk_14.png",
+     "characters/martin/diag_walk_15.png",
+     "characters/martin/diag_walk_16.png",
+     "characters/martin/diag_walk_17.png",
+     "characters/martin/diag_walk_18.png",
+     "characters/martin/diag_walk_19.png",
+     "characters/martin/diag_walk_20.png",
+     "characters/martin/diag_walk_21.png",
+     "characters/martin/diag_walk_22.png",
+     "characters/martin/diag_walk_23.png",
+     "characters/martin/diag_walk_24.png",
+     "characters/martin/diag_walk_25.png",
+     "characters/martin/diag_walk_26.png",
+     "characters/martin/diag_walk_27.png",
+     "characters/martin/diag_walk_28.png",
+     "characters/martin/diag_walk_29.png",
+     "characters/martin/diag_walk_30.png",
+     "characters/martin/diag_walk_31.png"
+    ],
+    "size": [
      290,
      665
     ],
-    "turn_anchor": [
-     [
-      135,
-      644
-     ],
-     [
-      133,
-      649
-     ]
+    "anchor": [
+     119,
+     653
     ],
-    "fps_turn": 30,
-    "note": "gerade Rückansicht, für links gespiegelt; auf Wegen nach hinten steiler als 50° (|dy| > 1,2 |dx|, zurück zur Seite unter 40°) und länger als 0,12 Körperhöhen. back_idle = Zyklusbild 12 (Füße beieinander), der Lauf beginnt und endet dort. turn_back: Seite rechts -> hinten, rückwärts für hinten -> Seite; Anker wandert linear."
+    "note": "schräg von hinten (45°), für links gespiegelt; auf Wegen etwa 20-55° nach hinten. diag_idle = Zyklusbild 2, der Lauf beginnt dort, Haltebilder 2 und 25."
+   },
+   "view_turns": {
+    "side_diag": [
+     "characters/martin/turn_diag_00.png",
+     "characters/martin/turn_diag_01.png",
+     "characters/martin/turn_diag_02.png",
+     "characters/martin/turn_diag_03.png",
+     "characters/martin/turn_diag_04.png",
+     "characters/martin/turn_diag_05.png",
+     "characters/martin/turn_diag_06.png",
+     "characters/martin/turn_diag_07.png",
+     "characters/martin/turn_diag_08.png",
+     "characters/martin/turn_diag_09.png",
+     "characters/martin/turn_diag_10.png",
+     "characters/martin/turn_diag_11.png"
+    ],
+    "diag_back": [
+     "characters/martin/turn_diag_back_00.png",
+     "characters/martin/turn_diag_back_01.png",
+     "characters/martin/turn_diag_back_02.png",
+     "characters/martin/turn_diag_back_03.png",
+     "characters/martin/turn_diag_back_04.png",
+     "characters/martin/turn_diag_back_05.png",
+     "characters/martin/turn_diag_back_06.png",
+     "characters/martin/turn_diag_back_07.png",
+     "characters/martin/turn_diag_back_08.png",
+     "characters/martin/turn_diag_back_09.png",
+     "characters/martin/turn_diag_back_10.png",
+     "characters/martin/turn_diag_back_11.png"
+    ],
+    "size": [
+     290,
+     665
+    ],
+    "fps": 30,
+    "note": "Drehungen eine Stufe weiter (Seite rechts -> schräg, schräg -> hinten), rückwärts für die Gegenrichtung, gespiegelt für links; der Anker wandert linear zwischen den Ansichten"
    }
   }
  },

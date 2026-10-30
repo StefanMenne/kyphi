@@ -861,18 +861,43 @@
       "params": "768x1024, 5 s, 24 fps",
       "prompt": "The man in the beige work coat, seen from behind, walks on the spot, as if on a treadmill: he takes steady, natural walking steps away from the viewer into the depth of the picture toward the upper right, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps, we keep seeing his back and the back of his head. He does not turn around, does not rotate, does not show his face. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
       "note": "dreht im Video auf gerade Rückansicht; Bilder 52-77 = back_walk_00..25 (Periode 26), Bild 64 = back_idle; Zuschnitt 192,27-627,1019, auf 2/3 verkleinert"
-     },
-     "turn": {
+     }
+    },
+    "diag": {
+     "walk": {
       "tool": "ltx-2.5 generate_video",
-      "job_id": "fa2668deacf0",
-      "seed": 5200,
+      "job_id": "268a5ffbff07",
+      "seed": 5300,
+      "inputs": [
+       "back view image_5001 (erstes und letztes Bild)"
+      ],
+      "params": "768x1024, 5 s, 24 fps",
+      "prompt": "The man in the beige work coat, seen diagonally from behind, walks on the spot, as if on a treadmill: he takes steady, natural walking steps diagonally away from the viewer toward the upper right of the picture, but stays at the same place in the picture. His body stays turned exactly the same way the whole time, a three-quarter back view at 45 degrees: we see his back and the right side of his body, the back of his head and a little of his right ear. He does not turn further away, does not turn toward the viewer, does not rotate. His arms swing gently, the coat moves with his steps. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
+      "note": "Bilder 78-109 = diag_walk_00..31 (Periode 32), Bild 80 = diag_idle; Zuschnitt 192,27-627,1024, auf 2/3 verkleinert"
+     },
+     "turn_side": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "dba02bd8c726",
+      "seed": 5401,
       "inputs": [
        "video_3800 Bild 0 (erstes Bild)",
+       "video_5300 Bild 80 (letztes Bild)"
+      ],
+      "params": "768x1024, 1 s, 24 fps",
+      "prompt": "The man in the beige work coat turns on the spot, calmly and naturally: he starts in a three-quarter view looking toward the right and turns a little further away from the viewer until we see him diagonally from behind, his back and the right side of his body. A small natural step, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
+      "note": "Bilder 1-23 jedes zweite = turn_diag_00..11"
+     },
+     "turn_back": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "171057937dc6",
+      "seed": 5502,
+      "inputs": [
+       "video_5300 Bild 80 (erstes Bild)",
        "video_5102 Bild 64 (letztes Bild)"
       ],
-      "params": "768x1024, 1,5 s, 24 fps",
-      "prompt": "The man in the beige work coat turns on the spot, calmly and naturally: he starts in a three-quarter view looking toward the right and turns further away from the viewer until we see him directly from behind, his back and the back of his head. He steps around with small natural steps, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: two quiet footsteps on a hard floor.",
-      "note": "jedes zweite Bild 2-30 = turn_back_00..14, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert"
+      "params": "768x1024, 1 s, 24 fps",
+      "prompt": "The man in the beige work coat, seen diagonally from behind, turns on the spot, calmly and naturally, a little further away from the viewer until we see him directly from behind, his back and the back of his head. A small natural step, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
+      "note": "Bilder 1-23 jedes zweite = turn_diag_back_00..11"
      }
     }
    },
