@@ -605,13 +605,15 @@
    "sprites": {
     "ladder": {
      "tool": "qwen-image-edit",
-     "job_id": "25af70c8fc9b",
-     "seed": 4403,
+     "job_id": "29529cd0a076",
+     "seed": 4700,
+     "size": "1216x1008",
      "inputs": [
-      "assets/items/ladder.png (Inventarsymbol, auf Magenta)"
+      "Ausschnitt x 668-1368 von assets/scenes/altarraum/background.png, auf 1216x1008 skaliert",
+      "gerade Leiter von vorn (qwen-image-edit, Job 94b737ca5693, Seed 4501, aus assets/items/ladder.png)"
      ],
-     "prompt": "The same aluminium painter's step ladder with paint splatters, but taller with five steps, standing fully opened on the floor, seen from the front and slightly from the side, slightly from above. The whole ladder is fully visible with margin, nothing else in the picture. Same drawing style: clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors. Plain flat solid magenta background, no shadow, no floor.",
-     "note": "Magenta per Skript entfernt (auch Lücken zwischen den Sprossen), zwei Magenta-Farbkleckse auf den Stufen in gedämpftes Rot umgefärbt, auf 267 px Höhe verkleinert; ersetzt das aus der Werkstatt ausgeschnittene Sprite"
+     "prompt": "Place the aluminium step ladder from image 2 into the room of image 1: it stands fully opened and upright on the top of the stone podium, between the two stone altars, below the round smoke detector on the ceiling. The ladder is small: a normal household step ladder, only a little taller than the stone altars, its top far below the smoke detector with a large gap to the ceiling. Match the perspective, scale and lighting of the room, with a soft contact shadow on the podium. Keep everything else in image 1 exactly unchanged, including the taped smoke detector, same drawing style with clean bold black ink outlines and flat cel shading.",
+     "note": "Leiter per Differenz zum unveränderten Ausschnitt freigestellt, nur in einem Trapez um die Holme: nichts über der Leiter (dort hat das Modell den Rauchmelder verändert), unter der Podestkante nur die Füße (ohne Schatten); schwarze Konturen neben der Leiter ergänzt; in Hintergrundpixel umgerechnet (work/scenes/altarraum_ladder/v4/extract.py)"
     }
    }
   },

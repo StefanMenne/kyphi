@@ -231,7 +231,7 @@ func detector() -> void:
 		Game.set_flag("detector_seen")
 		await say("Der Melder ist mit Klebeband abgedeckt. Und darunter klebt ein langes graues Haar.")
 	elif not Game.flag("hair_secured"):
-		await say("Mit bloßen Händen?")
+		await refuse("Mit bloßen Händen?")
 		await say("Kontamination. Nein.", "martin/contamination")
 	elif not Game.flag("tape_removed"):
 		Game.set_flag("tape_removed")
