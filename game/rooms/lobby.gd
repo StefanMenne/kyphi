@@ -16,32 +16,22 @@ func _init() -> void:
 
 
 func build() -> void:
-	floor_poly = PackedVector2Array([
-		Vector2(110, 480), Vector2(330, 470), Vector2(628, 470), Vector2(628, 386),
-		Vector2(1450, 386), Vector2(1790, 452), Vector2(1850, 576), Vector2(250, 576), Vector2(235, 528)])
-	depth = [Vector2(386, 190), Vector2(576, 400)]
-	entries = {
-		"": [Vector2(1000, 460), "front", ""],
-		"apartment": [Vector2(1700, 470), "left", ""],
-		"depot": [Vector2(150, 490), "front", "stairs_door_open"],
-		"workshop": [Vector2(1445, 400), "front", "workshop_door_open"],
-	}
 	for state in ["idle", "talk_small", "talk_open", "incense_cone"]:
 		_ack_tex[state] = load("res://assets/characters/ackermann/%s.png" % state)
 	ackermann = add_sprite(_ack_tex["idle"], ACK_POS)
 	move_child(ackermann, 1)
 
-	hotspot("covers", "Abdeckplanen", Rect2(0, 430, 245, 146), Vector2(250, 540), "left")
-	hotspot("roster", "Dienstplan", Rect2(353, 179, 118, 77), Vector2(400, 475))
-	hotspot("key_board", "Schlüsselbrett", Rect2(553, 186, 95, 80), Vector2(600, 475))
-	hotspot("counter", "Empfangstresen", Rect2(326, 297, 293, 164), Vector2(680, 472), "left")
-	hotspot("ackermann", "Frau Ackermann", Rect2(ACK_POS, ACK_SIZE), Vector2(680, 472), "left", "none")
-	hotspot("archive", "Archivkartei", Rect2(707, 200, 230, 184), Vector2(820, 400))
-	hotspot("glass_door", "Glastür zum öffentlichen Bereich", Rect2(1055, 143, 338, 241), Vector2(1220, 400))
-	hotspot("workshop_door", "Tür zur Werkstatt", Rect2(1403, 154, 85, 233), Vector2(1445, 398))
-	hotspot("portal", "Eingangsportal (nach Hause)", Rect2(1577, 85, 246, 370), Vector2(1700, 468), "back", "none")
-	hotspot("painting", "Gemälde", Rect2(1946, 133, 102, 159), Vector2(1800, 520), "right")
-	hotspot("stairs_door", "Tür zum Keller", Rect2(85, 118, 120, 356), Vector2(150, 488))
+	hotspot("covers", "Abdeckplanen", "left")
+	hotspot("roster", "Dienstplan")
+	hotspot("key_board", "Schlüsselbrett")
+	hotspot("counter", "Empfangstresen", "left")
+	hotspot("ackermann", "Frau Ackermann", "left", "none")
+	hotspot("archive", "Archivkartei")
+	hotspot("glass_door", "Glastür zum öffentlichen Bereich")
+	hotspot("workshop_door", "Tür zur Werkstatt")
+	hotspot("portal", "Eingangsportal (nach Hause)", "back", "none")
+	hotspot("painting", "Gemälde", "right")
+	hotspot("stairs_door", "Tür zum Keller")
 	set_verbs({"ackermann": "talk", "workshop_door": "go", "portal": "go", "stairs_door": "go", "glass_door": "go"})
 
 

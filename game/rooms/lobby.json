@@ -1,0 +1,23 @@
+{
+ "floor": [[110, 480], [330, 470], [628, 470], [628, 386], [1450, 386], [1790, 452], [1850, 576], [250, 576], [235, 528]],
+ "depth": [[386, 190], [576, 400]],
+ "entries": {
+  "": {"pos": [1000, 460], "face": "front", "door": ""},
+  "apartment": {"pos": [1700, 470], "face": "left", "door": ""},
+  "depot": {"pos": [150, 490], "face": "front", "door": "stairs_door_open"},
+  "workshop": {"pos": [1445, 400], "face": "front", "door": "workshop_door_open"}
+ },
+ "hotspots": {
+  "covers": {"area": [0, 430, 245, 146], "walk": [250, 540]},
+  "roster": {"area": [353, 179, 118, 77], "walk": [400, 475]},
+  "key_board": {"area": [553, 186, 95, 80], "walk": [600, 475]},
+  "counter": {"area": [326, 297, 293, 164], "walk": [680, 472]},
+  "ackermann": {"area": [402, 216, 55, 87], "walk": [680, 472]},
+  "archive": {"area": [707, 200, 230, 184], "walk": [820, 400]},
+  "glass_door": {"area": [1055, 143, 338, 241], "walk": [1220, 400]},
+  "workshop_door": {"area": [1403, 154, 85, 233], "walk": [1445, 398]},
+  "portal": {"area": [1577, 85, 246, 370], "walk": [1700, 468]},
+  "painting": {"area": [1946, 133, 102, 159], "walk": [1800, 520]},
+  "stairs_door": {"area": [85, 118, 120, 356], "walk": [150, 488]}
+ }
+}

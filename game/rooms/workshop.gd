@@ -3,16 +3,16 @@ extends Room
 
 ## Gegenstand -> [Ebene, Name, Laufpunkt-x]
 const TOOLS := {
-	"ladder": ["ladder", "Malerleiter", 380],
-	"brush": ["brush", "Pinsel", 470],
-	"spatula": ["spatula", "Spatel", 595],
-	"drill": ["drill", "Akkuschrauber", 600],
-	"uv_lamp": ["uv_lamp", "UV-Lampe", 650],
-	"tweezers": ["tweezers", "Pinzette", 675],
-	"evidence_bag": ["evidence_bags", "Fundtütchen", 710],
-	"caliper": ["caliper", "Messschieber", 760],
-	"saucer": ["saucer", "Untertasse", 805],
-	"masking_tape": ["masking_tape", "Kreppband", 845],
+	"ladder": ["ladder", "Malerleiter"],
+	"brush": ["brush", "Pinsel"],
+	"spatula": ["spatula", "Spatel"],
+	"drill": ["drill", "Akkuschrauber"],
+	"uv_lamp": ["uv_lamp", "UV-Lampe"],
+	"tweezers": ["tweezers", "Pinzette"],
+	"evidence_bag": ["evidence_bags", "Fundtütchen"],
+	"caliper": ["caliper", "Messschieber"],
+	"saucer": ["saucer", "Untertasse"],
+	"masking_tape": ["masking_tape", "Kreppband"],
 }
 
 
@@ -21,27 +21,18 @@ func _init() -> void:
 
 
 func build() -> void:
-	floor_poly = PackedVector2Array([
-		Vector2(215, 472), Vector2(1135, 472), Vector2(1280, 522), Vector2(1344, 556),
-		Vector2(1344, 768), Vector2(0, 768), Vector2(0, 562), Vector2(110, 552), Vector2(215, 505)])
-	depth = [Vector2(472, 300), Vector2(768, 520)]
 	tint = Color(1.0, 0.97, 0.92)
-	entries = {
-		"": [Vector2(670, 560), "front", ""],
-		"lobby": [Vector2(170, 540), "right", "lobby_door_open"],
-		"altar_room": [Vector2(1200, 552), "left", "altar_door_open"],
-	}
-	hotspot("boxes", "Kisten", Rect2(0, 362, 108, 190), Vector2(150, 560), "left")
-	hotspot("boxes2", "Kisten", Rect2(278, 368, 110, 97), Vector2(330, 490))
-	hotspot("shelf", "Regal", Rect2(930, 180, 195, 290), Vector2(1030, 490))
-	hotspot("pegboard", "Lochwand", Rect2(448, 158, 450, 120), Vector2(670, 492))
-	hotspot("bench", "Werkbank", Rect2(380, 325, 590, 165), Vector2(670, 492))
+	hotspot("boxes", "Kisten", "left")
+	hotspot("boxes2", "Kisten")
+	hotspot("shelf", "Regal")
+	hotspot("pegboard", "Lochwand")
+	hotspot("bench", "Werkbank")
 	for item in TOOLS:
 		var t: Array = TOOLS[item]
-		hotspot(item, t[1], layer_rect(t[0]), Vector2(t[2], 492))
+		hotspot(item, t[1])
 		set_verbs({item: "take"})
-	hotspot("lobby_door", "Tür zur Lobby", Rect2(92, 92, 118, 420), Vector2(165, 535), "left")
-	hotspot("altar_door", "Tür zum Altarraum", Rect2(1172, 92, 112, 428), Vector2(1205, 548), "right")
+	hotspot("lobby_door", "Tür zur Lobby", "left")
+	hotspot("altar_door", "Tür zum Altarraum", "right")
 	set_verbs({"lobby_door": "go", "altar_door": "go"})
 
 

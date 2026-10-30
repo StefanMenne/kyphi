@@ -17,28 +17,20 @@ func _init() -> void:
 
 
 func build() -> void:
-	floor_poly = PackedVector2Array([
-		Vector2(270, 562), Vector2(300, 456), Vector2(600, 440), Vector2(870, 484),
-		Vector2(1440, 484), Vector2(1600, 518), Vector2(1900, 530), Vector2(1900, 576), Vector2(270, 576)])
-	depth = [Vector2(440, 255), Vector2(576, 372)]
 	tint = Color(0.62, 0.6, 0.56)
-	entries = {
-		"": [Vector2(1300, 540), "front", ""],
-		"lobby": [Vector2(1660, 545), "left", ""],
-	}
 	add_child(shade)
 	timer.one_shot = true
 	timer.timeout.connect(_light_off)
 	add_child(timer)
 
-	hotspot("neon", "Neonröhre", Rect2(583, 26, 97, 61), Vector2(700, 470))
-	hotspot("shelf_a", "Regal A", Rect2(0, 0, 287, 481), Vector2(320, 540), "left")
-	hotspot("shelf_b", "Regal B", Rect2(297, 40, 317, 400), Vector2(450, 470))
-	hotspot("shelf_c", "Regal C", Rect2(614, 120, 266, 280), Vector2(740, 470))
-	hotspot("shelf_d", "Regal D", Rect2(880, 40, 575, 430), Vector2(1150, 500))
-	hotspot("box", "Hollmanns Kiste", layer_rect("hollmann_box"), Vector2(1140, 548), "right")
-	hotspot("switch", "Lichtschalter mit Zeitschaltuhr", Rect2(1563, 252, 55, 32), Vector2(1560, 515))
-	hotspot("stairs", "Treppe nach oben", Rect2(1623, 143, 343, 390), Vector2(1665, 540), "right", "none")
+	hotspot("neon", "Neonröhre")
+	hotspot("shelf_a", "Regal A", "left")
+	hotspot("shelf_b", "Regal B")
+	hotspot("shelf_c", "Regal C")
+	hotspot("shelf_d", "Regal D")
+	hotspot("box", "Hollmanns Kiste", "right")
+	hotspot("switch", "Lichtschalter mit Zeitschaltuhr")
+	hotspot("stairs", "Treppe nach oben", "right", "none")
 	set_verbs({"stairs": "go"})
 
 

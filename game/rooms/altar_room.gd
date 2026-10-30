@@ -1,9 +1,6 @@
 extends Room
 ## Altarraum: Rauchmelder, Asche, Ruß, Altarschrank, Westwand mit Paneel 4 und Stahltür.
 
-const PANELS := [
-	Rect2(1556, 60, 67, 410), Rect2(1623, 60, 77, 410), Rect2(1700, 60, 102, 410),
-	Rect2(1802, 60, 123, 410), Rect2(1925, 60, 123, 410)]
 const LADDER_POS := Vector2(950, 113)
 const UV := Color(0.55, 0.42, 0.95)
 
@@ -18,15 +15,7 @@ func _init() -> void:
 
 
 func build() -> void:
-	floor_poly = PackedVector2Array([
-		Vector2(30, 478), Vector2(370, 461), Vector2(1590, 461), Vector2(2000, 472),
-		Vector2(2048, 480), Vector2(2048, 576), Vector2(0, 576), Vector2(0, 480)])
-	depth = [Vector2(461, 238), Vector2(576, 312)]
 	tint = Color(0.68, 0.63, 0.6)
-	entries = {
-		"": [Vector2(1000, 520), "front", ""],
-		"workshop": [Vector2(110, 492), "right", "workshop_door_open"],
-	}
 	ladder = add_sprite(load("res://assets/scenes/altarraum/sprites/ladder.png"), LADDER_POS)
 	# wie Martin im Licht des Raums
 	ladder.modulate = tint
@@ -45,19 +34,18 @@ func build() -> void:
 	smoke.emitting = false
 	add_child(smoke)
 
-	hotspot("podium", "Podest", Rect2(220, 338, 1557, 123), Vector2(1000, 466))
-	hotspot("pillars", "Säulen", Rect2(466, 30, 230, 340), Vector2(580, 466))
-	hotspot("pillars2", "Säulen", Rect2(1270, 30, 245, 340), Vector2(1390, 466))
-	hotspot("cabinet", "Altarschrank", Rect2(225, 386, 150, 70), Vector2(300, 470))
-	hotspot("altar", "Opferaltar", Rect2(783, 225, 195, 113), Vector2(880, 466))
-	hotspot("ash", "Räucheraltar mit Asche", Rect2(1065, 210, 153, 128), Vector2(1140, 466))
-	hotspot("soot", "Ruß an der Decke", Rect2(800, 0, 378, 62), Vector2(1000, 466))
-	hotspot("detector", "Rauchmelder", Rect2(975, 0, 85, 46), Vector2(1000, 466))
-	for i in PANELS.size():
-		var r: Rect2 = PANELS[i]
-		hotspot("panel_%d" % (i + 1), "Holzverkleidung", r, Vector2(r.get_center().x, 474))
-	hotspot("steel_door", "Stahltür mit Kartenleser", layer_rect("steel_door_closed"), Vector2(1864, 476))
-	hotspot("workshop_door", "Tür zur Werkstatt", Rect2(36, 148, 113, 323), Vector2(105, 488), "left")
+	hotspot("podium", "Podest")
+	hotspot("pillars", "Säulen")
+	hotspot("pillars2", "Säulen")
+	hotspot("cabinet", "Altarschrank")
+	hotspot("altar", "Opferaltar")
+	hotspot("ash", "Räucheraltar mit Asche")
+	hotspot("soot", "Ruß an der Decke")
+	hotspot("detector", "Rauchmelder")
+	for i in 5:
+		hotspot("panel_%d" % (i + 1), "Holzverkleidung")
+	hotspot("steel_door", "Stahltür mit Kartenleser")
+	hotspot("workshop_door", "Tür zur Werkstatt", "left")
 	set_verbs({"workshop_door": "go"})
 
 

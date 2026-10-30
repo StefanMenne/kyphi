@@ -24,6 +24,7 @@ var player := Player.new()
 var voice := AudioStreamPlayer.new()
 var sfx := AudioStreamPlayer.new()
 var ui: GameUI
+var editor: LayoutEditor
 var items := ItemLogic.new()
 var room: Room
 ## Verlassene Räume; erst nach der laufenden Aktion freigeben, deren Skript noch auf den Raumwechsel wartet.
@@ -43,6 +44,9 @@ func _ready() -> void:
 	add_child(sfx)
 	ui = GameUI.new(self)
 	add_child(ui)
+	if OS.is_debug_build():
+		editor = LayoutEditor.new(self)
+		world.add_child(editor)
 	if not Game.fast:
 		title_menu()
 
@@ -149,6 +153,9 @@ func _follow(instant := false) -> void:
 func _process(_dt: float) -> void:
 	if room == null or not in_game:
 		return
+	if editor and editor.active:
+		ui.set_hover("")
+		return
 	_follow()
 	if busy or ui.menu_open() or ui.actions_open():
 		ui.set_hover("")
@@ -173,6 +180,11 @@ func _process(_dt: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not in_game:
+		return
+	if editor and event is InputEventKey and event.pressed and event.keycode == KEY_F9 and not busy:
+		editor.toggle()
+		return
+	if editor and editor.active:
 		return
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
 		if ui.actions_open():

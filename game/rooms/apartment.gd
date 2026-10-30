@@ -7,27 +7,19 @@ func _init() -> void:
 
 
 func build() -> void:
-	floor_poly = PackedVector2Array([
-		Vector2(380, 522), Vector2(1040, 522), Vector2(1165, 600), Vector2(1344, 700),
-		Vector2(1344, 768), Vector2(0, 768), Vector2(0, 728), Vector2(380, 728)])
-	depth = [Vector2(522, 420), Vector2(768, 560)]
 	tint = Color(1.0, 0.94, 0.86)
-	entries = {
-		"": [Vector2(720, 650), "front", ""],
-		"lobby": [Vector2(1095, 625), "front", "door_open"],
-	}
-	hotspot("window", "Fenster", Rect2(80, 5, 190, 335), Vector2(420, 560))
-	hotspot("bookshelf", "Bücherregal", Rect2(498, 75, 340, 150), Vector2(660, 560))
-	hotspot("poster", "Filmplakat", Rect2(893, 132, 105, 155), Vector2(940, 560))
-	hotspot("poster2", "Bild", Rect2(1210, 22, 103, 230), Vector2(1200, 660), "right")
-	hotspot("plant", "Zimmerpflanze", Rect2(305, 215, 140, 310), Vector2(450, 560))
-	hotspot("sofa", "Sofa", Rect2(0, 355, 370, 360), Vector2(420, 650), "left")
-	hotspot("desk", "Schreibtisch", Rect2(478, 358, 395, 200), Vector2(670, 570))
-	hotspot("answering_machine", "Anrufbeantworter", Rect2(538, 345, 62, 28), Vector2(600, 565))
-	hotspot("laptop", "Laptop", Rect2(600, 283, 135, 92), Vector2(665, 565))
-	hotspot("dictaphone", "Diktiergerät", layer_rect("dictaphone"), Vector2(790, 565))
-	hotspot("remote", "Fernbedienung", layer_rect("remote"), Vector2(420, 620), "left")
-	hotspot("door", "Wohnungstür", Rect2(1060, 40, 110, 560), Vector2(1095, 620))
+	hotspot("window", "Fenster")
+	hotspot("bookshelf", "Bücherregal")
+	hotspot("poster", "Filmplakat")
+	hotspot("poster2", "Bild", "right")
+	hotspot("plant", "Zimmerpflanze")
+	hotspot("sofa", "Sofa", "left")
+	hotspot("desk", "Schreibtisch")
+	hotspot("answering_machine", "Anrufbeantworter")
+	hotspot("laptop", "Laptop")
+	hotspot("dictaphone", "Diktiergerät")
+	hotspot("remote", "Fernbedienung", "left")
+	hotspot("door", "Wohnungstür")
 	set_verbs({"door": "go", "dictaphone": "take"})
 
 

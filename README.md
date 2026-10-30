@@ -32,6 +32,11 @@ an. „Benutzen“ im Inventar nimmt den Gegenstand in die Hand, ein Klick auf e
 oder kombiniert; Rechtsklick legt ihn zurück. Esc öffnet das Menü; der
 Spielstand wird bei jedem Raumwechsel gespeichert.
 
+Entwicklermodus (nur in Debug-Builds, also beim Start aus dem Projekt): **F9** blendet Lauffläche, Tiefe,
+Eingänge, Hotspot-Bereiche und Laufpunkte des Raums ein und eine Martin-Silhouette in der Größe an der
+Mausposition. Alles lässt sich mit der Maus ziehen; **Strg+S** schreibt die Geometrie nach
+`game/rooms/<raum>.json`, **Strg+R** lädt sie neu. Die Hilfe steht oben im Bild.
+
 ## Sprache
 
 Das Spiel ist deutsch: Texte, Dialoge und Sprachausgabe. Verzeichnisse, Dateinamen und Code sind englisch.

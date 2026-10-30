@@ -1,7 +1,8 @@
 class_name Room
 extends Node2D
 ## Basis aller Schauplätze: Hintergrund und Ebenen aus dem Katalog, Hotspots, Laufbereich.
-## Alle Koordinaten sind Pixel des Hintergrundbilds.
+## Alle Koordinaten sind Pixel des Hintergrundbilds. Die Geometrie (Lauffläche, Tiefe, Eingänge, Bereiche und
+## Laufpunkte der Hotspots) steht in game/rooms/<id>.json und lässt sich im Entwicklermodus (F9) bearbeiten.
 
 const LOOK_FAIL := ["Nichts Besonderes.", "Sieht aus wie immer."]
 const USE_FAIL := ["Das bringt mir nichts.", "Lieber nicht.", "Nein."]
@@ -34,6 +35,7 @@ func setup() -> void:
 		s.visible = false
 		layers[lid] = s
 	build()
+	load_layout()
 	refresh()
 
 
@@ -62,9 +64,9 @@ func on_enter(_from: String) -> void:
 
 ## gesture: "auto" (nach Höhe: "pickup" am Boden, sonst "use") oder "none" (ohne Gegenstand keine Geste,
 ## z. B. Personen und offene Durchgänge)
-func hotspot(hid: String, name: String, area, walk: Vector2, face := "back", gesture := "auto") -> void:
-	hotspots.append({"id": hid, "name": name, "area": area, "walk": walk, "face": face, "gesture": gesture,
-		"verb": "use"})
+func hotspot(hid: String, name: String, face := "back", gesture := "auto") -> void:
+	hotspots.append({"id": hid, "name": name, "area": Rect2(), "walk": Vector2.ZERO, "face": face,
+		"gesture": gesture, "verb": "use"})
 
 
 ## Verb im Aktionsmenü statt "use": hid -> "talk" oder "take" (nur Icon und Text, die Aktion bleibt use());
@@ -78,17 +80,62 @@ func set_verbs(verbs: Dictionary) -> void:
 func gesture_for(hs: Dictionary, with_item: bool, feet: Vector2) -> String:
 	if hs["gesture"] == "none" and not with_item:
 		return ""
-	var a = hs["area"]
-	var r: Rect2 = a if a is Rect2 else _poly_rect(a)
+	var r: Rect2 = hs["area"]
 	# Mitte tiefer als ein Fünftel der Körperhöhe über den Füßen: am Boden
 	return "pickup" if r.get_center().y > feet.y - 0.2 * height_at(feet.y) else "use"
 
 
-func _poly_rect(p: PackedVector2Array) -> Rect2:
-	var r := Rect2(p[0], Vector2.ZERO)
-	for q in p:
-		r = r.expand(q)
-	return r
+func layout_path() -> String:
+	return "res://game/rooms/%s.json" % id
+
+
+func load_layout() -> void:
+	var d: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(layout_path()))
+	floor_poly = PackedVector2Array()
+	for p in d["floor"]:
+		floor_poly.append(Vector2(p[0], p[1]))
+	depth = [Vector2(d["depth"][0][0], d["depth"][0][1]), Vector2(d["depth"][1][0], d["depth"][1][1])]
+	entries = {}
+	for k in d["entries"]:
+		var e: Dictionary = d["entries"][k]
+		entries[k] = [Vector2(e["pos"][0], e["pos"][1]), e["face"], e["door"]]
+	for hs in hotspots:
+		var g = d["hotspots"].get(hs["id"])
+		if g == null:
+			# neu im Code: in der Bildmitte, im Entwicklermodus zu platzieren
+			push_warning("Hotspot %s fehlt in %s" % [hs["id"], layout_path()])
+			hs["area"] = Rect2(bg_size / 2 - Vector2(50, 50), Vector2(100, 100))
+			hs["walk"] = bg_size / 2
+			continue
+		hs["area"] = Rect2(g["area"][0], g["area"][1], g["area"][2], g["area"][3])
+		hs["walk"] = Vector2(g["walk"][0], g["walk"][1])
+
+
+## Schreibt die aktuelle Geometrie zurück (ganzzahlig, ein Eintrag pro Zeile).
+func save_layout() -> void:
+	var v := func(p: Vector2) -> String: return "[%d, %d]" % [roundi(p.x), roundi(p.y)]
+	var lines := ["{"]
+	lines.append(' "floor": [%s],' % ", ".join(Array(floor_poly).map(v)))
+	lines.append(' "depth": [%s],' % ", ".join(depth.map(v)))
+	lines.append(' "entries": {')
+	var es := []
+	for k in entries:
+		var e: Array = entries[k]
+		es.append('  %s: {"pos": %s, "face": %s, "door": %s}' % [
+			JSON.stringify(k), v.call(e[0]), JSON.stringify(e[1]), JSON.stringify(e[2])])
+	lines.append(",\n".join(es))
+	lines.append(" },")
+	lines.append(' "hotspots": {')
+	var hs_lines := []
+	for hs in hotspots:
+		var r: Rect2 = hs["area"]
+		hs_lines.append('  %s: {"area": [%d, %d, %d, %d], "walk": %s}' % [JSON.stringify(hs["id"]),
+			roundi(r.position.x), roundi(r.position.y), roundi(r.size.x), roundi(r.size.y), v.call(hs["walk"])])
+	lines.append(",\n".join(hs_lines))
+	lines.append(" }")
+	lines.append("}")
+	var f := FileAccess.open(ProjectSettings.globalize_path(layout_path()), FileAccess.WRITE)
+	f.store_string("\n".join(lines) + "\n")
 
 
 func layer_rect(lid: String) -> Rect2:
@@ -116,10 +163,7 @@ func hotspot_at(p: Vector2):
 		var hs: Dictionary = hotspots[i]
 		if not is_active(hs["id"]):
 			continue
-		var a = hs["area"]
-		if a is Rect2 and a.has_point(p):
-			return hs
-		if a is PackedVector2Array and Geometry2D.is_point_in_polygon(p, a):
+		if (hs["area"] as Rect2).has_point(p):
 			return hs
 	return null
 
