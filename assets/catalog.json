@@ -476,14 +476,14 @@
   },
   "martin": {
    "name": "Martin Kessler",
-   "note": "Anker = Mitte zwischen den Füßen. Dreiviertelansicht nach rechts aus einem Video (auf der Stelle laufend), 31 Bilder pro Zyklus (zwei Schritte); die Spiel-Engine verschiebt die Figur. Links = gespiegelt, auch für Wege nach vorn und hinten. Die Bildfolge läuft nach zurückgelegtem Weg: 0,0126 Körperhöhen pro Bild.",
+   "note": "Anker = Mitte zwischen den Füßen. Dreiviertelansicht nach rechts aus einem Video (auf der Stelle laufend), 33 Bilder pro Zyklus (zwei Schritte); die Spiel-Engine verschiebt die Figur. Links = gespiegelt, auch für Wege nach vorn und hinten; deshalb keine Brille in der Brusttasche. Die Bildfolge läuft nach zurückgelegtem Weg: 0,0137 Körperhöhen pro Bild.",
    "size": [
-    275,
+    290,
     655
    ],
    "anchor": [
     135,
-    641
+    637
    ],
    "height_px": 635,
    "idle": "characters/martin/right_idle.png",
@@ -518,9 +518,87 @@
     "characters/martin/right_walk_27.png",
     "characters/martin/right_walk_28.png",
     "characters/martin/right_walk_29.png",
-    "characters/martin/right_walk_30.png"
+    "characters/martin/right_walk_30.png",
+    "characters/martin/right_walk_31.png",
+    "characters/martin/right_walk_32.png"
    ],
-   "model": "characters/martin/martin.glb"
+   "model": "characters/martin/martin.glb",
+   "turn": {
+    "files": [
+     "characters/martin/turn_00.png",
+     "characters/martin/turn_01.png",
+     "characters/martin/turn_02.png",
+     "characters/martin/turn_03.png",
+     "characters/martin/turn_04.png",
+     "characters/martin/turn_05.png",
+     "characters/martin/turn_06.png",
+     "characters/martin/turn_07.png",
+     "characters/martin/turn_08.png",
+     "characters/martin/turn_09.png",
+     "characters/martin/turn_10.png",
+     "characters/martin/turn_11.png",
+     "characters/martin/turn_12.png",
+     "characters/martin/turn_13.png",
+     "characters/martin/turn_14.png",
+     "characters/martin/turn_15.png",
+     "characters/martin/turn_16.png",
+     "characters/martin/turn_17.png",
+     "characters/martin/turn_18.png",
+     "characters/martin/turn_19.png",
+     "characters/martin/turn_20.png",
+     "characters/martin/turn_21.png",
+     "characters/martin/turn_22.png"
+    ],
+    "size": [
+     293,
+     655
+    ],
+    "anchor_x": [
+     149.7,
+     135.7
+    ],
+    "anchor_y": 637,
+    "fps": 30,
+    "note": "Drehung von rechts nach links über die Vorderseite; rückwärts abgespielt für links -> rechts. Der Fußpunkt x wandert linear von anchor_x[0] zu anchor_x[1]."
+   },
+   "start": {
+    "files": [
+     "characters/martin/start_00.png",
+     "characters/martin/start_01.png",
+     "characters/martin/start_02.png",
+     "characters/martin/start_03.png",
+     "characters/martin/start_04.png",
+     "characters/martin/start_05.png",
+     "characters/martin/start_06.png",
+     "characters/martin/start_07.png",
+     "characters/martin/start_08.png",
+     "characters/martin/start_09.png",
+     "characters/martin/start_10.png",
+     "characters/martin/start_11.png",
+     "characters/martin/start_12.png",
+     "characters/martin/start_13.png",
+     "characters/martin/start_14.png",
+     "characters/martin/start_15.png",
+     "characters/martin/start_16.png",
+     "characters/martin/start_17.png",
+     "characters/martin/start_18.png",
+     "characters/martin/start_19.png",
+     "characters/martin/start_20.png",
+     "characters/martin/start_21.png",
+     "characters/martin/start_22.png",
+     "characters/martin/start_23.png",
+     "characters/martin/start_24.png",
+     "characters/martin/start_25.png",
+     "characters/martin/start_26.png",
+     "characters/martin/start_27.png",
+     "characters/martin/start_28.png",
+     "characters/martin/start_29.png",
+     "characters/martin/start_30.png",
+     "characters/martin/start_31.png",
+     "characters/martin/start_32.png"
+    ],
+    "note": "Anlauf aus dem Stand, gleicher Zuschnitt und Anker wie der Laufzyklus; danach folgt right_walk_00. Angehalten wird bei Zyklusbild 8 oder 27 (dem Stand am nächsten)."
+   }
   }
  },
  "voices": {

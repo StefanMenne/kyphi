@@ -128,7 +128,7 @@ func _load_room(room_id: String, from: String, pos = null) -> void:
 	player.room = room
 	var e: Array = room.entries.get(from, room.entries[""])
 	player.position = pos if pos != null else e[0]
-	player.face(e[1])
+	player.face(e[1], true)
 	player.update_scale()
 	if e.size() > 2 and e[2] != "":
 		room.layers[e[2]].visible = true

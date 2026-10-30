@@ -723,17 +723,46 @@
     },
     "video": {
      "tool": "ltx-2.5 generate_video",
-     "job_id": "782b02acd6df",
-     "seed": 3401,
+     "job_id": "444bd2c99178",
+     "seed": 3800,
      "inputs": [
-      "three_quarter_45 image_3202 (Startbild)"
+      "no_glasses image_3702 (Startbild)"
      ],
      "params": "768x1024, 5 s, 24 fps",
      "prompt": "The man in the beige work coat walks on the spot, as if on a treadmill: he takes steady, natural walking steps in the direction he is facing, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps. His body, head and face stay turned exactly the same way the whole time, in the same three-quarter view toward the right; he does not turn, does not rotate, does not look at the viewer. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor."
     },
     "sprites": {
      "tool": "ffmpeg + Python (numpy, scipy, Pillow)",
-     "note": "Bild 0 = right_idle, Bilder 43-73 = right_walk_00..30 (Periode 31 Bilder per Maskenvergleich); Hintergrund per Flutfüllung grauer, entsättigter Flächen entfernt (inkl. Schatten), gemeinsamer Zuschnitt 189,31-601,1013, auf 2/3 verkleinert"
+     "note": "Bild 0 = right_idle, Bilder 69-101 = right_walk_00..32 (Periode 33 Bilder per Maskenvergleich); Hintergrund per Flutfüllung grauer, entsättigter Flächen entfernt (inkl. Schatten), gemeinsamer Zuschnitt 192,37-627,1019, auf 2/3 verkleinert"
+    },
+    "no_glasses": {
+     "tool": "qwen-image-edit",
+     "job_id": "4c846876cb06",
+     "seed": 3702,
+     "inputs": [
+      "three_quarter_45 image_3202"
+     ],
+     "prompt": "Remove the glasses from the breast pocket of his coat: the breast pocket is empty and flat, plain coat fabric. Keep everything else exactly unchanged: his face, hair, pose, clothes, colors, drawing style and the plain light grey background.",
+     "note": "Brille entfernt, damit das Spiegeln für links keinen Seitenwechsel der Brille zeigt"
+    },
+    "turn": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "966814ad258f",
+     "seed": 3900,
+     "inputs": [
+      "video_3800 Bild 0 (erstes Bild)",
+      "dasselbe gespiegelt (letztes Bild)"
+     ],
+     "params": "768x1024, 2 s, 24 fps",
+     "prompt": "The man in the beige work coat turns around on the spot, calmly and naturally: he starts in a three-quarter view looking toward the right, turns his body and head toward the viewer, passes through a front view facing the viewer, and ends in a three-quarter view looking toward the left. He steps around with small natural steps, arms hanging relaxed. His face, hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: two quiet footsteps on a hard floor.",
+     "note": "jedes zweite Bild 2-46 = turn_00..22, freigestellt wie der Laufzyklus, Zuschnitt 170,37-610,1019, auf 2/3 verkleinert"
+    },
+    "start": {
+     "tool": "Python (numpy, scipy, Pillow)",
+     "inputs": [
+      "video_3800"
+     ],
+     "note": "Bilder 3-35 = start_00..32 (ab Bild 36 periodisch, Bild 36 entspricht Bild 69 = right_walk_00), freigestellt und zugeschnitten wie der Laufzyklus"
     }
    }
   }
