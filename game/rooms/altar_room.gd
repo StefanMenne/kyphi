@@ -5,10 +5,11 @@ const PANELS := [
 	Rect2(1556, 60, 67, 410), Rect2(1623, 60, 77, 410), Rect2(1700, 60, 102, 410),
 	Rect2(1802, 60, 123, 410), Rect2(1925, 60, 123, 410)]
 const LADDER_POS := Vector2(950, 113)
-const LADDER_SIZE := Vector2(134, 267)
 const UV := Color(0.55, 0.42, 0.95)
 
 var ladder: Sprite2D
+## Martin arbeitet gerade auf der Leiter (nur dann steht sie)
+var _on_ladder := false
 var smoke: CPUParticles2D
 
 
@@ -52,7 +53,6 @@ func build() -> void:
 	hotspot("ash", "Räucheraltar mit Asche", Rect2(1065, 210, 153, 128), Vector2(1140, 466))
 	hotspot("soot", "Ruß an der Decke", Rect2(800, 0, 378, 62), Vector2(1000, 466))
 	hotspot("detector", "Rauchmelder", Rect2(975, 0, 85, 46), Vector2(1000, 466))
-	hotspot("ladder", "Malerleiter", Rect2(LADDER_POS, LADDER_SIZE), Vector2(1000, 466))
 	for i in PANELS.size():
 		var r: Rect2 = PANELS[i]
 		hotspot("panel_%d" % (i + 1), "Holzverkleidung", r, Vector2(r.get_center().x, 474))
@@ -64,7 +64,12 @@ func refresh() -> void:
 	layers["detector_taped"].visible = not Game.flag("tape_removed") or Game.flag("detector_retaped")
 	layers["steel_door_closed"].visible = Game.flag("panel_removed")
 	layers["steel_door_open"].visible = Game.flag("steel_door_open")
-	ladder.visible = Game.flag("ladder_placed")
+	ladder.visible = _on_ladder
+	# alte Spielstände: die Leiter stand hier fest, jetzt gehört sie wieder ins Inventar
+	if Game.flag("ladder_placed"):
+		Game.set_flag("ladder_placed", false)
+		if not Game.has("ladder"):
+			Game.add_item("ladder")
 
 
 func _process(_dt: float) -> void:
@@ -75,8 +80,6 @@ func _process(_dt: float) -> void:
 
 func is_active(hid: String) -> bool:
 	match hid:
-		"ladder":
-			return Game.flag("ladder_placed")
 		"steel_door":
 			return Game.flag("panel_removed")
 		"panel_4":
@@ -122,8 +125,6 @@ func look(hid: String) -> void:
 				await say("Abgeklebt. Darunter klebt ein langes graues Haar." if not Game.flag("hair_secured") else "Noch abgeklebt.")
 			else:
 				await say("Der Rauchmelder. Bei dem Ruß hätte er längst anschlagen müssen.")
-		"ladder":
-			await say("Die Malerleiter. Steht.")
 		"steel_door":
 			await say("Eine neue Stahltür mit Kartenleser. Dasselbe Modell wie an den Personaltüren des Museums.")
 		"workshop_door":
@@ -148,14 +149,12 @@ func use(hid: String) -> void:
 		"cabinet":
 			await cabinet()
 		"detector":
-			await detector()
+			await on_ladder(detector)
 		"soot":
-			if not Game.flag("ladder_placed"):
+			if not Game.has("ladder"):
 				await say("Viel zu hoch.")
 			else:
 				await say("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
-		"ladder":
-			await say("Die bleibt hier stehen. Die brauche ich noch.")
 		"ash":
 			await say("Nicht anfassen. Das ist ein Befund.")
 		"steel_door":
@@ -168,23 +167,19 @@ func use(hid: String) -> void:
 
 
 func use_item(hid: String, item: String) -> void:
-	if item == "ladder" and hid in ["detector", "soot", "podium", "altar", "ash"]:
-		Game.remove_item("ladder")
-		Game.set_flag("ladder_placed")
-		refresh()
-		await say("So. Jetzt komme ich an die Decke.")
-		return
 	match [hid, item]:
+		["detector", "ladder"]:
+			await on_ladder(detector)
+		["soot", "ladder"]:
+			await say("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
+		["podium", "ladder"], ["altar", "ladder"], ["ash", "ladder"]:
+			await say("Die stelle ich auf, wenn ich oben etwas zu tun habe.")
 		["detector", "tweezers"]:
-			await take_hair()
+			await on_ladder(take_hair)
 		["detector", "masking_tape"]:
-			await retape()
+			await on_ladder(retape)
 		["soot", "spatula"]:
-			if not Game.flag("ladder_placed"):
-				await say("Viel zu hoch.")
-				return
-			Game.swap_item("spatula", "spatula_soot")
-			await say("Ein bisschen Ruß. Könnte nützlich sein.")
+			await on_ladder(scrape_soot)
 		["cabinet", "dictaphone"]:
 			await hide_dictaphone()
 		["ash", "incense_cone"]:
@@ -198,12 +193,36 @@ func use_item(hid: String, item: String) -> void:
 				await super(hid, item)
 
 
+## Arbeit an der Decke: die Leiter kurz aufstellen, danach wieder zusammenklappen und mitnehmen,
+## damit nachts niemand eine Leiter unter dem Melder findet.
+func on_ladder(action: Callable) -> void:
+	if not Game.has("ladder"):
+		await say("Viel zu hoch. Ich brauche die Leiter aus der Werkstatt.")
+		return
+	_on_ladder = true
+	ladder.visible = true
+	if not Game.flag("ladder_used"):
+		await narrate("[Martin klappt die Leiter unter dem Rauchmelder auf und steigt hinauf.]")
+	await action.call()
+	if not Game.flag("ladder_used"):
+		Game.set_flag("ladder_used")
+		await narrate("[Er steigt wieder herunter und klappt die Leiter zusammen.]")
+		await say("Die nehme ich wieder mit. Eine Leiter unter dem Melder würde auffallen.")
+	else:
+		await Game.wait(0.4)
+	_on_ladder = false
+	ladder.visible = false
+
+
+func scrape_soot() -> void:
+	Game.swap_item("spatula", "spatula_soot")
+	await say("Ein bisschen Ruß. Könnte nützlich sein.")
+
+
 # Kapitel 1: Der abgeklebte Rauchmelder
 
 func detector() -> void:
-	if not Game.flag("ladder_placed"):
-		await say("Viel zu hoch. Ich brauche die Leiter aus der Werkstatt.")
-	elif not Game.flag("detector_seen"):
+	if not Game.flag("detector_seen"):
 		Game.set_flag("detector_seen")
 		await say("Der Melder ist mit Klebeband abgedeckt. Und darunter klebt ein langes graues Haar.")
 	elif not Game.flag("hair_secured"):
@@ -219,7 +238,7 @@ func detector() -> void:
 
 
 func take_hair() -> void:
-	if not Game.flag("detector_seen") or not Game.flag("ladder_placed"):
+	if not Game.flag("detector_seen"):
 		await detector()
 	elif Game.flag("hair_secured"):
 		await say("Das Haar habe ich schon.")
@@ -232,9 +251,7 @@ func take_hair() -> void:
 
 
 func retape() -> void:
-	if not Game.flag("ladder_placed"):
-		await say("Viel zu hoch.")
-	elif not Game.flag("tape_removed"):
+	if not Game.flag("tape_removed"):
 		await say("Der ist noch abgeklebt.")
 	elif Game.flag("detector_retaped"):
 		await say("Hält.")

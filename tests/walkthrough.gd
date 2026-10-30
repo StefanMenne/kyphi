@@ -88,6 +88,7 @@ func run() -> void:
 	await act("detector", "tweezers")
 	await act("detector")
 	check(Game.flag("tape_removed"), "Klebeband ab")
+	check(Game.has("ladder"), "Leiter wieder im Inventar")
 	# Kapitel 2
 	await act("cabinet", "dictaphone")
 	check(Game.flag("dictaphone_hidden"), "Diktiergerät versteckt")
