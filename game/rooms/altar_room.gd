@@ -4,7 +4,8 @@ extends Room
 const PANELS := [
 	Rect2(1556, 60, 67, 410), Rect2(1623, 60, 77, 410), Rect2(1700, 60, 102, 410),
 	Rect2(1802, 60, 123, 410), Rect2(1925, 60, 123, 410)]
-const LADDER_POS := Vector2(967, 113)
+const LADDER_POS := Vector2(950, 113)
+const LADDER_SIZE := Vector2(134, 267)
 const UV := Color(0.55, 0.42, 0.95)
 
 var ladder: Sprite2D
@@ -25,8 +26,9 @@ func build() -> void:
 		"": [Vector2(1000, 520), "front", ""],
 		"workshop": [Vector2(110, 492), "right", "workshop_door_open"],
 	}
-	ladder = add_sprite(load("res://assets/scenes/werkstatt/sprites/ladder.png"), LADDER_POS)
-	ladder.scale = Vector2(1.1, 1.1)
+	ladder = add_sprite(load("res://assets/scenes/altarraum/sprites/ladder.png"), LADDER_POS)
+	# wie Martin im Licht des Raums
+	ladder.modulate = tint
 	move_child(ladder, 1)
 	smoke = CPUParticles2D.new()
 	smoke.amount = 40
@@ -50,7 +52,7 @@ func build() -> void:
 	hotspot("ash", "Räucheraltar mit Asche", Rect2(1065, 210, 153, 128), Vector2(1140, 466))
 	hotspot("soot", "Ruß an der Decke", Rect2(800, 0, 378, 62), Vector2(1000, 466))
 	hotspot("detector", "Rauchmelder", Rect2(975, 0, 85, 46), Vector2(1000, 466))
-	hotspot("ladder", "Malerleiter", Rect2(LADDER_POS, Vector2(101, 267)), Vector2(1000, 466))
+	hotspot("ladder", "Malerleiter", Rect2(LADDER_POS, LADDER_SIZE), Vector2(1000, 466))
 	for i in PANELS.size():
 		var r: Rect2 = PANELS[i]
 		hotspot("panel_%d" % (i + 1), "Holzverkleidung", r, Vector2(r.get_center().x, 474))

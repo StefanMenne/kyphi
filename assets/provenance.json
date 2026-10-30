@@ -601,6 +601,18 @@
      "note": "Eingabe gespiegelt (altarraum_steel_door_open_in_mirror.png), Ergebnis zurückgespiegelt (unmirrored_431.png); Prompt sagt dort LEFT, nach dem Spiegeln hängt die Tür rechts.",
      "prompt_mirror": "Open the grey steel door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the dark space behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a narrow concrete staircase leads DOWN: right behind the threshold the steps drop away downwards into darkness, we look down onto the treads, a weak lamp on the side wall far below. The card reader next to the door shows a green LED. Keep the wooden panels, the floor and the lighting exactly unchanged."
     }
+   },
+   "sprites": {
+    "ladder": {
+     "tool": "qwen-image-edit",
+     "job_id": "25af70c8fc9b",
+     "seed": 4403,
+     "inputs": [
+      "assets/items/ladder.png (Inventarsymbol, auf Magenta)"
+     ],
+     "prompt": "The same aluminium painter's step ladder with paint splatters, but taller with five steps, standing fully opened on the floor, seen from the front and slightly from the side, slightly from above. The whole ladder is fully visible with margin, nothing else in the picture. Same drawing style: clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors. Plain flat solid magenta background, no shadow, no floor.",
+     "note": "Magenta per Skript entfernt (auch Lücken zwischen den Sprossen), zwei Magenta-Farbkleckse auf den Stufen in gedämpftes Rot umgefärbt, auf 267 px Höhe verkleinert; ersetzt das aus der Werkstatt ausgeschnittene Sprite"
+    }
    }
   },
   "depot": {
