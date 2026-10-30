@@ -39,8 +39,10 @@ func build() -> void:
 	for item in TOOLS:
 		var t: Array = TOOLS[item]
 		hotspot(item, t[1], layer_rect(t[0]), Vector2(t[2], 492))
+		set_verbs({item: "take"})
 	hotspot("lobby_door", "Tür zur Lobby", Rect2(92, 92, 118, 420), Vector2(165, 535), "left")
 	hotspot("altar_door", "Tür zum Altarraum", Rect2(1172, 92, 112, 428), Vector2(1205, 548), "right")
+	set_verbs({"lobby_door": "go", "altar_door": "go"})
 
 
 func refresh() -> void:

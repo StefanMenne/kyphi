@@ -1155,5 +1155,39 @@
     }
    }
   }
+ },
+ "ui": {
+  "verb_look": {
+   "tool": "flux2-klein",
+   "job_id": "1b2173dede50",
+   "seed": 100,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of a human eye, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "verb_use": {
+   "tool": "flux2-klein",
+   "job_id": "a3c541ae7d1d",
+   "seed": 200,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of an open hand with the palm facing forward, reaching out to use something, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "verb_talk": {
+   "tool": "flux2-klein",
+   "job_id": "22d9c8fd8c4a",
+   "seed": 300,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of a speech bubble with three dots inside, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "verb_take": {
+   "tool": "flux2-klein",
+   "job_id": "8a45ca069607",
+   "seed": 502,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of a hand grabbing, fingers closing to pick something up, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  }
  }
 }

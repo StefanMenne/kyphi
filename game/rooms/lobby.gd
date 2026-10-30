@@ -42,6 +42,7 @@ func build() -> void:
 	hotspot("portal", "Eingangsportal (nach Hause)", Rect2(1577, 85, 246, 370), Vector2(1700, 468), "back", "none")
 	hotspot("painting", "Gemälde", Rect2(1946, 133, 102, 159), Vector2(1800, 520), "right")
 	hotspot("stairs_door", "Tür zum Keller", Rect2(85, 118, 120, 356), Vector2(150, 488))
+	set_verbs({"ackermann": "talk", "workshop_door": "go", "portal": "go", "stairs_door": "go", "glass_door": "go"})
 
 
 func _process(dt: float) -> void:

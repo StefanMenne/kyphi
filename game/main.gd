@@ -150,7 +150,7 @@ func _process(_dt: float) -> void:
 	if room == null or not in_game:
 		return
 	_follow()
-	if busy or ui.menu_open():
+	if busy or ui.menu_open() or ui.actions_open():
 		ui.set_hover("")
 		return
 	var text := ""
@@ -175,7 +175,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not in_game:
 		return
 	if event is InputEventKey and event.pressed and event.keycode == KEY_ESCAPE:
-		if ui.menu_open():
+		if ui.actions_open():
+			ui.hide_actions()
+		elif ui.menu_open():
 			ui.hide_menu()
 		elif not busy:
 			pause_menu()
@@ -192,8 +194,12 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif hs:
 			act(hs, "look")
 	elif event.button_index == MOUSE_BUTTON_LEFT:
-		if hs:
+		# Türen und Durchgänge ohne Menü: direkt gehen
+		if hs and (selected != "" or hs["verb"] == "go"):
 			act(hs, "use")
+		elif hs:
+			ui.show_actions(get_viewport().get_mouse_position(), room.display_name(hs), ["look", hs["verb"]],
+				func(v): act(hs, "look" if v == "look" else "use"))
 		else:
 			select_item("")
 			player.walk_to(p)
@@ -230,12 +236,14 @@ func on_item_clicked(item: String, button: int) -> void:
 	if busy or not in_game:
 		return
 	if button == MOUSE_BUTTON_RIGHT:
-		player.stop()
-		busy = true
-		await items.look(item)
-		_after_action()
+		await look_item(item)
 	elif selected == "":
-		select_item(item)
+		ui.show_actions(get_viewport().get_mouse_position(), Game.item_name(item), ["look", "use"],
+			func(v):
+				if v == "look":
+					look_item(item)
+				else:
+					select_item(item))
 	elif selected == item:
 		select_item("")
 	else:
@@ -245,6 +253,13 @@ func on_item_clicked(item: String, button: int) -> void:
 		select_item("")
 		await items.combine(other, item)
 		_after_action()
+
+
+func look_item(item: String) -> void:
+	player.stop()
+	busy = true
+	await items.look(item)
+	_after_action()
 
 
 func _after_action() -> void:

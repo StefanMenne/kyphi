@@ -39,6 +39,7 @@ func build() -> void:
 	hotspot("box", "Hollmanns Kiste", layer_rect("hollmann_box"), Vector2(1140, 548), "right")
 	hotspot("switch", "Lichtschalter mit Zeitschaltuhr", Rect2(1563, 252, 55, 32), Vector2(1560, 515))
 	hotspot("stairs", "Treppe nach oben", Rect2(1623, 143, 343, 390), Vector2(1665, 540), "right", "none")
+	set_verbs({"stairs": "go"})
 
 
 func lit() -> bool:

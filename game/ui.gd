@@ -1,6 +1,6 @@
 class_name GameUI
 extends CanvasLayer
-## Oberfläche: Untertitel, Hover-Text, Inventarleiste, Antwortauswahl, Notizen, Blenden, Menüs.
+## Oberfläche: Untertitel, Hover-Text, Inventarleiste, Aktionsmenü, Antwortauswahl, Notizen, Blenden, Menüs.
 
 signal advanced(seq: int)
 signal chosen(index: int)
@@ -10,6 +10,9 @@ const H := 864.0
 const VIEW_H := 768.0
 const PER_PAGE := 12
 const SLOT := 80.0
+## Verben im Aktionsmenü (Icon in assets/ui/verb_<id>.png)
+const VERBS := {"look": "Ansehen", "use": "Benutzen", "talk": "Sprechen", "take": "Nehmen"}
+const VERB_BTN := 52.0
 
 var main: Node
 var hover: Label
@@ -30,6 +33,12 @@ var cursor_icon: TextureRect
 var menu_panel: PanelContainer
 var menu_box: VBoxContainer
 var title_layer: Control
+var actions: PanelContainer
+var actions_row: HBoxContainer
+var actions_caption: Label
+var actions_closer: Control
+var _actions_title := ""
+var _verb_icons := {}
 var hover_item := ""
 var _seq := 0
 
@@ -151,6 +160,30 @@ func _ready() -> void:
 	menu_panel.add_child(menu_box)
 	root.add_child(menu_panel)
 
+	actions_closer = Control.new()
+	actions_closer.set_anchors_preset(Control.PRESET_FULL_RECT)
+	actions_closer.visible = false
+	actions_closer.gui_input.connect(func(e):
+		if e is InputEventMouseButton and e.pressed:
+			hide_actions())
+	root.add_child(actions_closer)
+	actions = PanelContainer.new()
+	actions.add_theme_stylebox_override("panel", _box(Color(0.08, 0.07, 0.06, 0.92), Color(0.45, 0.38, 0.3), 6))
+	actions.visible = false
+	var col := VBoxContainer.new()
+	col.add_theme_constant_override("separation", 2)
+	actions.add_child(col)
+	actions_row = HBoxContainer.new()
+	actions_row.add_theme_constant_override("separation", 4)
+	actions_row.alignment = BoxContainer.ALIGNMENT_CENTER
+	col.add_child(actions_row)
+	actions_caption = _label(17, Color(0.95, 0.9, 0.8), 4)
+	actions_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	col.add_child(actions_caption)
+	root.add_child(actions)
+	for v in VERBS:
+		_verb_icons[v] = load("res://assets/ui/verb_%s.png" % v)
+
 	cursor_icon = TextureRect.new()
 	cursor_icon.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	cursor_icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -246,6 +279,60 @@ func _page_button(text: String, pos: Vector2, delta: int, enabled: bool) -> void
 func _on_slot_input(event: InputEvent, item: String) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		main.on_item_clicked(item, event.button_index)
+
+
+# Aktionsmenü
+
+## Kleines Menü über dem Punkt pos: ein Icon je Verb, darunter der Name bzw. das Verb unter der Maus.
+## on_pick bekommt das gewählte Verb.
+func show_actions(pos: Vector2, title: String, verbs: Array, on_pick: Callable) -> void:
+	for c in actions_row.get_children():
+		c.queue_free()
+	for v in verbs:
+		var b := Button.new()
+		b.icon = _verb_icons[v]
+		b.expand_icon = true
+		b.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		b.custom_minimum_size = Vector2(VERB_BTN, VERB_BTN)
+		b.focus_mode = Control.FOCUS_NONE
+		b.tooltip_text = ""
+		var plain := StyleBoxFlat.new()
+		plain.bg_color = Color(0, 0, 0, 0)
+		plain.set_content_margin_all(6)
+		var lit := _box(Color(0.45, 0.36, 0.22, 0.6), Color(0.85, 0.7, 0.4), 6)
+		lit.set_corner_radius_all(26)
+		b.add_theme_stylebox_override("normal", plain)
+		b.add_theme_stylebox_override("hover", lit)
+		b.add_theme_stylebox_override("pressed", lit)
+		b.add_theme_color_override("icon_normal_color", Color(0.85, 0.8, 0.7))
+		b.add_theme_color_override("icon_hover_color", Color(1, 0.88, 0.55))
+		b.mouse_entered.connect(func(): actions_caption.text = VERBS[v])
+		b.mouse_exited.connect(func(): actions_caption.text = _actions_title)
+		b.pressed.connect(func():
+			hide_actions()
+			on_pick.call(v))
+		actions_row.add_child(b)
+	_actions_title = title
+	actions_caption.text = title
+	actions_closer.visible = true
+	actions.visible = true
+	actions.reset_size()
+	await get_tree().process_frame
+	var sz := actions.get_combined_minimum_size()
+	actions.size = sz
+	var y := pos.y - sz.y - 14
+	if y < 8:
+		y = pos.y + 24
+	actions.position = Vector2(clampf(pos.x - sz.x / 2, 8, W - sz.x - 8), minf(y, H - sz.y - 8))
+
+
+func hide_actions() -> void:
+	actions.visible = false
+	actions_closer.visible = false
+
+
+func actions_open() -> bool:
+	return actions.visible
 
 
 # Untertitel und Warten

@@ -1092,5 +1092,26 @@
     }
    }
   }
+ },
+ "ui": {
+  "verbs": {
+   "look": {
+    "name": "Ansehen",
+    "icon": "ui/verb_look.png"
+   },
+   "use": {
+    "name": "Benutzen",
+    "icon": "ui/verb_use.png"
+   },
+   "talk": {
+    "name": "Sprechen",
+    "icon": "ui/verb_talk.png"
+   },
+   "take": {
+    "name": "Nehmen",
+    "icon": "ui/verb_take.png"
+   }
+  },
+  "note": "Verb-Icons fürs Aktionsmenü: weiße Glyphe mit Alpha, im Spiel eingefärbt"
  }
 }

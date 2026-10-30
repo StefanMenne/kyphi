@@ -10,7 +10,7 @@ gebaut hat. Das Spiel erscheint in Teilen; in Arbeit ist **Teil 1: Der Zugang**.
 |---|---|---|
 | `concept/game.md` | Grundlagen des Spiels: Genre, Sprache, Aufbau, Regeln für die Geschichte | ja |
 | `concept/part_*.md` | Story, je Teil ein Dokument (`part_1_access.md`) | nein (`.gitignore`) |
-| `assets/` | Fertige Assets: Szenen-Hintergründe mit Ebenen (`scenes/`), Inventar-Icons (`items/`), Katalog, Herkunft, Übersicht (`overview.html`) | ja |
+| `assets/` | Fertige Assets: Szenen-Hintergründe mit Ebenen (`scenes/`), Inventar-Icons (`items/`), Verb-Icons (`ui/`), Katalog, Herkunft, Übersicht (`overview.html`) | ja |
 | `game/` | Spielcode (Godot 4.7, GDScript): `main.gd`, Oberfläche, Martin, Räume in `rooms/` | ja |
 | `tests/` | Automatischer Durchlauf von Teil 1 | ja |
 | `work/` | Arbeitsdateien: generierte Bilder, Stimmen, Videos, 3D-Modelle, Entwürfe | nein (`.gitignore`) |
@@ -26,8 +26,10 @@ godot --path . -e                   # im Editor öffnen
 godot --headless --path . res://tests/walkthrough.tscn   # Teil 1 automatisch durchspielen
 ```
 
-Steuerung: Linksklick geht und benutzt, Rechtsklick sieht an. Einen Gegenstand im Inventar anklicken und dann
-auf etwas anderes klicken: benutzen oder kombinieren. Rechtsklick legt ihn zurück. Esc öffnet das Menü; der
+Steuerung: Linksklick auf den Boden geht dorthin. Linksklick auf ein Objekt, eine Person oder einen Gegenstand im
+Inventar öffnet ein kleines Aktionsmenü (Ansehen, Benutzen, Nehmen, Sprechen), bei Türen geht Martin direkt hindurch; Rechtsklick sieht direkt
+an. „Benutzen“ im Inventar nimmt den Gegenstand in die Hand, ein Klick auf etwas anderes wendet ihn darauf an
+oder kombiniert; Rechtsklick legt ihn zurück. Esc öffnet das Menü; der
 Spielstand wird bei jedem Raumwechsel gespeichert.
 
 ## Sprache

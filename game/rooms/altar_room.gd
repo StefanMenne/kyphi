@@ -58,6 +58,7 @@ func build() -> void:
 		hotspot("panel_%d" % (i + 1), "Holzverkleidung", r, Vector2(r.get_center().x, 474))
 	hotspot("steel_door", "Stahltür mit Kartenleser", layer_rect("steel_door_closed"), Vector2(1864, 476))
 	hotspot("workshop_door", "Tür zur Werkstatt", Rect2(36, 148, 113, 323), Vector2(105, 488), "left")
+	set_verbs({"workshop_door": "go"})
 
 
 func refresh() -> void:

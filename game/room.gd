@@ -63,7 +63,15 @@ func on_enter(_from: String) -> void:
 ## gesture: "auto" (nach Höhe: "pickup" am Boden, sonst "use") oder "none" (ohne Gegenstand keine Geste,
 ## z. B. Personen und offene Durchgänge)
 func hotspot(hid: String, name: String, area, walk: Vector2, face := "back", gesture := "auto") -> void:
-	hotspots.append({"id": hid, "name": name, "area": area, "walk": walk, "face": face, "gesture": gesture})
+	hotspots.append({"id": hid, "name": name, "area": area, "walk": walk, "face": face, "gesture": gesture,
+		"verb": "use"})
+
+
+## Verb im Aktionsmenü statt "use": hid -> "talk" oder "take" (nur Icon und Text, die Aktion bleibt use());
+## "go" (Türen, Durchgänge) öffnet kein Menü, ein Klick geht direkt.
+func set_verbs(verbs: Dictionary) -> void:
+	for hid in verbs:
+		find_hotspot(hid)["verb"] = verbs[hid]
 
 
 ## Geste beim Benutzen des Hotspots ("" = keine).

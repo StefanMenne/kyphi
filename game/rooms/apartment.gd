@@ -28,6 +28,7 @@ func build() -> void:
 	hotspot("dictaphone", "Diktiergerät", layer_rect("dictaphone"), Vector2(790, 565))
 	hotspot("remote", "Fernbedienung", layer_rect("remote"), Vector2(420, 620), "left")
 	hotspot("door", "Wohnungstür", Rect2(1060, 40, 110, 560), Vector2(1095, 620))
+	set_verbs({"door": "go", "dictaphone": "take"})
 
 
 func refresh() -> void:
