@@ -130,7 +130,7 @@
    "icon_small": "items/depot_key_128.png"
   },
   "id_card": {
-   "name": "Mitarbeiterausweis",
+   "name": "Schwarze Karte",
    "found": "Hollmanns Kiste",
    "use": "Stahltür öffnen",
    "icon": "items/id_card.png",
@@ -976,9 +976,781 @@
      "file": "voices/martin/old_fox.wav",
      "text": "Hollmann, du alter Fuchs. Du hast es gewusst."
     },
-    "badge_not_blocked": {
-     "file": "voices/martin/badge_not_blocked.wav",
-     "text": "Zwei Jahre verschwunden, und keiner hat seinen Ausweis gesperrt. Ordnung muss sein, Frau Ackermann."
+    "black_card": {
+     "file": "voices/martin/black_card.wav",
+     "text": "Hollmann hat ihnen die Karte abgenommen. Und dafür bezahlt."
+    },
+    "mein_diktiergerat_die_batterien_sind": {
+     "file": "voices/martin/mein_diktiergerat_die_batterien_sind.wav",
+     "text": "Mein Diktiergerät. Die Batterien sind leer."
+    },
+    "vox_ist_an_jetzt_nimmt": {
+     "file": "voices/martin/vox_ist_an_jetzt_nimmt.wav",
+     "text": "VOX ist an. Jetzt nimmt es nur auf, wenn es etwas hört."
+    },
+    "belanglos_aber_hollmanns_karte_stand": {
+     "file": "voices/martin/belanglos_aber_hollmanns_karte_stand.wav",
+     "text": "Belanglos. Aber Hollmanns Karte stand direkt davor."
+    },
+    "d_0912_regal_d_fach": {
+     "file": "voices/martin/d_0912_regal_d_fach.wav",
+     "text": "D-0912. Regal D, Fach 09, Platz 12."
+    },
+    "kyphi_tempelraucherwerk_aus_hollmanns_kiste": {
+     "file": "voices/martin/kyphi_tempelraucherwerk_aus_hollmanns_kiste.wav",
+     "text": "Kyphi. Tempelräucherwerk aus Hollmanns Kiste."
+    },
+    "ein_raucherkegel_aus_dunklem_harz": {
+     "file": "voices/martin/ein_raucherkegel_aus_dunklem_harz.wav",
+     "text": "Ein Räucherkegel aus dunklem Harz. Riecht süßlich."
+    },
+    "dreikant_genau_wie_die_schrauben": {
+     "file": "voices/martin/dreikant_genau_wie_die_schrauben.wav",
+     "text": "Dreikant. Genau wie die Schrauben am Paneel."
+    },
+    "ein_schrauberbit_mit_dreikantkopf_damit": {
+     "file": "voices/martin/ein_schrauberbit_mit_dreikantkopf_damit.wav",
+     "text": "Ein Schrauberbit mit Dreikantkopf. Damit kann ich noch nichts anfangen."
+    },
+    "hm": {
+     "file": "voices/martin/hm.wav",
+     "text": "Hm."
+    },
+    "das_diktiergerat_lauft_wieder": {
+     "file": "voices/martin/das_diktiergerat_lauft_wieder.wav",
+     "text": "Das Diktiergerät läuft wieder."
+    },
+    "russ_auf_den_pinsel": {
+     "file": "voices/martin/russ_auf_den_pinsel.wav",
+     "text": "Ruß auf den Pinsel."
+    },
+    "die_eingedruckte_schrift_bleibt_hell": {
+     "file": "voices/martin/die_eingedruckte_schrift_bleibt_hell.wav",
+     "text": "Die eingedrückte Schrift bleibt hell …"
+    },
+    "d_0912_die_inventarnummer": {
+     "file": "voices/martin/d_0912_die_inventarnummer.wav",
+     "text": "D-0912. Die Inventarnummer."
+    },
+    "mit_dem_spatel_verschmiere_ich": {
+     "file": "voices/martin/mit_dem_spatel_verschmiere_ich.wav",
+     "text": "Mit dem Spatel verschmiere ich alles. Dafür braucht es einen Pinsel."
+    },
+    "passt": {
+     "file": "voices/martin/passt.wav",
+     "text": "Passt."
+    },
+    "brennt_schon": {
+     "file": "voices/martin/brennt_schon.wav",
+     "text": "Brennt schon."
+    },
+    "eine_untertasse_anzunden_nein": {
+     "file": "voices/martin/eine_untertasse_anzunden_nein.wav",
+     "text": "Eine Untertasse anzünden? Nein."
+    },
+    "kegel_auf_die_untertasse_gut": {
+     "file": "voices/martin/kegel_auf_die_untertasse_gut.wav",
+     "text": "Kegel auf die Untertasse, gut. Jetzt fehlt nur Feuer."
+    },
+    "ohne_feuerfeste_unterlage_brennt_mir": {
+     "file": "voices/martin/ohne_feuerfeste_unterlage_brennt_mir.wav",
+     "text": "Ohne feuerfeste Unterlage brennt mir die Glut auf den Boden."
+    },
+    "nicht_hier_wenn_dann_im": {
+     "file": "voices/martin/nicht_hier_wenn_dann_im.wav",
+     "text": "Nicht hier. Wenn, dann im Altarraum."
+    },
+    "zwei_aa_batterien_noch_fast": {
+     "file": "voices/martin/zwei_aa_batterien_noch_fast.wav",
+     "text": "Zwei AA-Batterien. Noch fast voll."
+    },
+    "die_malerleiter_zusammengeklappt_passt_sie": {
+     "file": "voices/martin/die_malerleiter_zusammengeklappt_passt_sie.wav",
+     "text": "Die Malerleiter. Zusammengeklappt passt sie durch jede Tür."
+    },
+    "eine_pinzette": {
+     "file": "voices/martin/eine_pinzette.wav",
+     "text": "Eine Pinzette."
+    },
+    "fundtutchen_fur_alles_was_man": {
+     "file": "voices/martin/fundtutchen_fur_alles_was_man.wav",
+     "text": "Fundtütchen. Für alles, was man besser nicht anfasst."
+    },
+    "ein_langes_graues_haar_sauber": {
+     "file": "voices/martin/ein_langes_graues_haar_sauber.wav",
+     "text": "Ein langes graues Haar, sauber gesichert."
+    },
+    "ein_weicher_pinsel": {
+     "file": "voices/martin/ein_weicher_pinsel.wav",
+     "text": "Ein weicher Pinsel."
+    },
+    "der_pinsel_ist_voller_russ": {
+     "file": "voices/martin/der_pinsel_ist_voller_russ.wav",
+     "text": "Der Pinsel ist voller Ruß."
+    },
+    "ein_spatel_mein_universalwerkzeug": {
+     "file": "voices/martin/ein_spatel_mein_universalwerkzeug.wav",
+     "text": "Ein Spatel. Mein Universalwerkzeug."
+    },
+    "feiner_russ_von_der_decke": {
+     "file": "voices/martin/feiner_russ_von_der_decke.wav",
+     "text": "Feiner Ruß von der Decke."
+    },
+    "kreppband_vorsicht_frisch_restauriert": {
+     "file": "voices/martin/kreppband_vorsicht_frisch_restauriert.wav",
+     "text": "Kreppband: „VORSICHT – FRISCH RESTAURIERT“."
+    },
+    "ein_messschieber_mit_tiefenmass": {
+     "file": "voices/martin/ein_messschieber_mit_tiefenmass.wav",
+     "text": "Ein Messschieber, mit Tiefenmaß."
+    },
+    "eine_uv_lampe_alter_schellack": {
+     "file": "voices/martin/eine_uv_lampe_alter_schellack.wav",
+     "text": "Eine UV-Lampe. Alter Schellack leuchtet darunter grünlich."
+    },
+    "der_depotschlussel_ordnungsgemass_eingetragen": {
+     "file": "voices/martin/der_depotschlussel_ordnungsgemass_eingetragen.wav",
+     "text": "Der Depotschlüssel. Ordnungsgemäß eingetragen."
+    },
+    "eine_schwarze_karte_mit_chip": {
+     "file": "voices/martin/eine_schwarze_karte_mit_chip.wav",
+     "text": "Eine schwarze Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666."
+    },
+    "frau_ackermanns_feuerzeug_offiziell_besitzt": {
+     "file": "voices/martin/frau_ackermanns_feuerzeug_offiziell_besitzt.wav",
+     "text": "Frau Ackermanns Feuerzeug. Offiziell besitzt sie keins."
+    },
+    "eine_untertasse_sonst_mische_ich": {
+     "file": "voices/martin/eine_untertasse_sonst_mische_ich.wav",
+     "text": "Eine Untertasse. Sonst mische ich darauf Retuschierfarben."
+    },
+    "der_kegel_glimmt_feiner_rauch": {
+     "file": "voices/martin/der_kegel_glimmt_feiner_rauch.wav",
+     "text": "Der Kegel glimmt. Feiner Rauch steigt auf."
+    },
+    "ein_akkuschrauber_fur_spezialschrauben_habe": {
+     "file": "voices/martin/ein_akkuschrauber_fur_spezialschrauben_habe.wav",
+     "text": "Ein Akkuschrauber. Für Spezialschrauben habe ich keinen Bit."
+    },
+    "akkuschrauber_mit_dreikant_bit": {
+     "file": "voices/martin/akkuschrauber_mit_dreikant_bit.wav",
+     "text": "Akkuschrauber mit Dreikant-Bit."
+    },
+    "die_fernbedienung": {
+     "file": "voices/martin/die_fernbedienung.wav",
+     "text": "Die Fernbedienung."
+    },
+    "nichts_besonderes": {
+     "file": "voices/martin/nichts_besonderes.wav",
+     "text": "Nichts Besonderes."
+    },
+    "sieht_aus_wie_immer": {
+     "file": "voices/martin/sieht_aus_wie_immer.wav",
+     "text": "Sieht aus wie immer."
+    },
+    "das_bringt_mir_nichts": {
+     "file": "voices/martin/das_bringt_mir_nichts.wav",
+     "text": "Das bringt mir nichts."
+    },
+    "lieber_nicht": {
+     "file": "voices/martin/lieber_nicht.wav",
+     "text": "Lieber nicht."
+    },
+    "nein": {
+     "file": "voices/martin/nein.wav",
+     "text": "Nein."
+    },
+    "das_passt_nicht_zusammen": {
+     "file": "voices/martin/das_passt_nicht_zusammen.wav",
+     "text": "Das passt nicht zusammen."
+    },
+    "damit_komme_ich_nicht_weiter": {
+     "file": "voices/martin/damit_komme_ich_nicht_weiter.wav",
+     "text": "Damit komme ich nicht weiter."
+    },
+    "dreck_an_meinem_altar_das": {
+     "file": "voices/martin/dreck_an_meinem_altar_das.wav",
+     "text": "Dreck. An meinem Altar. Das sehe ich mir an."
+    },
+    "mal_sehen_ob_das_diktiergerat": {
+     "file": "voices/martin/mal_sehen_ob_das_diktiergerat.wav",
+     "text": "Mal sehen, ob das Diktiergerät etwas gehört hat."
+    },
+    "ein_grauer_morgen_passt_zum": {
+     "file": "voices/martin/ein_grauer_morgen_passt_zum.wav",
+     "text": "Ein grauer Morgen. Passt zum Altar."
+    },
+    "fachliteratur_agyptische_steinmetzkunst_schellack_pigmente": {
+     "file": "voices/martin/fachliteratur_agyptische_steinmetzkunst_schellack_pigmente.wav",
+     "text": "Fachliteratur. Ägyptische Steinmetzkunst, Schellack, Pigmente. Spannender als jeder Krimi."
+    },
+    "billige_abenteuerromantik_ich_mag_es": {
+     "file": "voices/martin/billige_abenteuerromantik_ich_mag_es.wav",
+     "text": "Billige Abenteuerromantik. Ich mag es trotzdem."
+    },
+    "sie_lebt_das_ist_mehr": {
+     "file": "voices/martin/sie_lebt_das_ist_mehr.wav",
+     "text": "Sie lebt. Das ist mehr, als man von meinen anderen Projekten sagen kann."
+    },
+    "mein_sofa_die_fernbedienung_liegt": {
+     "file": "voices/martin/mein_sofa_die_fernbedienung_liegt.wav",
+     "text": "Mein Sofa. Die Fernbedienung liegt darauf."
+    },
+    "mein_schreibtisch_mit_laptop_und": {
+     "file": "voices/martin/mein_schreibtisch_mit_laptop_und.wav",
+     "text": "Mein Schreibtisch, mit Laptop und Anrufbeantworter."
+    },
+    "der_anrufbeantworter_eine_nachricht_von": {
+     "file": "voices/martin/der_anrufbeantworter_eine_nachricht_von.wav",
+     "text": "Der Anrufbeantworter. Eine Nachricht von Frau Ackermann."
+    },
+    "mein_diktiergerat_fur_restaurierungsnotizen": {
+     "file": "voices/martin/mein_diktiergerat_fur_restaurierungsnotizen.wav",
+     "text": "Mein Diktiergerät, für Restaurierungsnotizen."
+    },
+    "die_fernbedienung_da_stecken_zwei": {
+     "file": "voices/martin/die_fernbedienung_da_stecken_zwei.wav",
+     "text": "Die Fernbedienung. Da stecken zwei AA-Batterien drin."
+    },
+    "die_wohnungstur_von_hier_geht": {
+     "file": "voices/martin/die_wohnungstur_von_hier_geht.wav",
+     "text": "Die Wohnungstür. Von hier geht es direkt in die Lobby des Museums."
+    },
+    "die_batterien_sind_leer": {
+     "file": "voices/martin/die_batterien_sind_leer.wav",
+     "text": "Die Batterien sind leer."
+    },
+    "frau_ackermann_hat_den_depotschlussel": {
+     "file": "voices/martin/frau_ackermann_hat_den_depotschlussel.wav",
+     "text": "Frau Ackermann hat den Depotschlüssel."
+    },
+    "mein_laptop_darauf_hore_ich": {
+     "file": "voices/martin/mein_laptop_darauf_hore_ich.wav",
+     "text": "Mein Laptop. Darauf höre ich sonst meine Restaurierungsnotizen ab."
+    },
+    "ohne_batterien_ist_sie_nur": {
+     "file": "voices/martin/ohne_batterien_ist_sie_nur.wav",
+     "text": "Ohne Batterien ist sie nur noch Deko."
+    },
+    "keine_zeit_der_altar_wartet": {
+     "file": "voices/martin/keine_zeit_der_altar_wartet.wav",
+     "text": "Keine Zeit. Der Altar wartet."
+    },
+    "die_bleiben_jetzt_im_diktiergerat": {
+     "file": "voices/martin/die_bleiben_jetzt_im_diktiergerat.wav",
+     "text": "Die bleiben jetzt im Diktiergerät. Fernsehen wird ohnehin überschätzt."
+    },
+    "ich_habe_die_aufnahme_oft": {
+     "file": "voices/martin/ich_habe_die_aufnahme_oft.wav",
+     "text": "Ich habe die Aufnahme oft genug gehört. Hollmanns Kiste steht im Depot."
+    },
+    "verpackungsmaterial_und_restaurierungsabfalle": {
+     "file": "voices/martin/verpackungsmaterial_und_restaurierungsabfalle.wav",
+     "text": "Verpackungsmaterial und Restaurierungsabfälle."
+    },
+    "losemittel_pigmente_schellack_alles_ordentlich": {
+     "file": "voices/martin/losemittel_pigmente_schellack_alles_ordentlich.wav",
+     "text": "Lösemittel, Pigmente, Schellack. Alles ordentlich beschriftet."
+    },
+    "die_lochwand_jedes_werkzeug_hat": {
+     "file": "voices/martin/die_lochwand_jedes_werkzeug_hat.wav",
+     "text": "Die Lochwand. Jedes Werkzeug hat seinen Platz."
+    },
+    "meine_werkbank": {
+     "file": "voices/martin/meine_werkbank.wav",
+     "text": "Meine Werkbank."
+    },
+    "die_malerleiter": {
+     "file": "voices/martin/die_malerleiter.wav",
+     "text": "Die Malerleiter."
+    },
+    "eine_untertasse_darauf_mische_ich": {
+     "file": "voices/martin/eine_untertasse_darauf_mische_ich.wav",
+     "text": "Eine Untertasse. Darauf mische ich Retuschierfarben."
+    },
+    "kreppband_vorsicht_frisch_restauriert_davon": {
+     "file": "voices/martin/kreppband_vorsicht_frisch_restauriert_davon.wav",
+     "text": "Kreppband: „VORSICHT – FRISCH RESTAURIERT“. Davon habe ich reichlich."
+    },
+    "der_akkuschrauber_fur_spezialschrauben_habe": {
+     "file": "voices/martin/der_akkuschrauber_fur_spezialschrauben_habe.wav",
+     "text": "Der Akkuschrauber. Für Spezialschrauben habe ich keinen passenden Bit."
+    },
+    "die_tur_zur_lobby": {
+     "file": "voices/martin/die_tur_zur_lobby.wav",
+     "text": "Die Tür zur Lobby."
+    },
+    "die_tur_zum_altarraum": {
+     "file": "voices/martin/die_tur_zum_altarraum.wav",
+     "text": "Die Tür zum Altarraum."
+    },
+    "werkzeug": {
+     "file": "voices/martin/werkzeug.wav",
+     "text": "Werkzeug."
+    },
+    "was_ich_brauche_liegt_offen": {
+     "file": "voices/martin/was_ich_brauche_liegt_offen.wav",
+     "text": "Was ich brauche, liegt offen herum."
+    },
+    "eine_neonrohre_die_flackert_typisch": {
+     "file": "voices/martin/eine_neonrohre_die_flackert_typisch.wav",
+     "text": "Eine Neonröhre, die flackert. Typisch Keller."
+    },
+    "ein_taster_licht_gibt_es": {
+     "file": "voices/martin/ein_taster_licht_gibt_es.wav",
+     "text": "Ein Taster. Licht gibt es nur, solange jemand draufdrückt. Die Verwaltung spart."
+    },
+    "die_treppe_hoch_in_die": {
+     "file": "voices/martin/die_treppe_hoch_in_die.wav",
+     "text": "Die Treppe hoch in die Lobby."
+    },
+    "hollmanns_kiste_d_0912": {
+     "file": "voices/martin/hollmanns_kiste_d_0912.wav",
+     "text": "Hollmanns Kiste. D-0912."
+    },
+    "lange_regalreihen_mit_lagerkisten_jede": {
+     "file": "voices/martin/lange_regalreihen_mit_lagerkisten_jede.wav",
+     "text": "Lange Regalreihen mit Lagerkisten, jede mit Inventarnummer."
+    },
+    "regale_voller_kisten_man_sieht": {
+     "file": "voices/martin/regale_voller_kisten_man_sieht.wav",
+     "text": "Regale voller Kisten. Man sieht kaum etwas."
+    },
+    "klebt_fest_das_licht_bleibt": {
+     "file": "voices/martin/klebt_fest_das_licht_bleibt.wav",
+     "text": "Klebt fest. Das Licht bleibt an."
+    },
+    "die_verwaltung_kann_mich_mal": {
+     "file": "voices/martin/die_verwaltung_kann_mich_mal.wav",
+     "text": "Die Verwaltung kann mich mal."
+    },
+    "wieder_dunkel_kaum_lasse_ich": {
+     "file": "voices/martin/wieder_dunkel_kaum_lasse_ich.wav",
+     "text": "Wieder dunkel. Kaum lasse ich den Taster los, ist das Licht aus."
+    },
+    "zu_dunkel_die_schilder_kann": {
+     "file": "voices/martin/zu_dunkel_die_schilder_kann.wav",
+     "text": "Zu dunkel. Die Schilder kann ich so nicht lesen."
+    },
+    "hunderte_kisten_ohne_inventarnummer_suche": {
+     "file": "voices/martin/hunderte_kisten_ohne_inventarnummer_suche.wav",
+     "text": "Hunderte Kisten. Ohne Inventarnummer suche ich hier bis zur Inventur."
+    },
+    "hier_steht_nichts_mit_d": {
+     "file": "voices/martin/hier_steht_nichts_mit_d.wav",
+     "text": "Hier steht nichts mit D."
+    },
+    "hollmanns_platz_ist_leer_die": {
+     "file": "voices/martin/hollmanns_platz_ist_leer_die.wav",
+     "text": "Hollmanns Platz ist leer. Die Kiste steht vor mir."
+    },
+    "nur_noch_altes_werkzeug": {
+     "file": "voices/martin/nur_noch_altes_werkzeug.wav",
+     "text": "Nur noch altes Werkzeug."
+    },
+    "den_boden_hebe_ich_mit": {
+     "file": "voices/martin/den_boden_hebe_ich_mit.wav",
+     "text": "Den Boden hebe ich mit etwas Flachem an der Kante an."
+    },
+    "zu_schwer_fur_das_bisschen": {
+     "file": "voices/martin/zu_schwer_fur_das_bisschen.wav",
+     "text": "Zu schwer für das bisschen Werkzeug. Wie tief ist sie eigentlich?"
+    },
+    "das_versteck_ist_leer": {
+     "file": "voices/martin/das_versteck_ist_leer.wav",
+     "text": "Das Versteck ist leer."
+    },
+    "wozu_da_ist_nur_werkzeug": {
+     "file": "voices/martin/wozu_da_ist_nur_werkzeug.wav",
+     "text": "Wozu? Da ist nur Werkzeug drin."
+    },
+    "eine_schwarze_karte_mit_einer": {
+     "file": "voices/martin/eine_schwarze_karte_mit_einer.wav",
+     "text": "Eine schwarze Karte mit einer roten 666. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit."
+    },
+    "den_schlussel_muss_ich_frau": {
+     "file": "voices/martin/den_schlussel_muss_ich_frau.wav",
+     "text": "Den Schlüssel muss ich Frau Ackermann zurückbringen. Sonst lässt sie mich nicht gehen."
+    },
+    "als_taschenlampe_ist_die_uv": {
+     "file": "voices/martin/als_taschenlampe_ist_die_uv.wav",
+     "text": "Als Taschenlampe ist die UV-Lampe zu schwach. Ich brauche richtiges Licht."
+    },
+    "die_kiste_geht_nicht_noch": {
+     "file": "voices/martin/die_kiste_geht_nicht_noch.wav",
+     "text": "Die Kiste geht nicht noch einmal ins Regal. Noch nicht."
+    },
+    "zu_dunkel_ich_sehe_nicht": {
+     "file": "voices/martin/zu_dunkel_ich_sehe_nicht.wav",
+     "text": "Zu dunkel. Ich sehe nicht einmal, was in der Kiste liegt."
+    },
+    "abdeckplanen_die_renovierung_dauert_langer": {
+     "file": "voices/martin/abdeckplanen_die_renovierung_dauert_langer.wav",
+     "text": "Abdeckplanen. Die Renovierung dauert länger als jede Restaurierung."
+    },
+    "im_gesperrten_flugel_arbeite_nur": {
+     "file": "voices/martin/im_gesperrten_flugel_arbeite_nur.wav",
+     "text": "Im gesperrten Flügel arbeite nur ich. Und die Reinigungsfirma kommt nur montags."
+    },
+    "das_schlusselbrett_es_hangt_hinter": {
+     "file": "voices/martin/das_schlusselbrett_es_hangt_hinter.wav",
+     "text": "Das Schlüsselbrett. Es hängt hinter Frau Ackermann. Keine Chance."
+    },
+    "der_empfangstresen_darauf_das_ausleihbuch": {
+     "file": "voices/martin/der_empfangstresen_darauf_das_ausleihbuch.wav",
+     "text": "Der Empfangstresen. Darauf das Ausleihbuch: jeder Schlüssel, mit Datum und Uhrzeit."
+    },
+    "langes_graues_haar_hochgesteckt_hm": {
+     "file": "voices/martin/langes_graues_haar_hochgesteckt_hm.wav",
+     "text": "Langes graues Haar, hochgesteckt. Hm."
+    },
+    "frau_ackermann_streng_korrekt_und": {
+     "file": "voices/martin/frau_ackermann_streng_korrekt_und.wav",
+     "text": "Frau Ackermann. Streng, korrekt, und sie spielt ständig mit einem Feuerzeug."
+    },
+    "die_archivkartei_alphabetisch_nach_nachlassen": {
+     "file": "voices/martin/die_archivkartei_alphabetisch_nach_nachlassen.wav",
+     "text": "Die Archivkartei. Alphabetisch nach Nachlässen sortiert."
+    },
+    "dahinter_liegt_der_offentliche_bereich": {
+     "file": "voices/martin/dahinter_liegt_der_offentliche_bereich.wav",
+     "text": "Dahinter liegt der öffentliche Bereich des Museums."
+    },
+    "die_tur_zur_werkstatt": {
+     "file": "voices/martin/die_tur_zur_werkstatt.wav",
+     "text": "Die Tür zur Werkstatt."
+    },
+    "das_eingangsportal_von_hier_bin": {
+     "file": "voices/martin/das_eingangsportal_von_hier_bin.wav",
+     "text": "Das Eingangsportal. Von hier bin ich in zwei Minuten zu Hause."
+    },
+    "moderne_kunst_nicht_mein_fachgebiet": {
+     "file": "voices/martin/moderne_kunst_nicht_mein_fachgebiet.wav",
+     "text": "Moderne Kunst. Nicht mein Fachgebiet."
+    },
+    "das_treppenhaus_unten_ist_der": {
+     "file": "voices/martin/das_treppenhaus_unten_ist_der.wav",
+     "text": "Das Treppenhaus. Unten ist der Keller mit dem Depot."
+    },
+    "abgeschlossen_den_schlussel_hat_frau": {
+     "file": "voices/martin/abgeschlossen_den_schlussel_hat_frau.wav",
+     "text": "Abgeschlossen. Den Schlüssel hat Frau Ackermann."
+    },
+    "zwischen_hofmann_sammlung_und_holtz": {
+     "file": "voices/martin/zwischen_hofmann_sammlung_und_holtz.wav",
+     "text": "Zwischen „Hofmann, Sammlung“ und „Holtz, Grafik“ fehlt immer noch Hollmann."
+    },
+    "wo_waren_sie_gestern_abend": {
+     "file": "voices/martin/wo_waren_sie_gestern_abend.wav",
+     "text": "Wo waren Sie gestern Abend, Frau Ackermann?"
+    },
+    "ich_brauche_den_depotschlussel": {
+     "file": "voices/martin/ich_brauche_den_depotschlussel.wav",
+     "text": "Ich brauche den Depotschlüssel."
+    },
+    "die_habe_ich_gerade_nicht": {
+     "file": "voices/martin/die_habe_ich_gerade_nicht.wav",
+     "text": "Die … habe ich gerade nicht im Kopf."
+    },
+    "d_0912_hollmann_nachlass": {
+     "file": "voices/martin/d_0912_hollmann_nachlass.wav",
+     "text": "D-0912. Hollmann, Nachlass."
+    },
+    "besser_nicht_noch_nicht": {
+     "file": "voices/martin/besser_nicht_noch_nicht.wav",
+     "text": "Besser nicht. Noch nicht."
+    },
+    "die_archivkartei_gerade_suche_ich": {
+     "file": "voices/martin/die_archivkartei_gerade_suche_ich.wav",
+     "text": "Die Archivkartei. Gerade suche ich nichts."
+    },
+    "das_podest_nachgebaut_nach_den": {
+     "file": "voices/martin/das_podest_nachgebaut_nach_den.wav",
+     "text": "Das Podest. Nachgebaut nach den Grabungsfotos, Stufe für Stufe."
+    },
+    "die_saulen_bemalt_nicht_original": {
+     "file": "voices/martin/die_saulen_bemalt_nicht_original.wav",
+     "text": "Die Säulen. Bemalt, nicht original, aber gut gemacht."
+    },
+    "der_altarschrank_eine_nachbildung_ins": {
+     "file": "voices/martin/der_altarschrank_eine_nachbildung_ins.wav",
+     "text": "Der Altarschrank. Eine Nachbildung, ins Podest eingebaut. Ich lagere darin Material."
+    },
+    "der_opferaltar_sechs_mal_drei": {
+     "file": "voices/martin/der_opferaltar_sechs_mal_drei.wav",
+     "text": "Der Opferaltar. Sechs mal drei Meter, mein aktuelles Projekt."
+    },
+    "feine_asche_auf_dem_raucheraltar": {
+     "file": "voices/martin/feine_asche_auf_dem_raucheraltar.wav",
+     "text": "Feine Asche auf dem Räucheraltar. Sie riecht süßlich, nach Harz und Honig."
+    },
+    "russ_an_der_decke_direkt": {
+     "file": "voices/martin/russ_an_der_decke_direkt.wav",
+     "text": "Ruß an der Decke, direkt über dem Altar. Hier hat etwas gebrannt."
+    },
+    "abgeklebt_diesmal_von_mir": {
+     "file": "voices/martin/abgeklebt_diesmal_von_mir.wav",
+     "text": "Abgeklebt. Diesmal von mir."
+    },
+    "der_rauchmelder_ist_wieder_frei": {
+     "file": "voices/martin/der_rauchmelder_ist_wieder_frei.wav",
+     "text": "Der Rauchmelder ist wieder frei."
+    },
+    "abgeklebt_darunter_klebt_ein_langes": {
+     "file": "voices/martin/abgeklebt_darunter_klebt_ein_langes.wav",
+     "text": "Abgeklebt. Darunter klebt ein langes graues Haar."
+    },
+    "noch_abgeklebt": {
+     "file": "voices/martin/noch_abgeklebt.wav",
+     "text": "Noch abgeklebt."
+    },
+    "der_rauchmelder_bei_dem_russ": {
+     "file": "voices/martin/der_rauchmelder_bei_dem_russ.wav",
+     "text": "Der Rauchmelder. Bei dem Ruß hätte er längst anschlagen müssen."
+    },
+    "die_malerleiter_auf_dem_podest": {
+     "file": "voices/martin/die_malerleiter_auf_dem_podest.wav",
+     "text": "Die Malerleiter, auf dem Podest unter dem Rauchmelder."
+    },
+    "eine_neue_stahltur_mit_kartenleser": {
+     "file": "voices/martin/eine_neue_stahltur_mit_kartenleser.wav",
+     "text": "Eine neue Stahltür mit Kartenleser. Kein Logo, keine Nummer. Die hat nicht das Museum eingebaut."
+    },
+    "dreikant_sicherheitsschrauben_hinter_einer_wandverkleidung": {
+     "file": "voices/martin/dreikant_sicherheitsschrauben_hinter_einer_wandverkleidung.wav",
+     "text": "Dreikant-Sicherheitsschrauben. Hinter einer Wandverkleidung aus den Zwanzigern."
+    },
+    "eichenpaneele_angeblich_aus_den_1920er": {
+     "file": "voices/martin/eichenpaneele_angeblich_aus_den_1920er.wav",
+     "text": "Eichenpaneele, angeblich aus den 1920er-Jahren. Holzzapfen verdecken die Schraubenköpfe."
+    },
+    "verschlossen_daneben_ein_kartenleser": {
+     "file": "voices/martin/verschlossen_daneben_ein_kartenleser.wav",
+     "text": "Verschlossen. Daneben ein Kartenleser."
+    },
+    "fest_verschraubt": {
+     "file": "voices/martin/fest_verschraubt.wav",
+     "text": "Fest verschraubt."
+    },
+    "ein_bisschen_russ_konnte_nutzlich": {
+     "file": "voices/martin/ein_bisschen_russ_konnte_nutzlich.wav",
+     "text": "Ein bisschen Ruß. Könnte nützlich sein."
+    },
+    "der_melder_ist_mit_klebeband": {
+     "file": "voices/martin/der_melder_ist_mit_klebeband.wav",
+     "text": "Der Melder ist mit Klebeband abgedeckt. Und darunter klebt ein langes graues Haar."
+    },
+    "und_das_klebeband_kommt_ab": {
+     "file": "voices/martin/und_das_klebeband_kommt_ab.wav",
+     "text": "Und das Klebeband kommt ab. Brandschutz geht vor."
+    },
+    "hier_ist_nachts_jemand_und": {
+     "file": "voices/martin/hier_ist_nachts_jemand_und.wav",
+     "text": "Hier ist nachts jemand. Und er bereitet sich vor. Ich will wissen, wer."
+    },
+    "der_melder_ist_frei": {
+     "file": "voices/martin/der_melder_ist_frei.wav",
+     "text": "Der Melder ist frei."
+    },
+    "das_haar_habe_ich_schon": {
+     "file": "voices/martin/das_haar_habe_ich_schon.wav",
+     "text": "Das Haar habe ich schon."
+    },
+    "und_wohin_damit_ich_brauche": {
+     "file": "voices/martin/und_wohin_damit_ich_brauche.wav",
+     "text": "Und wohin damit? Ich brauche ein Fundtütchen."
+    },
+    "pinzette_fundtutchen_gesichert": {
+     "file": "voices/martin/pinzette_fundtutchen_gesichert.wav",
+     "text": "Pinzette, Fundtütchen. Gesichert."
+    },
+    "der_ist_noch_abgeklebt": {
+     "file": "voices/martin/der_ist_noch_abgeklebt.wav",
+     "text": "Der ist noch abgeklebt."
+    },
+    "halt": {
+     "file": "voices/martin/halt.wav",
+     "text": "Hält."
+    },
+    "ich_habe_das_band_gerade": {
+     "file": "voices/martin/ich_habe_das_band_gerade.wav",
+     "text": "Ich habe das Band gerade erst abgezogen. Brandschutz."
+    },
+    "vorsicht_frisch_restauriert_passt": {
+     "file": "voices/martin/vorsicht_frisch_restauriert_passt.wav",
+     "text": "„VORSICHT – FRISCH RESTAURIERT“. Passt."
+    },
+    "erst_will_ich_wissen_was": {
+     "file": "voices/martin/erst_will_ich_wissen_was.wav",
+     "text": "Erst will ich wissen, was mit dem Rauchmelder los ist."
+    },
+    "ohne_batterien_nimmt_es_nichts": {
+     "file": "voices/martin/ohne_batterien_nimmt_es_nichts.wav",
+     "text": "Ohne Batterien nimmt es nichts auf."
+    },
+    "restkapazitat_vier_stunden_von_18": {
+     "file": "voices/martin/restkapazitat_vier_stunden_von_18.wav",
+     "text": "Restkapazität: vier Stunden. Von 18 Uhr bis morgen früh reicht das nicht."
+    },
+    "feierabend_ab_nach_hause": {
+     "file": "voices/martin/feierabend_ab_nach_hause.wav",
+     "text": "Feierabend. Ab nach Hause."
+    },
+    "da_ist_es_abhoren_am": {
+     "file": "voices/martin/da_ist_es_abhoren_am.wav",
+     "text": "Da ist es. Abhören am Laptop, zu Hause."
+    },
+    "mein_material_nichts_was_mir": {
+     "file": "voices/martin/mein_material_nichts_was_mir.wav",
+     "text": "Mein Material. Nichts, was mir gerade weiterhilft."
+    },
+    "der_melder_naturlich_den_muss": {
+     "file": "voices/martin/der_melder_naturlich_den_muss.wav",
+     "text": "Der Melder. Natürlich. Den muss ich wieder abkleben."
+    },
+    "dahinter_ist_ein_hohlraum_mit": {
+     "file": "voices/martin/dahinter_ist_ein_hohlraum_mit.wav",
+     "text": "Dahinter ist ein Hohlraum. Mit Luftzug. Wie die Schraffur im Notizbuch."
+    },
+    "der_rauch_steigt_gerade_nach": {
+     "file": "voices/martin/der_rauch_steigt_gerade_nach.wav",
+     "text": "Der Rauch steigt gerade nach oben."
+    },
+    "alter_schellack_leuchtet_grunlich_aber": {
+     "file": "voices/martin/alter_schellack_leuchtet_grunlich_aber.wav",
+     "text": "Alter Schellack leuchtet grünlich. Aber vier Zapfen bleiben dunkel. Die sind neu."
+    },
+    "alles_grunlich_alter_schellack_wie": {
+     "file": "voices/martin/alles_grunlich_alter_schellack_wie.wav",
+     "text": "Alles grünlich. Alter Schellack, wie es sich gehört."
+    },
+    "die_zapfen_sind_schon_draussen": {
+     "file": "voices/martin/die_zapfen_sind_schon_draussen.wav",
+     "text": "Die Zapfen sind schon draußen."
+    },
+    "darunter_dreikant_sicherheitsschrauben_dafur_passt": {
+     "file": "voices/martin/darunter_dreikant_sicherheitsschrauben_dafur_passt.wav",
+     "text": "Darunter: Dreikant-Sicherheitsschrauben. Dafür passt kein normaler Bit."
+    },
+    "welche_zapfen_die_sehen_alle": {
+     "file": "voices/martin/welche_zapfen_die_sehen_alle.wav",
+     "text": "Welche Zapfen? Die sehen alle gleich alt aus."
+    },
+    "kein_normaler_bit_passt_auf": {
+     "file": "voices/martin/kein_normaler_bit_passt_auf.wav",
+     "text": "Kein normaler Bit passt auf Dreikantschrauben."
+    },
+    "ich_bohre_doch_keine_locher": {
+     "file": "voices/martin/ich_bohre_doch_keine_locher.wav",
+     "text": "Ich bohre doch keine Löcher in ein Paneel aus den Zwanzigern."
+    },
+    "hier_sind_keine_schrauben_zu": {
+     "file": "voices/martin/hier_sind_keine_schrauben_zu.wav",
+     "text": "Hier sind keine Schrauben zu sehen."
+    },
+    "mit_dem_brennenden_kegel_nicht": {
+     "file": "voices/martin/mit_dem_brennenden_kegel_nicht.wav",
+     "text": "Mit dem brennenden Kegel? Nicht durchs Museum."
+    },
+    "und_die_leiter_bleibt_unter": {
+     "file": "voices/martin/und_die_leiter_bleibt_unter.wav",
+     "text": "Und die Leiter bleibt unter dem Melder stehen? Die würde mich verraten. Die muss weg."
+    },
+    "viel_zu_hoch": {
+     "file": "voices/martin/viel_zu_hoch.wav",
+     "text": "Viel zu hoch."
+    },
+    "mit_blossen_fingern_dafur_gibt": {
+     "file": "voices/martin/mit_blossen_fingern_dafur_gibt.wav",
+     "text": "Mit bloßen Fingern? Dafür gibt es Werkzeug."
+    },
+    "nicht_anfassen_das_ist_ein": {
+     "file": "voices/martin/nicht_anfassen_das_ist_ein.wav",
+     "text": "Nicht anfassen. Das ist ein Befund."
+    },
+    "asche_ist_zu_grob_fur": {
+     "file": "voices/martin/asche_ist_zu_grob_fur.wav",
+     "text": "Asche ist zu grob. Für feine Linien bräuchte ich etwas Feineres. Ruß zum Beispiel."
+    },
+    "zu_hoch_erst_die_leiter": {
+     "file": "voices/martin/zu_hoch_erst_die_leiter.wav",
+     "text": "Zu hoch. Erst die Leiter aufstellen."
+    },
+    "viel_zu_hoch_ich_brauche": {
+     "file": "voices/martin/viel_zu_hoch_ich_brauche.wav",
+     "text": "Viel zu hoch. Ich brauche die Leiter aus der Werkstatt."
+    },
+    "mit_blossen_handen": {
+     "file": "voices/martin/mit_blossen_handen.wav",
+     "text": "Mit bloßen Händen?"
+    },
+    "das_diktiergerat_liegt_gut_versteckt": {
+     "file": "voices/martin/das_diktiergerat_liegt_gut_versteckt.wav",
+     "text": "Das Diktiergerät liegt gut versteckt. Jetzt nach Hause."
+    },
+    "na_also_licht": {
+     "file": "voices/martin/na_also_licht.wav",
+     "text": "Na also. Licht."
+    },
+    "regal_d_fach_09_platz": {
+     "file": "voices/martin/regal_d_fach_09_platz.wav",
+     "text": "Regal D, Fach 09, Platz 12 … da. D-0912, Hollmann, Nachlass."
+    },
+    "altes_werkzeug": {
+     "file": "voices/martin/altes_werkzeug.wav",
+     "text": "Altes Werkzeug."
+    },
+    "aussen_achtzehn_zentimeter_innen_vierzehn": {
+     "file": "voices/martin/aussen_achtzehn_zentimeter_innen_vierzehn.wav",
+     "text": "Außen achtzehn Zentimeter. Innen … vierzehn."
+    },
+    "mal_sehen_was_du_versteckst": {
+     "file": "voices/martin/mal_sehen_was_du_versteckst.wav",
+     "text": "Mal sehen, was du versteckst …"
+    },
+    "hofmann_sammlung_holtz_grafik_dazwischen": {
+     "file": "voices/martin/hofmann_sammlung_holtz_grafik_dazwischen.wav",
+     "text": "Hofmann, Sammlung … Holtz, Grafik. Dazwischen fehlt eine Karte."
+    },
+    "so_direkt_unter_den_melder": {
+     "file": "voices/martin/so_direkt_unter_den_melder.wav",
+     "text": "So. Direkt unter den Melder."
+    },
+    "die_nehme_ich_wieder_mit": {
+     "file": "voices/martin/die_nehme_ich_wieder_mit.wav",
+     "text": "Die nehme ich wieder mit."
+    },
+    "zwischen_die_farbdosen_da_sucht": {
+     "file": "voices/martin/zwischen_die_farbdosen_da_sucht.wav",
+     "text": "Zwischen die Farbdosen. Da sucht keiner."
+    },
+    "dann_wollen_wir_mal_sehen": {
+     "file": "voices/martin/dann_wollen_wir_mal_sehen.wav",
+     "text": "Dann wollen wir mal sehen, wohin der Rauch zieht."
+    },
+    "frau_ackermann_kein_wort_nur": {
+     "file": "voices/martin/frau_ackermann_kein_wort_nur.wav",
+     "text": "Frau Ackermann. Kein Wort. Nur dieser Blick."
+    },
+    "der_rauch_er_wird_in": {
+     "file": "voices/martin/der_rauch_er_wird_in.wav",
+     "text": "Der Rauch … er wird in die Fuge gezogen."
+    },
+    "raus_mit_euch": {
+     "file": "voices/martin/raus_mit_euch.wav",
+     "text": "Raus mit euch …"
+    },
+    "die_schrauben_kommen_raus_und": {
+     "file": "voices/martin/die_schrauben_kommen_raus_und.wav",
+     "text": "Die Schrauben kommen raus. Und das Paneel … lässt sich abnehmen."
+    },
+    "mal_sehen_ob_sie_hier": {
+     "file": "voices/martin/mal_sehen_ob_sie_hier.wav",
+     "text": "Mal sehen, ob sie hier passt."
+    },
+    "grun": {
+     "file": "voices/martin/grun.wav",
+     "text": "… Grün."
     }
    }
   },
@@ -988,7 +1760,7 @@
    "lines": {
     "answering_machine": {
      "file": "voices/ackermann/answering_machine.wav",
-     "text": "Herr Kessler, an Ihrem Altar ist … Dreck. Ich hab nichts angefasst. Ordnung muss sein.",
+     "text": "Herr Kessler, Ackermann hier. Im Altarraum … da ist Dreck. Auf Ihrem Altar. Asche oder so was. Ich hab nichts angefasst. Kommen Sie bitte. Ordnung muss sein.",
      "filtered": "voices/ackermann/answering_machine_phone.wav",
      "filter": "Telefonklang"
     },
@@ -1047,6 +1819,46 @@
     "key_return": {
      "file": "voices/ackermann/key_return.wav",
      "text": "Ordnung muss sein."
+    },
+    "finger_weg_vom_schlusselbrett_herr": {
+     "file": "voices/ackermann/finger_weg_vom_schlusselbrett_herr.wav",
+     "text": "Finger weg vom Schlüsselbrett, Herr Kessler."
+    },
+    "herr_kessler_der_depotschlussel": {
+     "file": "voices/ackermann/herr_kessler_der_depotschlussel.wav",
+     "text": "Herr Kessler. Der Depotschlüssel."
+    },
+    "was_soll_ich_damit_herr": {
+     "file": "voices/ackermann/was_soll_ich_damit_herr.wav",
+     "text": "Was soll ich damit, Herr Kessler?"
+    },
+    "guten_morgen_herr_kessler": {
+     "file": "voices/ackermann/guten_morgen_herr_kessler.wav",
+     "text": "Guten Morgen, Herr Kessler."
+    },
+    "welche_inventarnummer": {
+     "file": "voices/ackermann/welche_inventarnummer.wav",
+     "text": "Welche Inventarnummer?"
+    },
+    "ohne_nummer_kein_schlussel_herr": {
+     "file": "voices/ackermann/ohne_nummer_kein_schlussel_herr.wav",
+     "text": "Ohne Nummer kein Schlüssel, Herr Kessler."
+    },
+    "den_hatten_sie_mir_schon": {
+     "file": "voices/ackermann/den_hatten_sie_mir_schon.wav",
+     "text": "Den hatten Sie mir schon gezeigt, Herr Kessler."
+    },
+    "d_0912_eingetragen_hier_der": {
+     "file": "voices/ackermann/d_0912_eingetragen_hier_der.wav",
+     "text": "D-0912. Eingetragen. Hier, der Schlüssel. Und Sie bringen ihn zurück, Herr Kessler."
+    },
+    "hier_nehmen_sie_beides": {
+     "file": "voices/ackermann/hier_nehmen_sie_beides.wav",
+     "text": "Hier. Nehmen Sie beides."
+    },
+    "so_alarm_aus_kegel_aus": {
+     "file": "voices/ackermann/so_alarm_aus_kegel_aus.wav",
+     "text": "So. Alarm aus. Kegel aus."
     }
    }
   },

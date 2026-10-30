@@ -43,7 +43,8 @@ func build() -> void:
 	hotspot("detector", "Rauchmelder")
 	hotspot("ladder", "Leiter")
 	for i in 5:
-		hotspot("panel_%d" % (i + 1), "Holzverkleidung")
+		# von hinten (links im Bild) nach vorn nummeriert, wie im Notizbuch
+		hotspot("panel_%d" % (i + 1), "Paneel %d" % (i + 1))
 	hotspot("steel_door", "Stahltür mit Kartenleser")
 	hotspot("workshop_door", "Tür zur Werkstatt", "left")
 	set_verbs({"workshop_door": "go"})
@@ -78,12 +79,6 @@ func is_active(hid: String) -> bool:
 	return true
 
 
-func display_name(hs: Dictionary) -> String:
-	if hs["id"] == "panel_4" and Game.flag("panel4_found"):
-		return "Paneel 4"
-	return hs["name"]
-
-
 func on_enter(_from: String) -> void:
 	if not Game.flag("altar_seen"):
 		Game.set_flag("altar_seen")
@@ -93,7 +88,7 @@ func on_enter(_from: String) -> void:
 func look(hid: String) -> void:
 	match hid:
 		"podium":
-			await say("Das Podest. Zehn Stufen, wie im Original.")
+			await say("Das Podest. Nachgebaut nach den Grabungsfotos, Stufe für Stufe.")
 		"pillars", "pillars2":
 			await say("Die Säulen. Bemalt, nicht original, aber gut gemacht.")
 		"cabinet":
@@ -119,7 +114,7 @@ func look(hid: String) -> void:
 		"ladder":
 			await say("Die Malerleiter, auf dem Podest unter dem Rauchmelder.")
 		"steel_door":
-			await say("Eine neue Stahltür mit Kartenleser. Dasselbe Modell wie an den Personaltüren des Museums.")
+			await say("Eine neue Stahltür mit Kartenleser. Kein Logo, keine Nummer. Die hat nicht das Museum eingebaut.")
 		"workshop_door":
 			await say("Die Tür zur Werkstatt.")
 		_:
@@ -176,6 +171,11 @@ func use_item(hid: String, item: String) -> void:
 			await on_ladder(scrape_soot)
 		["cabinet", "dictaphone"]:
 			await hide_dictaphone()
+		["ash", "spatula"], ["ash", "brush"]:
+			if Game.has("index_card"):
+				await refuse("Asche ist zu grob. Für feine Linien bräuchte ich etwas Feineres. Ruß zum Beispiel.")
+			else:
+				await refuse("Nicht anfassen. Das ist ein Befund.")
 		["ash", "incense_cone"]:
 			await kyphi()
 		["steel_door", "id_card"]:
@@ -195,7 +195,7 @@ func set_up_ladder() -> void:
 	refresh()
 	if not Game.flag("ladder_set_up_once"):
 		Game.set_flag("ladder_set_up_once")
-		await narrate("[Martin stellt die Leiter auf das Podest, direkt unter den Rauchmelder.]")
+		await say("So. Direkt unter den Melder.")
 
 
 func take_ladder() -> void:
@@ -205,7 +205,7 @@ func take_ladder() -> void:
 	refresh()
 	if not Game.flag("ladder_taken_once"):
 		Game.set_flag("ladder_taken_once")
-		await narrate("[Martin klappt die Leiter zusammen und nimmt sie mit.]")
+		await say("Die nehme ich wieder mit.")
 
 
 ## Arbeit an der Decke: nur von der aufgestellten Leiter aus.
@@ -280,7 +280,7 @@ func hide_dictaphone() -> void:
 	else:
 		Game.remove_item("dictaphone")
 		Game.set_flag("dictaphone_hidden")
-		await narrate("[Martin versteckt das Diktiergerät im Altarschrank.]")
+		await say("Zwischen die Farbdosen. Da sucht keiner.")
 		await say("Wenn da nachts niemand ist, habe ich morgen eine sehr leere Datei und ein sehr gutes Gewissen.", "martin/empty_file")
 		await say("Feierabend. Ab nach Hause.")
 
@@ -307,7 +307,7 @@ func kyphi() -> void:
 func light_cone() -> void:
 	Game.remove_item("incense_cone")
 	Game.swap_item("saucer", "cone_saucer")
-	await narrate("[Martin stellt den Kegel auf die Untertasse und zündet ihn an.]")
+	await say("Dann wollen wir mal sehen, wohin der Rauch zieht.")
 	if Game.flag("tape_removed") and not Game.flag("detector_retaped"):
 		await alarm()
 	elif not Game.flag("lit_once"):
@@ -331,9 +331,9 @@ func alarm() -> void:
 		3:
 			await Game.say("ackermann", "Ordnung. Muss. Sein.", "ackermann/alarm_3")
 		_:
-			await narrate("[Frau Ackermann kommt wortlos herein, drückt den Alarm weg, sieht Martin lange an und geht wieder.]")
+			await say("Frau Ackermann. Kein Wort. Nur dieser Blick.")
 	if n <= 3:
-		await narrate("[Frau Ackermann setzt den Alarm zurück, drückt den Kegel aus und geht.]")
+		await Game.say("ackermann", "So. Alarm aus. Kegel aus.")
 	Game.main.sfx.stop()
 	Game.swap_item("cone_saucer", "saucer")
 	Game.add_item("incense_cone")
@@ -346,7 +346,7 @@ func panel(n: int, item: String) -> void:
 		"cone_saucer":
 			if n == 4:
 				Game.set_flag("panel4_found")
-				await narrate("[Der Rauch wird in die Fuge von Paneel 4 gezogen.]")
+				await say("Der Rauch … er wird in die Fuge gezogen.")
 				await say("Dahinter ist ein Hohlraum. Mit Luftzug. Wie die Schraffur im Notizbuch.")
 			else:
 				await say("Der Rauch steigt gerade nach oben.")
@@ -365,7 +365,7 @@ func panel(n: int, item: String) -> void:
 					return
 				Game.set_flag("plugs_removed")
 				Game.set_flag("screws_found")
-				await narrate("[Martin hebelt die vier neuen Zapfen heraus.]")
+				await say("Raus mit euch …")
 				await say("Darunter: Dreikant-Sicherheitsschrauben. Dafür passt kein normaler Bit.")
 			else:
 				await say("Welche Zapfen? Die sehen alle gleich alt aus.")
@@ -377,7 +377,7 @@ func panel(n: int, item: String) -> void:
 		"drill_bit":
 			if n == 4 and Game.flag("plugs_removed"):
 				await say("Hollmann, du alter Fuchs. Du hast es gewusst.", "martin/old_fox")
-				await narrate("[Die Schrauben lösen sich. Martin nimmt das Paneel ab.]")
+				await say("Die Schrauben kommen raus. Und das Paneel … lässt sich abnehmen.")
 				Game.set_flag("panel_removed")
 				refresh()
 			else:
@@ -399,10 +399,10 @@ func _uv_glow() -> void:
 # Kapitel 8: Die Tür mit dem Kartenschlitz
 
 func open_steel_door() -> void:
-	await narrate("[Martin steckt Hollmanns Ausweis in den Kartenleser. Eine kurze Pause.]")
+	await say("Mal sehen, ob sie hier passt.")
 	await Game.wait(1.0)
-	await narrate("[Dann leuchtet die Anzeige grün.]")
-	await say("Zwei Jahre verschwunden, und keiner hat seinen Ausweis gesperrt. Ordnung muss sein, Frau Ackermann.", "martin/badge_not_blocked")
+	await say("… Grün.")
+	await say("Hollmann hat ihnen die Karte abgenommen. Und dafür bezahlt.", "martin/black_card")
 	Game.set_flag("steel_door_open")
 	refresh()
 	await Game.wait(0.8)

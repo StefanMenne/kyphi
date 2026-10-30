@@ -146,7 +146,7 @@ func archive() -> void:
 	elif Game.flag("took_index_card"):
 		await say("Zwischen „Hofmann, Sammlung“ und „Holtz, Grafik“ fehlt immer noch Hollmann.")
 	else:
-		await narrate("[Zwischen „Hofmann, Sammlung“ und „Holtz, Grafik“ klafft eine Lücke.]")
+		await say("Hofmann, Sammlung … Holtz, Grafik. Dazwischen fehlt eine Karte.")
 		await say("Hollmann fehlt. … Ich nehme die nächste Karte. Holtz.", "martin/hollmann_missing")
 		await take("index_card")
 
@@ -193,10 +193,11 @@ func ask_key() -> void:
 	await ack("Ich muss das eintragen, Herr Kessler. Ordnung muss sein.", "ackermann/key_log")
 	if not Game.has("index_card_revealed"):
 		await ack("Welche Inventarnummer?")
-		await say("Die … reiche ich nach.")
+		await say("Die … habe ich gerade nicht im Kopf.")
+		await ack("Ohne Nummer kein Schlüssel, Herr Kessler.")
 		return
 	await say("D-0912. Hollmann, Nachlass.")
-	await narrate("[Frau Ackermann trägt die Nummer ins Ausleihbuch ein und reicht den Schlüssel über den Tresen.]")
+	await ack("D-0912. Eingetragen. Hier, der Schlüssel. Und Sie bringen ihn zurück, Herr Kessler.")
 	Game.add_item("depot_key")
 	if not Game.flag("asked_fingers"):
 		Game.set_flag("asked_fingers")
@@ -232,6 +233,6 @@ func give_cone() -> void:
 	await Game.wait(0.6)
 	await ack("Ein Räucherkegel … So einen hatte meine Mutter immer im Räuchermännchen. Weihnachten, die ganze Wohnung hat danach gerochen.", "ackermann/incense_memory")
 	Game.set_flag("ack_holds_cone", false)
-	await narrate("[Sie schiebt Kegel und Feuerzeug über den Tresen.]")
+	await ack("Hier. Nehmen Sie beides.")
 	Game.add_item("lighter")
 	await ack("Aber nicht hier in der Lobby. Und Sie haben das nicht von mir.", "ackermann/not_from_me")

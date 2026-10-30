@@ -300,6 +300,8 @@ func say(speaker: String, text: String, voice_id := "") -> void:
 		await get_tree().process_frame
 		return
 	var seconds := clampf(text.length() * 0.065, 1.6, 9.0)
+	if voice_id == "":
+		voice_id = Game.voice_for(speaker, text)
 	if voice_id != "":
 		var path := "res://assets/voices/%s.wav" % voice_id
 		if ResourceLoader.exists(path):

@@ -37,7 +37,7 @@ func is_active(hid: String) -> bool:
 func on_enter(_from: String) -> void:
 	if not Game.flag("intro_done"):
 		Game.set_flag("intro_done")
-		Game.main.ui.show_hint("Linksklick: gehen und benutzen  ·  Rechtsklick: ansehen  ·  Gegenstand anklicken, dann auf etwas anderes: kombinieren")
+		Game.main.ui.show_hint("Linksklick: gehen, Aktionsmenü  ·  Rechtsklick: ansehen  ·  Gegenstand benutzen, dann auf etwas anderes klicken: anwenden oder kombinieren")
 		await Game.wait(0.8)
 		await narrate("[Der Anrufbeantworter blinkt. Eine neue Nachricht.]")
 		await message()
@@ -49,7 +49,7 @@ func on_enter(_from: String) -> void:
 
 
 func message() -> void:
-	await Game.say("ackermann", "Herr Kessler, an Ihrem Altar ist … Dreck. Ich hab nichts angefasst. Ordnung muss sein.", "ackermann/answering_machine_phone")
+	await Game.say("ackermann", "Herr Kessler, Ackermann hier. Im Altarraum … da ist Dreck. Auf Ihrem Altar. Asche oder so was. Ich hab nichts angefasst. Kommen Sie bitte. Ordnung muss sein.", "ackermann/answering_machine_phone")
 
 
 func look(hid: String) -> void:
@@ -135,4 +135,4 @@ func recording() -> void:
 	await Game.say("elder", "… Hollmanns Kiste steht immer noch unten im Depot. Im Frühjahr ist Inventur. Holt sie raus, bevor der Neue sie findet.", "elder/hollmanns_box_recorder")
 	await narrate("[Eine Tür fällt zu.]")
 	await say("Der Neue. … Das bin ich.", "martin/the_new_one")
-	await say("Frau Ackermann hat den Depotschlüssel. Und sie wird eine Inventarnummer wollen.")
+	await say("Frau Ackermann hat den Depotschlüssel.")

@@ -144,14 +144,14 @@
   },
   "id_card": {
    "tool": "qwen-image-edit",
-   "job_id": "62ea476df4fd",
-   "seed": 301,
+   "job_id": "206da2f14db4",
+   "seed": 5101,
    "size": "wie Eingabe",
-   "prompt": "Replace the portrait photo on the badge in image 1 with a small passport photo of the man from image 2, head and shoulders, with a very serious expression. Keep the badge, the clip, the drawing style and the plain magenta background of image 1 exactly unchanged.",
+   "prompt": "Replace the badge with a thin plain matte black plastic key card in portrait format with rounded corners, without the clip, the holder and the photo. The card is completely black except for the number \"666\" printed large in blood-red digits in its center, exactly three sixes. Keep the plain flat solid magenta background, no shadow, no other text. Same drawing style: clean bold black ink outlines, flat cel shading with soft gradients, comic illustration style.",
    "inputs": [
-    "items/raw/id_card/image_100.png",
-    "hollmann.png"
-   ]
+    "bisheriges Icon assets/items/id_card.png (Hollmanns Ausweis) auf Magenta"
+   ],
+   "note": "Schwarze Karte statt Mitarbeiterausweis; FLUX.2 klein (Job 2712478d78eb) schrieb die Ziffern falsch. Magenta per Skript entfernt (work/items/black_card/key_icon.py)"
   },
   "screw_bit": {
    "tool": "flux2-klein",
@@ -1014,9 +1014,990 @@
      "job_id": "4ec0e930b930",
      "seed": 2000
     },
-    "badge_not_blocked": {
+    "black_card": {
      "tool": "qwen-tts speak",
-     "job_id": "4ec0e930b930",
+     "job_id": "9471ef7563c5",
+     "seed": 2000
+    },
+    "mein_diktiergerat_die_batterien_sind": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "vox_ist_an_jetzt_nimmt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Vox ist an. Jetzt nimmt es nur auf, wenn es etwas hört."
+    },
+    "belanglos_aber_hollmanns_karte_stand": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "d_0912_regal_d_fach": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Regal D, Fach null neun, Platz zwölf."
+    },
+    "kyphi_tempelraucherwerk_aus_hollmanns_kiste": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_raucherkegel_aus_dunklem_harz": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "dreikant_genau_wie_die_schrauben": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_schrauberbit_mit_dreikantkopf_damit": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "hm": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "das_diktiergerat_lauft_wieder": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "russ_auf_den_pinsel": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_eingedruckte_schrift_bleibt_hell": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "d_0912_die_inventarnummer": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Die Inventarnummer."
+    },
+    "mit_dem_spatel_verschmiere_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "passt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "brennt_schon": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_untertasse_anzunden_nein": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "kegel_auf_die_untertasse_gut": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ohne_feuerfeste_unterlage_brennt_mir": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "nicht_hier_wenn_dann_im": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "zwei_aa_batterien_noch_fast": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Zwei Doppel-A-Batterien. Noch fast voll."
+    },
+    "die_malerleiter_zusammengeklappt_passt_sie": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_pinzette": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "fundtutchen_fur_alles_was_man": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_langes_graues_haar_sauber": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_weicher_pinsel": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "der_pinsel_ist_voller_russ": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_spatel_mein_universalwerkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "feiner_russ_von_der_decke": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "kreppband_vorsicht_frisch_restauriert": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Kreppband: Vorsicht, frisch restauriert."
+    },
+    "ein_messschieber_mit_tiefenmass": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_uv_lampe_alter_schellack": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Eine U-V-Lampe. Alter Schellack leuchtet darunter grünlich."
+    },
+    "der_depotschlussel_ordnungsgemass_eingetragen": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_schwarze_karte_mit_chip": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Eine schwarze Karte mit Chip. Kein Name, kein Foto. Nur eine rote sechs sechs sechs."
+    },
+    "frau_ackermanns_feuerzeug_offiziell_besitzt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_untertasse_sonst_mische_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "der_kegel_glimmt_feiner_rauch": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_akkuschrauber_fur_spezialschrauben_habe": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "akkuschrauber_mit_dreikant_bit": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_fernbedienung": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "nichts_besonderes": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "sieht_aus_wie_immer": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "das_bringt_mir_nichts": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "lieber_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "nein": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "das_passt_nicht_zusammen": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "damit_komme_ich_nicht_weiter": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "dreck_an_meinem_altar_das": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mal_sehen_ob_das_diktiergerat": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_grauer_morgen_passt_zum": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "fachliteratur_agyptische_steinmetzkunst_schellack_pigmente": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "billige_abenteuerromantik_ich_mag_es": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "sie_lebt_das_ist_mehr": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_sofa_die_fernbedienung_liegt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_schreibtisch_mit_laptop_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "der_anrufbeantworter_eine_nachricht_von": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_diktiergerat_fur_restaurierungsnotizen": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_fernbedienung_da_stecken_zwei": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Die Fernbedienung. Da stecken zwei Doppel-A-Batterien drin."
+    },
+    "die_wohnungstur_von_hier_geht": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_batterien_sind_leer": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "frau_ackermann_hat_den_depotschlussel": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_laptop_darauf_hore_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ohne_batterien_ist_sie_nur": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "keine_zeit_der_altar_wartet": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_bleiben_jetzt_im_diktiergerat": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "ich_habe_die_aufnahme_oft": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "verpackungsmaterial_und_restaurierungsabfalle": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "losemittel_pigmente_schellack_alles_ordentlich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_lochwand_jedes_werkzeug_hat": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "meine_werkbank": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_malerleiter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "eine_untertasse_darauf_mische_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "kreppband_vorsicht_frisch_restauriert_davon": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Kreppband: Vorsicht, frisch restauriert. Davon habe ich reichlich."
+    },
+    "der_akkuschrauber_fur_spezialschrauben_habe": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_tur_zur_lobby": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_tur_zum_altarraum": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "was_ich_brauche_liegt_offen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "eine_neonrohre_die_flackert_typisch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "ein_taster_licht_gibt_es": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_treppe_hoch_in_die": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hollmanns_kiste_d_0912": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Hollmanns Kiste. D, null neun, zwölf."
+    },
+    "lange_regalreihen_mit_lagerkisten_jede": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "regale_voller_kisten_man_sieht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "klebt_fest_das_licht_bleibt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_verwaltung_kann_mich_mal": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "wieder_dunkel_kaum_lasse_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zu_dunkel_die_schilder_kann": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hunderte_kisten_ohne_inventarnummer_suche": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hier_steht_nichts_mit_d": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hollmanns_platz_ist_leer_die": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "nur_noch_altes_werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "den_boden_hebe_ich_mit": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zu_schwer_fur_das_bisschen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_versteck_ist_leer": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "wozu_da_ist_nur_werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "eine_schwarze_karte_mit_einer": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Eine schwarze Karte mit einer roten sechs sechs sechs. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit."
+    },
+    "den_schlussel_muss_ich_frau": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "als_taschenlampe_ist_die_uv": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Als Taschenlampe ist die U-V-Lampe zu schwach. Ich brauche richtiges Licht."
+    },
+    "die_kiste_geht_nicht_noch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zu_dunkel_ich_sehe_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "abdeckplanen_die_renovierung_dauert_langer": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "im_gesperrten_flugel_arbeite_nur": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_schlusselbrett_es_hangt_hinter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_empfangstresen_darauf_das_ausleihbuch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "langes_graues_haar_hochgesteckt_hm": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "frau_ackermann_streng_korrekt_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_archivkartei_alphabetisch_nach_nachlassen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "dahinter_liegt_der_offentliche_bereich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_tur_zur_werkstatt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_eingangsportal_von_hier_bin": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "moderne_kunst_nicht_mein_fachgebiet": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_treppenhaus_unten_ist_der": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "abgeschlossen_den_schlussel_hat_frau": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zwischen_hofmann_sammlung_und_holtz": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "wo_waren_sie_gestern_abend": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "ich_brauche_den_depotschlussel": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_habe_ich_gerade_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "d_0912_hollmann_nachlass": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Hollmann, Nachlass."
+    },
+    "besser_nicht_noch_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_archivkartei_gerade_suche_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_podest_nachgebaut_nach_den": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_saulen_bemalt_nicht_original": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_altarschrank_eine_nachbildung_ins": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_opferaltar_sechs_mal_drei": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "feine_asche_auf_dem_raucheraltar": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "russ_an_der_decke_direkt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "abgeklebt_diesmal_von_mir": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_rauchmelder_ist_wieder_frei": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "abgeklebt_darunter_klebt_ein_langes": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "noch_abgeklebt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_rauchmelder_bei_dem_russ": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "die_malerleiter_auf_dem_podest": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "eine_neue_stahltur_mit_kartenleser": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "dreikant_sicherheitsschrauben_hinter_einer_wandverkleidung": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "eichenpaneele_angeblich_aus_den_1920er": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000,
+     "spoken": "Eichenpaneele, angeblich aus den neunzehnhundertzwanziger Jahren. Holzzapfen verdecken die Schraubenköpfe."
+    },
+    "verschlossen_daneben_ein_kartenleser": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "fest_verschraubt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ein_bisschen_russ_konnte_nutzlich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_melder_ist_mit_klebeband": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "und_das_klebeband_kommt_ab": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "hier_ist_nachts_jemand_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_melder_ist_frei": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "das_haar_habe_ich_schon": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "und_wohin_damit_ich_brauche": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "pinzette_fundtutchen_gesichert": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_ist_noch_abgeklebt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "halt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ich_habe_das_band_gerade": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "vorsicht_frisch_restauriert_passt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000,
+     "spoken": "Vorsicht, frisch restauriert. Passt."
+    },
+    "erst_will_ich_wissen_was": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ohne_batterien_nimmt_es_nichts": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "restkapazitat_vier_stunden_von_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "feierabend_ab_nach_hause": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "da_ist_es_abhoren_am": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mein_material_nichts_was_mir": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_melder_naturlich_den_muss": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "dahinter_ist_ein_hohlraum_mit": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_rauch_steigt_gerade_nach": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "alter_schellack_leuchtet_grunlich_aber": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "alles_grunlich_alter_schellack_wie": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "die_zapfen_sind_schon_draussen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "darunter_dreikant_sicherheitsschrauben_dafur_passt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "welche_zapfen_die_sehen_alle": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "kein_normaler_bit_passt_auf": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ich_bohre_doch_keine_locher": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "hier_sind_keine_schrauben_zu": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mit_dem_brennenden_kegel_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "und_die_leiter_bleibt_unter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "viel_zu_hoch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mit_blossen_fingern_dafur_gibt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "nicht_anfassen_das_ist_ein": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "asche_ist_zu_grob_fur": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "zu_hoch_erst_die_leiter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "viel_zu_hoch_ich_brauche": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mit_blossen_handen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "das_diktiergerat_liegt_gut_versteckt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "na_also_licht": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "regal_d_fach_09_platz": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000,
+     "spoken": "Regal D, Fach null neun, Platz zwölf … da. D, null neun, zwölf, Hollmann, Nachlass."
+    },
+    "altes_werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "aussen_achtzehn_zentimeter_innen_vierzehn": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "mal_sehen_was_du_versteckst": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "hofmann_sammlung_holtz_grafik_dazwischen": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "so_direkt_unter_den_melder": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "die_nehme_ich_wieder_mit": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "zwischen_die_farbdosen_da_sucht": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "dann_wollen_wir_mal_sehen": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "frau_ackermann_kein_wort_nur": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "der_rauch_er_wird_in": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "raus_mit_euch": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "die_schrauben_kommen_raus_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "mal_sehen_ob_sie_hier": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "grun": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
      "seed": 2000
     }
    }
@@ -1033,7 +2014,7 @@
    "lines": {
     "answering_machine": {
      "tool": "qwen-tts speak",
-     "job_id": "efea763784fc",
+     "job_id": "ef8d0419f71a",
      "seed": 2000,
      "filter": "ffmpeg: Bandpass 300-3400 Hz, Kompressor, 8 kHz"
     },
@@ -1107,6 +2088,57 @@
     "key_return": {
      "tool": "qwen-tts speak",
      "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "finger_weg_vom_schlusselbrett_herr": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "herr_kessler_der_depotschlussel": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "was_soll_ich_damit_herr": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "guten_morgen_herr_kessler": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "welche_inventarnummer": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "ohne_nummer_kein_schlussel_herr": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "den_hatten_sie_mir_schon": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "d_0912_eingetragen_hier_der": {
+     "tool": "qwen-tts speak",
+     "job_id": "35df5b9dc427",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Eingetragen. Hier, der Schlüssel. Und Sie bringen ihn zurück, Herr Kessler."
+    },
+    "hier_nehmen_sie_beides": {
+     "tool": "qwen-tts speak",
+     "job_id": "35df5b9dc427",
+     "seed": 2000
+    },
+    "so_alarm_aus_kegel_aus": {
+     "tool": "qwen-tts speak",
+     "job_id": "35df5b9dc427",
      "seed": 2000
     }
    }

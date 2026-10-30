@@ -14,10 +14,21 @@ var main: Node = null
 var fast := false
 ## Testmodus: Teiltexte der Antworten, die choose() der Reihe nach wählt.
 var choice_script: Array = []
+## Sprecher -> {Text: Stimmen-ID} aus dem Katalog; Zeilen ohne eigene ID finden ihre Aufnahme über den Text.
+var _voice_by_text := {}
 
 
 func _ready() -> void:
 	catalog = JSON.parse_string(FileAccess.get_file_as_string("res://assets/catalog.json"))
+	for sp in catalog["voices"]:
+		_voice_by_text[sp] = {}
+		for lid in catalog["voices"][sp]["lines"]:
+			_voice_by_text[sp][catalog["voices"][sp]["lines"][lid]["text"]] = "%s/%s" % [sp, lid]
+
+
+## Stimmen-ID der vertonten Zeile mit genau diesem Text, sonst "".
+func voice_for(speaker: String, text: String) -> String:
+	return _voice_by_text.get(speaker, {}).get(text, "")
 
 
 func reset() -> void:

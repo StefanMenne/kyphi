@@ -16,7 +16,7 @@ const LOOK := {
 	"caliper": "Ein Messschieber, mit Tiefenmaß.",
 	"uv_lamp": "Eine UV-Lampe. Alter Schellack leuchtet darunter grünlich.",
 	"depot_key": "Der Depotschlüssel. Ordnungsgemäß eingetragen.",
-	"id_card": "Hollmanns Mitarbeiterausweis. Veraltetes Foto, sehr ernster Blick.",
+	"id_card": "Eine schwarze Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666.",
 	"lighter": "Frau Ackermanns Feuerzeug. Offiziell besitzt sie keins.",
 	"saucer": "Eine Untertasse. Sonst mische ich darauf Retuschierfarben.",
 	"cone_saucer": "Der Kegel glimmt. Feiner Rauch steigt auf.",
@@ -45,13 +45,13 @@ func look(id: String) -> void:
 					Game.set_flag("vox")
 					await say("VOX ist an. Jetzt nimmt es nur auf, wenn es etwas hört.")
 		"index_card":
-			await Game.note("Holtz, Grafik –\nzwei Mappen Radierungen.")
+			await Game.note("Holtz, Gustav – Grafik\n2 Mappen Radierungen, 19. Jh.\nB-0317")
 			await say("Belanglos. Aber Hollmanns Karte stand direkt davor.")
 		"index_card_revealed":
 			await Game.note("Hollmann, Nachlass –\nWerkzeug, persönl. Gegenst. –\nD-0912")
 			await say("D-0912. Regal D, Fach 09, Platz 12.")
 		"notebook":
-			await Game.note("Eine Skizze der Westwand: sechs Paneele.\nEines ist schraffiert – welches, ist verwischt.")
+			await Game.note("Eine Skizze der Westwand: fünf Paneele,\nvon hinten nach vorn nummeriert.\nEines ist schraffiert – welche Nummer, ist verwischt.")
 			await Game.note("Letzte Seite, zittrige Schrift:\n\n„Sie kommen durch die Wand.\nRauch lügt nicht.“")
 			await say("Sie kommen durch die Wand. Rauch lügt nicht.", "martin/notebook")
 		"incense_cone":
