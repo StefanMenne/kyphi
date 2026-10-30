@@ -76,6 +76,7 @@ func say(speaker: String, text: String, voice := "") -> void:
 
 
 func choose(options: Array) -> int:
+	await main.flush_gesture()
 	if fast:
 		var want: String = choice_script.pop_front() if not choice_script.is_empty() else ""
 		for i in options.size():
@@ -88,6 +89,7 @@ func choose(options: Array) -> int:
 
 
 func note(text: String) -> void:
+	await main.flush_gesture()
 	if fast:
 		print("[Notiz] " + text.replace("\n", " / "))
 		await get_tree().process_frame

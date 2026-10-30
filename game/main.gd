@@ -32,6 +32,9 @@ var _old_rooms: Array = []
 var busy := false
 var in_game := false
 var selected := ""
+## Geste der laufenden Aktion; sie spielt erst, wenn die Aktion etwas tut (Text, Notiz, Auswahl, Nehmen, Gehen),
+## und entfällt, wenn der Raum nur ablehnt ("Nein.").
+var pending_gesture := ""
 
 
 func _ready() -> void:
@@ -232,15 +235,14 @@ func act(hs: Dictionary, mode: String) -> void:
 	busy = true
 	ui.set_hover("")
 	if mode == "use":
-		var gesture := room.gesture_for(hs, item != "", player.position)
-		if gesture != "":
-			await player.gesture(gesture)
+		pending_gesture = room.gesture_for(hs, item != "", player.position)
 	if mode == "look":
 		await room.look(hs["id"])
 	elif item != "":
 		await room.use_item(hs["id"], item)
 	else:
 		await room.use(hs["id"])
+	pending_gesture = ""
 	_after_action()
 
 
@@ -274,6 +276,13 @@ func look_item(item: String) -> void:
 	_after_action()
 
 
+func flush_gesture() -> void:
+	if pending_gesture != "":
+		var g := pending_gesture
+		pending_gesture = ""
+		await player.gesture(g)
+
+
 func _after_action() -> void:
 	_free_old_rooms()
 	select_item("")
@@ -285,6 +294,7 @@ func _after_action() -> void:
 # Sprache
 
 func say(speaker: String, text: String, voice_id := "") -> void:
+	await flush_gesture()
 	if Game.fast:
 		print("%s: %s" % [speaker if speaker != "" else "*", text])
 		await get_tree().process_frame

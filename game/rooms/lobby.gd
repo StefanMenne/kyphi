@@ -24,7 +24,7 @@ func build() -> void:
 	hotspot("covers", "Abdeckplanen", "left")
 	hotspot("roster", "Dienstplan")
 	hotspot("key_board", "Schlüsselbrett")
-	hotspot("counter", "Empfangstresen", "left")
+	hotspot("counter", "Empfangstresen", "left", "none")
 	hotspot("ackermann", "Frau Ackermann", "left", "none")
 	hotspot("archive", "Archivkartei")
 	hotspot("glass_door", "Glastür zum öffentlichen Bereich")
@@ -133,7 +133,7 @@ func use_item(hid: String, item: String) -> void:
 			"index_card_revealed":
 				await ask_key()
 			"evidence_bag_hair":
-				await say("Besser nicht. Noch nicht.")
+				await refuse("Besser nicht. Noch nicht.")
 			_:
 				await ack("Was soll ich damit, Herr Kessler?")
 	else:
@@ -142,7 +142,7 @@ func use_item(hid: String, item: String) -> void:
 
 func archive() -> void:
 	if not Game.flag("recording_heard"):
-		await say("Die Archivkartei. Gerade suche ich nichts.")
+		await refuse("Die Archivkartei. Gerade suche ich nichts.")
 	elif Game.flag("took_index_card"):
 		await say("Zwischen „Hofmann, Sammlung“ und „Holtz, Grafik“ fehlt immer noch Hollmann.")
 	else:

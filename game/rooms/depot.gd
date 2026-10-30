@@ -93,6 +93,7 @@ func use(hid: String) -> void:
 			if Game.flag("switch_taped"):
 				await say("Klebt fest. Das Licht bleibt an.")
 			else:
+				await Game.main.flush_gesture()
 				light_on = true
 				timer.start(LIGHT_SECONDS)
 				refresh()
@@ -108,12 +109,14 @@ func use(hid: String) -> void:
 
 func use_item(hid: String, item: String) -> void:
 	if item == "uv_lamp" and (hid.begins_with("shelf_") or hid in ["switch", "neon"]):
+		await Game.main.flush_gesture()
 		uv_on = true
 		refresh()
 		await say("Die UV-Lampe als Taschenlampe. Die Etiketten fluoreszieren sogar.")
 		return
 	match [hid, item]:
 		["switch", "masking_tape"]:
+			await Game.main.flush_gesture()
 			Game.set_flag("switch_taped")
 			timer.stop()
 			refresh()
@@ -124,7 +127,7 @@ func use_item(hid: String, item: String) -> void:
 		["box", "spatula"], ["box", "spatula_soot"]:
 			await open_bottom()
 		["box", "masking_tape"]:
-			await say("Die Kiste geht nicht noch einmal ins Regal. Noch nicht.")
+			await refuse("Die Kiste geht nicht noch einmal ins Regal. Noch nicht.")
 		_:
 			await super(hid, item)
 

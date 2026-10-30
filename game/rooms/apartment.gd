@@ -69,7 +69,7 @@ func look(hid: String) -> void:
 		"answering_machine":
 			await say("Der Anrufbeantworter. Eine Nachricht von Frau Ackermann.")
 		"laptop":
-			await say("Mein Laptop. Darauf höre ich sonst meine Restaurierungsnotizen ab.")
+			await refuse("Mein Laptop. Darauf höre ich sonst meine Restaurierungsnotizen ab.")
 		"dictaphone":
 			await say("Mein Diktiergerät, für Restaurierungsnotizen.")
 		"remote":
@@ -93,14 +93,14 @@ func use(hid: String) -> void:
 			await say("Die Batterien sind leer.")
 		"remote":
 			if Game.flag("took_batteries"):
-				await say("Ohne Batterien ist sie nur noch Deko.")
+				await refuse("Ohne Batterien ist sie nur noch Deko.")
 			else:
 				await take("batteries")
 				await say("Fernsehen wird ohnehin überschätzt.", "martin/tv_overrated")
 		"door":
 			await go("lobby", "door_open")
 		"sofa":
-			await say("Keine Zeit. Der Altar wartet.")
+			await refuse("Keine Zeit. Der Altar wartet.")
 		_:
 			await super(hid)
 
@@ -109,18 +109,18 @@ func use_item(hid: String, item: String) -> void:
 	if hid == "laptop" and item == "dictaphone":
 		await laptop()
 	elif hid == "remote" and item == "batteries":
-		await say("Die bleiben jetzt im Diktiergerät. Fernsehen wird ohnehin überschätzt.")
+		await refuse("Die bleiben jetzt im Diktiergerät. Fernsehen wird ohnehin überschätzt.")
 	else:
 		await super(hid, item)
 
 
 func laptop() -> void:
 	if Game.flag("recording_heard"):
-		await say("Ich habe die Aufnahme oft genug gehört. Hollmanns Kiste steht im Depot.")
+		await refuse("Ich habe die Aufnahme oft genug gehört. Hollmanns Kiste steht im Depot.")
 	elif Game.flag("dictaphone_retrieved") and Game.has("dictaphone"):
 		await recording()
 	else:
-		await say("Mein Laptop. Darauf höre ich sonst meine Restaurierungsnotizen ab.")
+		await refuse("Mein Laptop. Darauf höre ich sonst meine Restaurierungsnotizen ab.")
 
 
 ## Kapitel 3: Die Aufnahme.

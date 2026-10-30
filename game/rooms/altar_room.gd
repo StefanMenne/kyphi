@@ -132,7 +132,7 @@ func use(hid: String) -> void:
 	match hid:
 		"workshop_door":
 			if Game.has("cone_saucer"):
-				await say("Mit dem brennenden Kegel? Nicht durchs Museum.")
+				await refuse("Mit dem brennenden Kegel? Nicht durchs Museum.")
 				return
 			await go("workshop", "workshop_door_open")
 		"cabinet":
@@ -141,11 +141,11 @@ func use(hid: String) -> void:
 			await on_ladder(detector)
 		"soot":
 			if not Game.has("ladder"):
-				await say("Viel zu hoch.")
+				await refuse("Viel zu hoch.")
 			else:
-				await say("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
+				await refuse("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
 		"ash":
-			await say("Nicht anfassen. Das ist ein Befund.")
+			await refuse("Nicht anfassen. Das ist ein Befund.")
 		"steel_door":
 			await say("Verschlossen. Daneben ein Kartenleser.")
 		_:
@@ -160,9 +160,9 @@ func use_item(hid: String, item: String) -> void:
 		["detector", "ladder"]:
 			await on_ladder(detector)
 		["soot", "ladder"]:
-			await say("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
+			await refuse("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
 		["podium", "ladder"], ["altar", "ladder"], ["ash", "ladder"]:
-			await say("Die stelle ich auf, wenn ich oben etwas zu tun habe.")
+			await refuse("Die stelle ich auf, wenn ich oben etwas zu tun habe.")
 		["detector", "tweezers"]:
 			await on_ladder(take_hair)
 		["detector", "masking_tape"]:
@@ -186,8 +186,9 @@ func use_item(hid: String, item: String) -> void:
 ## damit nachts niemand eine Leiter unter dem Melder findet.
 func on_ladder(action: Callable) -> void:
 	if not Game.has("ladder"):
-		await say("Viel zu hoch. Ich brauche die Leiter aus der Werkstatt.")
+		await refuse("Viel zu hoch. Ich brauche die Leiter aus der Werkstatt.")
 		return
+	await Game.main.flush_gesture()
 	_on_ladder = true
 	ladder.visible = true
 	if not Game.flag("ladder_used"):
@@ -271,7 +272,7 @@ func hide_dictaphone() -> void:
 
 func cabinet() -> void:
 	if Game.flag("dictaphone_hidden") and not Game.flag("night_done"):
-		await say("Das Diktiergerät liegt gut versteckt. Jetzt nach Hause.")
+		await refuse("Das Diktiergerät liegt gut versteckt. Jetzt nach Hause.")
 	elif Game.flag("night_done") and not Game.flag("dictaphone_retrieved"):
 		Game.set_flag("dictaphone_retrieved")
 		Game.add_item("dictaphone")

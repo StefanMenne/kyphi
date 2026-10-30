@@ -202,15 +202,21 @@ func look(_hid: String) -> void:
 
 
 func use(_hid: String) -> void:
-	await say(USE_FAIL.pick_random())
+	await refuse(USE_FAIL.pick_random())
 
 
 func use_item(_hid: String, _item: String) -> void:
-	await say(ITEM_FAIL.pick_random())
+	await refuse(ITEM_FAIL.pick_random())
 
 
 func say(text: String, voice := "") -> void:
 	await Game.say("martin", text, voice)
+
+
+## Martin lehnt ab, ohne etwas zu tun: ohne Benutzen-/Nehmen-Geste.
+func refuse(text: String, voice := "") -> void:
+	Game.main.pending_gesture = ""
+	await say(text, voice)
 
 
 func narrate(text: String) -> void:
@@ -219,6 +225,7 @@ func narrate(text: String) -> void:
 
 ## Gegenstand aus dem Raum aufnehmen; die Ebene blendet refresh() über das Flag aus.
 func take(item: String, line := "") -> void:
+	await Game.main.flush_gesture()
 	Game.add_item(item)
 	Game.set_flag("took_" + item)
 	refresh()
@@ -228,6 +235,7 @@ func take(item: String, line := "") -> void:
 
 ## Raum verlassen, die Tür ist dabei kurz offen.
 func go(room_id: String, door_layer := "") -> void:
+	await Game.main.flush_gesture()
 	if door_layer != "":
 		layers[door_layer].visible = true
 		await Game.wait(0.35)

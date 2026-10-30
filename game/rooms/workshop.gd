@@ -83,7 +83,7 @@ func use(hid: String) -> void:
 		"altar_door":
 			await go("altar_room", "altar_door_open")
 		"boxes", "boxes2", "shelf", "pegboard", "bench":
-			await say("Was ich brauche, liegt offen herum.")
+			await refuse("Was ich brauche, liegt offen herum.")
 		_:
 			if hid in TOOLS:
 				await take(hid)
