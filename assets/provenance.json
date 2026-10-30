@@ -840,6 +840,40 @@
      "params": "768x1024, 3 s, 24 fps",
      "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right. He bends his knees and crouches down to the floor in front of him, reaches down with his hand and closes it as if picking up a small object from the floor, then straightens up again and stands relaxed as before. His hand stays closed and nothing is visible in it. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: the rustle of a coat.",
      "note": "Bilder 3-56 = pickup_00..53, freigestellt, Zuschnitt 192,37-700,1019, auf 2/3 verkleinert"
+    },
+    "back": {
+     "view": {
+      "tool": "qwen-image-edit",
+      "job_id": "6dc04e32d181",
+      "seed": 5001,
+      "inputs": [
+       "video_3800 Bild 0 (Standbild)"
+      ],
+      "prompt": "The same man seen from behind in a three-quarter back view: he has turned away from the viewer and faces into the depth of the picture toward the upper right, we see his back, the back of his head and his black hair, only a small part of his right cheek and ear is visible, no face. Standing upright and relaxed, arms hanging naturally, full body from head to shoes, uncropped, same size and same position in the picture. Keep his hair, beige work coat, blue jeans, brown shoes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture."
+     },
+     "walk": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "a645745ae1dc",
+      "seed": 5102,
+      "inputs": [
+       "back view image_5001 (Startbild)"
+      ],
+      "params": "768x1024, 5 s, 24 fps",
+      "prompt": "The man in the beige work coat, seen from behind, walks on the spot, as if on a treadmill: he takes steady, natural walking steps away from the viewer into the depth of the picture toward the upper right, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps, we keep seeing his back and the back of his head. He does not turn around, does not rotate, does not show his face. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
+      "note": "dreht im Video auf gerade Rückansicht; Bilder 52-77 = back_walk_00..25 (Periode 26), Bild 64 = back_idle; Zuschnitt 192,27-627,1019, auf 2/3 verkleinert"
+     },
+     "turn": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "fa2668deacf0",
+      "seed": 5200,
+      "inputs": [
+       "video_3800 Bild 0 (erstes Bild)",
+       "video_5102 Bild 64 (letztes Bild)"
+      ],
+      "params": "768x1024, 1,5 s, 24 fps",
+      "prompt": "The man in the beige work coat turns on the spot, calmly and naturally: he starts in a three-quarter view looking toward the right and turns further away from the viewer until we see him directly from behind, his back and the back of his head. He steps around with small natural steps, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: two quiet footsteps on a hard floor.",
+      "note": "jedes zweite Bild 2-30 = turn_back_00..14, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert"
+     }
     }
    },
    "shadow": {

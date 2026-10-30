@@ -782,6 +782,78 @@
      "note": "in die Hocke, Hand zum Boden, wieder aufrichten"
     },
     "note": "Fußpunkt wie das Standbild (anchor); Auswahl nach Höhe des Hotspots (Room.gesture_for)"
+   },
+   "back": {
+    "idle": "characters/martin/back_idle.png",
+    "walk": [
+     "characters/martin/back_walk_00.png",
+     "characters/martin/back_walk_01.png",
+     "characters/martin/back_walk_02.png",
+     "characters/martin/back_walk_03.png",
+     "characters/martin/back_walk_04.png",
+     "characters/martin/back_walk_05.png",
+     "characters/martin/back_walk_06.png",
+     "characters/martin/back_walk_07.png",
+     "characters/martin/back_walk_08.png",
+     "characters/martin/back_walk_09.png",
+     "characters/martin/back_walk_10.png",
+     "characters/martin/back_walk_11.png",
+     "characters/martin/back_walk_12.png",
+     "characters/martin/back_walk_13.png",
+     "characters/martin/back_walk_14.png",
+     "characters/martin/back_walk_15.png",
+     "characters/martin/back_walk_16.png",
+     "characters/martin/back_walk_17.png",
+     "characters/martin/back_walk_18.png",
+     "characters/martin/back_walk_19.png",
+     "characters/martin/back_walk_20.png",
+     "characters/martin/back_walk_21.png",
+     "characters/martin/back_walk_22.png",
+     "characters/martin/back_walk_23.png",
+     "characters/martin/back_walk_24.png",
+     "characters/martin/back_walk_25.png"
+    ],
+    "turn": [
+     "characters/martin/turn_back_00.png",
+     "characters/martin/turn_back_01.png",
+     "characters/martin/turn_back_02.png",
+     "characters/martin/turn_back_03.png",
+     "characters/martin/turn_back_04.png",
+     "characters/martin/turn_back_05.png",
+     "characters/martin/turn_back_06.png",
+     "characters/martin/turn_back_07.png",
+     "characters/martin/turn_back_08.png",
+     "characters/martin/turn_back_09.png",
+     "characters/martin/turn_back_10.png",
+     "characters/martin/turn_back_11.png",
+     "characters/martin/turn_back_12.png",
+     "characters/martin/turn_back_13.png",
+     "characters/martin/turn_back_14.png"
+    ],
+    "size": [
+     290,
+     661
+    ],
+    "anchor": [
+     133,
+     649
+    ],
+    "turn_size": [
+     290,
+     665
+    ],
+    "turn_anchor": [
+     [
+      135,
+      644
+     ],
+     [
+      133,
+      649
+     ]
+    ],
+    "fps_turn": 30,
+    "note": "gerade Rückansicht, für links gespiegelt; auf Wegen nach hinten steiler als 50° (|dy| > 1,2 |dx|, zurück zur Seite unter 40°) und länger als 0,12 Körperhöhen. back_idle = Zyklusbild 12 (Füße beieinander), der Lauf beginnt und endet dort. turn_back: Seite rechts -> hinten, rückwärts für hinten -> Seite; Anker wandert linear."
    }
   }
  },
