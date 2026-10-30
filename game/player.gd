@@ -4,7 +4,7 @@ extends Node2D
 ## Auch beim Laufen nach vorn und hinten bleibt er so ausgerichtet. Größe nach Tiefe im Raum.
 ## Beim Seitenwechsel dreht er sich über die Vorderseite (rechts -> links vorwärts, links -> rechts rückwärts).
 ## Aus dem Stand läuft er mit einem Anlauf los, der nahtlos in den Laufzyklus übergeht; angehalten wird bei
-## einem Zyklusbild, das dem Stand nahekommt.
+## einem Zyklusbild, das dem Stand nahekommt. Im Stand atmet er (Schleife); beim Sprechen bewegt sich der Mund.
 
 ## Mitte zwischen den Füßen und Körperhöhe in Pixeln
 const ANCHOR := Vector2(135, 637)
@@ -25,6 +25,9 @@ const TURN_FPS := 30.0
 ## Fußpunkt x in den Drehbildern: vom Standbild nach rechts bis zum gespiegelten Standbild
 const TURN_ANCHOR_RIGHT := 149.7
 const TURN_ANCHOR_LEFT := 135.7
+## Atem-Schleife im Stand; Bild 0 entspricht dem Standbild
+const IDLE_FRAMES := 48
+const IDLE_FPS := 12.0
 ## Weicher Schatten unter den Füßen (Ellipse), Größe in Sprite-Pixeln
 const SHADOW_SIZE := Vector2(402, 70)
 
@@ -35,6 +38,13 @@ var _idle: Texture2D
 var _walk := []
 var _turn := []
 var _start := []
+var _idle_loop := []
+var _talk := []
+## spricht gerade (setzt main.say)
+var talking := false
+var _talk_t := 0.0
+var _idle_t := 0.0
+var _turning := false
 ## läuft gerade (ein neues Ziel während des Laufens setzt den Zyklus fort statt neu anzulaufen)
 var _moving := false
 var _sprite := Sprite2D.new()
@@ -52,6 +62,11 @@ func _init() -> void:
 		_start.append(load("res://assets/characters/martin/start_%02d.png" % i))
 	for i in TURN_FRAMES:
 		_turn.append(load("res://assets/characters/martin/turn_%02d.png" % i))
+	for i in IDLE_FRAMES:
+		_idle_loop.append(load("res://assets/characters/martin/idle_%02d.png" % i))
+	for state in ["talk_small", "talk_open"]:
+		_talk.append(load("res://assets/characters/martin/%s.png" % state))
+	_talk.append(_idle)
 	_shadow.texture = load("res://assets/characters/martin/shadow.png")
 	_shadow.scale = SHADOW_SIZE / _shadow.texture.get_size()
 	_shadow.position = Vector2(0, -24)
@@ -59,6 +74,21 @@ func _init() -> void:
 	_sprite.centered = false
 	add_child(_sprite)
 	face("right")
+
+
+## Im Stand: Mund beim Sprechen, sonst Atem-Schleife.
+func _process(dt: float) -> void:
+	if _moving or _turning:
+		_idle_t = 0.0
+		return
+	if talking:
+		_talk_t -= dt
+		if _talk_t <= 0.0:
+			_talk_t = randf_range(0.08, 0.16)
+			_set_texture(_talk.pick_random())
+		return
+	_idle_t += dt
+	_set_texture(_idle_loop[int(_idle_t * IDLE_FPS) % IDLE_FRAMES])
 
 
 func _set_texture(tex: Texture2D) -> void:
@@ -84,6 +114,7 @@ func _turn_to(d: String) -> bool:
 		dir = d
 		_set_texture(_idle)
 		return true
+	_turning = true
 	for n in TURN_FRAMES:
 		var i := n if d == "left" else TURN_FRAMES - 1 - n
 		var t := (i + 1) / float(TURN_FRAMES + 1)
@@ -95,8 +126,10 @@ func _turn_to(d: String) -> bool:
 			# abgebrochen: auf der Seite weiter, der er schon näher ist
 			if n * 2 >= TURN_FRAMES:
 				dir = d
+			_turning = false
 			return false
 	dir = d
+	_turning = false
 	_set_texture(_idle)
 	return true
 
@@ -106,6 +139,7 @@ func update_scale() -> void:
 	scale = Vector2(k, k)
 	_shadow.visible = show_shadow
 	_shadow.modulate.a = room.shadow_alpha
+	_sprite.modulate = room.tint
 
 
 ## Bildschirmpunkt über dem Kopf, für Untertitel.

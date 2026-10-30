@@ -11,6 +11,7 @@ func build() -> void:
 		Vector2(380, 522), Vector2(1040, 522), Vector2(1165, 600), Vector2(1344, 700),
 		Vector2(1344, 768), Vector2(0, 768), Vector2(0, 728), Vector2(380, 728)])
 	depth = [Vector2(522, 420), Vector2(768, 560)]
+	tint = Color(1.0, 0.94, 0.86)
 	entries = {
 		"": [Vector2(720, 650), "front", ""],
 		"lobby": [Vector2(1095, 625), "front", "door_open"],

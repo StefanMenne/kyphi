@@ -610,7 +610,67 @@
      -24
     ],
     "note": "weiche Ellipse unter den Füßen, Größe und Versatz in Sprite-Pixeln; Deckkraft pro Raum (Room.shadow_alpha, Standard 0,6)"
-   }
+   },
+   "idle_loop": {
+    "files": [
+     "characters/martin/idle_00.png",
+     "characters/martin/idle_01.png",
+     "characters/martin/idle_02.png",
+     "characters/martin/idle_03.png",
+     "characters/martin/idle_04.png",
+     "characters/martin/idle_05.png",
+     "characters/martin/idle_06.png",
+     "characters/martin/idle_07.png",
+     "characters/martin/idle_08.png",
+     "characters/martin/idle_09.png",
+     "characters/martin/idle_10.png",
+     "characters/martin/idle_11.png",
+     "characters/martin/idle_12.png",
+     "characters/martin/idle_13.png",
+     "characters/martin/idle_14.png",
+     "characters/martin/idle_15.png",
+     "characters/martin/idle_16.png",
+     "characters/martin/idle_17.png",
+     "characters/martin/idle_18.png",
+     "characters/martin/idle_19.png",
+     "characters/martin/idle_20.png",
+     "characters/martin/idle_21.png",
+     "characters/martin/idle_22.png",
+     "characters/martin/idle_23.png",
+     "characters/martin/idle_24.png",
+     "characters/martin/idle_25.png",
+     "characters/martin/idle_26.png",
+     "characters/martin/idle_27.png",
+     "characters/martin/idle_28.png",
+     "characters/martin/idle_29.png",
+     "characters/martin/idle_30.png",
+     "characters/martin/idle_31.png",
+     "characters/martin/idle_32.png",
+     "characters/martin/idle_33.png",
+     "characters/martin/idle_34.png",
+     "characters/martin/idle_35.png",
+     "characters/martin/idle_36.png",
+     "characters/martin/idle_37.png",
+     "characters/martin/idle_38.png",
+     "characters/martin/idle_39.png",
+     "characters/martin/idle_40.png",
+     "characters/martin/idle_41.png",
+     "characters/martin/idle_42.png",
+     "characters/martin/idle_43.png",
+     "characters/martin/idle_44.png",
+     "characters/martin/idle_45.png",
+     "characters/martin/idle_46.png",
+     "characters/martin/idle_47.png"
+    ],
+    "fps": 12,
+    "note": "Atmen im Stand, Schleife (Bild 0 = Standbild), gleicher Zuschnitt und Anker wie der Laufzyklus"
+   },
+   "talk": {
+    "small": "characters/martin/talk_small.png",
+    "open": "characters/martin/talk_open.png",
+    "note": "Standbild mit leicht offenem/offenem Mund; beim Sprechen zufällig mit dem Standbild abgewechselt (alle 0,08-0,16 s)"
+   },
+   "tint": "Tönung pro Raum: Room.tint"
   }
  },
  "voices": {

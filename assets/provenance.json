@@ -763,6 +763,38 @@
       "video_3800"
      ],
      "note": "Bilder 3-35 = start_00..32 (ab Bild 36 periodisch, Bild 36 entspricht Bild 69 = right_walk_00), freigestellt und zugeschnitten wie der Laufzyklus"
+    },
+    "talk": {
+     "talk_open": {
+      "tool": "qwen-image-edit",
+      "job_id": "2d42f414e999",
+      "seed": 4002,
+      "inputs": [
+       "video_3800 Bild 0 (Standbild)"
+      ],
+      "prompt": "The man is speaking: his mouth is open in the middle of a word. Change only his mouth. Keep his face, eyes, hair, pose, hands, clothes, the plain light grey background and everything else in the picture exactly unchanged."
+     },
+     "talk_small": {
+      "tool": "qwen-image-edit",
+      "job_id": "55a4a3ba0664",
+      "seed": 4010,
+      "inputs": [
+       "video_3800 Bild 0 (Standbild)"
+      ],
+      "prompt": "The man is speaking: his mouth is slightly open, a narrow opening, as in a soft vowel. Change only his mouth. Keep his face, eyes, hair, pose, hands, clothes, the plain light grey background and everything else in the picture exactly unchanged."
+     },
+     "note": "nur der Mundbereich übernommen (Ellipse um 430,172, weicher Rand), vorher per Skalierung+Verschiebung am Gesicht ausgerichtet; Alpha vom Standbild"
+    },
+    "idle_loop": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "be11019c3390",
+     "seed": 4100,
+     "inputs": [
+      "video_3800 Bild 0 (erstes und letztes Bild)"
+     ],
+     "params": "768x1024, 4 s, 24 fps",
+     "prompt": "The man in the beige work coat stands still and relaxed in a three-quarter view looking toward the right, waiting calmly. He breathes slowly, his chest and shoulders rise and fall slightly, he blinks once, and shifts his weight very slightly. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet room tone.",
+     "note": "jedes zweite Bild 0-94 = idle_00..47, freigestellt und zugeschnitten wie der Laufzyklus"
     }
    },
    "shadow": {

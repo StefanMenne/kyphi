@@ -269,10 +269,13 @@ func say(speaker: String, text: String, voice_id := "") -> void:
 	if speaker == "martin":
 		anchor = player.head_screen_pos()
 	room.set_talking(speaker, true)
+	if speaker == "martin":
+		player.talking = true
 	ui.show_line(text, SPEAKER_COLORS.get(speaker, Color.WHITE), anchor)
 	await ui.wait_or_skip(seconds)
 	voice.stop()
 	ui.hide_line()
+	player.talking = false
 	if is_instance_valid(room):
 		room.set_talking(speaker, false)
 
