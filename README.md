@@ -33,7 +33,7 @@ oder kombiniert; Rechtsklick legt ihn zurück. Esc öffnet das Menü; der
 Spielstand wird bei jedem Raumwechsel gespeichert.
 
 Entwicklermodus (nur in Debug-Builds, also beim Start aus dem Projekt): **F9** blendet Lauffläche, Tiefe,
-Eingänge, Hotspot-Bereiche und Laufpunkte des Raums ein und eine Martin-Silhouette in der Größe an der
+Eingänge, Hotspot-Bereiche, Laufpunkte und verschiebbare Sprites (Leiter, Frau Ackermann) des Raums ein und eine Martin-Silhouette in der Größe an der
 Mausposition. Alles lässt sich mit der Maus ziehen; **Strg+S** schreibt die Geometrie nach
 `game/rooms/<raum>.json`, **Strg+R** lädt sie neu. Die Hilfe steht oben im Bild.
 

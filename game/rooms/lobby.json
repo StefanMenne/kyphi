@@ -7,6 +7,7 @@
   "depot": {"pos": [150, 490], "face": "front", "door": "stairs_door_open"},
   "workshop": {"pos": [1445, 400], "face": "front", "door": "workshop_door_open"}
  },
+ "sprites": {"ackermann": [402, 216]},
  "hotspots": {
   "covers": {"area": [0, 430, 245, 146], "walk": [250, 540]},
   "roster": {"area": [353, 179, 118, 77], "walk": [400, 475]},

@@ -1,12 +1,13 @@
 class_name LayoutEditor
 extends Node2D
 ## Entwicklermodus (F9, nur in Debug-Builds): Lauffläche, Tiefe, Eingänge, Hotspot-Bereiche und Laufpunkte
-## des aktuellen Raums anzeigen und mit der Maus bearbeiten; Strg+S schreibt game/rooms/<id>.json.
+## und verschiebbare Sprites des aktuellen Raums anzeigen und mit der Maus bearbeiten; Strg+S schreibt
+## game/rooms/<id>.json.
 
 const HANDLE := 7.0
 const HELP := "Entwicklermodus (F9 beendet)   Strg+S speichern   Strg+R neu laden   A/D oder ←/→ Kamera\n" + \
 	"Ecken, Laufpunkte (blau), Eingänge (violett), Tiefe (links) ziehen   Hotspot anklicken: verschieben, " + \
-	"Ecken ändern\nDoppelklick auf Kante: Ecke einfügen   Rechtsklick auf Ecke: löschen   " + \
+	"Ecken ändern\nSprites (rosa Marke oben links) ziehen   Doppelklick auf Kante: Ecke einfügen   Rechtsklick auf Ecke: löschen   " + \
 	"Mausrad an Tiefenmarke: Figurhöhe"
 
 var main: Node
@@ -115,6 +116,15 @@ func _draw() -> void:
 		if sel:
 			for p in _corners(r):
 				_handle(p, c, k)
+	# verschiebbare Sprites; ausgeblendete halbtransparent
+	for sid in room.movables:
+		var sp: Sprite2D = room.movables[sid]
+		var r := _sprite_rect(sp)
+		if not sp.visible:
+			draw_texture(sp.texture, sp.position, Color(1, 1, 1, 0.4))
+		draw_rect(r, Color(1, 0.4, 0.7), false, 2 * k)
+		_handle(sp.position, Color(1, 0.4, 0.7), k)
+		_text(sp.position + Vector2(10, -8) * k, "Sprite " + sid, Color(1, 0.4, 0.7), k)
 	# Eingänge
 	for key in room.entries:
 		var p: Vector2 = room.entries[key][0]
@@ -143,6 +153,10 @@ func _handle(p: Vector2, c: Color, k: float) -> void:
 	var s := HANDLE * k
 	draw_rect(Rect2(p - Vector2(s, s), Vector2(2 * s, 2 * s)), Color(0, 0, 0, 0.6))
 	draw_rect(Rect2(p - Vector2(s, s), Vector2(2 * s, 2 * s)), c, false, 2 * k)
+
+
+func _sprite_rect(sp: Sprite2D) -> Rect2:
+	return Rect2(sp.position, sp.texture.get_size() * sp.scale)
 
 
 func _corners(r: Rect2) -> Array:
@@ -210,8 +224,8 @@ func _on_button(e: InputEventMouseButton) -> void:
 		_selected = null
 
 
-## Was unter der Maus liegt, in dieser Reihenfolge: Ecken des gewählten Hotspots, Laufpunkte, Eingänge,
-## Tiefenmarken, Ecken der Lauffläche, Hotspot-Bereiche (oberster zuerst).
+## Was unter der Maus liegt, in dieser Reihenfolge: Ecken des gewählten Hotspots, Sprite-Marken, Laufpunkte,
+## Eingänge, Tiefenmarken, Ecken der Lauffläche, Hotspot-Bereiche (oberster zuerst).
 func _pick(m: Vector2) -> Dictionary:
 	var r := _r()
 	if _selected:
@@ -219,6 +233,10 @@ func _pick(m: Vector2) -> Dictionary:
 		for i in 4:
 			if m.distance_to(cs[i]) < r:
 				return {"kind": "corner", "hs": _selected, "fixed": cs[(i + 2) % 4]}
+	for sid in room.movables:
+		var sp: Sprite2D = room.movables[sid]
+		if m.distance_to(sp.position) < r:
+			return {"kind": "sprite", "sid": sid, "offset": sp.position - m}
 	for hs in room.hotspots:
 		if m.distance_to(hs["walk"]) < r:
 			return {"kind": "walk", "hs": hs}
@@ -265,6 +283,16 @@ func _on_drag(m: Vector2) -> void:
 			var a: Rect2 = _drag["hs"]["area"]
 			a.position = (m + _drag["offset"]).round()
 			_drag["hs"]["area"] = a
+		"sprite":
+			# ein Hotspot gleicher id zieht mit
+			var sp: Sprite2D = room.movables[_drag["sid"]]
+			var to: Vector2 = (m + _drag["offset"]).round()
+			var hs = room.find_hotspot(_drag["sid"])
+			if hs:
+				var a: Rect2 = hs["area"]
+				a.position += to - sp.position
+				hs["area"] = a
+			sp.position = to
 		"walk":
 			_drag["hs"]["walk"] = m
 		"entry":

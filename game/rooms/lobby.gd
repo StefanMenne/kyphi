@@ -2,7 +2,6 @@ extends Room
 ## Lobby: Frau Ackermann, Archivkartei, Depotschlüssel, Feuerzeug.
 
 ## Frau Ackermann hinter dem Tresen (Sprite oben links; unten an der Tresenkante abgeschnitten)
-const ACK_POS := Vector2(402, 216)
 const ACK_SIZE := Vector2(55, 87)
 
 var ackermann: Sprite2D
@@ -18,7 +17,8 @@ func _init() -> void:
 func build() -> void:
 	for state in ["idle", "talk_small", "talk_open", "incense_cone"]:
 		_ack_tex[state] = load("res://assets/characters/ackermann/%s.png" % state)
-	ackermann = add_sprite(_ack_tex["idle"], ACK_POS)
+	ackermann = add_sprite(_ack_tex["idle"], Vector2.ZERO)
+	movable("ackermann", ackermann)
 	move_child(ackermann, 1)
 
 	hotspot("covers", "Abdeckplanen", "left")

@@ -2,7 +2,8 @@ class_name Room
 extends Node2D
 ## Basis aller Schauplätze: Hintergrund und Ebenen aus dem Katalog, Hotspots, Laufbereich.
 ## Alle Koordinaten sind Pixel des Hintergrundbilds. Die Geometrie (Lauffläche, Tiefe, Eingänge, Bereiche und
-## Laufpunkte der Hotspots) steht in game/rooms/<id>.json und lässt sich im Entwicklermodus (F9) bearbeiten.
+## Laufpunkte der Hotspots, Position verschiebbarer Sprites) steht in game/rooms/<id>.json und lässt sich im
+## Entwicklermodus (F9) bearbeiten.
 
 const LOOK_FAIL := ["Nichts Besonderes.", "Sieht aus wie immer."]
 const USE_FAIL := ["Das bringt mir nichts.", "Lieber nicht.", "Nein."]
@@ -23,6 +24,8 @@ var tint := Color.WHITE
 var shadow_alpha := 0.6
 var hotspots: Array = []
 var layers := {}
+## verschiebbare Sprites: id -> Sprite2D (Position aus dem Layout; ein Hotspot gleicher id zieht im Editor mit)
+var movables := {}
 
 
 func setup() -> void:
@@ -62,6 +65,10 @@ func on_enter(_from: String) -> void:
 	pass
 
 
+func movable(sid: String, s: Sprite2D) -> void:
+	movables[sid] = s
+
+
 ## gesture: "auto" (nach Höhe: "pickup" am Boden, sonst "use") oder "none" (ohne Gegenstand keine Geste,
 ## z. B. Personen und offene Durchgänge)
 func hotspot(hid: String, name: String, face := "back", gesture := "auto") -> void:
@@ -99,6 +106,12 @@ func load_layout() -> void:
 	for k in d["entries"]:
 		var e: Dictionary = d["entries"][k]
 		entries[k] = [Vector2(e["pos"][0], e["pos"][1]), e["face"], e["door"]]
+	var sprites: Dictionary = d.get("sprites", {})
+	for sid in movables:
+		if sid in sprites:
+			movables[sid].position = Vector2(sprites[sid][0], sprites[sid][1])
+		else:
+			push_warning("Sprite %s fehlt in %s" % [sid, layout_path()])
 	for hs in hotspots:
 		var g = d["hotspots"].get(hs["id"])
 		if g == null:
@@ -125,6 +138,11 @@ func save_layout() -> void:
 			JSON.stringify(k), v.call(e[0]), JSON.stringify(e[1]), JSON.stringify(e[2])])
 	lines.append(",\n".join(es))
 	lines.append(" },")
+	if not movables.is_empty():
+		var ss := []
+		for sid in movables:
+			ss.append("%s: %s" % [JSON.stringify(sid), v.call(movables[sid].position)])
+		lines.append(' "sprites": {%s},' % ", ".join(ss))
 	lines.append(' "hotspots": {')
 	var hs_lines := []
 	for hs in hotspots:
@@ -151,14 +169,14 @@ func display_name(hs: Dictionary) -> String:
 	return hs["name"]
 
 
-func find_hotspot(hid: String):
+func find_hotspot(hid: String) -> Variant:
 	for hs in hotspots:
 		if hs["id"] == hid:
 			return hs
 	return null
 
 
-func hotspot_at(p: Vector2):
+func hotspot_at(p: Vector2) -> Variant:
 	for i in range(hotspots.size() - 1, -1, -1):
 		var hs: Dictionary = hotspots[i]
 		if not is_active(hs["id"]):

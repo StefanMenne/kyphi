@@ -1,12 +1,10 @@
 extends Room
 ## Altarraum: Rauchmelder, Asche, Ruß, Altarschrank, Westwand mit Paneel 4 und Stahltür.
 
-const LADDER_POS := Vector2(950, 113)
 const UV := Color(0.55, 0.42, 0.95)
 
+## steht, solange das Flag ladder_up gesetzt ist (auf dem Podest unter dem Rauchmelder)
 var ladder: Sprite2D
-## Martin arbeitet gerade auf der Leiter (nur dann steht sie)
-var _on_ladder := false
 var smoke: CPUParticles2D
 
 
@@ -16,7 +14,8 @@ func _init() -> void:
 
 func build() -> void:
 	tint = Color(0.68, 0.63, 0.6)
-	ladder = add_sprite(load("res://assets/scenes/altarraum/sprites/ladder.png"), LADDER_POS)
+	ladder = add_sprite(load("res://assets/scenes/altarraum/sprites/ladder.png"), Vector2.ZERO)
+	movable("ladder", ladder)
 	# wie Martin im Licht des Raums
 	ladder.modulate = tint
 	move_child(ladder, 1)
@@ -42,6 +41,7 @@ func build() -> void:
 	hotspot("ash", "Räucheraltar mit Asche")
 	hotspot("soot", "Ruß an der Decke")
 	hotspot("detector", "Rauchmelder")
+	hotspot("ladder", "Leiter")
 	for i in 5:
 		hotspot("panel_%d" % (i + 1), "Holzverkleidung")
 	hotspot("steel_door", "Stahltür mit Kartenleser")
@@ -53,12 +53,12 @@ func refresh() -> void:
 	layers["detector_taped"].visible = not Game.flag("tape_removed") or Game.flag("detector_retaped")
 	layers["steel_door_closed"].visible = Game.flag("panel_removed")
 	layers["steel_door_open"].visible = Game.flag("steel_door_open")
-	ladder.visible = _on_ladder
-	# alte Spielstände: die Leiter stand hier fest, jetzt gehört sie wieder ins Inventar
+	ladder.visible = Game.flag("ladder_up")
+	# alte Spielstände: ladder_placed hieß früher ladder_up
 	if Game.flag("ladder_placed"):
 		Game.set_flag("ladder_placed", false)
-		if not Game.has("ladder"):
-			Game.add_item("ladder")
+		Game.set_flag("ladder_up")
+		ladder.visible = true
 
 
 func _process(_dt: float) -> void:
@@ -71,6 +71,8 @@ func is_active(hid: String) -> bool:
 	match hid:
 		"steel_door":
 			return Game.flag("panel_removed")
+		"ladder":
+			return Game.flag("ladder_up")
 		"panel_4":
 			return not Game.flag("panel_removed")
 	return true
@@ -114,6 +116,8 @@ func look(hid: String) -> void:
 				await say("Abgeklebt. Darunter klebt ein langes graues Haar." if not Game.flag("hair_secured") else "Noch abgeklebt.")
 			else:
 				await say("Der Rauchmelder. Bei dem Ruß hätte er längst anschlagen müssen.")
+		"ladder":
+			await say("Die Malerleiter, auf dem Podest unter dem Rauchmelder.")
 		"steel_door":
 			await say("Eine neue Stahltür mit Kartenleser. Dasselbe Modell wie an den Personaltüren des Museums.")
 		"workshop_door":
@@ -134,16 +138,21 @@ func use(hid: String) -> void:
 			if Game.has("cone_saucer"):
 				await refuse("Mit dem brennenden Kegel? Nicht durchs Museum.")
 				return
+			if Game.flag("ladder_up") and Game.flag("dictaphone_hidden") and not Game.flag("night_done"):
+				await refuse("Und die Leiter bleibt unter dem Melder stehen? Die würde mich verraten. Die muss weg.")
+				return
 			await go("workshop", "workshop_door_open")
 		"cabinet":
 			await cabinet()
 		"detector":
 			await on_ladder(detector)
 		"soot":
-			if not Game.has("ladder"):
+			if not Game.flag("ladder_up"):
 				await refuse("Viel zu hoch.")
 			else:
 				await refuse("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
+		"ladder":
+			await take_ladder()
 		"ash":
 			await refuse("Nicht anfassen. Das ist ein Befund.")
 		"steel_door":
@@ -157,12 +166,8 @@ func use(hid: String) -> void:
 
 func use_item(hid: String, item: String) -> void:
 	match [hid, item]:
-		["detector", "ladder"]:
-			await on_ladder(detector)
-		["soot", "ladder"]:
-			await refuse("Mit bloßen Fingern? Dafür gibt es Werkzeug.")
-		["podium", "ladder"], ["altar", "ladder"], ["ash", "ladder"]:
-			await refuse("Die stelle ich auf, wenn ich oben etwas zu tun habe.")
+		["detector", "ladder"], ["soot", "ladder"], ["podium", "ladder"], ["altar", "ladder"], ["ash", "ladder"]:
+			await set_up_ladder()
 		["detector", "tweezers"]:
 			await on_ladder(take_hair)
 		["detector", "masking_tape"]:
@@ -182,26 +187,36 @@ func use_item(hid: String, item: String) -> void:
 				await super(hid, item)
 
 
-## Arbeit an der Decke: die Leiter kurz aufstellen, danach wieder zusammenklappen und mitnehmen,
-## damit nachts niemand eine Leiter unter dem Melder findet.
-func on_ladder(action: Callable) -> void:
-	if not Game.has("ladder"):
-		await refuse("Viel zu hoch. Ich brauche die Leiter aus der Werkstatt.")
-		return
+## Die Leiter steht immer auf dem Podest unter dem Rauchmelder; aufstellen und mitnehmen sind eigene Aktionen.
+func set_up_ladder() -> void:
 	await Game.main.flush_gesture()
-	_on_ladder = true
-	ladder.visible = true
-	if not Game.flag("ladder_used"):
-		await narrate("[Martin klappt die Leiter unter dem Rauchmelder auf und steigt hinauf.]")
+	Game.remove_item("ladder")
+	Game.set_flag("ladder_up")
+	refresh()
+	if not Game.flag("ladder_set_up_once"):
+		Game.set_flag("ladder_set_up_once")
+		await narrate("[Martin stellt die Leiter auf das Podest, direkt unter den Rauchmelder.]")
+
+
+func take_ladder() -> void:
+	await Game.main.flush_gesture()
+	Game.set_flag("ladder_up", false)
+	Game.add_item("ladder")
+	refresh()
+	if not Game.flag("ladder_taken_once"):
+		Game.set_flag("ladder_taken_once")
+		await narrate("[Martin klappt die Leiter zusammen und nimmt sie mit.]")
+
+
+## Arbeit an der Decke: nur von der aufgestellten Leiter aus.
+func on_ladder(action: Callable) -> void:
+	if not Game.flag("ladder_up"):
+		if Game.has("ladder"):
+			await refuse("Zu hoch. Erst die Leiter aufstellen.")
+		else:
+			await refuse("Viel zu hoch. Ich brauche die Leiter aus der Werkstatt.")
+		return
 	await action.call()
-	if not Game.flag("ladder_used"):
-		Game.set_flag("ladder_used")
-		await narrate("[Er steigt wieder herunter und klappt die Leiter zusammen.]")
-		await say("Die nehme ich wieder mit. Eine Leiter unter dem Melder würde auffallen.")
-	else:
-		await Game.wait(0.4)
-	_on_ladder = false
-	ladder.visible = false
 
 
 func scrape_soot() -> void:
