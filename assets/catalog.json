@@ -450,15 +450,15 @@
   "ackermann": {
    "name": "Frau Ackermann",
    "scene": "lobby",
-   "note": "Oberkörper hinter dem Tresen; alle Zustände deckungsgleich an derselben Position (Lobby-Koordinaten). Sprechen: idle, talk_small und talk_open wechseln.",
-   "x": 438,
-   "y": 127,
-   "w": 124,
-   "h": 188,
+   "note": "Oberkörper links hinter der langen Tresenkante, Blick nach rechts unten (zum Spieler); unten an der Hinterkante der Tresenplatte abgeschnitten, was auf dem Tresen steht (Telefon) liegt vor ihr; ganze Figur 229 px (1,62 m, Maßstab wie Martin). Alle Zustände deckungsgleich. Sprechen: idle, talk_small und talk_open wechseln.",
+   "x": 402,
+   "y": 216,
+   "w": 55,
+   "h": 87,
    "states": {
     "idle": {
      "file": "characters/ackermann/idle.png",
-     "name": "Grundzustand, Hände auf dem Tresen"
+     "name": "Grundzustand, Dreiviertelansicht, Blick nach rechts unten"
     },
     "talk_small": {
      "file": "characters/ackermann/talk_small.png",

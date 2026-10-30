@@ -1,7 +1,9 @@
 extends Room
 ## Lobby: Frau Ackermann, Archivkartei, Depotschlüssel, Feuerzeug.
 
-const ACK_POS := Vector2(438, 127)
+## Frau Ackermann hinter dem Tresen (Sprite oben links; unten an der Tresenkante abgeschnitten)
+const ACK_POS := Vector2(402, 216)
+const ACK_SIZE := Vector2(55, 87)
 
 var ackermann: Sprite2D
 var _ack_tex := {}
@@ -33,7 +35,7 @@ func build() -> void:
 	hotspot("roster", "Dienstplan", Rect2(353, 179, 118, 77), Vector2(400, 475))
 	hotspot("key_board", "Schlüsselbrett", Rect2(553, 186, 95, 80), Vector2(600, 475))
 	hotspot("counter", "Empfangstresen", Rect2(326, 297, 293, 164), Vector2(680, 472), "left")
-	hotspot("ackermann", "Frau Ackermann", Rect2(ACK_POS, Vector2(124, 188)), Vector2(680, 472), "left", "none")
+	hotspot("ackermann", "Frau Ackermann", Rect2(ACK_POS, ACK_SIZE), Vector2(680, 472), "left", "none")
 	hotspot("archive", "Archivkartei", Rect2(707, 200, 230, 184), Vector2(820, 400))
 	hotspot("glass_door", "Glastür zum öffentlichen Bereich", Rect2(1055, 143, 338, 241), Vector2(1220, 400))
 	hotspot("workshop_door", "Tür zur Werkstatt", Rect2(1403, 154, 85, 233), Vector2(1445, 398))
@@ -56,7 +58,7 @@ func _process(dt: float) -> void:
 
 func speaker_anchor(speaker: String):
 	if speaker == "ackermann":
-		return ackermann.get_global_transform_with_canvas() * Vector2(62, -10)
+		return ackermann.get_global_transform_with_canvas() * Vector2(ACK_SIZE.x / 2, -10)
 	return null
 
 

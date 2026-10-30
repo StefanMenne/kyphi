@@ -634,42 +634,53 @@
   "ackermann": {
    "idle": {
     "tool": "qwen-image-edit",
-    "job_id": "68c49376bd52",
-    "seed": 900,
+    "job_id": "76e15d9e6eb9",
+    "seed": 4703,
     "inputs": [
-     "Lobby-Hintergrund, Ausschnitt 300,120,700,344, 3-fach",
-     "work/ackermann.png (Entwurf)"
+     "Ackermann frontal (image_4501, siehe front)"
     ],
-    "prompt": "The woman from image 2 stands behind the reception counter of image 1, in the middle of the counter between the two telephones, facing the viewer. Only her head and upper body are visible above the countertop, the counter hides her from the waist down. Both hands rest on the countertop, empty. Her size fits the scene: her head is a little larger than a telephone. Same drawing style as image 1 with bold black ink outlines. Keep the counter, the telephones, the lamp, the key board, the wall boards and the wall of image 1 exactly unchanged."
+    "prompt": "The same woman, but her whole body and her head are turned in a three-quarter view toward the right side of the picture, and she looks toward the lower right, slightly downward, as if at someone standing in front of her to the right. Arms hanging relaxed at her sides, full body from head to shoes, uncropped. Keep her face, glasses, hair, clothes, colors, the drawing style and the plain flat magenta background exactly the same.",
+    "note": "freigestellt, auf 229 px Höhe skaliert, an der Hinterkante der Tresenplatte abgeschnitten und die Dinge auf dem Tresen ausgespart (work/characters/ackermann/v2/make_sprite.py, occluder_counter.png)",
+    "front": {
+     "tool": "qwen-image-edit",
+     "job_id": "64a1d8f94029",
+     "seed": 4501,
+     "inputs": [
+      "work/ackermann.png (Entwurf)",
+      "bisheriges Lobby-Sprite (Stilreferenz)"
+     ],
+     "prompt": "The woman from image 1, drawn in the style of the woman in image 2: clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style. Same woman: grey hair in a bun, glasses, dark grey cardigan over a white blouse, black skirt. She stands upright facing the viewer with a friendly but strict expression, both arms hanging relaxed at her sides, full body from head to shoes, uncropped. Plain flat solid magenta background, no shadow, no floor, nothing else in the picture."
+    }
    },
    "talk_open": {
     "tool": "qwen-image-edit",
-    "job_id": "186074ba8b23",
-    "seed": 910,
+    "job_id": "85d6845d245e",
+    "seed": 4801,
     "inputs": [
-     "idle (image_900)"
+     "idle (image_4703)"
     ],
-    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet",
-    "prompt": "The woman is speaking: her mouth is open in the middle of a word. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes and everything else in the picture exactly unchanged."
+    "prompt": "The woman is speaking: her mouth is open in the middle of a word. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes, the plain magenta background and everything else in the picture exactly unchanged.",
+    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet"
    },
    "talk_small": {
     "tool": "qwen-image-edit",
-    "job_id": "42d250524d3d",
-    "seed": 920,
+    "job_id": "899bf78cdf75",
+    "seed": 4811,
     "inputs": [
-     "idle (image_900)"
+     "idle (image_4703)"
     ],
-    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet",
-    "prompt": "The woman is speaking: her mouth is slightly open, a narrow opening, as in a soft vowel. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes and everything else in the picture exactly unchanged."
+    "prompt": "The woman is speaking: her mouth is slightly open, a narrow opening, as in a soft vowel. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes, the plain magenta background and everything else in the picture exactly unchanged.",
+    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet"
    },
    "incense_cone": {
     "tool": "qwen-image-edit",
-    "job_id": "b1a97a75a1cf",
-    "seed": 931,
+    "job_id": "44f9d625ac39",
+    "seed": 4822,
     "inputs": [
-     "idle (image_900)"
+     "idle (image_4703)"
     ],
-    "prompt": "The woman raises her right hand to her face and holds a small dark brown resin incense cone under her nose, smelling it with her eyes closed and a soft, nostalgic smile. Her other hand stays on the countertop. Keep her face shape, glasses, hair, clothes, the counter, the telephones and everything else in the picture exactly unchanged."
+    "prompt": "The same woman raises one hand and holds a small dark brown cone of incense between her fingertips right in front of her nose and sniffs at it with her eyes half closed, her other arm hangs relaxed. The incense is not burning, there is no smoke. Keep her face, glasses, hair, clothes, body, the plain magenta background and the drawing style exactly unchanged, full body from head to shoes.",
+    "note": "am Rumpf des Grundbilds ausgerichtet (align_full.py)"
    }
   },
   "martin": {
