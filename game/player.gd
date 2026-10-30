@@ -28,6 +28,9 @@ const TURN_ANCHOR_LEFT := 135.7
 ## Atem-Schleife im Stand; Bild 0 entspricht dem Standbild
 const IDLE_FRAMES := 48
 const IDLE_FPS := 12.0
+## Gesten (gleicher Fußpunkt wie das Standbild, Bild 0 und letztes Bild nahe am Standbild)
+const GESTURES := {"use": 35, "pickup": 54}
+const GESTURE_FPS := 30.0
 ## Weicher Schatten unter den Füßen (Ellipse), Größe in Sprite-Pixeln
 const SHADOW_SIZE := Vector2(402, 70)
 
@@ -45,6 +48,8 @@ var talking := false
 var _talk_t := 0.0
 var _idle_t := 0.0
 var _turning := false
+var _gesturing := false
+var _gestures := {}
 ## läuft gerade (ein neues Ziel während des Laufens setzt den Zyklus fort statt neu anzulaufen)
 var _moving := false
 var _sprite := Sprite2D.new()
@@ -64,6 +69,10 @@ func _init() -> void:
 		_turn.append(load("res://assets/characters/martin/turn_%02d.png" % i))
 	for i in IDLE_FRAMES:
 		_idle_loop.append(load("res://assets/characters/martin/idle_%02d.png" % i))
+	for kind in GESTURES:
+		_gestures[kind] = []
+		for i in GESTURES[kind]:
+			_gestures[kind].append(load("res://assets/characters/martin/%s_%02d.png" % [kind, i]))
 	for state in ["talk_small", "talk_open"]:
 		_talk.append(load("res://assets/characters/martin/%s.png" % state))
 	_talk.append(_idle)
@@ -78,7 +87,7 @@ func _init() -> void:
 
 ## Im Stand: Mund beim Sprechen, sonst Atem-Schleife.
 func _process(dt: float) -> void:
-	if _moving or _turning:
+	if _moving or _turning or _gesturing:
 		_idle_t = 0.0
 		return
 	if talking:
@@ -132,6 +141,23 @@ func _turn_to(d: String) -> bool:
 	_turning = false
 	_set_texture(_idle)
 	return true
+
+
+## Spielt eine Geste ("use": Hand nach vorn, "pickup": bücken) und endet im Standbild.
+func gesture(kind: String) -> void:
+	if Game.fast:
+		return
+	while _turning:
+		await get_tree().process_frame
+	var my := _token
+	_gesturing = true
+	for tex in _gestures[kind]:
+		_set_texture(tex)
+		await get_tree().create_timer(1.0 / GESTURE_FPS).timeout
+		if my != _token:
+			break
+	_gesturing = false
+	_set_texture(_idle)
 
 
 func update_scale() -> void:

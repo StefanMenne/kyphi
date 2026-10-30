@@ -213,6 +213,10 @@ func act(hs: Dictionary, mode: String) -> void:
 		player.face(hs["face"])
 	busy = true
 	ui.set_hover("")
+	if mode == "use":
+		var gesture := room.gesture_for(hs, item != "", player.position)
+		if gesture != "":
+			await player.gesture(gesture)
 	if mode == "look":
 		await room.look(hs["id"])
 	elif item != "":

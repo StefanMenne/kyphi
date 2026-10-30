@@ -795,6 +795,28 @@
      "params": "768x1024, 4 s, 24 fps",
      "prompt": "The man in the beige work coat stands still and relaxed in a three-quarter view looking toward the right, waiting calmly. He breathes slowly, his chest and shoulders rise and fall slightly, he blinks once, and shifts his weight very slightly. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet room tone.",
      "note": "jedes zweite Bild 0-94 = idle_00..47, freigestellt und zugeschnitten wie der Laufzyklus"
+    },
+    "use": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "eff54dfa5120",
+     "seed": 4202,
+     "inputs": [
+      "video_3800 Bild 0 (erstes und letztes Bild)"
+     ],
+     "params": "768x1024, 2 s, 24 fps",
+     "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right. He calmly reaches forward with his arm toward something at chest height in front of him on the right, touches it briefly with his hand as if pressing or taking hold of it, then lowers his arm again and stands relaxed as before. His hand stays empty, no object is visible. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a soft click.",
+     "note": "Bilder 2-36 = use_00..34, freigestellt, Zuschnitt 192,37-762,1019, auf 2/3 verkleinert"
+    },
+    "pickup": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "4fede0d019cf",
+     "seed": 4301,
+     "inputs": [
+      "video_3800 Bild 0 (erstes und letztes Bild)"
+     ],
+     "params": "768x1024, 3 s, 24 fps",
+     "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right. He bends his knees and crouches down to the floor in front of him, reaches down with his hand and closes it as if picking up a small object from the floor, then straightens up again and stands relaxed as before. His hand stays closed and nothing is visible in it. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: the rustle of a coat.",
+     "note": "Bilder 3-56 = pickup_00..53, freigestellt, Zuschnitt 192,37-700,1019, auf 2/3 verkleinert"
     }
    },
    "shadow": {

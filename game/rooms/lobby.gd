@@ -33,11 +33,11 @@ func build() -> void:
 	hotspot("roster", "Dienstplan", Rect2(353, 179, 118, 77), Vector2(400, 475))
 	hotspot("key_board", "Schlüsselbrett", Rect2(553, 186, 95, 80), Vector2(600, 475))
 	hotspot("counter", "Empfangstresen", Rect2(326, 297, 293, 164), Vector2(680, 472), "left")
-	hotspot("ackermann", "Frau Ackermann", Rect2(ACK_POS, Vector2(124, 188)), Vector2(680, 472), "left")
+	hotspot("ackermann", "Frau Ackermann", Rect2(ACK_POS, Vector2(124, 188)), Vector2(680, 472), "left", "none")
 	hotspot("archive", "Archivkartei", Rect2(707, 200, 230, 184), Vector2(820, 400))
 	hotspot("glass_door", "Glastür zum öffentlichen Bereich", Rect2(1055, 143, 338, 241), Vector2(1220, 400))
 	hotspot("workshop_door", "Tür zur Werkstatt", Rect2(1403, 154, 85, 233), Vector2(1445, 398))
-	hotspot("portal", "Eingangsportal (nach Hause)", Rect2(1577, 85, 246, 370), Vector2(1700, 468))
+	hotspot("portal", "Eingangsportal (nach Hause)", Rect2(1577, 85, 246, 370), Vector2(1700, 468), "back", "none")
 	hotspot("painting", "Gemälde", Rect2(1946, 133, 102, 159), Vector2(1800, 520), "right")
 	hotspot("stairs_door", "Tür zum Keller", Rect2(85, 118, 120, 356), Vector2(150, 488))
 

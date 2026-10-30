@@ -60,8 +60,27 @@ func on_enter(_from: String) -> void:
 	pass
 
 
-func hotspot(hid: String, name: String, area, walk: Vector2, face := "back") -> void:
-	hotspots.append({"id": hid, "name": name, "area": area, "walk": walk, "face": face})
+## gesture: "auto" (nach Höhe: "pickup" am Boden, sonst "use") oder "none" (ohne Gegenstand keine Geste,
+## z. B. Personen und offene Durchgänge)
+func hotspot(hid: String, name: String, area, walk: Vector2, face := "back", gesture := "auto") -> void:
+	hotspots.append({"id": hid, "name": name, "area": area, "walk": walk, "face": face, "gesture": gesture})
+
+
+## Geste beim Benutzen des Hotspots ("" = keine).
+func gesture_for(hs: Dictionary, with_item: bool, feet: Vector2) -> String:
+	if hs["gesture"] == "none" and not with_item:
+		return ""
+	var a = hs["area"]
+	var r: Rect2 = a if a is Rect2 else _poly_rect(a)
+	# Mitte tiefer als ein Fünftel der Körperhöhe über den Füßen: am Boden
+	return "pickup" if r.get_center().y > feet.y - 0.2 * height_at(feet.y) else "use"
+
+
+func _poly_rect(p: PackedVector2Array) -> Rect2:
+	var r := Rect2(p[0], Vector2.ZERO)
+	for q in p:
+		r = r.expand(q)
+	return r
 
 
 func layer_rect(lid: String) -> Rect2:
