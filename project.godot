@@ -1,0 +1,25 @@
+; Engine configuration file.
+
+config_version=5
+
+[application]
+
+config/name="Kyphi"
+config/description="Teil 1: Der Zugang"
+run/main_scene="res://game/main.tscn"
+config/features=PackedStringArray("4.7")
+
+[autoload]
+
+Game="*res://game/game.gd"
+
+[display]
+
+window/size/viewport_width=1344
+window/size/viewport_height=864
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep"
+
+[rendering]
+
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

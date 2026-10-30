@@ -5,5 +5,15 @@
   576
  ],
  "background": "background.png",
- "layers": {}
+ "layers": {
+  "hollmann_box": {
+   "name": "Hollmanns Kiste (Kapitel 5), vor Regal D",
+   "type": "item",
+   "file": "sprites/hollmann_box.png",
+   "x": 1180,
+   "y": 471,
+   "w": 88,
+   "h": 89
+  }
+ }
 }

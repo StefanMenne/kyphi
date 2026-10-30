@@ -433,7 +433,17 @@
     2048,
     576
    ],
-   "layers": {}
+   "layers": {
+    "hollmann_box": {
+     "name": "Hollmanns Kiste (Kapitel 5), vor Regal D",
+     "type": "item",
+     "file": "scenes/depot/sprites/hollmann_box.png",
+     "x": 1180,
+     "y": 471,
+     "w": 88,
+     "h": 89
+    }
+   }
   }
  },
  "characters": {
@@ -466,70 +476,50 @@
   },
   "martin": {
    "name": "Martin Kessler",
+   "note": "Anker = Mitte zwischen den Füßen. Dreiviertelansicht nach rechts aus einem Video (auf der Stelle laufend), 31 Bilder pro Zyklus (zwei Schritte); die Spiel-Engine verschiebt die Figur. Links = gespiegelt, auch für Wege nach vorn und hinten. Die Bildfolge läuft nach zurückgelegtem Weg: 0,0126 Körperhöhen pro Bild.",
    "size": [
-    212,
-    443
+    275,
+    655
    ],
    "anchor": [
-    106,
-    431
+    135,
+    641
    ],
-   "height_px": 421,
-   "note": "Anker = Mitte zwischen den Füßen. Laufzyklus auf der Stelle, 8 Bilder pro Richtung, 1 s pro Zyklus (zwei Schritte). Die Arme bewegen sich mit dem Oberkörper. Laufzyklus auf der Stelle: die Spiel-Engine verschiebt die Figur.",
-   "directions": {
-    "front": {
-     "idle": "characters/martin/front_idle.png",
-     "walk": [
-      "characters/martin/front_walk_0.png",
-      "characters/martin/front_walk_1.png",
-      "characters/martin/front_walk_2.png",
-      "characters/martin/front_walk_3.png",
-      "characters/martin/front_walk_4.png",
-      "characters/martin/front_walk_5.png",
-      "characters/martin/front_walk_6.png",
-      "characters/martin/front_walk_7.png"
-     ]
-    },
-    "back": {
-     "idle": "characters/martin/back_idle.png",
-     "walk": [
-      "characters/martin/back_walk_0.png",
-      "characters/martin/back_walk_1.png",
-      "characters/martin/back_walk_2.png",
-      "characters/martin/back_walk_3.png",
-      "characters/martin/back_walk_4.png",
-      "characters/martin/back_walk_5.png",
-      "characters/martin/back_walk_6.png",
-      "characters/martin/back_walk_7.png"
-     ]
-    },
-    "left": {
-     "idle": "characters/martin/left_idle.png",
-     "walk": [
-      "characters/martin/left_walk_0.png",
-      "characters/martin/left_walk_1.png",
-      "characters/martin/left_walk_2.png",
-      "characters/martin/left_walk_3.png",
-      "characters/martin/left_walk_4.png",
-      "characters/martin/left_walk_5.png",
-      "characters/martin/left_walk_6.png",
-      "characters/martin/left_walk_7.png"
-     ]
-    },
-    "right": {
-     "idle": "characters/martin/right_idle.png",
-     "walk": [
-      "characters/martin/right_walk_0.png",
-      "characters/martin/right_walk_1.png",
-      "characters/martin/right_walk_2.png",
-      "characters/martin/right_walk_3.png",
-      "characters/martin/right_walk_4.png",
-      "characters/martin/right_walk_5.png",
-      "characters/martin/right_walk_6.png",
-      "characters/martin/right_walk_7.png"
-     ]
-    }
-   },
+   "height_px": 635,
+   "idle": "characters/martin/right_idle.png",
+   "walk": [
+    "characters/martin/right_walk_00.png",
+    "characters/martin/right_walk_01.png",
+    "characters/martin/right_walk_02.png",
+    "characters/martin/right_walk_03.png",
+    "characters/martin/right_walk_04.png",
+    "characters/martin/right_walk_05.png",
+    "characters/martin/right_walk_06.png",
+    "characters/martin/right_walk_07.png",
+    "characters/martin/right_walk_08.png",
+    "characters/martin/right_walk_09.png",
+    "characters/martin/right_walk_10.png",
+    "characters/martin/right_walk_11.png",
+    "characters/martin/right_walk_12.png",
+    "characters/martin/right_walk_13.png",
+    "characters/martin/right_walk_14.png",
+    "characters/martin/right_walk_15.png",
+    "characters/martin/right_walk_16.png",
+    "characters/martin/right_walk_17.png",
+    "characters/martin/right_walk_18.png",
+    "characters/martin/right_walk_19.png",
+    "characters/martin/right_walk_20.png",
+    "characters/martin/right_walk_21.png",
+    "characters/martin/right_walk_22.png",
+    "characters/martin/right_walk_23.png",
+    "characters/martin/right_walk_24.png",
+    "characters/martin/right_walk_25.png",
+    "characters/martin/right_walk_26.png",
+    "characters/martin/right_walk_27.png",
+    "characters/martin/right_walk_28.png",
+    "characters/martin/right_walk_29.png",
+    "characters/martin/right_walk_30.png"
+   ],
    "model": "characters/martin/martin.glb"
   }
  },

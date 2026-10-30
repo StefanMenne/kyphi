@@ -3,3 +3,6 @@ work/
 
 # Story-Dokumente der einzelnen Teile
 concept/part_*.md
+
+# Godot
+.godot/

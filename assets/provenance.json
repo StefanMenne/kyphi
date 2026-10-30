@@ -605,7 +605,17 @@
   },
   "depot": {
    "original": "work/depot.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
-   "edits": {}
+   "edits": {},
+   "sprites": {
+    "hollmann_box": {
+     "tool": "flux2-klein",
+     "job_id": "c0199d88d951",
+     "seed": 301,
+     "size": "1024x1024",
+     "prompt": "old brown cardboard museum storage box with lid and a hand grip hole, a small white paper label on the front, standing on the floor, slightly dusty, single object, centered, the whole object fully visible with margin, front three-quarter view at eye level, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+     "post": "Magenta freigestellt, auf 88 px Breite skaliert, Sättigung 0.8 und Helligkeit 0.72 für das dunkle Depot"
+    }
+   }
   }
  },
  "characters": {
@@ -690,7 +700,41 @@
    "sprites": {
     "tool": "blender (eigener Code, EEVEE)",
     "job_id": "aa18b176266a",
-    "note": "Orthografische Kamera, 10° von oben, 4 Richtungen x (1 Stand + 8 Lauf), transparenter Hintergrund; danach gemeinsamer Zuschnitt und 3 px Außenkontur per Python"
+    "note": "Orthografische Kamera, 10° von oben, 4 Richtungen x (1 Stand + 8 Lauf), transparenter Hintergrund; danach gemeinsamer Zuschnitt und 3 px Außenkontur per Python; nicht mehr im Spiel (durch die Videoansicht ersetzt)"
+   },
+   "side": {
+    "three_quarter": {
+     "tool": "qwen-image-edit",
+     "job_id": "9a5293586f51",
+     "seed": 3001,
+     "inputs": [
+      "work/martin.png (Entwurf)"
+     ],
+     "prompt": "The same man in a three-quarter view: his body and face turned about 45 degrees to the left of the viewer, standing upright and relaxed, arms hanging naturally, full body from head to shoes, uncropped. Keep his face, hair, clothes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture."
+    },
+    "three_quarter_45": {
+     "tool": "qwen-image-edit",
+     "job_id": "d4ab31ebb2e2",
+     "seed": 3202,
+     "inputs": [
+      "three_quarter image_3001"
+     ],
+     "prompt": "Rotate the man so that he is clearly in a three-quarter view: his whole body, feet, hips, shoulders and head turned 45 degrees toward the right side of the picture, he looks toward the right edge of the picture, his left shoulder is closer to the viewer, we see the front of his coat at an angle and part of his left side. Standing upright and relaxed, arms hanging naturally, full body from head to shoes, uncropped. Keep his face, hair, clothes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture."
+    },
+    "video": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "782b02acd6df",
+     "seed": 3401,
+     "inputs": [
+      "three_quarter_45 image_3202 (Startbild)"
+     ],
+     "params": "768x1024, 5 s, 24 fps",
+     "prompt": "The man in the beige work coat walks on the spot, as if on a treadmill: he takes steady, natural walking steps in the direction he is facing, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps. His body, head and face stay turned exactly the same way the whole time, in the same three-quarter view toward the right; he does not turn, does not rotate, does not look at the viewer. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor."
+    },
+    "sprites": {
+     "tool": "ffmpeg + Python (numpy, scipy, Pillow)",
+     "note": "Bild 0 = right_idle, Bilder 43-73 = right_walk_00..30 (Periode 31 Bilder per Maskenvergleich); Hintergrund per Flutfüllung grauer, entsättigter Flächen entfernt (inkl. Schatten), gemeinsamer Zuschnitt 189,31-601,1013, auf 2/3 verkleinert"
+    }
    }
   }
  },
