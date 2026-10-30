@@ -598,6 +598,18 @@
      "characters/martin/start_32.png"
     ],
     "note": "Anlauf aus dem Stand, gleicher Zuschnitt und Anker wie der Laufzyklus; danach folgt right_walk_00. Angehalten wird bei Zyklusbild 8 oder 27 (dem Stand am nächsten)."
+   },
+   "shadow": {
+    "file": "characters/martin/shadow.png",
+    "size": [
+     402,
+     70
+    ],
+    "offset": [
+     0,
+     -24
+    ],
+    "note": "weiche Ellipse unter den Füßen, Größe und Versatz in Sprite-Pixeln; Deckkraft pro Raum (Room.shadow_alpha, Standard 0,6)"
    }
   }
  },

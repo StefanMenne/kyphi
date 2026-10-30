@@ -25,6 +25,8 @@ const TURN_FPS := 30.0
 ## Fußpunkt x in den Drehbildern: vom Standbild nach rechts bis zum gespiegelten Standbild
 const TURN_ANCHOR_RIGHT := 149.7
 const TURN_ANCHOR_LEFT := 135.7
+## Weicher Schatten unter den Füßen (Ellipse), Größe in Sprite-Pixeln
+const SHADOW_SIZE := Vector2(402, 70)
 
 var room: Room
 ## "right" oder "left"
@@ -36,6 +38,8 @@ var _start := []
 ## läuft gerade (ein neues Ziel während des Laufens setzt den Zyklus fort statt neu anzulaufen)
 var _moving := false
 var _sprite := Sprite2D.new()
+var _shadow := Sprite2D.new()
+var show_shadow := true
 var _token := 0
 var _anim := 0.0
 
@@ -48,6 +52,10 @@ func _init() -> void:
 		_start.append(load("res://assets/characters/martin/start_%02d.png" % i))
 	for i in TURN_FRAMES:
 		_turn.append(load("res://assets/characters/martin/turn_%02d.png" % i))
+	_shadow.texture = load("res://assets/characters/martin/shadow.png")
+	_shadow.scale = SHADOW_SIZE / _shadow.texture.get_size()
+	_shadow.position = Vector2(0, -24)
+	add_child(_shadow)
 	_sprite.centered = false
 	add_child(_sprite)
 	face("right")
@@ -96,6 +104,8 @@ func _turn_to(d: String) -> bool:
 func update_scale() -> void:
 	var k := room.height_at(position.y) / BODY_PX
 	scale = Vector2(k, k)
+	_shadow.visible = show_shadow
+	_shadow.modulate.a = room.shadow_alpha
 
 
 ## Bildschirmpunkt über dem Kopf, für Untertitel.

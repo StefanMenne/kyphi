@@ -764,6 +764,10 @@
      ],
      "note": "Bilder 3-35 = start_00..32 (ab Bild 36 periodisch, Bild 36 entspricht Bild 69 = right_walk_00), freigestellt und zugeschnitten wie der Laufzyklus"
     }
+   },
+   "shadow": {
+    "tool": "Python (Pillow)",
+    "note": "radialer Verlauf 256x64, Alpha = (1 - r)^0.9, schwarz"
    }
   }
  },

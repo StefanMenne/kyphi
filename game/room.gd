@@ -16,6 +16,8 @@ var floor_poly := PackedVector2Array()
 var depth := [Vector2(400, 300), Vector2(768, 500)]
 ## Herkunftsraum -> [Position, Blickrichtung, Tür-Ebene oder ""]; "" ist der Start
 var entries := {}
+## Deckkraft von Martins Schatten, nach dem Licht der Szene
+var shadow_alpha := 0.6
 var hotspots: Array = []
 var layers := {}
 
