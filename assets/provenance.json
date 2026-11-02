@@ -207,6 +207,108 @@
    "seed": 401,
    "size": "1024x1024",
    "prompt": "black TV remote control with grey rubber buttons and a small battery cover on the back, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "drill_battery": {
+   "tool": "flux2-klein",
+   "job_id": "1798397e044f",
+   "seed": 6100,
+   "size": "1024x1024",
+   "prompt": "rechargeable battery pack for a cordless drill, black and orange plastic housing with a slide-on rail and a small row of four charge indicator lights that are all dark, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "drill_battery_charged": {
+   "tool": "qwen-image-edit",
+   "job_id": "4039b2e0a668",
+   "seed": 6104,
+   "size": "1024x1024",
+   "prompt": "The four small charge indicator lights on the battery pack now glow bright green. Keep everything else exactly the same, including the magenta background.",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02",
+   "input": "drill_battery (Seed 6100)"
+  },
+  "fuse": {
+   "tool": "flux2-klein",
+   "job_id": "4c1ef13ed3d6",
+   "seed": 6112,
+   "size": "1024x1024",
+   "prompt": "industrial cylindrical cartridge fuse, white ceramic body with two shiny metal end caps, small and simple, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "glycol_canister": {
+   "tool": "flux2-klein",
+   "job_id": "b66a9cd95d88",
+   "seed": 6122,
+   "size": "1024x1024",
+   "prompt": "small green plastic jerrycan for antifreeze with a black screw cap and a handle, a blank white label on the side, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "thermos": {
+   "tool": "flux2-klein",
+   "job_id": "037afd666c59",
+   "seed": 6135,
+   "size": "1024x1024",
+   "prompt": "classic old vacuum flask thermos, dented dark green metal body, a silver drinking cup screwed on as the lid, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "salt": {
+   "tool": "flux2-klein",
+   "job_id": "5190f1bf9ed7",
+   "seed": 6141,
+   "size": "1024x1024",
+   "prompt": "large canteen kitchen salt container, a white and blue cardboard tube with a metal pouring spout at the top, a few salt grains next to it, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "runner_broken": {
+   "tool": "flux2-klein",
+   "job_id": "7c839342d76a",
+   "seed": 6150,
+   "size": "1024x1024",
+   "prompt": "fall arrester runner for a ladder climbing safety rail, a compact steel sliding device with a locking lever and a carabiner on a short strap, its small coil spring is broken and sticks out, scratched and frosted, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "runner": {
+   "tool": "qwen-image-edit",
+   "job_id": "b98297a897e1",
+   "seed": 6153,
+   "size": "1024x1024",
+   "prompt": "Make this a brand new fall arrester runner: clean shiny steel without scratches or frost, the coil spring intact and neatly in place, nothing broken or sticking out. Keep the shape, the carabiner, the view and the magenta background the same.",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02",
+   "input": "runner_broken (Seed 6150)"
+  },
+  "duct_tape": {
+   "tool": "flux2-klein",
+   "job_id": "42f90fc19b16",
+   "seed": 6160,
+   "size": "1024x1024",
+   "prompt": "roll of silver grey duct tape with the loose end hanging down a little, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "medal": {
+   "tool": "flux2-klein",
+   "job_id": "1fd2a8191a9b",
+   "seed": 6174,
+   "size": "1024x1024",
+   "prompt": "small round bronze medal of honor with an engraved eye symbol, a fine crack runs across the medal, a little frost on it, its thin chain lies coiled loosely beside the medal, everything small and fully inside the picture, single object, centered, the whole object fully visible with wide margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
   }
  },
  "scenes": {

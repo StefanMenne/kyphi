@@ -193,6 +193,86 @@
    "use": "Schrauben an Paneel 4 lösen",
    "icon": "items/drill_bit.png",
    "icon_small": "items/drill_bit_128.png"
+  },
+  "drill_battery": {
+   "name": "Akku (leer)",
+   "found": "Werkstatt der Abc GmbH (Akkuschrauber)",
+   "use": "Heizung des Kälteanzugs; erst laden",
+   "icon": "items/drill_battery.png",
+   "icon_small": "items/drill_battery_128.png",
+   "part": 2
+  },
+  "drill_battery_charged": {
+   "name": "Akku (geladen)",
+   "found": "Ladegerät in der Abc-Werkstatt",
+   "use": "Heizung des Kälteanzugs",
+   "icon": "items/drill_battery_charged.png",
+   "icon_small": "items/drill_battery_charged_128.png",
+   "part": 2
+  },
+  "fuse": {
+   "name": "Sicherung",
+   "found": "Kiste im Materiallager der Abc GmbH (ausgemessen)",
+   "use": "Torheizung der Schleuse (F7)",
+   "icon": "items/fuse.png",
+   "icon_small": "items/fuse_128.png",
+   "part": 2
+  },
+  "glycol_canister": {
+   "name": "Glykol-Kanister",
+   "found": "Wartungsschrank der Schleuse (Antarktis)",
+   "use": "Hydraulik des Bohrwagens (Prüfung 3)",
+   "icon": "items/glycol_canister.png",
+   "icon_small": "items/glycol_canister_128.png",
+   "part": 2
+  },
+  "thermos": {
+   "name": "Thermoskanne",
+   "found": "Spind im Wohnmodul (Innenerde), Tee aus der Kantine",
+   "use": "Fernrohr auftauen",
+   "icon": "items/thermos.png",
+   "icon_small": "items/thermos_128.png",
+   "part": 2
+  },
+  "salt": {
+   "name": "Salz",
+   "found": "Kantine (Innenerde)",
+   "use": "Tor festgefroren – wirkt nur bis −21 °C",
+   "icon": "items/salt.png",
+   "icon_small": "items/salt_128.png",
+   "part": 2
+  },
+  "runner_broken": {
+   "name": "Steigschutzläufer (defekt)",
+   "found": "Im Schnee am Fuß der Antenne",
+   "use": "In der Abc-Werkstatt gegen einen neuen tauschen",
+   "icon": "items/runner_broken.png",
+   "icon_small": "items/runner_broken_128.png",
+   "part": 2
+  },
+  "runner": {
+   "name": "Steigschutzläufer",
+   "found": "Abc-Werkstatt („Neu nur gegen Alt“)",
+   "use": "Aufstieg an der Antenne",
+   "icon": "items/runner.png",
+   "icon_small": "items/runner_128.png",
+   "part": 2
+  },
+  "duct_tape": {
+   "name": "Gewebeband",
+   "found": "noch offen (Teil 1 oder Abc-Werkstatt)",
+   "use": "XXL-Anzug abbinden",
+   "icon": "items/duct_tape.png",
+   "icon_small": "items/duct_tape_128.png",
+   "part": 2
+  },
+  "medal": {
+   "name": "Medaille",
+   "found": "Bei 412 oben auf der Antenne",
+   "use": "Pfand für die Wägerin (Prüfung 2), vorher reparieren",
+   "icon": "items/medal.png",
+   "icon_small": "items/medal_128.png",
+   "part": 2
   }
  },
  "scenes": {
