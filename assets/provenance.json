@@ -828,11 +828,18 @@
      "job_id": "f969fca5369a",
      "seed": 8552,
      "prompt": "Make the antenna tower twice as wide and much taller: its wide lattice base stands in the snow in the middle, and the tower rises out of the top edge of the picture, so the tip of the tower is hidden above the picture. Several platforms are visible along the tower, the vertical ladder runs inside the tower upward out of the picture, but the lowest part of the ladder near the ground is missing. Keep the snow field, the aurora sky, the falling snow and the hand-drawn comic style with bold black outlines."
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "f412ca46ef27",
+     "seed": 8563,
+     "input": "Ausschnitt x 774-1274, 2x vergrößert",
+     "prompt": "Remove the vertical ladder with its rungs and rails inside the lattice tower completely, from the platform down to the snow. Behind it the diagonal steel struts of the tower and the aurora sky continue. Keep the tower legs, the cross braces, the platform, the snow, the sky and the hand-drawn comic style with bold black outlines unchanged."
     }
    ],
-   "todo": "Unteres Leiterstück fehlt noch nicht sichtbar (für die Malerleiter entfernen)",
    "part": 2,
-   "date": "2026-11-02"
+   "date": "2026-11-02",
+   "post": "Nur die Leiterspalte unterhalb y=280 (x 1024-1079) aus dem leiterlosen Ergebnis übernommen, weicher Rand (Python, Pillow, NumPy); die Leiter beginnt damit etwa 150 px über dem Schnee"
   },
   "antarctica_telescope_top": {
    "chain": [
