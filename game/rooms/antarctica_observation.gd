@@ -19,6 +19,10 @@ func build() -> void:
 	set_verbs({"stairs": "go"})
 
 
+func refresh() -> void:
+	layers["telescope_frozen"].visible = not Game.flag("telescope_thawed")
+
+
 func on_enter(from: String) -> void:
 	if not Game.flag("observation_seen"):
 		Game.set_flag("observation_seen")
@@ -66,8 +70,9 @@ func use_item(hid: String, item: String) -> void:
 			if Game.flag("telescope_thawed"):
 				await refuse("Das Okular ist schon frei. Den Rest Tee trinke ich lieber selbst.")
 				return
-			Game.set_flag("telescope_thawed")
 			await say("Ein Schluck heißer Tee aufs Okular …")
+			Game.set_flag("telescope_thawed")
+			refresh()
 			await say("Das Eis schmilzt. Schnell abwischen, bevor es wieder gefriert. Frei!")
 		["telescope", "salt"]:
 			await refuse("Salz auf eine Linse? Damit wäre sie hinüber.")

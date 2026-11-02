@@ -13,6 +13,8 @@ const ROOMS := {
 	"antarctica_platform": preload("res://game/rooms/antarctica_platform.gd"),
 	"antarctica_control_room": preload("res://game/rooms/antarctica_control_room.gd"),
 	"antarctica_observation": preload("res://game/rooms/antarctica_observation.gd"),
+	"antarctica_airlock": preload("res://game/rooms/antarctica_airlock.gd"),
+	"antarctica_antenna": preload("res://game/rooms/antarctica_antenna.gd"),
 }
 const SPEAKER_COLORS := {
 	"martin": Color("f4e8c8"),

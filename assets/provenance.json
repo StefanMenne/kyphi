@@ -866,7 +866,19 @@
     }
    ],
    "part": 2,
-   "date": "2026-11-02"
+   "date": "2026-11-02",
+   "layers": {
+    "coffee_open": {
+     "tool": "qwen-image-edit",
+     "job_id": "338b2bd91e9a",
+     "seed": 6660,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "A small square maintenance flap on the front of the old coffee vending machine is open, swung down, and behind it in a holder sits a white cylindrical cartridge fuse with shiny metal end caps, clearly visible. Keep the rest of the machine, the wall, the floor and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   }
   },
   "antarctica_airlock": {
    "chain": [
@@ -884,7 +896,49 @@
     }
    ],
    "part": 2,
-   "date": "2026-11-02"
+   "date": "2026-11-02",
+   "layers": {
+    "gate_open": {
+     "tool": "qwen-image-edit",
+     "job_id": "b2e17e678cf6",
+     "seed": 6611,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The heavy frozen steel door is now open: it has swung inward to the left, the ice on its frame has cracked off and lies in chunks on the floor, and through the open doorway we see the dark Antarctic night outside with snow drifting in, a snowfield and a green aurora. Keep the wall, the floor, the doorframe and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    },
+    "glycol_canister": {
+     "tool": "qwen-image-edit",
+     "job_id": "f963c13bf313",
+     "seed": 6621,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "On the lower shelf of the narrow open maintenance cabinet now stands a small green plastic jerrycan with a black screw cap and a blank white label, clearly visible. Keep the cabinet, the tools on the upper hooks, the wall and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    },
+    "suit_taped": {
+     "tool": "qwen-image-edit",
+     "job_id": "3a489d514dac",
+     "seed": 6671,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "Wrap silver grey duct tape tightly around the empty red-orange polar suit hanging in the locker: several turns of tape around both wrists, around both upper arms, around the waist over the harness and around both legs above the knees and above the boots, so the baggy suit is cinched tight. Keep everything else, the locker, the wall and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   },
+   "suit_in_locker": {
+    "tool": "qwen-image-edit",
+    "job_id": "d1f5db2912e8",
+    "seed": 6600,
+    "inputs": [
+     "Ausschnitt Spind",
+     "Anzug 6202"
+    ],
+    "note": "gelber Anzug im Spind durch Martins rot-orangen Anzug ersetzt, direkt in den Hintergrund übernommen"
+   }
   },
   "antarctica_observation": {
    "chain": [
@@ -903,7 +957,19 @@
     }
    ],
    "part": 2,
-   "date": "2026-11-02"
+   "date": "2026-11-02",
+   "layers": {
+    "telescope_frozen": {
+     "tool": "qwen-image-edit",
+     "job_id": "e3ac49e39b7e",
+     "seed": 6650,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The telescope is completely frozen: a thick layer of white frost and ice covers the tube, the front lens and the eyepiece is encased in a lump of ice, small icicles hang from the tube and the mount. Keep the shape and position of the telescope, the mount, the glass dome behind it, the floor and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   }
   },
   "antarctica_antenna": {
    "chain": [
@@ -941,7 +1007,29 @@
    ],
    "part": 2,
    "date": "2026-11-02",
-   "post": "Nur die Leiterspalte unterhalb y=280 (x 1024-1079) aus dem leiterlosen Ergebnis übernommen, weicher Rand (Python, Pillow, NumPy); die Leiter beginnt damit etwa 150 px über dem Schnee"
+   "post": "Nur die Leiterspalte unterhalb y=280 (x 1024-1079) aus dem leiterlosen Ergebnis übernommen, weicher Rand (Python, Pillow, NumPy); die Leiter beginnt damit etwa 150 px über dem Schnee",
+   "layers": {
+    "ladder": {
+     "tool": "qwen-image-edit",
+     "job_id": "17ad2fe88211",
+     "seed": 6631,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The wooden painter's step ladder from image 2 now stands unfolded in the snow inside the base of the steel lattice tower of image 1, directly below the lowest rung of the vertical tower ladder, so that its top reaches up to where the tower ladder begins. Same size relation as a real ladder of about three meters. Keep the tower, the snow, the sky and the drawing style of image 1 exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    },
+    "runner_broken": {
+     "tool": "qwen-image-edit",
+     "job_id": "d40a51b2fa97",
+     "seed": 6641,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The small steel fall arrester runner from image 2 lies half buried in the snow in the middle of image 1, small, with its carabiner and the broken spring sticking out of the snow, a little frost on it. Keep the snow surface, the shading and the drawing style of image 1 exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   }
   },
   "antarctica_telescope_top": {
    "chain": [
@@ -2873,6 +2961,36 @@
    "note": "Fernrohr-Rand gezeichnet: runde Öffnung r=360 in 1344x768, Vignette, dünner Metallring (work/items/antarctica/vane/scope_ring.py)",
    "part": 2,
    "date": "2026-11-02"
+  },
+  "heating_panel": {
+   "part": 2,
+   "date": "2026-11-02",
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "ac4bc7fc880c",
+     "seed": 6502,
+     "size": "1344x768",
+     "prompt": "close-up front view of an old grey industrial steel control panel box mounted on a wall in an Antarctic research station, a yellow and black hazard stripe along the top edge, a blank metal nameplate at the top, below it six empty round switch sockets in one horizontal row with evenly spaced gaps, each socket a dark recessed metal ring with a small unlit indicator lamp above it, rivets, scratches, a little frost in the corners, cables entering from below, the panel fills the whole picture, flat frontal view, no text, no letters, no numbers, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "fd714b1eea9e",
+     "seed": 6503,
+     "prompt": "Remove the five round switch sockets and the two small lamps from the panel: the middle of the panel is now a plain, empty, slightly scratched grey metal plate. Keep the box, the yellow and black hazard stripe, the blank nameplate, the rivets, the frost in the corners, the cables below, the wall and the drawing style exactly the same."
+    }
+   ],
+   "note": "Schalter, Lampen und Beschriftung zeichnet das Spiel"
+  },
+  "rotary_knob": {
+   "part": 2,
+   "date": "2026-11-02",
+   "tool": "flux2-klein",
+   "job_id": "fd6812e04fc0",
+   "seed": 6512,
+   "size": "1024x1024",
+   "prompt": "a heavy round black rotary switch knob with a white pointer line, industrial, seen exactly from the front, single object, centered, the whole object fully visible with margin, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "freigestellt, auf 128 px"
   }
  },
  "videos": {

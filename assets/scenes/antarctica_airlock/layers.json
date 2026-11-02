@@ -5,5 +5,33 @@
   576
  ],
  "background": "background.png",
- "layers": {}
+ "layers": {
+  "gate_open": {
+   "name": "Außentor offen (Nacht, Schnee)",
+   "type": "door",
+   "file": "sprites/gate_open.png",
+   "x": 760,
+   "y": 111,
+   "w": 294,
+   "h": 369
+  },
+  "glycol_canister": {
+   "name": "Glykol-Kanister im Wartungsschrank",
+   "type": "item",
+   "file": "sprites/glycol_canister.png",
+   "x": 1209,
+   "y": 355,
+   "w": 57,
+   "h": 66
+  },
+  "suit_taped": {
+   "name": "Anzug im Spind mit Gewebeband abgebunden",
+   "type": "state",
+   "file": "sprites/suit_taped.png",
+   "x": 1467,
+   "y": 230,
+   "w": 190,
+   "h": 232
+  }
+ }
 }

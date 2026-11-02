@@ -5,5 +5,15 @@
   576
  ],
  "background": "background.png",
- "layers": {}
+ "layers": {
+  "telescope_frozen": {
+   "name": "Fernrohr vereist",
+   "type": "state",
+   "file": "sprites/telescope_frozen.png",
+   "x": 1276,
+   "y": 175,
+   "w": 231,
+   "h": 322
+  }
+ }
 }

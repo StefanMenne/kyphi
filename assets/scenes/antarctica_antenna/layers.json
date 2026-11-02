@@ -5,5 +5,24 @@
   576
  ],
  "background": "background.png",
- "layers": {}
+ "layers": {
+  "ladder": {
+   "name": "Malerleiter unter der Turmleiter",
+   "type": "state",
+   "file": "sprites/ladder.png",
+   "x": 820,
+   "y": 134,
+   "w": 300,
+   "h": 347
+  },
+  "runner_broken": {
+   "name": "412s Steigschutzläufer im Schnee",
+   "type": "item",
+   "file": "sprites/runner_broken.png",
+   "x": 714,
+   "y": 472,
+   "w": 78,
+   "h": 40
+  }
+ }
 }

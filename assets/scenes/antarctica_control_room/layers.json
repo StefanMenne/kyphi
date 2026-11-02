@@ -5,5 +5,15 @@
   576
  ],
  "background": "background.png",
- "layers": {}
+ "layers": {
+  "coffee_open": {
+   "name": "Kaffeeautomat, Wartungsklappe offen mit Sicherung F7",
+   "type": "state",
+   "file": "sprites/coffee_open.png",
+   "x": 185,
+   "y": 328,
+   "w": 125,
+   "h": 103
+  }
+ }
 }

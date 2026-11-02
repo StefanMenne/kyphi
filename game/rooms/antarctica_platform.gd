@@ -13,7 +13,7 @@ func build() -> void:
 	tint = Color(0.78, 0.85, 0.95)
 	hotspot("train_airlock", "Schleuse zum Zug")
 	hotspot("control_door", "Tür zum Kontrollraum", "back", "none")
-	hotspot("airlock_door", "Tür zur Schleuse")
+	hotspot("airlock_door", "Tür zur Schleuse", "back", "none")
 	hotspot("stairs", "Treppe nach oben", "right", "none")
 	set_verbs({"train_airlock": "go", "control_door": "go", "airlock_door": "go", "stairs": "go"})
 
@@ -48,6 +48,6 @@ func use(hid: String) -> void:
 		"stairs":
 			await go("antarctica_observation")
 		"airlock_door":
-			await narrate(NOT_BUILT)
+			await go("antarctica_airlock")
 		_:
 			await super(hid)

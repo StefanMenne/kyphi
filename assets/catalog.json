@@ -559,7 +559,17 @@
     2048,
     576
    ],
-   "layers": {}
+   "layers": {
+    "coffee_open": {
+     "name": "Kaffeeautomat, Wartungsklappe offen mit Sicherung F7",
+     "type": "state",
+     "file": "scenes/antarctica_control_room/sprites/coffee_open.png",
+     "x": 185,
+     "y": 328,
+     "w": 125,
+     "h": 103
+    }
+   }
   },
   "antarctica_telescope_level": {
    "name": "Fernrohr: Ebene 1-6",
@@ -622,7 +632,82 @@
     2048,
     576
    ],
-   "layers": {}
+   "layers": {
+    "telescope_frozen": {
+     "name": "Fernrohr vereist",
+     "type": "state",
+     "file": "scenes/antarctica_observation/sprites/telescope_frozen.png",
+     "x": 1276,
+     "y": 175,
+     "w": 231,
+     "h": 322
+    }
+   }
+  },
+  "antarctica_airlock": {
+   "name": "Antarktis: Schleuse",
+   "background": "scenes/antarctica_airlock/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {
+    "gate_open": {
+     "name": "Außentor offen (Nacht, Schnee)",
+     "type": "door",
+     "file": "scenes/antarctica_airlock/sprites/gate_open.png",
+     "x": 760,
+     "y": 111,
+     "w": 294,
+     "h": 369
+    },
+    "glycol_canister": {
+     "name": "Glykol-Kanister im Wartungsschrank",
+     "type": "item",
+     "file": "scenes/antarctica_airlock/sprites/glycol_canister.png",
+     "x": 1209,
+     "y": 355,
+     "w": 57,
+     "h": 66
+    },
+    "suit_taped": {
+     "name": "Anzug im Spind mit Gewebeband abgebunden",
+     "type": "state",
+     "file": "scenes/antarctica_airlock/sprites/suit_taped.png",
+     "x": 1467,
+     "y": 230,
+     "w": 190,
+     "h": 232
+    }
+   }
+  },
+  "antarctica_antenna": {
+   "name": "Antarktis: Fuß der Antenne",
+   "background": "scenes/antarctica_antenna/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {
+    "ladder": {
+     "name": "Malerleiter unter der Turmleiter",
+     "type": "state",
+     "file": "scenes/antarctica_antenna/sprites/ladder.png",
+     "x": 820,
+     "y": 134,
+     "w": 300,
+     "h": 347
+    },
+    "runner_broken": {
+     "name": "412s Steigschutzläufer im Schnee",
+     "type": "item",
+     "file": "scenes/antarctica_antenna/sprites/runner_broken.png",
+     "x": 714,
+     "y": 472,
+     "w": 78,
+     "h": 40
+    }
+   }
   }
  },
  "characters": {
@@ -2131,6 +2216,14 @@
   "scope_ring": {
    "file": "ui/scope_ring.png",
    "name": "Fernrohr-Rand (Maske, 1344 x 768)"
+  },
+  "heating_panel": {
+   "file": "ui/heating_panel.png",
+   "name": "Schalttafel Leiterheizung (Nahansicht, 1344 x 768, Schalterfeld 305-1035 x 268-590)"
+  },
+  "rotary_knob": {
+   "file": "ui/rotary_knob.png",
+   "name": "Drehschalter, Zeiger oben"
   }
  }
 }

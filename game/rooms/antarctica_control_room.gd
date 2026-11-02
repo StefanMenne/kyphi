@@ -199,7 +199,12 @@ func talk() -> void:
 
 # Kaffeeautomat und Sicherung
 
+func refresh() -> void:
+	layers["coffee_open"].visible = false
+
+
 func coffee() -> void:
+	layers["coffee_open"].visible = true
 	if not Game.flag("fuse_seen"):
 		Game.set_flag("fuse_seen")
 		await say("Hinter der Wartungsklappe … eine Sicherung. Beschriftet: F7.")
@@ -207,16 +212,19 @@ func coffee() -> void:
 	await say("Dann nehme ich die mal.")
 	await pj("Finger weg! Ohne die läuft der Automat nicht. Und ohne Kaffee laufe ich nicht.")
 	await narrate("[Pjotr steckt die Sicherung zurück und klappt den Automaten zu.]")
+	layers["coffee_open"].visible = false
 
 
 func measure_fuse() -> void:
 	await Game.main.flush_gesture()
+	layers["coffee_open"].visible = true
 	if not Game.flag("fuse_seen"):
 		Game.set_flag("fuse_seen")
 		await say("Hinter der Wartungsklappe steckt eine Sicherung. F7, die von der Torheizung.")
 	Game.set_flag("fuse_measured")
 	await pj("Messen darfst du. Mitnehmen nicht.")
 	await say("10 Millimeter Durchmesser, 38 lang. Das merke ich mir.")
+	layers["coffee_open"].visible = false
 
 
 # Schalttafel der Leiterheizung
@@ -243,80 +251,98 @@ func set_heating(h: Array) -> bool:
 	return true
 
 
+## Nahansicht der Schalttafel: Bild der Tafel, sechs Drehschalter (Aus/Low/High, je Klick eine Stufe weiter),
+## Lampe je Ebene; die Beschriftung zeichnet das Spiel.
 class HeatingPanel extends CanvasLayer:
 	signal closed
 
-	var _buttons := []
+	const W := 1344.0
+	const H := 768.0
+	## Mittelpunkte der Drehschalter auf dem Bild der Tafel (1344 x 768)
+	const KNOB_Y := 420.0
+	const KNOB_D := 80.0
+	const ANGLES := [-45.0, 0.0, 45.0]
+	const LAMP := [Color(0.25, 0.25, 0.25), Color(1.0, 0.75, 0.25), Color(1.0, 0.3, 0.2)]
+
+	var _knobs := []
 	var _room: Node
+	var _deco := Control.new()
+	var _h := [0, 0, 0, 0, 0, 0]
+	var _locked := false
+
+	static func knob_x(i: int) -> float:
+		return 305.0 + 730.0 * (i + 0.5) / 6.0
 
 	func _ready() -> void:
 		layer = 5  # unter der Oberfläche (Untertitel bleiben sichtbar)
 		_room = get_parent()
-		var dim := ColorRect.new()
-		dim.color = Color(0, 0, 0, 0.6)
-		dim.set_anchors_preset(Control.PRESET_FULL_RECT)
-		add_child(dim)
-		var box := PanelContainer.new()
-		var sb := StyleBoxFlat.new()
-		sb.bg_color = Color(0.32, 0.35, 0.36)
-		sb.border_color = Color(0.12, 0.13, 0.14)
-		sb.set_border_width_all(6)
-		sb.set_corner_radius_all(6)
-		sb.set_content_margin_all(28)
-		box.add_theme_stylebox_override("panel", sb)
-		box.position = Vector2(222, 200)
-		box.custom_minimum_size = Vector2(900, 0)
-		add_child(box)
-		var v := VBoxContainer.new()
-		v.add_theme_constant_override("separation", 22)
-		box.add_child(v)
-		var title := Label.new()
-		title.text = "LEITERHEIZUNG ANTENNE"
-		title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		title.add_theme_font_size_override("font_size", 30)
-		title.add_theme_color_override("font_color", Color(0.95, 0.85, 0.4))
-		v.add_child(title)
-		var row := HBoxContainer.new()
-		row.alignment = BoxContainer.ALIGNMENT_CENTER
-		row.add_theme_constant_override("separation", 18)
-		v.add_child(row)
-		var h: Array = _room.heating()
+		_h = _room.heating().duplicate()
+		var bg := TextureRect.new()
+		bg.texture = load("res://assets/ui/heating_panel.png")
+		bg.size = Vector2(W, H)
+		bg.mouse_filter = Control.MOUSE_FILTER_STOP
+		add_child(bg)
+		_deco.size = Vector2(W, H)
+		_deco.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_deco.draw.connect(_draw_deco)
+		add_child(_deco)
+		var tex: Texture2D = load("res://assets/ui/rotary_knob.png")
 		for i in 6:
-			var col := VBoxContainer.new()
-			var l := Label.new()
-			l.text = "Ebene %d" % (i + 1)
-			l.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-			l.add_theme_font_size_override("font_size", 22)
-			col.add_child(l)
-			var b := Button.new()
-			b.custom_minimum_size = Vector2(120, 90)
-			b.add_theme_font_size_override("font_size", 26)
-			b.pressed.connect(_toggle.bind(i))
-			col.add_child(b)
-			_buttons.append(b)
-			row.add_child(col)
-		var done := Button.new()
-		done.text = "Fertig"
-		done.add_theme_font_size_override("font_size", 26)
-		done.pressed.connect(func(): closed.emit())
-		v.add_child(done)
-		_show(h)
+			var k := TextureRect.new()
+			k.texture = tex
+			k.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			k.size = Vector2(KNOB_D, KNOB_D)
+			k.pivot_offset = k.size / 2
+			k.position = Vector2(knob_x(i), KNOB_Y) - k.size / 2
+			k.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+			k.gui_input.connect(_on_knob.bind(i))
+			add_child(k)
+			_knobs.append(k)
+		var back := Button.new()
+		back.text = "Zurück"
+		back.add_theme_font_size_override("font_size", 26)
+		back.position = Vector2(W / 2 - 90, 700)
+		back.custom_minimum_size = Vector2(180, 52)
+		back.pressed.connect(func(): if not _locked: closed.emit())
+		add_child(back)
+		_show()
 
-	func _show(h: Array) -> void:
-		var colors := [Color(0.6, 0.6, 0.6), Color(0.95, 0.75, 0.3), Color(1.0, 0.4, 0.3)]
+	func _show() -> void:
 		for i in 6:
-			_buttons[i].text = STATES[int(h[i])]
-			_buttons[i].add_theme_color_override("font_color", colors[int(h[i])])
+			_knobs[i].rotation_degrees = ANGLES[int(_h[i])]
+		_deco.queue_redraw()
 
-	func _toggle(i: int) -> void:
-		var h: Array = _room.heating().duplicate()
+	func _draw_deco() -> void:
+		var f := ThemeDB.fallback_font
+		var dark := Color(0.12, 0.12, 0.13)
+		_deco.draw_string(f, Vector2(420, 172), "LEITERHEIZUNG ANTENNE", HORIZONTAL_ALIGNMENT_CENTER, 505, 34, dark)
+		for i in 6:
+			var c := Vector2(knob_x(i), KNOB_Y)
+			for s in 3:
+				var a := deg_to_rad(ANGLES[s] - 90.0)
+				var p := c + Vector2(cos(a), sin(a)) * (KNOB_D / 2 + 16)
+				var on := int(_h[i]) == s
+				_deco.draw_string(f, p + Vector2(-25, 6), STATES[s], HORIZONTAL_ALIGNMENT_CENTER, 50, 15,
+					Color(0.05, 0.05, 0.05) if on else Color(0.25, 0.25, 0.27))
+			var lamp := c + Vector2(0, KNOB_D / 2 + 26)
+			_deco.draw_circle(lamp, 11, Color(0.08, 0.08, 0.08))
+			_deco.draw_circle(lamp, 8, LAMP[int(_h[i])])
+			_deco.draw_string(f, lamp + Vector2(-50, 44), "Ebene %d" % (i + 1), HORIZONTAL_ALIGNMENT_CENTER, 100, 18, dark)
+
+	func _on_knob(event: InputEvent, i: int) -> void:
+		if _locked or not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+			return
+		var h: Array = _h.duplicate()
 		h[i] = (int(h[i]) + 1) % 3
 		if _room.set_heating(h):
-			_show(h)
+			_h = h
+			_show()
 			return
-		_show([0, 0, 0, 0, 0, 0])
-		for b in _buttons:
-			b.disabled = true
+		_locked = true
+		_h = h
+		_show()
+		await get_tree().create_timer(0.3).timeout
+		_h = [0, 0, 0, 0, 0, 0]
+		_show()
 		await Game.say("martin", "Zack. Zu viel auf einmal, die Sicherung ist rausgeflogen. Alles wieder auf Aus.")
-		for b in _buttons:
-			b.disabled = false
+		_locked = false
