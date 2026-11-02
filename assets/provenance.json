@@ -1256,6 +1256,237 @@
     "tool": "Python (Pillow)",
     "note": "radialer Verlauf 256x64, Alpha = (1 - r)^0.9, schwarz"
    }
+  },
+  "martin_suit": {
+   "part": 2,
+   "date": "2026-11-02",
+   "design": {
+    "tool": "qwen-image-edit",
+    "job_id": "262fd44e9436",
+    "seed": 6202,
+    "inputs": [
+     "video_3800 Bild 0 (Martin, Seitenansicht)"
+    ],
+    "prompt": "The same man now wears a bulky red-orange polar expedition suit that is clearly several sizes too big for him: a puffy one-piece overall with reflective stripes, the sleeves cover half of his hands which wear thick black gloves, the legs bunch up in folds over heavy white snow boots, the fur-trimmed hood is down on his shoulders, a black climbing harness with a metal ring around his waist and thighs. Same face, same black hair, same pose, same size and same position in the picture, three-quarter view toward the right, full body from head to boots. Keep the drawing style and the plain flat light grey background exactly the same."
+   },
+   "views": {
+    "diag": {
+     "tool": "qwen-image-edit",
+     "job_id": "67b02c5d1119",
+     "seed": 6210,
+     "inputs": [
+      "video_5300 Bild 80",
+      "Anzug 6202"
+     ]
+    },
+    "back": {
+     "tool": "qwen-image-edit",
+     "job_id": "0710ef7b507f",
+     "seed": 6221,
+     "inputs": [
+      "video_5102 Bild 64",
+      "Anzug 6202"
+     ]
+    }
+   },
+   "walk": {
+    "side": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "c5dda438a8cc",
+     "seed": 6301,
+     "params": "768x1024, 5 s, 24 fps"
+    },
+    "diag": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "b2b89ab0ba87",
+     "seed": 6310,
+     "params": "768x1024, 5 s, 24 fps, Start = Ende"
+    },
+    "back": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "919e924ba46b",
+     "seed": 6320,
+     "params": "768x1024, 5 s, 24 fps"
+    },
+    "prompt": "wie die Laufvideos ohne Anzug, mit „the man in the bulky red-orange polar suit“ und Stiefelschritten"
+   },
+   "sprites": {
+    "tool": "Python (numpy, scipy, Pillow)",
+    "note": "freigestellt mit verdickten Konturen als Sperre (weiße Stiefel), Zyklus per Maskenvergleich, auf die Bildanzahl der Originale umgerechnet, Phase an den Original-Laufbildern ausgerichtet, auf die Körperhöhe der Original-Standbilder skaliert, gleicher Anker und gleiche Leinwand (work/characters/martin_suit/sprites/scripts)",
+    "build": {
+     "side": {
+      "scale": 0.6656,
+      "period": 27,
+      "cycle_start": 81,
+      "cycle_err": 0.0281,
+      "phase": 31,
+      "iou": 0.62,
+      "video_frames": [
+       106,
+       107,
+       81,
+       82,
+       83,
+       83,
+       84,
+       85,
+       86,
+       87,
+       88,
+       88,
+       89,
+       90,
+       91,
+       92,
+       92,
+       93,
+       94,
+       95,
+       96,
+       97,
+       97,
+       98,
+       99,
+       100,
+       101,
+       101,
+       102,
+       103,
+       104,
+       105,
+       106
+      ],
+      "idle_frame": 0,
+      "offset": [
+       -127.3,
+       -24.0
+      ],
+      "start_frames": [
+       1,
+       4,
+       7,
+       11,
+       14,
+       17,
+       20,
+       23,
+       26,
+       30,
+       33,
+       36,
+       39,
+       42,
+       46,
+       49,
+       52,
+       55,
+       58,
+       61,
+       65,
+       68,
+       71,
+       74,
+       77,
+       81,
+       84,
+       87,
+       90,
+       93,
+       96,
+       100,
+       103
+      ]
+     },
+     "diag": {
+      "scale": 0.6822,
+      "period": 27,
+      "cycle_start": 64,
+      "cycle_err": 0.023,
+      "phase": 16,
+      "iou": 0.61,
+      "video_frames": [
+       78,
+       78,
+       79,
+       80,
+       81,
+       82,
+       83,
+       83,
+       84,
+       85,
+       86,
+       87,
+       88,
+       88,
+       89,
+       90,
+       64,
+       65,
+       66,
+       67,
+       67,
+       68,
+       69,
+       70,
+       71,
+       72,
+       72,
+       73,
+       74,
+       75,
+       76,
+       77
+      ],
+      "idle_frame": 79,
+      "offset": [
+       -119.8,
+       -23.1
+      ]
+     },
+     "back": {
+      "scale": 0.6543,
+      "period": 27,
+      "cycle_start": 51,
+      "cycle_err": 0.0138,
+      "phase": 16,
+      "iou": 0.708,
+      "video_frames": [
+       68,
+       69,
+       70,
+       71,
+       72,
+       73,
+       74,
+       75,
+       76,
+       77,
+       51,
+       52,
+       53,
+       54,
+       55,
+       56,
+       57,
+       58,
+       59,
+       60,
+       61,
+       62,
+       63,
+       65,
+       66,
+       67
+      ],
+      "idle_frame": 53,
+      "offset": [
+       -115.6,
+       -15.8
+      ]
+     }
+    }
+   }
   }
  },
  "voices": {

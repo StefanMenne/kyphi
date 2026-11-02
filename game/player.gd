@@ -8,6 +8,8 @@ extends Node2D
 ## Auf Wegen in die Tiefe dreht er sich je nach Winkel schräg (45°) oder ganz in die Rückansicht (eigene
 ## Laufzyklen, für links gespiegelt); Drehungen gehen immer eine Stufe weiter (Seite <-> schräg <-> hinten).
 ## Gesten und Hotspot-Blickrichtungen nutzen immer die Seitenansicht.
+## Im Kälteanzug (set_suit) gibt es nur Laufen und Stehen: keine Drehungen (Seiten- und Ansichtswechsel sofort),
+## keine Gesten, kein Atmen und keine Mundbewegung.
 
 ## Mitte zwischen den Füßen und Körperhöhe in Pixeln
 const ANCHOR := Vector2(135, 637)
@@ -57,8 +59,15 @@ const SETTLE_RATE := 1.3
 const SHADOW_SIZE := Vector2(402, 70)
 
 var room: Room
+## Bilder im Kälteanzug (gleiche Größe, Anker und Bildanzahl wie ohne)
+const SUIT_DIR := "res://assets/characters/martin_suit/"
+
 ## "right" oder "left"
 var dir := "right"
+## trägt den Kälteanzug
+var suit := false
+var _plain := {}
+var _suited := {}
 var _idle: Texture2D
 var _walk := []
 var _turn := []
@@ -162,6 +171,44 @@ func face(d: String, instant := false) -> void:
 	_set_texture(_idle_tex())
 
 
+## Kälteanzug an- oder ausziehen: tauscht Lauf-, Anlauf- und Standbilder.
+func set_suit(on: bool) -> void:
+	if on == suit:
+		return
+	if _plain.is_empty():
+		_plain = _textures()
+	if on and _suited.is_empty():
+		var idle: Texture2D = load(SUIT_DIR + "right_idle.png")
+		var t := {"idle": idle, "walk": [], "start": [], "idle_loop": [], "talk": [idle, idle, idle], "vtex": {}}
+		for i in FRAMES:
+			t["walk"].append(load(SUIT_DIR + "right_walk_%02d.png" % i))
+		for i in START_FRAMES:
+			t["start"].append(load(SUIT_DIR + "start_%02d.png" % i))
+		for i in IDLE_FRAMES:
+			t["idle_loop"].append(idle)
+		for v in VIEWS:
+			var n: String = VIEWS[v]["name"]
+			var vt := {"idle": load(SUIT_DIR + "%s_idle.png" % n), "walk": [], "turn": []}
+			for i in VIEWS[v]["frames"]:
+				vt["walk"].append(load(SUIT_DIR + "%s_walk_%02d.png" % [n, i]))
+			t["vtex"][v] = vt
+		_suited = t
+	var t: Dictionary = _suited if on else _plain
+	_idle = t["idle"]
+	_walk = t["walk"]
+	_start = t["start"]
+	_idle_loop = t["idle_loop"]
+	_talk = t["talk"]
+	_vtex = t["vtex"]
+	suit = on
+	if not _moving and not _turning:
+		_set_texture(_idle_tex())
+
+
+func _textures() -> Dictionary:
+	return {"idle": _idle, "walk": _walk, "start": _start, "idle_loop": _idle_loop, "talk": _talk, "vtex": _vtex}
+
+
 func _idle_tex() -> Texture2D:
 	return _vtex[_view]["idle"] if _view > 0 else _idle
 
@@ -178,7 +225,7 @@ func _face_side(d: String) -> void:
 ## damit nichts springt; false, wenn währenddessen ein neuer Befehl kam.
 func _turn_view(to: int) -> bool:
 	var my := _token
-	if Game.fast or to == _view:
+	if Game.fast or suit or to == _view:
 		_view = to
 		_set_texture(_idle_tex())
 		return true
@@ -201,7 +248,7 @@ func _turn_view(to: int) -> bool:
 ## Dreht ihn auf die andere Seite (immer zu Ende); false, wenn währenddessen ein neuer Befehl kam.
 func _turn_to(d: String) -> bool:
 	var my := _token
-	if Game.fast or d == dir:
+	if Game.fast or suit or d == dir:
 		dir = d
 		_set_texture(_idle)
 		return true
@@ -221,7 +268,7 @@ func _turn_to(d: String) -> bool:
 
 ## Spielt eine Geste ("use": Hand nach vorn, "pickup": bücken) und endet im Standbild.
 func gesture(kind: String) -> void:
-	if Game.fast:
+	if Game.fast or suit:
 		return
 	while _turning:
 		await get_tree().process_frame

@@ -22,6 +22,8 @@ var entries := {}
 var tint := Color.WHITE
 ## Martin ist in diesem Raum zu sehen (im Zugabteil nicht)
 var show_player := true
+## Martin trägt hier den Kälteanzug (draußen in der Antarktis)
+var suit := false
 ## Deckkraft von Martins Schatten, nach dem Licht der Szene
 var shadow_alpha := 0.6
 var hotspots: Array = []

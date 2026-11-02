@@ -105,8 +105,16 @@ func cheat_menu() -> void:
 		ui.hide_actions()
 	ui.show_menu([
 		["Geheimtür im Altarraum öffnen", cheat_secret_door],
+		["Kälteanzug ausziehen" if player.suit else "Kälteanzug anziehen", cheat_suit],
 		["Zurück", ui.hide_menu],
 	])
+
+
+## Kälteanzug zum Ausprobieren an- oder ausziehen (gilt auch nach Raumwechseln).
+func cheat_suit() -> void:
+	ui.hide_menu()
+	Game.set_flag("cheat_suit", not player.suit)
+	player.set_suit(not player.suit)
 
 
 ## Paneel ab, Karte im Inventar, in den Altarraum und die Stahltür öffnen; weiter mit Lift und Bahnhof.
@@ -161,6 +169,7 @@ func _load_room(room_id: String, from: String, pos = null) -> void:
 	room.scale = Vector2(s, s)
 	room.add_child(player)
 	player.visible = room.show_player
+	player.set_suit(room.suit or Game.flag("cheat_suit"))
 	player.room = room
 	var e: Array = room.entries.get(from, room.entries[""])
 	player.position = pos if pos != null else e[0]
