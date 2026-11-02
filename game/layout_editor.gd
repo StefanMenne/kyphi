@@ -89,11 +89,14 @@ func _draw() -> void:
 		return
 	var k := 1.0 / room.scale.x
 	# Lauffläche
-	if room.floor_poly.size() >= 3:
+	# beim Ziehen kann die Fläche kurzzeitig ungültig sein (Punkte übereinander, Kanten überkreuzt): dann nur
+	# die rote Umrandung, ohne Füllung (die Füllung würde "triangulation failed" melden)
+	var valid := room.floor_poly.size() >= 3 and not Geometry2D.triangulate_polygon(room.floor_poly).is_empty()
+	if valid:
 		draw_colored_polygon(room.floor_poly, Color(0.2, 1, 0.3, 0.15))
 	var closed := room.floor_poly.duplicate()
 	closed.append(room.floor_poly[0])
-	draw_polyline(closed, Color(0.2, 1, 0.3), 2 * k)
+	draw_polyline(closed, Color(0.2, 1, 0.3) if valid else Color(1, 0.25, 0.2), 2 * k)
 	for p in room.floor_poly:
 		_handle(p, Color(0.2, 1, 0.3), k)
 	# Tiefe: Marken links (Fußhöhe) mit Balken in Figurhöhe
