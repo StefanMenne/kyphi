@@ -1021,12 +1021,8 @@
    "post": "Nur die Leiterspalte unterhalb y=280 (x 1024-1079) aus dem leiterlosen Ergebnis übernommen, weicher Rand (Python, Pillow, NumPy); die Leiter beginnt damit etwa 150 px über dem Schnee",
    "layers": {
     "ladder": {
-     "tool": "qwen-image-edit",
-     "job_id": "17ad2fe88211",
-     "seed": 6631,
-     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
-     "prompt": "The wooden painter's step ladder from image 2 now stands unfolded in the snow inside the base of the steel lattice tower of image 1, directly below the lowest rung of the vertical tower ladder, so that its top reaches up to where the tower ladder begins. Same size relation as a real ladder of about three meters. Keep the tower, the snow, the sky and the drawing style of image 1 exactly the same.",
-     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py); danach auf 60 % verkleinert (Mitte in x und Unterkante gleich)",
+     "source": "assets/scenes/altarraum/sprites/ladder.png (Malerleiter aus dem Altarraum, siehe dort)",
+     "post": "auf 208 px Höhe skaliert, Mitte und Unterkante wie die frühere Qwen-Ebene (die hatte beim Verkleinern Artefakte aus dem Schnee-Ausschnitt)",
      "part": 2,
      "date": "2026-11-02"
     },

@@ -27,7 +27,7 @@ godot --headless --path . res://tests/walkthrough.tscn   # Teil 1 automatisch du
 ```
 
 Steuerung: Linksklick auf den Boden geht dorthin. Linksklick auf ein Objekt, eine Person oder einen Gegenstand im
-Inventar öffnet ein kleines Aktionsmenü (Ansehen, Benutzen, Nehmen, Sprechen), bei Türen geht Martin direkt hindurch; Rechtsklick sieht direkt
+Inventar öffnet ein kleines Aktionsmenü (Ansehen, Benutzen, Nehmen, Sprechen), bei Türen geht Martin direkt hindurch (Doppelklick: ohne Laufen sofort); Rechtsklick sieht direkt
 an. „Benutzen“ im Inventar nimmt den Gegenstand in die Hand, ein Klick auf etwas anderes wendet ihn darauf an
 oder kombiniert; Rechtsklick legt ihn zurück. Esc öffnet das Menü; der
 Spielstand wird bei jedem Raumwechsel gespeichert.

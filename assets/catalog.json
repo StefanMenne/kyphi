@@ -693,9 +693,9 @@
      "name": "Malerleiter unter der Turmleiter",
      "type": "state",
      "file": "scenes/antarctica_antenna/sprites/ladder.png",
-     "x": 915,
+     "x": 956,
      "y": 273,
-     "w": 180,
+     "w": 97,
      "h": 208
     },
     "runner_broken": {

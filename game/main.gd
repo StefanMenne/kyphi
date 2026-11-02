@@ -267,8 +267,14 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif hs:
 			act(hs, "look")
 	elif event.button_index == MOUSE_BUTTON_LEFT:
+		# Doppelklick auf eine Tür: ohne Laufen direkt hindurch
+		if event.double_click and hs and hs["verb"] == "go" and selected == "":
+			player.stop()
+			player.position = room.clamp_to_floor(hs["walk"])
+			player.update_scale()
+			act(hs, "use")
 		# Türen und Durchgänge ohne Menü: direkt gehen
-		if hs and (selected != "" or hs["verb"] == "go"):
+		elif hs and (selected != "" or hs["verb"] == "go"):
 			act(hs, "use")
 		elif hs:
 			ui.show_actions(get_viewport().get_mouse_position(), room.display_name(hs), ["look", hs["verb"]],
