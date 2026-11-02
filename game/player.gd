@@ -63,6 +63,9 @@ var room: Room
 const SUIT_DIR := "res://assets/characters/martin_suit/"
 ## Tempo der Anlaufbilder im Anzug relativ zum Laufzyklus (27/33 : 50/33 Videobilder pro Bild)
 const SUIT_START_RATE := 0.54
+## Ankerpunkte der Anzug-Bilder (Leinwand um 100 px links/rechts, 30 oben, 40 unten größer als ohne Anzug,
+## weil die Schritte im Anzug breiter sind): Seite, schräg, hinten
+const SUIT_ANCHORS := {0: Vector2(235, 667), 1: Vector2(219, 683), 2: Vector2(233, 679)}
 
 ## "right" oder "left"
 var dir := "right"
@@ -152,7 +155,10 @@ func _process(dt: float) -> void:
 
 func _set_texture(tex: Texture2D, anchor := Vector2.INF) -> void:
 	if anchor == Vector2.INF:
-		anchor = VIEWS[_view]["anchor"] if _view > 0 else ANCHOR
+		if suit:
+			anchor = SUIT_ANCHORS[_view]
+		else:
+			anchor = VIEWS[_view]["anchor"] if _view > 0 else ANCHOR
 	_sprite.texture = tex
 	_sprite.flip_h = dir == "left"
 	_sprite.offset = -Vector2(tex.get_width() - anchor.x if _sprite.flip_h else anchor.x, anchor.y)

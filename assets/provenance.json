@@ -1426,7 +1426,7 @@
    },
    "sprites": {
     "tool": "Python (numpy, scipy, Pillow)",
-    "note": "freigestellt per Flutung vom Rand, Sperre aus dunklen Konturen und Kanten (Sobel > 80), damit die weißen Stiefel auch bei Bewegungsunschärfe bleiben, Zyklus per Maskenvergleich, auf die Bildanzahl der Originale umgerechnet, Phase an den Original-Laufbildern ausgerichtet, auf die Körperhöhe der Original-Standbilder skaliert, gleicher Anker und gleiche Leinwand (work/characters/martin_suit/sprites/scripts); Anlauf (start_00..32) = Videobilder 1-50, endet vor Videobild 52, das dem ersten Zyklusbild gleicht (work/characters/martin_suit/sprites/scripts/start_fix.py)",
+    "note": "freigestellt per Flutung vom Rand, Sperre aus dunklen Konturen und Kanten (Sobel > 80), damit die weißen Stiefel auch bei Bewegungsunschärfe bleiben, Zyklus per Maskenvergleich, auf die Bildanzahl der Originale umgerechnet, Phase an den Original-Laufbildern ausgerichtet, auf die Körperhöhe der Original-Standbilder skaliert, gleicher Anker und gleiche Leinwand (work/characters/martin_suit/sprites/scripts); Anlauf (start_00..32) = Videobilder 1-50, endet vor Videobild 52, das dem ersten Zyklusbild gleicht (work/characters/martin_suit/sprites/scripts/start_fix.py); Leinwand je Seite um 100 px breiter, 30 oben, 40 unten (scripts/replace.py), Anker in player.gd SUIT_ANCHORS",
     "build": {
      "side": {
       "scale": 0.6642,
