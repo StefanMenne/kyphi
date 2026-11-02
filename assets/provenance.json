@@ -2921,6 +2921,92 @@
      "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
     }
    }
+  },
+  "pjotr": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "18b12f5af140",
+    "seed": 1013,
+    "text": "Pjotr. Technik, Heizung, Kaffee. Das Letzte ist das Wichtigste. Seit dem Unfall ist die Leiterheizung aus. Bei dem Wetter holt den keiner runter.",
+    "voice_description": "Russian man in his fifties speaking German with a noticeable but light Russian accent, deep warm slightly hoarse bass voice, rolling R, jovial and laid-back station technician, a bit gruff but friendly, unhurried pace, chuckles easily",
+    "language": "de"
+   },
+   "lines": {
+    "visitor": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "intro": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "heating_off": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "still_up": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000,
+     "spoken_text": "Vierhundertzwölf liegt noch oben. …"
+    },
+    "nobody_knows": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "wind_hint": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "f7_missing": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000,
+     "spoken_text": "Sicherung F sieben fehlt. …"
+    },
+    "bail_again": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "bail": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "bye": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "hands_off": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "measure": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "coffee_still": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "no_thanks": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    }
+   },
+   "part": 2,
+   "date": "2026-11-02"
   }
  },
  "ui": {

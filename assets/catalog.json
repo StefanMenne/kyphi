@@ -2191,6 +2191,68 @@
      "filter": "Diktiergerät-Klang"
     }
    }
+  },
+  "pjotr": {
+   "name": "Pjotr",
+   "reference": "voices/pjotr/reference.wav",
+   "lines": {
+    "visitor": {
+     "file": "voices/pjotr/visitor.wav",
+     "text": "Besuch! Bei minus achtundsechzig kommt sonst nur der Postsack."
+    },
+    "intro": {
+     "file": "voices/pjotr/intro.wav",
+     "text": "Pjotr. Technik, Heizung, Kaffee. Das Letzte ist das Wichtigste."
+    },
+    "heating_off": {
+     "file": "voices/pjotr/heating_off.wav",
+     "text": "Seit dem Unfall ist die Leiterheizung aus. Die Leiter ist ein einziger Eiszapfen."
+    },
+    "still_up": {
+     "file": "voices/pjotr/still_up.wav",
+     "text": "412 liegt noch oben. Bei dem Wetter holt den keiner runter. Erst wenn die Heizung wieder läuft."
+    },
+    "nobody_knows": {
+     "file": "voices/pjotr/nobody_knows.wav",
+     "text": "Weil keiner weiß, wie man sie einstellt. Zu viel auf einmal, und die Sicherung fliegt raus."
+    },
+    "wind_hint": {
+     "file": "voices/pjotr/wind_hint.wav",
+     "text": "Wie viel Heizung eine Ebene braucht, hängt vom Wind ab. Den sieht man nur von oben, im Fernrohr."
+    },
+    "f7_missing": {
+     "file": "voices/pjotr/f7_missing.wav",
+     "text": "Sicherung F7 fehlt. Keine Ahnung, wo die hin ist."
+    },
+    "bail_again": {
+     "file": "voices/pjotr/bail_again.wav",
+     "text": "Hab ich doch schon gesagt: klar!"
+    },
+    "bail": {
+     "file": "voices/pjotr/bail.wav",
+     "text": "Klar bürge ich! Wofür auch immer."
+    },
+    "bye": {
+     "file": "voices/pjotr/bye.wav",
+     "text": "Mach die Tür zu, wenn du gehst. Wegen der Wärme."
+    },
+    "hands_off": {
+     "file": "voices/pjotr/hands_off.wav",
+     "text": "Finger weg! Ohne die läuft der Automat nicht. Und ohne Kaffee laufe ich nicht."
+    },
+    "measure": {
+     "file": "voices/pjotr/measure.wav",
+     "text": "Messen darfst du. Mitnehmen nicht."
+    },
+    "coffee_still": {
+     "file": "voices/pjotr/coffee_still.wav",
+     "text": "Na sieh mal an. Und mein Kaffee läuft auch noch."
+    },
+    "no_thanks": {
+     "file": "voices/pjotr/no_thanks.wav",
+     "text": "Danke, ich hab alles, was ich brauche. Kaffee."
+    }
+   }
   }
  },
  "ui": {
