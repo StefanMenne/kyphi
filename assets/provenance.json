@@ -1426,18 +1426,19 @@
    },
    "sprites": {
     "tool": "Python (numpy, scipy, Pillow)",
-    "note": "freigestellt mit verdickten Konturen als Sperre (weiße Stiefel), Zyklus per Maskenvergleich, auf die Bildanzahl der Originale umgerechnet, Phase an den Original-Laufbildern ausgerichtet, auf die Körperhöhe der Original-Standbilder skaliert, gleicher Anker und gleiche Leinwand (work/characters/martin_suit/sprites/scripts); Anlauf (start_00..32) = Videobilder 1-50, endet vor Videobild 52, das dem ersten Zyklusbild gleicht (work/characters/martin_suit/sprites/scripts/start_fix.py)",
+    "note": "freigestellt per Flutung vom Rand, Sperre aus dunklen Konturen und Kanten (Sobel > 80), damit die weißen Stiefel auch bei Bewegungsunschärfe bleiben, Zyklus per Maskenvergleich, auf die Bildanzahl der Originale umgerechnet, Phase an den Original-Laufbildern ausgerichtet, auf die Körperhöhe der Original-Standbilder skaliert, gleicher Anker und gleiche Leinwand (work/characters/martin_suit/sprites/scripts); Anlauf (start_00..32) = Videobilder 1-50, endet vor Videobild 52, das dem ersten Zyklusbild gleicht (work/characters/martin_suit/sprites/scripts/start_fix.py)",
     "build": {
      "side": {
-      "scale": 0.6656,
+      "scale": 0.6642,
       "period": 27,
-      "cycle_start": 81,
-      "cycle_err": 0.0281,
-      "phase": 31,
-      "iou": 0.62,
+      "cycle_start": 72,
+      "cycle_err": 0.0247,
+      "phase": 8,
+      "iou": 0.624,
       "video_frames": [
-       106,
-       107,
+       79,
+       79,
+       80,
        81,
        82,
        83,
@@ -1460,20 +1461,19 @@
        97,
        97,
        98,
-       99,
-       100,
-       101,
-       101,
-       102,
-       103,
-       104,
-       105,
-       106
+       72,
+       73,
+       74,
+       74,
+       75,
+       76,
+       77,
+       78
       ],
       "idle_frame": 0,
       "offset": [
-       -127.3,
-       -24.0
+       -125.4,
+       -23.9
       ],
       "start_frames": [
        1,
@@ -1513,12 +1513,12 @@
       "start_end": 52
      },
      "diag": {
-      "scale": 0.6822,
+      "scale": 0.68,
       "period": 27,
       "cycle_start": 64,
-      "cycle_err": 0.023,
+      "cycle_err": 0.018,
       "phase": 16,
-      "iou": 0.61,
+      "iou": 0.637,
       "video_frames": [
        78,
        78,
@@ -1555,17 +1555,17 @@
       ],
       "idle_frame": 79,
       "offset": [
-       -119.8,
-       -23.1
+       -122.4,
+       -20.9
       ]
      },
      "back": {
-      "scale": 0.6543,
+      "scale": 0.6477,
       "period": 27,
-      "cycle_start": 51,
-      "cycle_err": 0.0138,
-      "phase": 16,
-      "iou": 0.708,
+      "cycle_start": 50,
+      "cycle_err": 0.0115,
+      "phase": 17,
+      "iou": 0.713,
       "video_frames": [
        68,
        69,
@@ -1576,7 +1576,7 @@
        74,
        75,
        76,
-       77,
+       50,
        51,
        52,
        53,
@@ -1589,15 +1589,15 @@
        60,
        61,
        62,
-       63,
+       64,
        65,
        66,
        67
       ],
       "idle_frame": 53,
       "offset": [
-       -115.6,
-       -15.8
+       -113.4,
+       -9.0
       ]
      }
     }
