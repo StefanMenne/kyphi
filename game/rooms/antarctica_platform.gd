@@ -11,7 +11,7 @@ func _init() -> void:
 
 func build() -> void:
 	tint = Color(0.78, 0.85, 0.95)
-	hotspot("train_airlock", "Schleuse zum Zug")
+	hotspot("train_airlock", "Zug in der Schleuse", "back", "none")
 	hotspot("control_door", "Tür zum Kontrollraum", "back", "none")
 	hotspot("airlock_door", "Tür zur Schleuse", "back", "none")
 	hotspot("stairs", "Treppe nach oben", "right", "none")
@@ -28,7 +28,7 @@ func on_enter(from: String) -> void:
 func look(hid: String) -> void:
 	match hid:
 		"train_airlock":
-			await say("Hinter dem Schott wartet der Zug.")
+			await say("Der Zug wartet in der Schleuse. Die Tür steht offen.")
 		"control_door":
 			await say("Die Tür zum Kontrollraum. Dahinter brummt ein Lüfter.")
 		"airlock_door":

@@ -2172,10 +2172,6 @@
      "file": "voices/martin/p2_ant_platform_02.wav",
      "text": "Das muss die Antarktis sein. Hoffentlich gibt es hier Kaffee."
     },
-    "p2_ant_platform_03": {
-     "file": "voices/martin/p2_ant_platform_03.wav",
-     "text": "Hinter dem Schott wartet der Zug."
-    },
     "p2_ant_platform_04": {
      "file": "voices/martin/p2_ant_platform_04.wav",
      "text": "Die Tür zum Kontrollraum. Dahinter brummt ein Lüfter."
@@ -2583,6 +2579,10 @@
     "p2_look_medal": {
      "file": "voices/martin/p2_look_medal.wav",
      "text": "Die Medaille von 412. Quer durch läuft ein Sprung."
+    },
+    "p2_ant_platform_train_open": {
+     "file": "voices/martin/p2_ant_platform_train_open.wav",
+     "text": "Der Zug wartet in der Schleuse. Die Tür steht offen."
     }
    }
   },

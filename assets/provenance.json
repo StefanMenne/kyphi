@@ -849,6 +849,17 @@
      "job_id": "f927293e2682",
      "seed": 8171,
      "note": "schräge Metallplatte rechts vom Schott entfernt (Ausschnitt 1200-2224)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "7df84a87699e",
+     "seed": 6700,
+     "inputs": [
+      "Ausschnitt 640-1640 x 100-500 des Bahnsteigs",
+      "derselbe Ausschnitt aus museum_station/background.png (offene Schleuse mit Zug)"
+     ],
+     "prompt": "Open the airlock in image 1: the closed steel bulkhead inside the riveted frame is gone, and through the opening we see the airlock chamber with the silver high-speed train exactly as in image 2, seen from the side, with its passenger door open and warm light inside, the warm light falling onto the floor in front of the door. Add a little frost and a few small icicles on the roof of the train and along the edges of the chamber, as it is very cold here. Keep the riveted frame with its red lights and the two lamps, the frosted rock walls, the icicles, the frosty floor tiles and the hand-drawn comic style of image 1 exactly the same.",
+     "note": "nur der veränderte Bereich zurück ins Panorama (work/scenes/antarctica_platform_open/compose.py)"
     }
    ],
    "post": "Panorama 4096x576 aus den Teilen zusammengesetzt, Ausschnitte mit weicher Maske eingesetzt (Python, Pillow, NumPy)",
@@ -2924,12 +2935,6 @@
      "seed": 2000,
      "part": 2
     },
-    "p2_ant_platform_03": {
-     "tool": "qwen-tts speak",
-     "job_id": "ab554d75aa27",
-     "seed": 2000,
-     "part": 2
-    },
     "p2_ant_platform_04": {
      "tool": "qwen-tts speak",
      "job_id": "ab554d75aa27",
@@ -3571,6 +3576,12 @@
      "seed": 2000,
      "part": 2,
      "spoken_text": "Die Medaille von Vierhundertzwölf. Quer durch läuft ein Sprung."
+    },
+    "p2_ant_platform_train_open": {
+     "tool": "qwen-tts speak",
+     "job_id": "d1453858f4b7",
+     "seed": 2000,
+     "part": 2
     }
    }
   },
