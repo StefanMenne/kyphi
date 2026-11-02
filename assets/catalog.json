@@ -551,6 +551,15 @@
     576
    ],
    "layers": {}
+  },
+  "antarctica_control_room": {
+   "name": "Antarktis: Kontrollraum",
+   "background": "scenes/antarctica_control_room/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {}
   }
  },
  "characters": {

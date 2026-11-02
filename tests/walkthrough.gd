@@ -200,6 +200,23 @@ func run() -> void:
 	await act("st_antarctica")
 	in_room("antarctica_platform")
 	await act("control_door")
+	in_room("antarctica_control_room")
+	Game.choice_script = ["Antenne", "bürgen", "Bis später"]
+	await act("pjotr")
+	await act("coffee")
+	await act("coffee", "caliper")
+	check(Game.flag("fuse_measured"), "Sicherung gemessen")
+	var room = main.room
+	var w: Array = room.wind()
+	var too_much := [2, 2, 2, 2, 2, 2]
+	check(not room.set_heating(too_much), "Sicherung fliegt bei zu viel Heizung")
+	check(room.set_heating(w), "richtige Heizung passt")
+	check(room.first_frozen() == 0, "keine Ebene mehr zugefroren")
+	Game.add_item("fuse")
+	await act("fuse_box", "fuse")
+	check(Game.flag("gate_fuse_in"), "Torheizung hat Strom")
+	await act("door")
+	in_room("antarctica_platform")
 	await act("train_airlock")
 	in_room("train_cabin")
 	await act("st_museum")

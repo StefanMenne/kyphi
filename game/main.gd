@@ -11,6 +11,7 @@ const ROOMS := {
 	"museum_station": preload("res://game/rooms/museum_station.gd"),
 	"train_cabin": preload("res://game/rooms/train_cabin.gd"),
 	"antarctica_platform": preload("res://game/rooms/antarctica_platform.gd"),
+	"antarctica_control_room": preload("res://game/rooms/antarctica_control_room.gd"),
 }
 const SPEAKER_COLORS := {
 	"martin": Color("f4e8c8"),
@@ -18,6 +19,7 @@ const SPEAKER_COLORS := {
 	"cult1": Color("a9c8ff"),
 	"cult2": Color("cdb6ff"),
 	"elder": Color("a3e3c4"),
+	"pjotr": Color("ffd27a"),
 	"": Color("d8d8d8"),
 }
 

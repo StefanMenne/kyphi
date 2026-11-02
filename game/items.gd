@@ -23,6 +23,16 @@ const LOOK := {
 	"drill": "Ein Akkuschrauber. Für Spezialschrauben habe ich keinen Bit.",
 	"drill_bit": "Akkuschrauber mit Dreikant-Bit.",
 	"remote": "Die Fernbedienung.",
+	"drill_battery": "Ein Akku für Akkuwerkzeug. Leer.",
+	"drill_battery_charged": "Der Akku, frisch geladen.",
+	"fuse": "Eine Sicherung, 10 mal 38 Millimeter.",
+	"glycol_canister": "Frostschutz, Glykol. „Pistenraupe“ steht drauf.",
+	"thermos": "Eine Thermoskanne mit heißem Tee.",
+	"salt": "Salz aus der Kantine.",
+	"runner_broken": "412s Steigschutzläufer. Die Feder ist gebrochen.",
+	"runner": "Ein neuer Steigschutzläufer.",
+	"duct_tape": "Gewebeband. Hält alles, was nicht halten will.",
+	"medal": "Die Medaille von 412. Quer durch läuft ein Sprung.",
 }
 
 const FIRE := ["incense_cone", "saucer", "lighter"]
