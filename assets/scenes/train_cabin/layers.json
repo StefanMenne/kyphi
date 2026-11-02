@@ -1,0 +1,9 @@
+{
+ "name": "Im Zug: Streckenkarte",
+ "size": [
+  2048,
+  576
+ ],
+ "background": "background.png",
+ "layers": {}
+}

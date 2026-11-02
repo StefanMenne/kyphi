@@ -644,6 +644,232 @@
      "post": "Magenta freigestellt, auf 88 px Breite skaliert, Sättigung 0.8 und Helligkeit 0.72 für das dunkle Depot"
     }
    }
+  },
+  "museum_station": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "16787ac57080",
+     "seed": 8002,
+     "size": "2048x576",
+     "note": "Bahnhof im Fels mit Zug"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "c9bfb5dced5f",
+     "seed": 8013,
+     "note": "Zug größer, in einer Schleuse mit Rolltor"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "7630294fc80d",
+     "seed": 8025,
+     "prompt": "Make the airlock chamber in the back wall much wider, spanning most of the back wall from just right of the elevator to near the right edge, with the same riveted steel frame, red warning lights and the heavy steel shutter retracted above it, just as wide as the opening. Inside the chamber a long silver high-speed train is seen exactly from the side, parallel to the wall, filling the chamber from left to right, as tall as the elevator door. In the middle of the train one passenger door is open toward the platform, warm light inside. Keep the rock walls, the Egyptian reliefs, the elevator door on the left, the stone floor and the hand-drawn comic style with bold black outlines unchanged."
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "8808121930f9",
+     "seed": 8032,
+     "prompt": "Remove the large riveted steel plate hanging from the ceiling above the airlock opening, so the rocky cave ceiling is visible there instead. Keep the airlock frame with its red warning lights, the two small lamps on top of the frame, the train with the open lit door, the elevator, the reliefs, the side door, the floor and the hand-drawn comic style with bold black outlines unchanged."
+    }
+   ],
+   "background_closed": {
+    "tool": "qwen-image-edit",
+    "job_id": "b5c916ac1824",
+    "seed": 8041,
+    "input": "background.png",
+    "prompt": "Close the airlock: a heavy riveted steel bulkhead now fills the opening of the airlock chamber exactly inside its riveted steel frame, from the top of the frame down to the floor line, so the train is no longer visible. The bulkhead sits flush in the frame in the back wall, not in front of it. The red warning lights on the frame glow. Keep the rock cave, the ceiling, the two small lamps, the elevator, the reliefs, the side door on the right, the floor and the hand-drawn comic style with bold black outlines unchanged."
+   },
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "train_cabin": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "a6f6e9bf707d",
+     "seed": 8905,
+     "size": "2048x576",
+     "prompt": "Interior of a futuristic high-speed train cabin seen from the aisle, a few curved white passenger seats on the left and right, in the middle of the front wall a large glowing illuminated route map panel: a dark blue screen with one long bright line connecting five round glowing station buttons, the line branches across the panel like a subway map, no letters or labels on the map, small panels with blinking lights around it, windows on both sides showing a dark tunnel with motion streaks, soft cool interior lighting with warm accents, hand-drawn 2D point-and-click adventure game background art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style, wide panoramic shot at eye level, open walkable floor across the foreground, no people, no text"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "41665ed5918a",
+     "seed": 8913,
+     "note": "Karte durch Stern mit Endpunkten ersetzt (vier Punkte)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "cbcba8075b27",
+     "seed": 8922,
+     "prompt": "On the large blue screen, add one more glowing line from the small star in the center straight up to a fifth large glowing round dot near the top edge of the screen, at the center, the same size and glow as the four dots in the corners. Then the map has exactly five dots, all at the ends of the lines. Keep everything else unchanged, no letters, no text."
+    }
+   ],
+   "post": "Qwen-Ausgabe 1920x544 auf 2048x576 skaliert; Stationsnamen kommen im Spiel dazu",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_platform": {
+   "chain": [
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "0d6ee6382584",
+     "seed": 8106,
+     "input": "museum_station/background_closed.png",
+     "note": "Station unter dem Eis: bereifter Fels, Reliefs und Aufzug entfernt"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "b98163e5131c",
+     "seed": 8116,
+     "note": "nach rechts fortgesetzt (Canvas: rechte Hälfte + grau): zwei Stahltüren"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "b10feeec681c",
+     "seed": 8135,
+     "note": "nach rechts fortgesetzt: Treppe nach oben"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "15a72baf52e9",
+     "seed": 8162,
+     "note": "Felssäule zwischen Schleuse und Türen entfernt, Boden vorne durchgehend (Ausschnitt 1460-2484)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "60b794d70cf0",
+     "seed": 8164,
+     "note": "Felssäule zwischen Türen und Treppe entfernt (Ausschnitt 2668-3692)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "f927293e2682",
+     "seed": 8171,
+     "note": "schräge Metallplatte rechts vom Schott entfernt (Ausschnitt 1200-2224)"
+    }
+   ],
+   "post": "Panorama 4096x576 aus den Teilen zusammengesetzt, Ausschnitte mit weicher Maske eingesetzt (Python, Pillow, NumPy)",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_control_room": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "12053b428d0a",
+     "seed": 8213,
+     "size": "2048x576",
+     "note": "Prompt ähnlich Entwurf 8201 mit mehr Lauffläche, Stilzeile wie Teil 1"
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_airlock": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "385b9f125d79",
+     "seed": 8302,
+     "size": "2048x576"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "fe7b117e9913",
+     "seed": 8312,
+     "note": "Spind mit nur einem dicken Anzug, schmaleres Außentor, zweiter Schrank schlichter"
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_observation": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "726d566e9b7b",
+     "seed": 8412,
+     "size": "2048x576",
+     "prompt": "Observation room under a large glass dome on the Antarctic ice at night, through the glass huge steel lattice antenna towers rise into a green aurora sky, a large modern white research telescope on a heavy motorized mount at the right side of the room, an old wind recorder with a paper strip drum on a small table beside it, a spiral staircase going down through a round opening in the floor on the left, wide open floor across the foreground for walking, hand-drawn 2D point-and-click adventure game background art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style, wide panoramic shot at eye level, open walkable floor across the foreground, no people, no text"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "4bf313f11e2d",
+     "seed": 8433,
+     "prompt": "Replace the wooden staircase on the left that goes up with a staircase going down: a rectangular opening in the floor on the left with a wooden railing around it and wooden stairs descending into the floor below, the steps disappearing downward into the dark. Nothing goes up anymore, the curved dome wall on the left is plain. Keep the glass dome, the aurora, the antenna towers, the telescope, the table, the open floor and the hand-drawn comic style with bold black outlines unchanged."
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_antenna": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "aa6fe50b7ba6",
+     "seed": 8501,
+     "size": "2048x576"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "182487160d06",
+     "seed": 8511,
+     "note": "Leiter nach vorne, Trümmer aus der Lauffläche; untere Leiter per Ausschnitt entfernt (Job 50e88d827fda)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "96b2f8161771",
+     "seed": 8531,
+     "note": "ganzer Turm im Bild"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "f969fca5369a",
+     "seed": 8552,
+     "prompt": "Make the antenna tower twice as wide and much taller: its wide lattice base stands in the snow in the middle, and the tower rises out of the top edge of the picture, so the tip of the tower is hidden above the picture. Several platforms are visible along the tower, the vertical ladder runs inside the tower upward out of the picture, but the lowest part of the ladder near the ground is missing. Keep the snow field, the aurora sky, the falling snow and the hand-drawn comic style with bold black outlines."
+    }
+   ],
+   "todo": "Unteres Leiterstück fehlt noch nicht sichtbar (für die Malerleiter entfernen)",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_telescope_top": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "26242d48f19b",
+     "seed": 8601,
+     "size": "2048x576",
+     "reference": "antarctica_antenna/background.png (Entwurf 8552)",
+     "note": "Spitze des Turms mit Plattform"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "7449cfd1ed84",
+     "seed": 8623,
+     "prompt": "Remove the big lump of ice and the large medal from the top platform. Instead a person in a dark orange polar suit with a hood lies motionless on the grating near the railing, curled up on his side, half covered with snow and white rime, frozen to the grating, face not visible, one gloved hand hanging over the edge of the platform. A small part of the railing next to him is bent. Nothing gory. Keep the tower, the platform, the ladder, the small box in the corner, the aurora sky, the falling snow and the hand-drawn comic style with bold black outlines."
+    }
+   ],
+   "post": "Qwen-Ausgabe 1920x544 auf 2048x576 skaliert",
+   "todo": "vorläufig, Figur noch zu groß",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_telescope_level": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "2329fea24d55",
+     "seed": 8613,
+     "size": "2048x576",
+     "reference": "Entwurf 8552",
+     "prompt": "View through a telescope of a middle section of a tall steel lattice antenna tower in Antarctica at night: one small grating platform with a railing around the tower, a vertical steel ladder runs inside the lattice from below through the platform and continues upward out of the picture, the lattice tower continues above and below out of the picture, at the corner of the platform a short thin empty steel pole sticks up from the railing with nothing mounted on it, frost and rime on all steel struts, green aurora sky with stars behind, blowing snow, hand-drawn 2D point-and-click adventure game background art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style, close-up, the platform fills the middle of the picture, no people, no text"
+    }
+   ],
+   "post": "Windfahne wird im Spiel dynamisch eingesetzt",
+   "part": 2,
+   "date": "2026-11-02"
   }
  },
  "characters": {
@@ -2236,6 +2462,35 @@
    "size": "512x512",
    "prompt": "A single simple user-interface icon of a hand grabbing, fingers closing to pick something up, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
    "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  }
+ },
+ "videos": {
+  "lift_down": {
+   "part": 2,
+   "date": "2026-11-02",
+   "tool": "ltx-video",
+   "job_id": "2bf83983f2f4",
+   "seed": 9101,
+   "size": "1280x832",
+   "duration_s": 8,
+   "input": "Startbild: erstes Bild von lift.mp4 (Vorlage des Autors)",
+   "note": "Liftfahrt nach der Geheimtür im Altarraum hinab ins Tunnelsystem",
+   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg)"
+  },
+  "train_departure": {
+   "part": 2,
+   "date": "2026-11-02",
+   "tool": "ltx-video",
+   "job_id": "e1fe8e4a0182",
+   "seed": 9321,
+   "size": "1792x512",
+   "duration_s": 8,
+   "keyframes": [
+    "museum_station/background.png",
+    "museum_station/background_closed.png"
+   ],
+   "prompt": "Hand-drawn comic style underground train station in a rock cave. The camera is completely static, no pan, no zoom. First the lit passenger door of the silver train in the airlock chamber slides shut with a hiss and its warm light goes out. Then the red warning lights on the frame start flashing and a heavy riveted steel bulkhead slides slowly down inside the airlock frame in the back wall, from the top of the frame to the floor, until it closes the opening and hides the train. The bulkhead stays in the back wall, the foreground floor stays empty. Sounds: door hiss, alarm beeps, grinding metal, a heavy clang as the bulkhead locks, a hiss of air being pumped out, then the muffled roar of the train accelerating away behind the bulkhead.",
+   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg)"
   }
  }
 }

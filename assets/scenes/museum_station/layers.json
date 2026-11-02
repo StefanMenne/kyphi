@@ -1,0 +1,12 @@
+{
+ "name": "Bahnhof unter dem Museum",
+ "size": [
+  2048,
+  576
+ ],
+ "background": "background.png",
+ "layers": {},
+ "states": {
+  "closed": "background_closed.png"
+ }
+}

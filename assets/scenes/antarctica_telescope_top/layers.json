@@ -1,0 +1,9 @@
+{
+ "name": "Fernrohr: oberste Ebene",
+ "size": [
+  2048,
+  576
+ ],
+ "background": "background.png",
+ "layers": {}
+}
