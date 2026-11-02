@@ -2039,6 +2039,550 @@
     "grun": {
      "file": "voices/martin/grun.wav",
      "text": "… Grün."
+    },
+    "p2_station_01": {
+     "file": "voices/martin/p2_station_01.wav",
+     "text": "Ein Bahnhof. Unter dem Museum."
+    },
+    "p2_station_02": {
+     "file": "voices/martin/p2_station_02.wav",
+     "text": "Daher kommt also das Rauschen."
+    },
+    "p2_station_03": {
+     "file": "voices/martin/p2_station_03.wav",
+     "text": "Ägyptische Reliefs, in den Fels gehauen. Sauber gearbeitet, aber höchstens zwanzig Jahre alt."
+    },
+    "p2_station_04": {
+     "file": "voices/martin/p2_station_04.wav",
+     "text": "Der Aufzug zurück nach oben in den Altarraum."
+    },
+    "p2_station_05": {
+     "file": "voices/martin/p2_station_05.wav",
+     "text": "Ein Panzertor, dick wie bei einem Tresor."
+    },
+    "p2_station_06": {
+     "file": "voices/martin/p2_station_06.wav",
+     "text": "Ein Hochgeschwindigkeitszug, zwei Kilometer unter dem Museum. Den hat bestimmt nicht der Förderverein bezahlt."
+    },
+    "p2_station_07": {
+     "file": "voices/martin/p2_station_07.wav",
+     "text": "Die Tür steht offen. Drinnen brennt Licht."
+    },
+    "p2_station_08": {
+     "file": "voices/martin/p2_station_08.wav",
+     "text": "Rührt sich keinen Millimeter."
+    },
+    "p2_station_09": {
+     "file": "voices/martin/p2_station_09.wav",
+     "text": "Der Zug steht in einer Schleuse. Rein komme ich nur durch die offene Tür."
+    },
+    "p2_station_10": {
+     "file": "voices/martin/p2_station_10.wav",
+     "text": "Na dann. Einsteigen, bitte."
+    },
+    "p2_cabin_01": {
+     "file": "voices/martin/p2_cabin_01.wav",
+     "text": "Eine Streckenkarte. Fünf Ziele, aber nur eins leuchtet."
+    },
+    "p2_cabin_02": {
+     "file": "voices/martin/p2_cabin_02.wav",
+     "text": "Museum. Da steht der Zug gerade."
+    },
+    "p2_cabin_03": {
+     "file": "voices/martin/p2_cabin_03.wav",
+     "text": "Abc GmbH. Da steht der Zug gerade."
+    },
+    "p2_cabin_04": {
+     "file": "voices/martin/p2_cabin_04.wav",
+     "text": "Area 52. Da steht der Zug gerade."
+    },
+    "p2_cabin_05": {
+     "file": "voices/martin/p2_cabin_05.wav",
+     "text": "Innenerde. Da steht der Zug gerade."
+    },
+    "p2_cabin_06": {
+     "file": "voices/martin/p2_cabin_06.wav",
+     "text": "Antarktis. Da steht der Zug gerade."
+    },
+    "p2_cabin_07": {
+     "file": "voices/martin/p2_cabin_07.wav",
+     "text": "Museum. Das Ziel leuchtet."
+    },
+    "p2_cabin_08": {
+     "file": "voices/martin/p2_cabin_08.wav",
+     "text": "Abc GmbH. Das Ziel leuchtet."
+    },
+    "p2_cabin_09": {
+     "file": "voices/martin/p2_cabin_09.wav",
+     "text": "Area 52. Das Ziel leuchtet."
+    },
+    "p2_cabin_10": {
+     "file": "voices/martin/p2_cabin_10.wav",
+     "text": "Innenerde. Das Ziel leuchtet."
+    },
+    "p2_cabin_11": {
+     "file": "voices/martin/p2_cabin_11.wav",
+     "text": "Antarktis. Das Ziel leuchtet."
+    },
+    "p2_cabin_12": {
+     "file": "voices/martin/p2_cabin_12.wav",
+     "text": "Museum. Das Ziel ist dunkel."
+    },
+    "p2_cabin_13": {
+     "file": "voices/martin/p2_cabin_13.wav",
+     "text": "Abc GmbH. Das Ziel ist dunkel."
+    },
+    "p2_cabin_14": {
+     "file": "voices/martin/p2_cabin_14.wav",
+     "text": "Area 52. Das Ziel ist dunkel."
+    },
+    "p2_cabin_15": {
+     "file": "voices/martin/p2_cabin_15.wav",
+     "text": "Innenerde. Das Ziel ist dunkel."
+    },
+    "p2_cabin_16": {
+     "file": "voices/martin/p2_cabin_16.wav",
+     "text": "Antarktis. Das Ziel ist dunkel."
+    },
+    "p2_cabin_17": {
+     "file": "voices/martin/p2_cabin_17.wav",
+     "text": "Bequemer als jeder Stuhl im Museum."
+    },
+    "p2_cabin_18": {
+     "file": "voices/martin/p2_cabin_18.wav",
+     "text": "Die Tür zum Bahnsteig."
+    },
+    "p2_cabin_19": {
+     "file": "voices/martin/p2_cabin_19.wav",
+     "text": "Da bin ich ja schon."
+    },
+    "p2_cabin_20": {
+     "file": "voices/martin/p2_cabin_20.wav",
+     "text": "Das Ziel ist dunkel. Dahin fährt der Zug nicht."
+    },
+    "p2_cabin_21": {
+     "file": "voices/martin/p2_cabin_21.wav",
+     "text": "Sitzen kann ich auch später."
+    },
+    "p2_ant_platform_01": {
+     "file": "voices/martin/p2_ant_platform_01.wav",
+     "text": "Kalt. Richtig kalt."
+    },
+    "p2_ant_platform_02": {
+     "file": "voices/martin/p2_ant_platform_02.wav",
+     "text": "Das muss die Antarktis sein. Hoffentlich gibt es hier Kaffee."
+    },
+    "p2_ant_platform_03": {
+     "file": "voices/martin/p2_ant_platform_03.wav",
+     "text": "Hinter dem Schott wartet der Zug."
+    },
+    "p2_ant_platform_04": {
+     "file": "voices/martin/p2_ant_platform_04.wav",
+     "text": "Die Tür zum Kontrollraum. Dahinter brummt ein Lüfter."
+    },
+    "p2_ant_platform_05": {
+     "file": "voices/martin/p2_ant_platform_05.wav",
+     "text": "Eine Stahltür mit Warnschild. Durchs Fenster sieht man Spinde."
+    },
+    "p2_ant_platform_06": {
+     "file": "voices/martin/p2_ant_platform_06.wav",
+     "text": "Eine Treppe nach oben. Von dort fällt kaltes Licht herein."
+    },
+    "p2_ant_control_01": {
+     "file": "voices/martin/p2_ant_control_01.wav",
+     "text": "Wetterdaten, Polarlicht, Antennenpegel. Alles grün, nur nicht der Pegel."
+    },
+    "p2_ant_control_02": {
+     "file": "voices/martin/p2_ant_control_02.wav",
+     "text": "Pjotrs Kaffeeautomat. Unter der Klappe steckt die Sicherung F7."
+    },
+    "p2_ant_control_03": {
+     "file": "voices/martin/p2_ant_control_03.wav",
+     "text": "Ein alter Kaffeeautomat. Der einzige Luxus hier unten. Er brummt verdächtig laut."
+    },
+    "p2_ant_control_04": {
+     "file": "voices/martin/p2_ant_control_04.wav",
+     "text": "Pjotr, der Techniker. Er hält seinen Kaffeebecher fest, als hinge sein Leben daran."
+    },
+    "p2_ant_control_05": {
+     "file": "voices/martin/p2_ant_control_05.wav",
+     "text": "Leiterheizung Antenne, Ebene 1 bis 6. Je ein Schalter: Aus, Low, High."
+    },
+    "p2_ant_control_06": {
+     "file": "voices/martin/p2_ant_control_06.wav",
+     "text": "Der Sicherungskasten. F7, Torheizung Schleuse, ist wieder drin."
+    },
+    "p2_ant_control_07": {
+     "file": "voices/martin/p2_ant_control_07.wav",
+     "text": "Der Sicherungskasten. Ein Platz ist leer: F7, Torheizung Schleuse."
+    },
+    "p2_ant_control_08": {
+     "file": "voices/martin/p2_ant_control_08.wav",
+     "text": "Alles drin. Mehr Sicherungen hat der Kasten nicht."
+    },
+    "p2_ant_control_09": {
+     "file": "voices/martin/p2_ant_control_09.wav",
+     "text": "Ohne Ersatzsicherung kann ich da nichts machen."
+    },
+    "p2_ant_control_10": {
+     "file": "voices/martin/p2_ant_control_10.wav",
+     "text": "Ich drücke hier besser auf nichts."
+    },
+    "p2_ant_control_11": {
+     "file": "voices/martin/p2_ant_control_11.wav",
+     "text": "Passt. 10 mal 38. Die Torheizung hat wieder Strom."
+    },
+    "p2_ant_control_12": {
+     "file": "voices/martin/p2_ant_control_12.wav",
+     "text": "Pjotrs Automat hat schon eine. Leider meine."
+    },
+    "p2_ant_control_13": {
+     "file": "voices/martin/p2_ant_control_13.wav",
+     "text": "Und warum läuft sie nicht?"
+    },
+    "p2_ant_control_14": {
+     "file": "voices/martin/p2_ant_control_14.wav",
+     "text": "Keine Ahnung. Aha."
+    },
+    "p2_ant_control_15": {
+     "file": "voices/martin/p2_ant_control_15.wav",
+     "text": "Hinter der Wartungsklappe … eine Sicherung. Beschriftet: F7."
+    },
+    "p2_ant_control_16": {
+     "file": "voices/martin/p2_ant_control_16.wav",
+     "text": "Das ist die Sicherung der Torheizung!"
+    },
+    "p2_ant_control_17": {
+     "file": "voices/martin/p2_ant_control_17.wav",
+     "text": "Dann nehme ich die mal."
+    },
+    "p2_ant_control_18": {
+     "file": "voices/martin/p2_ant_control_18.wav",
+     "text": "Hinter der Wartungsklappe steckt eine Sicherung. F7, die von der Torheizung."
+    },
+    "p2_ant_control_19": {
+     "file": "voices/martin/p2_ant_control_19.wav",
+     "text": "10 Millimeter Durchmesser, 38 lang. Das merke ich mir."
+    },
+    "p2_ant_control_20": {
+     "file": "voices/martin/p2_ant_control_20.wav",
+     "text": "Zack. Zu viel auf einmal, die Sicherung ist rausgeflogen. Alles wieder auf Aus."
+    },
+    "p2_ant_observation_01": {
+     "file": "voices/martin/p2_ant_observation_01.wav",
+     "text": "Eine Glaskuppel mitten im Eis. Und draußen ein ganzer Wald aus Antennen."
+    },
+    "p2_ant_observation_02": {
+     "file": "voices/martin/p2_ant_observation_02.wav",
+     "text": "Die Treppe hinunter zum Bahnsteig."
+    },
+    "p2_ant_observation_03": {
+     "file": "voices/martin/p2_ant_observation_03.wav",
+     "text": "Antennen, so weit man sieht. Die große direkt vor der Kuppel hat oben eine Plattform."
+    },
+    "p2_ant_observation_04": {
+     "file": "voices/martin/p2_ant_observation_04.wav",
+     "text": "Das Fernrohr. Motorisiert, man kann es an der Antenne hoch- und runterfahren."
+    },
+    "p2_ant_observation_05": {
+     "file": "voices/martin/p2_ant_observation_05.wav",
+     "text": "Ein großes Fernrohr. Das Okular ist mit einer dicken Eisschicht überzogen."
+    },
+    "p2_ant_observation_06": {
+     "file": "voices/martin/p2_ant_observation_06.wav",
+     "text": "Ein alter Windschreiber. Die Nadel zittert ununterbrochen. Da oben stürmt es ohne Pause."
+    },
+    "p2_ant_observation_07": {
+     "file": "voices/martin/p2_ant_observation_07.wav",
+     "text": "Durchs Eis sehe ich nur Milchglas. Das Okular muss erst auftauen."
+    },
+    "p2_ant_observation_08": {
+     "file": "voices/martin/p2_ant_observation_08.wav",
+     "text": "Den lasse ich schreiben. Viel Neues erzählt er nicht: Wind, Wind, Wind."
+    },
+    "p2_ant_observation_09": {
+     "file": "voices/martin/p2_ant_observation_09.wav",
+     "text": "Zu weit weg. Von hier aus geht das nur mit dem Fernrohr."
+    },
+    "p2_ant_observation_10": {
+     "file": "voices/martin/p2_ant_observation_10.wav",
+     "text": "Das Okular ist schon frei. Den Rest Tee trinke ich lieber selbst."
+    },
+    "p2_ant_observation_11": {
+     "file": "voices/martin/p2_ant_observation_11.wav",
+     "text": "Ein Schluck heißer Tee aufs Okular …"
+    },
+    "p2_ant_observation_12": {
+     "file": "voices/martin/p2_ant_observation_12.wav",
+     "text": "Das Eis schmilzt. Schnell abwischen, bevor es wieder gefriert. Frei!"
+    },
+    "p2_ant_observation_13": {
+     "file": "voices/martin/p2_ant_observation_13.wav",
+     "text": "Salz auf eine Linse? Damit wäre sie hinüber."
+    },
+    "p2_ant_observation_14": {
+     "file": "voices/martin/p2_ant_observation_14.wav",
+     "text": "Da oben liegt jemand. Das muss 412 sein."
+    },
+    "p2_ant_observation_15": {
+     "file": "voices/martin/p2_ant_observation_15.wav",
+     "text": "Seine Medaille hat er bestimmt noch bei sich."
+    },
+    "p2_ant_airlock_01": {
+     "file": "voices/martin/p2_ant_airlock_01.wav",
+     "text": "Die Schleuse nach draußen. Hier ist es schon so kalt, dass mir die Nase zufriert."
+    },
+    "p2_ant_airlock_02": {
+     "file": "voices/martin/p2_ant_airlock_02.wav",
+     "text": "Die Tür zurück zum Bahnsteig."
+    },
+    "p2_ant_airlock_03": {
+     "file": "voices/martin/p2_ant_airlock_03.wav",
+     "text": "Das Außentor. Die Torheizung hat das Eis gelöst."
+    },
+    "p2_ant_airlock_04": {
+     "file": "voices/martin/p2_ant_airlock_04.wav",
+     "text": "Das Außentor, dick mit Eis überzogen. Das Handrad ist festgefroren."
+    },
+    "p2_ant_airlock_05": {
+     "file": "voices/martin/p2_ant_airlock_05.wav",
+     "text": "Ein Wartungsschrank: Haken, Seile, Werkzeug."
+    },
+    "p2_ant_airlock_06": {
+     "file": "voices/martin/p2_ant_airlock_06.wav",
+     "text": "Ein Kanister: „Frostschutz (Glykol) – Pistenraupe“."
+    },
+    "p2_ant_airlock_07": {
+     "file": "voices/martin/p2_ant_airlock_07.wav",
+     "text": "Eine Regenjacke. In der Antarktis. Jemand hat Humor."
+    },
+    "p2_ant_airlock_08": {
+     "file": "voices/martin/p2_ant_airlock_08.wav",
+     "text": "Der Kälteanzug, mit Gewebeband abgebunden. Sieht furchtbar aus. Hält aber."
+    },
+    "p2_ant_airlock_09": {
+     "file": "voices/martin/p2_ant_airlock_09.wav",
+     "text": "Ein Kälteanzug. Größe XXL. Der einzige, der noch da ist. Mit Heizung und Klettergurt."
+    },
+    "p2_ant_airlock_10": {
+     "file": "voices/martin/p2_ant_airlock_10.wav",
+     "text": "Verschlossen. Laut Aufkleber: Ersatzteile Pistenraupe."
+    },
+    "p2_ant_airlock_11": {
+     "file": "voices/martin/p2_ant_airlock_11.wav",
+     "text": "Den ziehe ich an, wenn ich rausgehe."
+    },
+    "p2_ant_airlock_12": {
+     "file": "voices/martin/p2_ant_airlock_12.wav",
+     "text": "Ohne Heizung ist der Anzug nur eine dicke Decke. Bei minus 68 reicht das nicht."
+    },
+    "p2_ant_airlock_13": {
+     "file": "voices/martin/p2_ant_airlock_13.wav",
+     "text": "Die nützt hier niemandem."
+    },
+    "p2_ant_airlock_14": {
+     "file": "voices/martin/p2_ant_airlock_14.wav",
+     "text": "Das Werkzeug lasse ich hier. Die Seile auch."
+    },
+    "p2_ant_airlock_15": {
+     "file": "voices/martin/p2_ant_airlock_15.wav",
+     "text": "Zu."
+    },
+    "p2_ant_airlock_16": {
+     "file": "voices/martin/p2_ant_airlock_16.wav",
+     "text": "Noch mehr Band, und ich komme gar nicht mehr hinein."
+    },
+    "p2_ant_airlock_17": {
+     "file": "voices/martin/p2_ant_airlock_17.wav",
+     "text": "Ärmel, Hüfte, Beine. Abgebunden wie ein Rollbraten."
+    },
+    "p2_ant_airlock_18": {
+     "file": "voices/martin/p2_ant_airlock_18.wav",
+     "text": "Jetzt flattert da nichts mehr."
+    },
+    "p2_ant_airlock_19": {
+     "file": "voices/martin/p2_ant_airlock_19.wav",
+     "text": "Den Akku habe ich schon herausgenommen."
+    },
+    "p2_ant_airlock_20": {
+     "file": "voices/martin/p2_ant_airlock_20.wav",
+     "text": "Die Anzugheizung hat ein Akkufach. Der Akku vom Akkuschrauber passt!"
+    },
+    "p2_ant_airlock_21": {
+     "file": "voices/martin/p2_ant_airlock_21.wav",
+     "text": "… und ist leer. Den muss ich irgendwo laden."
+    },
+    "p2_ant_airlock_22": {
+     "file": "voices/martin/p2_ant_airlock_22.wav",
+     "text": "Leer. Damit wird nichts warm."
+    },
+    "p2_ant_airlock_23": {
+     "file": "voices/martin/p2_ant_airlock_23.wav",
+     "text": "Klick. Die Heizung läuft. Jetzt kann ich raus."
+    },
+    "p2_ant_airlock_24": {
+     "file": "voices/martin/p2_ant_airlock_24.wav",
+     "text": "Salz taut Eis nur bis minus 21 Grad. Draußen sind es minus 68."
+    },
+    "p2_ant_airlock_25": {
+     "file": "voices/martin/p2_ant_airlock_25.wav",
+     "text": "Glykol bei minus 68? Das wird Gelee."
+    },
+    "p2_ant_airlock_26": {
+     "file": "voices/martin/p2_ant_airlock_26.wav",
+     "text": "Für ein ganzes Tor reicht der Tee nicht."
+    },
+    "p2_ant_airlock_27": {
+     "file": "voices/martin/p2_ant_airlock_27.wav",
+     "text": "Festgefroren. Das Tor hat eine Heizung, aber die ist aus."
+    },
+    "p2_ant_airlock_28": {
+     "file": "voices/martin/p2_ant_airlock_28.wav",
+     "text": "Das Eis ist weg. Aber ohne Heizung im Anzug halte ich da draußen keine fünf Minuten."
+    },
+    "p2_ant_airlock_29": {
+     "file": "voices/martin/p2_ant_airlock_29.wav",
+     "text": "Die Torheizung hat das Eis gelöst. Anzug an …"
+    },
+    "p2_ant_antenna_01": {
+     "file": "voices/martin/p2_ant_antenna_01.wav",
+     "text": "Brrr. Die Heizung im Anzug schafft gerade so den Unterschied zwischen kalt und tot."
+    },
+    "p2_ant_antenna_02": {
+     "file": "voices/martin/p2_ant_antenna_02.wav",
+     "text": "Da ist sie, die große Antenne. Und die unteren drei Meter der Leiter fehlen."
+    },
+    "p2_ant_antenna_03": {
+     "file": "voices/martin/p2_ant_antenna_03.wav",
+     "text": "Die Malerleiter reicht genau bis zur ersten Sprosse der Turmleiter."
+    },
+    "p2_ant_antenna_04": {
+     "file": "voices/martin/p2_ant_antenna_04.wav",
+     "text": "Die Turmleiter fängt erst drei Meter über dem Schnee an. Abgebaut, damit keiner raufklettert."
+    },
+    "p2_ant_antenna_05": {
+     "file": "voices/martin/p2_ant_antenna_05.wav",
+     "text": "Da liegt etwas Metallisches im Schnee."
+    },
+    "p2_ant_antenna_06": {
+     "file": "voices/martin/p2_ant_antenna_06.wav",
+     "text": "Die Schleuse zurück in die Station."
+    },
+    "p2_ant_antenna_07": {
+     "file": "voices/martin/p2_ant_antenna_07.wav",
+     "text": "Ein Steigschutzläufer. Er muss von oben heruntergefallen sein. Die Feder ist gebrochen."
+    },
+    "p2_ant_antenna_08": {
+     "file": "voices/martin/p2_ant_antenna_08.wav",
+     "text": "Ohne Leiter komme ich an die erste Sprosse nicht heran."
+    },
+    "p2_ant_antenna_09": {
+     "file": "voices/martin/p2_ant_antenna_09.wav",
+     "text": "Die gute alte Malerleiter. Passt genau."
+    },
+    "p2_ant_antenna_10": {
+     "file": "voices/martin/p2_ant_antenna_10.wav",
+     "text": "Da oben war ich schon. Den Rest übernimmt die Station."
+    },
+    "p2_ant_antenna_11": {
+     "file": "voices/martin/p2_ant_antenna_11.wav",
+     "text": "Ohne Steigschutzläufer gehe ich da nicht rauf. Ich will nicht enden wie 412."
+    },
+    "p2_ant_antenna_12": {
+     "file": "voices/martin/p2_ant_antenna_12.wav",
+     "text": "Der Läufer greift nicht. Bei jedem Schritt rutscht er durch."
+    },
+    "p2_ant_antenna_13": {
+     "file": "voices/martin/p2_ant_antenna_13.wav",
+     "text": "Die Feder … die ist gebrochen. Mit dem Ding klettere ich nicht weiter."
+    },
+    "p2_ant_antenna_14": {
+     "file": "voices/martin/p2_ant_antenna_14.wav",
+     "text": "Viel zu windig da oben. Der riesige Anzug ist wie ein Segel."
+    },
+    "p2_ant_antenna_15": {
+     "file": "voices/martin/p2_ant_antenna_15.wav",
+     "text": "Der Wind trägt mich einfach weg."
+    },
+    "p2_ant_antenna_16": {
+     "file": "voices/martin/p2_ant_antenna_16.wav",
+     "text": "Ebene 1 ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_17": {
+     "file": "voices/martin/p2_ant_antenna_17.wav",
+     "text": "Ebene 2 ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_18": {
+     "file": "voices/martin/p2_ant_antenna_18.wav",
+     "text": "Ebene 3 ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_19": {
+     "file": "voices/martin/p2_ant_antenna_19.wav",
+     "text": "Ebene 4 ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_20": {
+     "file": "voices/martin/p2_ant_antenna_20.wav",
+     "text": "Ebene 5 ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_21": {
+     "file": "voices/martin/p2_ant_antenna_21.wav",
+     "text": "Ebene 6 ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_22": {
+     "file": "voices/martin/p2_ant_antenna_22.wav",
+     "text": "Und es stürmt da oben."
+    },
+    "p2_ant_antenna_23": {
+     "file": "voices/martin/p2_ant_antenna_23.wav",
+     "text": "Ich war ganz oben. Da liegt wirklich 412."
+    },
+    "p2_ant_antenna_24": {
+     "file": "voices/martin/p2_ant_antenna_24.wav",
+     "text": "Die Medaille hatte er noch um den Hals. Ich habe sie mitgenommen."
+    },
+    "p2_ant_antenna_25": {
+     "file": "voices/martin/p2_ant_antenna_25.wav",
+     "text": "Ich sage Pjotr Bescheid. Jetzt kann man ihn holen."
+    },
+    "p2_look_drill_battery": {
+     "file": "voices/martin/p2_look_drill_battery.wav",
+     "text": "Ein Akku für Akkuwerkzeug. Leer."
+    },
+    "p2_look_drill_battery_charged": {
+     "file": "voices/martin/p2_look_drill_battery_charged.wav",
+     "text": "Der Akku, frisch geladen."
+    },
+    "p2_look_fuse": {
+     "file": "voices/martin/p2_look_fuse.wav",
+     "text": "Eine Sicherung, 10 mal 38 Millimeter."
+    },
+    "p2_look_glycol_canister": {
+     "file": "voices/martin/p2_look_glycol_canister.wav",
+     "text": "Frostschutz, Glykol. „Pistenraupe“ steht drauf."
+    },
+    "p2_look_thermos": {
+     "file": "voices/martin/p2_look_thermos.wav",
+     "text": "Eine Thermoskanne mit heißem Tee."
+    },
+    "p2_look_salt": {
+     "file": "voices/martin/p2_look_salt.wav",
+     "text": "Salz aus der Kantine."
+    },
+    "p2_look_runner_broken": {
+     "file": "voices/martin/p2_look_runner_broken.wav",
+     "text": "412s Steigschutzläufer. Die Feder ist gebrochen."
+    },
+    "p2_look_runner": {
+     "file": "voices/martin/p2_look_runner.wav",
+     "text": "Ein neuer Steigschutzläufer."
+    },
+    "p2_look_duct_tape": {
+     "file": "voices/martin/p2_look_duct_tape.wav",
+     "text": "Gewebeband. Hält alles, was nicht halten will."
+    },
+    "p2_look_medal": {
+     "file": "voices/martin/p2_look_medal.wav",
+     "text": "Die Medaille von 412. Quer durch läuft ein Sprung."
     }
    }
   },

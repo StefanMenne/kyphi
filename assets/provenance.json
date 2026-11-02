@@ -2718,6 +2718,858 @@
      "tool": "qwen-tts speak",
      "job_id": "9b5a5e041a60",
      "seed": 2000
+    },
+    "p2_station_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "A B C GmbH. Da steht der Zug gerade."
+    },
+    "p2_cabin_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Area zweiundfünfzig. Da steht der Zug gerade."
+    },
+    "p2_cabin_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "A B C GmbH. Das Ziel leuchtet."
+    },
+    "p2_cabin_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Area zweiundfünfzig. Das Ziel leuchtet."
+    },
+    "p2_cabin_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "A B C GmbH. Das Ziel ist dunkel."
+    },
+    "p2_cabin_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Area zweiundfünfzig. Das Ziel ist dunkel."
+    },
+    "p2_cabin_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_21": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Pjotrs Kaffeeautomat. Unter der Klappe steckt die Sicherung F sieben."
+    },
+    "p2_ant_control_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Leiterheizung Antenne, Ebene eins bis sechs. Je ein Schalter: Aus, Low, High."
+    },
+    "p2_ant_control_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Der Sicherungskasten. F sieben, Torheizung Schleuse, ist wieder drin."
+    },
+    "p2_ant_control_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Der Sicherungskasten. Ein Platz ist leer: F sieben, Torheizung Schleuse."
+    },
+    "p2_ant_control_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Passt. zehn mal achtunddreißig. Die Torheizung hat wieder Strom."
+    },
+    "p2_ant_control_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Hinter der Wartungsklappe ... eine Sicherung. Beschriftet: F sieben."
+    },
+    "p2_ant_control_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Hinter der Wartungsklappe steckt eine Sicherung. F sieben, die von der Torheizung."
+    },
+    "p2_ant_control_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Zehn Millimeter Durchmesser, achtunddreißig lang. Das merke ich mir."
+    },
+    "p2_ant_control_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ein Schluck heißer Tee aufs Okular ..."
+    },
+    "p2_ant_observation_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Da oben liegt jemand. Das muss Vierhundertzwölf sein."
+    },
+    "p2_ant_observation_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ein Kanister: Frostschutz, Glykol, Pistenraupe."
+    },
+    "p2_ant_airlock_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ein Kälteanzug. Größe Iks-Iks-Ell. Der einzige, der noch da ist. Mit Heizung und Klettergurt."
+    },
+    "p2_ant_airlock_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ohne Heizung ist der Anzug nur eine dicke Decke. Bei minus achtundsechzig reicht das nicht."
+    },
+    "p2_ant_airlock_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_21": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "... und ist leer. Den muss ich irgendwo laden."
+    },
+    "p2_ant_airlock_22": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_23": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_24": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Salz taut Eis nur bis minus einundzwanzig Grad. Draußen sind es minus achtundsechzig."
+    },
+    "p2_ant_airlock_25": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Glykol bei minus achtundsechzig? Das wird Gelee."
+    },
+    "p2_ant_airlock_26": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_27": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_28": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_29": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Die Torheizung hat das Eis gelöst. Anzug an ..."
+    },
+    "p2_ant_antenna_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ohne Steigschutzläufer gehe ich da nicht rauf. Ich will nicht enden wie Vierhundertzwölf."
+    },
+    "p2_ant_antenna_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Die Feder ... die ist gebrochen. Mit dem Ding klettere ich nicht weiter."
+    },
+    "p2_ant_antenna_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene eins ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene zwei ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene drei ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene vier ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene fünf ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_21": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene sechs ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_22": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_23": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ich war ganz oben. Da liegt wirklich Vierhundertzwölf."
+    },
+    "p2_ant_antenna_24": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_25": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_drill_battery": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_drill_battery_charged": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_fuse": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Eine Sicherung, zehn mal achtunddreißig Millimeter."
+    },
+    "p2_look_glycol_canister": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Frostschutz, Glykol. Pistenraupe steht drauf."
+    },
+    "p2_look_thermos": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_salt": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_runner_broken": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Vierhundertzwölfs Steigschutzläufer. Die Feder ist gebrochen."
+    },
+    "p2_look_runner": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_duct_tape": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_medal": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Die Medaille von Vierhundertzwölf. Quer durch läuft ein Sprung."
     }
    }
   },
