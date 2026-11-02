@@ -1012,6 +1012,30 @@
     "fps": 30,
     "note": "Drehungen eine Stufe weiter (Seite rechts -> schräg, schräg -> hinten), rückwärts für die Gegenrichtung, gespiegelt für links; der Anker wandert linear zwischen den Ansichten"
    }
+  },
+  "pjotr": {
+   "name": "Pjotr",
+   "scene": "antarctica_control_room",
+   "part": 2,
+   "note": "Techniker, steht links zwischen Kaffeeautomat und Pult, Dreiviertelansicht nach rechts mit Kaffeebecher; ganze Figur 300 px (Größe noch an Martins Tiefe im Raum anpassen, sobald der Kontrollraum gebaut ist). Alle Zustände deckungsgleich. Sprechen: idle, talk_small und talk_open wechseln.",
+   "x": 360,
+   "y": 178,
+   "w": 100,
+   "h": 300,
+   "states": {
+    "idle": {
+     "file": "characters/pjotr/idle.png",
+     "name": "Grundzustand, Dreiviertelansicht, Blick nach rechts unten"
+    },
+    "talk_small": {
+     "file": "characters/pjotr/talk_small.png",
+     "name": "Mund leicht offen"
+    },
+    "talk_open": {
+     "file": "characters/pjotr/talk_open.png",
+     "name": "Mund offen"
+    }
+   }
   }
  },
  "voices": {

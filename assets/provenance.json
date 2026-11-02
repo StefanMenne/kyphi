@@ -1487,6 +1487,45 @@
      }
     }
    }
+  },
+  "pjotr": {
+   "part": 2,
+   "date": "2026-11-02",
+   "front": {
+    "tool": "flux2-klein",
+    "job_id": "2c5f8d67af0c",
+    "seed": 4800,
+    "size": "832x1248",
+    "prompt": "Pjotr, a burly Russian station technician in his fifties at an Antarctic research station, round friendly face with a bushy grey moustache and stubble, small tired eyes, a knitted dark blue beanie, a worn padded orange work vest over a thick grey wool sweater with rolled-up sleeves, dark blue work trousers with many pockets, heavy felt-lined boots, a large enamel coffee mug in his right hand, a pencil behind his ear, relaxed slightly slouching posture, standing upright facing the viewer, both feet on the ground, full body from head to boots, uncropped, plain flat solid magenta background, no shadow, no floor, nothing else in the picture, hand-drawn 2D point-and-click adventure game character art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+   },
+   "idle": {
+    "tool": "qwen-image-edit",
+    "job_id": "df35f08c3e2e",
+    "seed": 4810,
+    "inputs": [
+     "front 4800"
+    ],
+    "prompt": "The same man, but his whole body and his head are turned in a three-quarter view toward the right side of the picture, and he looks toward the lower right, slightly downward, as if at someone standing in front of him to the right. He holds the enamel coffee mug in his right hand at chest height, the other arm hangs relaxed. Full body from head to boots, uncropped. Keep his face, moustache, beanie, clothes, colors, the drawing style and the plain flat magenta background exactly the same."
+   },
+   "talk_small": {
+    "tool": "qwen-image-edit",
+    "job_id": "1f5751885935",
+    "seed": 4821,
+    "inputs": [
+     "idle 4810"
+    ],
+    "prompt": "The man is speaking: his mouth is slightly open under his moustache, a narrow opening, as in a soft vowel. Change only his mouth. Keep his face, eyes, beanie, pose, hands, mug, clothes, the plain magenta background and everything else in the picture exactly unchanged."
+   },
+   "talk_open": {
+    "tool": "qwen-image-edit",
+    "job_id": "7f7a0064b629",
+    "seed": 4831,
+    "inputs": [
+     "idle 4810"
+    ],
+    "prompt": "The man is speaking: his mouth is open under his moustache in the middle of a word. Change only his mouth. Keep his face, eyes, beanie, pose, hands, mug, clothes, the plain magenta background and everything else in the picture exactly unchanged."
+   },
+   "note": "nur der Mundbereich der Sprechbilder übernommen (Ellipse 425,225-515,300, weicher Rand); Magenta per Farbton vom Rand her freigestellt, auf 300 px Höhe skaliert (work/characters/pjotr/sprite/make_sprite.py)"
   }
  },
  "voices": {
