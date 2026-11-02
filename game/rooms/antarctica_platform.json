@@ -4,7 +4,8 @@
  "entries": {
   "": {"pos": [1100, 520], "face": "front", "door": ""},
   "train_cabin": {"pos": [1100, 520], "face": "front", "door": ""},
-  "antarctica_control_room": {"pos": [2460, 500], "face": "front", "door": ""}
+  "antarctica_control_room": {"pos": [2460, 500], "face": "front", "door": ""},
+  "antarctica_observation": {"pos": [3700, 520], "face": "left", "door": ""}
  },
  "hotspots": {
   "train_airlock": {"area": [727, 154, 799, 307], "walk": [1100, 500]},

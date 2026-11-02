@@ -45,7 +45,9 @@ func use(hid: String) -> void:
 			await go("train_cabin")
 		"control_door":
 			await go("antarctica_control_room")
-		"airlock_door", "stairs":
+		"stairs":
+			await go("antarctica_observation")
+		"airlock_door":
 			await narrate(NOT_BUILT)
 		_:
 			await super(hid)

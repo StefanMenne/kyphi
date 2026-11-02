@@ -978,7 +978,33 @@
    ],
    "post": "Windfahne wird im Spiel dynamisch eingesetzt",
    "part": 2,
-   "date": "2026-11-02"
+   "date": "2026-11-02",
+   "sprites": {
+    "vane_calm": {
+     "tool": "flux2-klein",
+     "job_id": "4ef73dd3dc55",
+     "seed": 6400,
+     "size": "1024x1024",
+     "prompt": "a small rectangular orange and white striped wind flag hanging limp and motionless straight down from the top of a short thin vertical steel pole, no wind at all, a little frost on the pole, single object, centered, the whole object fully visible with margin, side view, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    "vane_breeze": {
+     "tool": "flux2-klein",
+     "job_id": "8ef85ee87c19",
+     "seed": 6413,
+     "size": "1024x1024",
+     "prompt": "a small rectangular orange and white striped wind flag on a short thin vertical steel pole, in a light breeze: the flag is only half lifted, it hangs diagonally down at about 45 degrees to the right, softly curved with a few folds, a little frost on the pole, single object, centered, the whole object fully visible with margin, side view, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    "vane_storm": {
+     "tool": "flux2-klein",
+     "job_id": "5c973695c367",
+     "seed": 6422,
+     "size": "1024x1024",
+     "prompt": "a small rectangular orange and white striped wind flag on a short thin vertical steel pole in a violent storm, the flag stands out completely straight and horizontal to the right, taut and snapping, its frayed end torn into strands, snow streaks flying past, a little frost on the pole, single object, centered, the whole object fully visible with margin, side view, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    "post": "per Farbton freigestellt (work/items/antarctica/tools/key_icon.py), zugeschnitten, auf 190 px Höhe; im Spiel je Stufe leicht bewegt (Skalierung/Drehung um den Mastfuß)",
+    "part": 2,
+    "date": "2026-11-02"
+   }
   }
  },
  "characters": {
@@ -2841,6 +2867,12 @@
    "size": "512x512",
    "prompt": "A single simple user-interface icon of a hand grabbing, fingers closing to pick something up, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
    "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "scope_ring": {
+   "tool": "Python (numpy, Pillow)",
+   "note": "Fernrohr-Rand gezeichnet: runde Öffnung r=360 in 1344x768, Vignette, dünner Metallring (work/items/antarctica/vane/scope_ring.py)",
+   "part": 2,
+   "date": "2026-11-02"
   }
  },
  "videos": {

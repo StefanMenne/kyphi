@@ -560,6 +560,69 @@
     576
    ],
    "layers": {}
+  },
+  "antarctica_telescope_level": {
+   "name": "Fernrohr: Ebene 1-6",
+   "background": "scenes/antarctica_telescope_level/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {},
+   "vane": {
+    "name": "Windfahne am leeren Mast (x 876, Fuß y 307 im Hintergrund); Ankerpunkt = Fuß des Fahnenmasts im Sprite",
+    "mast_foot": [
+     876,
+     307
+    ],
+    "states": {
+     "calm": {
+      "file": "scenes/antarctica_telescope_level/sprites/vane_calm.png",
+      "w": 36,
+      "h": 190,
+      "anchor": [
+       4,
+       190
+      ]
+     },
+     "breeze": {
+      "file": "scenes/antarctica_telescope_level/sprites/vane_breeze.png",
+      "w": 95,
+      "h": 190,
+      "anchor": [
+       13,
+       190
+      ]
+     },
+     "storm": {
+      "file": "scenes/antarctica_telescope_level/sprites/vane_storm.png",
+      "w": 134,
+      "h": 190,
+      "anchor": [
+       3,
+       190
+      ]
+     }
+    }
+   }
+  },
+  "antarctica_telescope_top": {
+   "name": "Fernrohr: oberste Ebene (412)",
+   "background": "scenes/antarctica_telescope_top/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {}
+  },
+  "antarctica_observation": {
+   "name": "Antarktis: Außenbeobachtung",
+   "background": "scenes/antarctica_observation/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {}
   }
  },
  "characters": {
@@ -2064,6 +2127,10 @@
     "icon": "ui/verb_take.png"
    }
   },
-  "note": "Verb-Icons fürs Aktionsmenü: weiße Glyphe mit Alpha, im Spiel eingefärbt"
+  "note": "Verb-Icons fürs Aktionsmenü: weiße Glyphe mit Alpha, im Spiel eingefärbt",
+  "scope_ring": {
+   "file": "ui/scope_ring.png",
+   "name": "Fernrohr-Rand (Maske, 1344 x 768)"
+  }
  }
 }

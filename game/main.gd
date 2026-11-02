@@ -12,6 +12,7 @@ const ROOMS := {
 	"train_cabin": preload("res://game/rooms/train_cabin.gd"),
 	"antarctica_platform": preload("res://game/rooms/antarctica_platform.gd"),
 	"antarctica_control_room": preload("res://game/rooms/antarctica_control_room.gd"),
+	"antarctica_observation": preload("res://game/rooms/antarctica_observation.gd"),
 }
 const SPEAKER_COLORS := {
 	"martin": Color("f4e8c8"),
@@ -108,6 +109,7 @@ func cheat_menu() -> void:
 	ui.show_menu([
 		["Geheimtür im Altarraum öffnen", cheat_secret_door],
 		["Kälteanzug ausziehen" if player.suit else "Kälteanzug anziehen", cheat_suit],
+		["Gegenstände für die Antarktis geben", cheat_antarctica_items],
 		["Zurück", ui.hide_menu],
 	])
 
@@ -117,6 +119,13 @@ func cheat_suit() -> void:
 	ui.hide_menu()
 	Game.set_flag("cheat_suit", not player.suit)
 	player.set_suit(not player.suit)
+
+
+## Gegenstände aus den noch nicht gebauten Orten (Abc GmbH, Innenerde), zum Ausprobieren der Antarktis.
+func cheat_antarctica_items() -> void:
+	ui.hide_menu()
+	for item in ["thermos", "salt", "fuse", "duct_tape", "runner", "drill_battery_charged", "ladder", "caliper"]:
+		Game.add_item(item)
 
 
 ## Paneel ab, Karte im Inventar, in den Altarraum und die Stahltür öffnen; weiter mit Lift und Bahnhof.
