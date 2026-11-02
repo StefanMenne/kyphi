@@ -693,10 +693,10 @@
      "name": "Malerleiter unter der Turmleiter",
      "type": "state",
      "file": "scenes/antarctica_antenna/sprites/ladder.png",
-     "x": 820,
-     "y": 134,
-     "w": 300,
-     "h": 347
+     "x": 880,
+     "y": 273,
+     "w": 180,
+     "h": 208
     },
     "runner_broken": {
      "name": "412s Steigschutzläufer im Schnee",
