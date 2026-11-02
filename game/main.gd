@@ -8,6 +8,9 @@ const ROOMS := {
 	"workshop": preload("res://game/rooms/workshop.gd"),
 	"altar_room": preload("res://game/rooms/altar_room.gd"),
 	"depot": preload("res://game/rooms/depot.gd"),
+	"museum_station": preload("res://game/rooms/museum_station.gd"),
+	"train_cabin": preload("res://game/rooms/train_cabin.gd"),
+	"antarctica_platform": preload("res://game/rooms/antarctica_platform.gd"),
 }
 const SPEAKER_COLORS := {
 	"martin": Color("f4e8c8"),
@@ -96,6 +99,31 @@ func _free_old_rooms() -> void:
 	_old_rooms.clear()
 
 
+## Cheatmenü (F10, nur in Debug-Builds): springt an bestimmte Stellen der Handlung.
+func cheat_menu() -> void:
+	if ui.actions_open():
+		ui.hide_actions()
+	ui.show_menu([
+		["Geheimtür im Altarraum öffnen", cheat_secret_door],
+		["Zurück", ui.hide_menu],
+	])
+
+
+## Paneel ab, Karte im Inventar, in den Altarraum und die Stahltür öffnen; weiter mit Lift und Bahnhof.
+func cheat_secret_door() -> void:
+	ui.hide_menu()
+	player.stop()
+	busy = true
+	select_item("")
+	Game.set_flag("panel_removed")
+	Game.add_item("id_card")
+	if Game.room_id != "altar_room":
+		await change_room("altar_room", Game.room_id)
+	room.refresh()
+	await room.call("open_steel_door")
+	_after_action()
+
+
 func pause_menu() -> void:
 	ui.show_menu([
 		["Weiterspielen", ui.hide_menu],
@@ -132,6 +160,7 @@ func _load_room(room_id: String, from: String, pos = null) -> void:
 	var s := VIEW_H / room.bg_size.y
 	room.scale = Vector2(s, s)
 	room.add_child(player)
+	player.visible = room.show_player
 	player.room = room
 	var e: Array = room.entries.get(from, room.entries[""])
 	player.position = pos if pos != null else e[0]
@@ -186,6 +215,13 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 	if editor and event is InputEventKey and event.pressed and event.keycode == KEY_F9 and not busy:
 		editor.toggle()
+		return
+	if OS.is_debug_build() and event is InputEventKey and event.pressed and event.keycode == KEY_F10 \
+			and not busy and not (editor and editor.active):
+		if ui.menu_open():
+			ui.hide_menu()
+		else:
+			cheat_menu()
 		return
 	if editor and editor.active:
 		return
@@ -359,11 +395,20 @@ func ending() -> void:
 	Game.set_flag("ending")
 	await ui.fade_out(2.0)
 	await ui.big_text("Ende von Teil 1", 3.0)
-	await ui.big_text("Kyphi – Der Zugang\n\nFortsetzung folgt.", 3.0)
-	if not Game.fast:
-		Game.delete_save()
-		room.remove_child(player)
-		world.remove_child(room)
-		_old_rooms.append(room)
-		room = null
-		title_menu()
+	await ui.big_text("Teil 2\n\nDer Weg zur purpurnen Karte", 3.0)
+	# Teller und Räucherkegel bleiben oben im Altarraum
+	for item in ["cone_saucer", "incense_cone", "saucer"]:
+		Game.remove_item(item)
+	await ui.play_video("res://assets/videos/lift_down.ogv")
+	_load_room("museum_station", "altar_room")
+	await ui.fade_in(0.8)
+	await room.on_enter("altar_room")
+	room.refresh()
+	Game.save_game()
+
+
+## Martin ist eingestiegen: Tür und Schott schließen, der Zug fährt ab, dann das Abteil mit der Streckenkarte.
+func depart() -> void:
+	await ui.fade_out(0.6)
+	await ui.play_video("res://assets/videos/train_departure.ogv")
+	await change_room("train_cabin", room.id)

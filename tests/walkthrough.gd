@@ -1,5 +1,5 @@
 extends Node
-## Spielt Teil 1 ohne Wartezeiten vom Prolog bis zum Ende durch.
+## Spielt Teil 1 ohne Wartezeiten vom Prolog bis zum Ende durch, dann den Anfang von Teil 2: Zug in die Antarktis und zurück ins Museum.
 ## godot --headless --path . res://tests/walkthrough.tscn
 
 var main: Node
@@ -17,8 +17,8 @@ func _ready() -> void:
 	add_child(main)
 	await get_tree().process_frame
 	await run()
-	print("\nERGEBNIS: ", "FEHLER" if failed or not Game.flag("ending") else "OK – Ende von Teil 1 erreicht")
-	get_tree().quit(1 if failed or not Game.flag("ending") else 0)
+	print("\nERGEBNIS: ", "FEHLER" if failed or not Game.flag("antarctica_seen") else "OK – Ende von Teil 1 erreicht, in Teil 2 bis in die Antarktis und zurück")
+	get_tree().quit(1 if failed or not Game.flag("antarctica_seen") else 0)
 
 
 func check(cond: bool, what: String) -> void:
@@ -187,3 +187,25 @@ func run() -> void:
 	check(Game.flag("panel_removed"), "Paneel abgenommen")
 	# Kapitel 8
 	await act("steel_door", "id_card")
+	check(Game.flag("ending"), "Ende von Teil 1")
+	# Teil 2: Bahnhof unter dem Museum
+	in_room("museum_station")
+	check(not Game.has("cone_saucer") and not Game.has("saucer"), "Teller bleibt oben")
+	await act("train", "", "look")
+	await act("train_door")
+	check(Game.flag("departed"), "in den Zug gestiegen")
+	in_room("train_cabin")
+	await act("st_abc")
+	in_room("train_cabin")
+	await act("st_antarctica")
+	in_room("antarctica_platform")
+	await act("control_door")
+	await act("train_airlock")
+	in_room("train_cabin")
+	await act("st_museum")
+	in_room("museum_station")
+	await act("elevator")
+	in_room("altar_room")
+	await act("steel_door")
+	in_room("museum_station")
+	check(Game.flag("antarctica_seen"), "in der Antarktis gewesen")

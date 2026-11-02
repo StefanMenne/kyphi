@@ -3,7 +3,8 @@
  "depth": [[461, 238], [576, 312]],
  "entries": {
   "": {"pos": [1000, 520], "face": "front", "door": ""},
-  "workshop": {"pos": [110, 492], "face": "right", "door": "workshop_door_open"}
+  "workshop": {"pos": [110, 492], "face": "right", "door": "workshop_door_open"},
+  "museum_station": {"pos": [1864, 476], "face": "left", "door": ""}
  },
  "sprites": {"ladder": [976, 144]},
  "hotspots": {

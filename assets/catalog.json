@@ -444,6 +444,33 @@
      "h": 89
     }
    }
+  },
+  "museum_station": {
+   "name": "Bahnhof unter dem Museum",
+   "background": "scenes/museum_station/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {}
+  },
+  "train_cabin": {
+   "name": "Im Zug: Streckenkarte",
+   "background": "scenes/train_cabin/background.png",
+   "size": [
+    2048,
+    576
+   ],
+   "layers": {}
+  },
+  "antarctica_platform": {
+   "name": "Antarktis: Bahnsteig",
+   "background": "scenes/antarctica_platform/background.png",
+   "size": [
+    4096,
+    576
+   ],
+   "layers": {}
   }
  },
  "characters": {

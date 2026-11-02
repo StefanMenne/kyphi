@@ -20,6 +20,8 @@ var depth := [Vector2(400, 300), Vector2(768, 500)]
 var entries := {}
 ## Tönung von Martin, nach dem Licht der Szene
 var tint := Color.WHITE
+## Martin ist in diesem Raum zu sehen (im Zugabteil nicht)
+var show_player := true
 ## Deckkraft von Martins Schatten, nach dem Licht der Szene
 var shadow_alpha := 0.6
 var hotspots: Array = []

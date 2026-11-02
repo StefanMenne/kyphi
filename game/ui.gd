@@ -33,6 +33,7 @@ var cursor_icon: TextureRect
 var menu_panel: PanelContainer
 var menu_box: VBoxContainer
 var title_layer: Control
+var root_ctl: Control
 var actions: PanelContainer
 var actions_row: HBoxContainer
 var actions_caption: Label
@@ -53,6 +54,7 @@ func _ready() -> void:
 	root.set_anchors_preset(Control.PRESET_FULL_RECT)
 	root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(root)
+	root_ctl = root
 
 	bar = Panel.new()
 	bar.position = Vector2(0, VIEW_H)
@@ -430,6 +432,36 @@ func big_text(text: String, seconds: float) -> void:
 	await wait_or_skip(seconds)
 	await create_tween().tween_property(big, "modulate:a", 0.0, 0.6).finished
 	big.text = ""
+
+
+## Video auf schwarzem Grund, eingepasst und zentriert; ein Klick überspringt es.
+func play_video(path: String) -> void:
+	if Game.fast:
+		print("[Video] " + path)
+		await get_tree().process_frame
+		return
+	var vp := VideoStreamPlayer.new()
+	vp.stream = load(path)
+	vp.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	vp.expand = true
+	root_ctl.add_child(vp)
+	vp.play()
+	await get_tree().process_frame
+	var vs := vp.get_video_texture().get_size()
+	var k := minf(W / vs.x, H / vs.y)
+	vp.size = vs * k
+	vp.position = (Vector2(W, H) - vp.size) / 2
+	_seq += 1
+	var my := _seq
+	blocker.visible = true
+	vp.finished.connect(func(): advanced.emit(my))
+	while true:
+		var s: int = await advanced
+		if s == my:
+			break
+	blocker.visible = false
+	vp.stop()
+	vp.queue_free()
 
 
 func flash(color: Color, times := 3) -> void:

@@ -151,7 +151,10 @@ func use(hid: String) -> void:
 		"ash":
 			await refuse("Nicht anfassen. Das ist ein Befund.")
 		"steel_door":
-			await say("Verschlossen. Daneben ein Kartenleser.")
+			if Game.flag("steel_door_open"):
+				await go("museum_station")
+			else:
+				await say("Verschlossen. Daneben ein Kartenleser.")
 		_:
 			if hid.begins_with("panel_"):
 				await say("Fest verschraubt.")
@@ -406,6 +409,6 @@ func open_steel_door() -> void:
 	Game.set_flag("steel_door_open")
 	refresh()
 	await Game.wait(0.8)
-	await narrate("[Eine schmale Treppe führt nach unten. Kühle Luft und der Geruch von Kyphi steigen herauf.]")
+	await narrate("[Dahinter eine enge Aufzugskabine. Kühle Luft und der Geruch von Kyphi steigen herauf.]")
 	await narrate("[Aus der Tiefe dringt ein an- und abschwellendes Rauschen, wie von einem Zug, der sehr schnell vorbeifährt.]")
 	await Game.main.ending()
