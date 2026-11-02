@@ -61,6 +61,8 @@ const SHADOW_SIZE := Vector2(402, 70)
 var room: Room
 ## Bilder im Kälteanzug (gleiche Größe, Anker und Bildanzahl wie ohne)
 const SUIT_DIR := "res://assets/characters/martin_suit/"
+## Tempo der Anlaufbilder im Anzug relativ zum Laufzyklus (27/33 : 50/33 Videobilder pro Bild)
+const SUIT_START_RATE := 0.54
 
 ## "right" oder "left"
 var dir := "right"
@@ -429,6 +431,10 @@ func walk_to(target: Vector2) -> bool:
 		if _view > 0:
 			var stride: float = VIEWS[_view]["stride"]
 			_anim += minf(step, d.length()) / h / stride * _stop_rate(d.length() / h / stride)
+		elif _anim < START_FRAMES and suit:
+			# Anlauf im Anzug: im Video geht er sofort im vollen Tempo los, also ohne Beschleunigung;
+			# ein Anlaufbild enthält mehr Bewegung als ein Zyklusbild (Videobilder pro Bild 1,52 statt 0,82)
+			_anim += step / h / STRIDE * SUIT_START_RATE
 		elif _anim < START_FRAMES:
 			# Anlauf: Bilder im Takt des Gehens, Tempo steigt mit dem Anlauf
 			_anim += step / h / STRIDE
