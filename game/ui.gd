@@ -434,7 +434,7 @@ func big_text(text: String, seconds: float) -> void:
 	big.text = ""
 
 
-## Video auf schwarzem Grund, eingepasst und zentriert; ein Klick überspringt es.
+## Video auf schwarzem Grund, ins Spielbild (1344×768) eingepasst und darin zentriert; ein Klick überspringt es.
 func play_video(path: String) -> void:
 	if Game.fast:
 		print("[Video] " + path)
@@ -448,9 +448,9 @@ func play_video(path: String) -> void:
 	vp.play()
 	await get_tree().process_frame
 	var vs := vp.get_video_texture().get_size()
-	var k := minf(W / vs.x, H / vs.y)
+	var k := minf(W / vs.x, VIEW_H / vs.y)
 	vp.size = vs * k
-	vp.position = (Vector2(W, H) - vp.size) / 2
+	vp.position = (Vector2(W, VIEW_H) - vp.size) / 2
 	_seq += 1
 	var my := _seq
 	blocker.visible = true

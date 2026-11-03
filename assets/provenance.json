@@ -3942,30 +3942,32 @@
  "videos": {
   "lift_down": {
    "part": 2,
-   "date": "2026-11-02",
+   "date": "2026-11-03",
    "tool": "ltx-video",
-   "job_id": "2bf83983f2f4",
-   "seed": 9101,
-   "size": "1280x832",
+   "job_id": "74690af58192",
+   "seed": 9102,
+   "size": "1344x768",
    "duration_s": 8,
-   "input": "Startbild: erstes Bild von lift.mp4 (Vorlage des Autors)",
-   "note": "Liftfahrt nach der Geheimtür im Altarraum hinab ins Tunnelsystem",
-   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg)"
+   "input": "Startbild: work/new/lift_first.png (erstes Bild von lift.mp4, Vorlage des Autors), Ausschnitt y 50-928, auf 1344x768 skaliert",
+   "prompt": "Hand-drawn comic style, dark rocky elevator shaft seen from above. The camera stays high in the shaft and looks straight down while the octagonal steel elevator cabin with its warm orange lit glass windows and the man in a beige coat inside starts to descend, slowly at first, then faster, sinking away from the camera deep into the narrow shaft, held by thick steel cables that stretch down into the depth. Small lamps on the rough rock walls flash past, the cabin becomes smaller and smaller until it is only a glowing orange dot far below, surrounded by a faint cold blue light at the bottom of the shaft. Dark, mysterious mood. Sounds: a heavy mechanical clunk as the brake releases, the deep hum of the electric winch, steel cables creaking and humming, a low rumble echoing through the shaft and fading into the depth.",
+   "note": "Liftfahrt nach der Geheimtür im Altarraum hinab ins Tunnelsystem; ersetzt die Fassung vom 2026-11-02 (1280x832, Job 2bf83983f2f4) wegen des Bildformats 1344x768",
+   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg, -q:v 7 -q:a 5)"
   },
   "train_departure": {
    "part": 2,
-   "date": "2026-11-02",
+   "date": "2026-11-03",
    "tool": "ltx-video",
-   "job_id": "e1fe8e4a0182",
-   "seed": 9321,
-   "size": "1792x512",
+   "job_id": "be64eb819e3a",
+   "seed": 9332,
+   "size": "1344x768",
    "duration_s": 8,
    "keyframes": [
-    "museum_station/background.png",
-    "museum_station/background_closed.png"
+    "museum_station/background.png, Ausschnitt x 799-1807 (Kamerabild an der Zugtür), auf 1344x768 skaliert",
+    "museum_station/background_closed.png, gleicher Ausschnitt"
    ],
-   "prompt": "Hand-drawn comic style underground train station in a rock cave. The camera is completely static, no pan, no zoom. First the lit passenger door of the silver train in the airlock chamber slides shut with a hiss and its warm light goes out. Then the red warning lights on the frame start flashing and a heavy riveted steel bulkhead slides slowly down inside the airlock frame in the back wall, from the top of the frame to the floor, until it closes the opening and hides the train. The bulkhead stays in the back wall, the foreground floor stays empty. Sounds: door hiss, alarm beeps, grinding metal, a heavy clang as the bulkhead locks, a hiss of air being pumped out, then the muffled roar of the train accelerating away behind the bulkhead.",
-   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg)"
+   "prompt": "Hand-drawn comic style underground train station in a rock cave, seen from a completely static camera, no pan, no zoom. In the back wall a wide rectangular steel airlock frame with rivets holds a silver high-speed train. First the lit passenger door of the train slides shut with a hiss and its warm light goes out. Then the red warning lights on the steel frame start flashing and a riveted steel bulkhead slides down out of a narrow slot hidden in the thick upper beam of the frame. The bulkhead is exactly as wide as the opening and only ever visible inside the opening of the frame, below the upper beam; it never appears above the frame. The dark rock of the cave ceiling above the frame, the two lamps on the upper beam and the open steel door panel on the right stay exactly unchanged the whole time. The bulkhead moves down steadily until it reaches the floor of the opening and hides the train completely, then a little steam puffs out at its lower edge. The foreground floor stays empty. Sounds: door hiss, alarm beeps, grinding metal, a heavy clang as the bulkhead locks, a hiss of air being pumped out, then the muffled roar of the train accelerating away behind the bulkhead.",
+   "note": "Abfahrt des Zugs im Museumsbahnhof; ersetzt die Fassung vom 2026-11-02 (1792x512 mit dem ganzen Panorama, Job e1fe8e4a0182) wegen des Bildformats 1344x768",
+   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg, -q:v 7 -q:a 5)"
   }
  }
 }
