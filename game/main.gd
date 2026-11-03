@@ -437,6 +437,8 @@ func ending() -> void:
 
 ## Martin ist eingestiegen: Tür und Schott schließen, der Zug fährt ab, dann das Abteil mit der Streckenkarte.
 func depart() -> void:
-	await ui.fade_out(0.6)
+	# Das erste Bild des Videos ist der Ausschnitt, den die Kamera an der Zugtür zeigt: harter Schnitt statt Blende
+	ui.show_hint("")
+	ui.set_hover("")
 	await ui.play_video("res://assets/videos/train_departure.ogv")
 	await change_room("train_cabin", room.id)

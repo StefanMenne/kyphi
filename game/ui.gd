@@ -434,7 +434,8 @@ func big_text(text: String, seconds: float) -> void:
 	big.text = ""
 
 
-## Video auf schwarzem Grund, ins Spielbild (1344×768) eingepasst und darin zentriert; ein Klick überspringt es.
+## Video ins Spielbild (1344×768) eingepasst und darin zentriert; ein Klick überspringt es. Ohne vorheriges
+## fade_out schneidet es hart vom Raum ins Video; danach bleibt das Bild schwarz, bis der nächste Raum einblendet.
 func play_video(path: String) -> void:
 	if Game.fast:
 		print("[Video] " + path)
@@ -444,6 +445,7 @@ func play_video(path: String) -> void:
 	vp.stream = load(path)
 	vp.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	vp.expand = true
+	vp.size = Vector2(W, VIEW_H)
 	root_ctl.add_child(vp)
 	vp.play()
 	await get_tree().process_frame
@@ -460,6 +462,7 @@ func play_video(path: String) -> void:
 		if s == my:
 			break
 	blocker.visible = false
+	fade.color.a = 1.0
 	vp.stop()
 	vp.queue_free()
 
