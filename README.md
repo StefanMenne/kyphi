@@ -35,6 +35,10 @@ Spielstand wird bei jedem Raumwechsel gespeichert.
 Cheatmenü (nur in Debug-Builds): **F10** öffnet ein Menü, das an bestimmte Stellen der Handlung springt, z. B. die
 Geheimtür im Altarraum öffnen (weiter mit Liftfahrt und Bahnhof).
 
+Animations-Debug (nur in Debug-Builds): **F11** zeigt, welche Drehungen Martin aus dem Stand von einem Zustand
+(Seite rechts/links, schräg hinten rechts/links, hinten) in einen anderen abspielt, als bearbeitbare Matrix mit
+Vorschau. Die Abläufe stehen in `game/turns.json` und gelten sofort im Spiel; „Speichern“ schreibt die Datei.
+
 Entwicklermodus (nur in Debug-Builds, also beim Start aus dem Projekt): **F9** blendet Lauffläche, Tiefe,
 Eingänge, Hotspot-Bereiche, Laufpunkte und verschiebbare Sprites (Leiter, Frau Ackermann) des Raums ein und eine Martin-Silhouette in der Größe an der
 Mausposition. Alles lässt sich mit der Maus ziehen; **Strg+S** schreibt die Geometrie nach

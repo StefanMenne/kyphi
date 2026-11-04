@@ -1344,6 +1344,19 @@
       ],
       "prompt": "The same man in exactly the same pose of his upper body, the same body rotation, the same shoulders and the same view from behind, but now he stands still: both shoes flat and firmly on the floor next to each other, weight evenly on both legs, legs straight. Only the legs and feet change, everything above the hem of the coat stays exactly as it is. Same size and same position in the picture, full body from head to shoes, uncropped. Keep his hair, beige work coat, blue jeans, brown shoes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture.",
       "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds back_walk_07 ausgerichtet; verworfen: job 2c9eea05c060 (5010-5013, Schultern breiter als im Lauf)"
+     },
+     "turn_to_diag": {
+      "files": "characters/martin/turn_back_diag_00..09.png",
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "f5bbb01fd87b",
+      "seed": 5600,
+      "inputs": [
+       "Rücken-Standbild (image_5023 freigestellt, in Videogeometrie gesetzt: work/characters/martin/back/turn_to_diag/start_back.png, erstes Bild)",
+       "image_5001 (letztes Bild)"
+      ],
+      "params": "768x1024, 1 s, 24 fps",
+      "prompt": "The man in the beige work coat stands seen directly from behind and turns on the spot, calmly and naturally, a little toward the right of the picture until we see him diagonally from behind, his back, the right side of his body and a little of his right ear. He makes one small natural step forward with his right foot in the direction he turns to and then stands still with both feet on the floor, arms hanging relaxed. He never steps backward. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
+      "note": "Varianten 5600-5603, gewählt 5600; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 2-20 jedes zweite = turn_back_diag_00..09, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); ersetzt das rückwärts abgespielte turn_diag_back für BDR/BDL"
      }
     },
     "diag": {

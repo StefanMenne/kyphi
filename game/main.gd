@@ -33,6 +33,7 @@ var voice := AudioStreamPlayer.new()
 var sfx := AudioStreamPlayer.new()
 var ui: GameUI
 var editor: LayoutEditor
+var anim_debug: AnimDebug
 var items := ItemLogic.new()
 var room: Room
 ## Verlassene Räume; erst nach der laufenden Aktion freigeben, deren Skript noch auf den Raumwechsel wartet.
@@ -58,6 +59,8 @@ func _ready() -> void:
 	if OS.is_debug_build():
 		editor = LayoutEditor.new(self)
 		world.add_child(editor)
+		anim_debug = AnimDebug.new(self)
+		add_child(anim_debug)
 	if not Game.fast:
 		title_menu()
 
@@ -234,6 +237,14 @@ func _process(_dt: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not in_game:
+		return
+	# Animations-Debug (F11): solange offen, geht keine Eingabe ans Spiel; Esc schließt ihn
+	if anim_debug and event is InputEventKey and event.pressed and not (editor and editor.active) \
+			and (event.keycode == KEY_F11 or (anim_debug.active and event.keycode == KEY_ESCAPE)):
+		if anim_debug.active or not busy:
+			anim_debug.toggle()
+		return
+	if anim_debug and anim_debug.active:
 		return
 	if editor and event is InputEventKey and event.pressed and event.keycode == KEY_F9 and not busy:
 		editor.toggle()

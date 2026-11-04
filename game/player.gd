@@ -8,6 +8,8 @@ extends Node2D
 ## Auf Wegen in die Tiefe dreht er sich je nach Winkel schräg (45°) oder ganz in die Rückansicht (eigene
 ## Laufzyklen, für links gespiegelt); Drehungen gehen immer eine Stufe weiter (Seite <-> schräg <-> hinten).
 ## Gesten und Hotspot-Blickrichtungen nutzen immer die Seitenansicht.
+## Welche Drehungen zwischen zwei Zuständen (SR, SL, DR, DL, B) laufen, steht in game/turns.json (bearbeitbar im
+## Animations-Debug, F11); passt eine Animation nicht an die vorige oder endet die Liste nicht im Ziel, springt er.
 ## Im Kälteanzug (set_suit) gibt es nur Laufen und Stehen: keine Drehungen (Seiten- und Ansichtswechsel sofort),
 ## keine Gesten, kein Atmen und keine Mundbewegung.
 
@@ -52,6 +54,25 @@ const VIEW_TURNS := {
 	1: {"name": "turn_diag", "frames": 12, "from": Vector2(135, 644), "to": Vector2(119, 653)},
 	2: {"name": "turn_diag_back", "frames": 12, "from": Vector2(119, 653), "to": Vector2(133, 649)},
 }
+## Drehung hinten -> schräg als eigenes Video (vorwärts, vom Rücken- ins Schräg-Standbild); die Gegenrichtung
+## rückwärts abzuspielen sähe aus, als ginge er einen Schritt zurück. Anker vom Rücken- zum Schräg-Standbild.
+const BACK_DIAG := {"name": "turn_back_diag", "frames": 10, "from": Vector2(133, 649), "to": Vector2(119, 653)}
+## Zustände: Seite rechts/links, schräg von hinten rechts/links, von hinten (fast symmetrisch, ohne Seite)
+const STATES := ["SR", "SL", "DR", "DL", "B"]
+const STATE_NAMES := {"SR": "Seite rechts", "SL": "Seite links", "DR": "schräg hinten rechts",
+	"DL": "schräg hinten links", "B": "hinten"}
+## Drehanimationen: Kürzel = Ausgangs- und Endzustand
+const ANIMS := {
+	"SRDR": {"from": "SR", "to": "DR"}, "DRSR": {"from": "DR", "to": "SR"},
+	"SLDL": {"from": "SL", "to": "DL"}, "DLSL": {"from": "DL", "to": "SL"},
+	"DRB": {"from": "DR", "to": "B"}, "BDR": {"from": "B", "to": "DR"},
+	"DLB": {"from": "DL", "to": "B"}, "BDL": {"from": "B", "to": "DL"},
+	"SRSL": {"from": "SR", "to": "SL"}, "SLSR": {"from": "SL", "to": "SR"},
+}
+const TURNS_PATH := "res://game/turns.json"
+## Ausgangszustand -> Zielzustand -> Kürzel, durch Leerzeichen getrennt (geteilt von allen Figuren und dem Debug-Dialog)
+static var turns := {}
+
 ## Grenzwinkel des Weges nach hinten (Grad über der Waagerechten): Seite | schräg | hinten; Hysterese
 const VIEW_ANGLES := [20.0, 55.0]
 const VIEW_HYST := 6.0
@@ -80,6 +101,7 @@ var _suited := {}
 var _idle: Texture2D
 var _walk := []
 var _turn := []
+var _back_diag := []
 var _start := []
 var _idle_loop := []
 var _talk := []
@@ -108,6 +130,8 @@ var _heading := Vector2.RIGHT
 
 
 func _init() -> void:
+	if turns.is_empty():
+		load_turns()
 	_idle = load("res://assets/characters/martin/right_idle.png")
 	for i in FRAMES:
 		_walk.append(load("res://assets/characters/martin/right_walk_%02d.png" % i))
@@ -115,6 +139,8 @@ func _init() -> void:
 		_start.append(load("res://assets/characters/martin/start_%02d.png" % i))
 	for i in TURN_FRAMES:
 		_turn.append(load("res://assets/characters/martin/turn_%02d.png" % i))
+	for i in BACK_DIAG["frames"]:
+		_back_diag.append(load("res://assets/characters/martin/%s_%02d.png" % [BACK_DIAG["name"], i]))
 	for i in IDLE_FRAMES:
 		_idle_loop.append(load("res://assets/characters/martin/idle_%02d.png" % i))
 	for kind in GESTURES:
@@ -241,26 +267,104 @@ func _nearest_stop(a: float) -> float:
 	return best
 
 
-## Aus einem Haltebild auf der Stelle in die Drehpose (kürzere Richtung im Zyklus)
-func _step_to_turn_pose() -> void:
-	var frames: int = VIEWS[_view]["frames"]
-	var rate: float = SETTLE_RATE * SPEED / VIEWS[_view]["stride"]
-	var a := _stand
-	var goal := 0.0 if a <= frames * 0.5 else float(frames)
-	while a != goal:
-		await get_tree().process_frame
-		a = move_toward(a, goal, rate * get_process_delta_time())
-		_anim = a
-		_set_texture(_walk_frame())
-	_stand = 0.0
-
-
 func _face_side(d: String) -> void:
-	while _view > 0:
-		if not await _turn_view(_view - 1):
-			return
-	if d != dir:
-		await _turn_to(d)
+	await turn_to_state("SR" if d == "right" else "SL")
+
+
+static func load_turns() -> void:
+	var data = JSON.parse_string(FileAccess.get_file_as_string(TURNS_PATH))
+	turns = data if data is Dictionary else {}
+
+
+static func save_turns() -> void:
+	var f := FileAccess.open(TURNS_PATH, FileAccess.WRITE)
+	f.store_string(JSON.stringify(turns, "\t") + "\n")
+
+
+static func sequence(from: String, to: String) -> Array:
+	return Array(str(turns.get(from, {}).get(to, "")).split(" ", false))
+
+
+## Bezeichnung einer Animation, z. B. „Seite rechts → schräg hinten rechts“
+static func anim_name(code: String) -> String:
+	var a: Dictionary = ANIMS[code]
+	var via := " (über vorn)" if code in ["SRSL", "SLSR"] else ""
+	return "%s → %s%s" % [STATE_NAMES[a["from"]], STATE_NAMES[a["to"]], via]
+
+
+## Prüft eine Kürzelfolge von from nach to; Liste der Hinweise (unbekannt, Sprung), leer = alles passt.
+static func check_sequence(from: String, to: String, codes: Array) -> Array:
+	var out := []
+	var cur := from
+	for c in codes:
+		if not ANIMS.has(c):
+			out.append("unbekannt: " + c)
+			continue
+		if ANIMS[c]["from"] != cur:
+			out.append("Sprung %s → %s" % [cur, ANIMS[c]["from"]])
+		cur = ANIMS[c]["to"]
+	if cur != to:
+		out.append("Sprung %s → %s" % [cur, to])
+	return out
+
+
+func state() -> String:
+	return ["S", "D", "B"][_view] + ("" if _view == 2 else ("R" if dir == "right" else "L"))
+
+
+## Zustand ohne Animation setzen (Sprung); in der Tiefe auf das Standbild
+func set_state(s: String) -> void:
+	_view = {"S": 0, "D": 1, "B": 2}[s[0]]
+	if s.length() > 1:
+		dir = "right" if s[1] == "R" else "left"
+	_stand = VIEWS[_view]["stops"][0] if _view > 0 else 0.0
+
+
+func _state_for(view: int, d: String) -> String:
+	return ["S", "D", "B"][view] + ("" if view == 2 else ("R" if d == "right" else "L"))
+
+
+## Dreht ihn nach der Tabelle in den Zustand target; false, wenn währenddessen ein neuer Befehl kam.
+func turn_to_state(target: String) -> bool:
+	var my := _token
+	if state() == target:
+		return true
+	if Game.fast or suit:
+		set_state(target)
+		_set_texture(_idle_tex())
+		return true
+	_turning = true
+	for code in sequence(state(), target):
+		if ANIMS.has(code):
+			await _play_anim(code)
+	if state() != target:
+		set_state(target)
+		_set_texture(_idle_tex())
+	_turning = false
+	return my == _token
+
+
+## Eine Drehanimation; beginnt sie nicht im aktuellen Zustand, springt er vorher in ihren Ausgangszustand.
+func _play_anim(code: String) -> void:
+	var a: Dictionary = ANIMS[code]
+	if state() != a["from"]:
+		set_state(a["from"])
+	if suit:
+		set_state(a["to"])
+		return
+	var to: String = a["to"]
+	if a["from"] == "B":
+		dir = "right" if to[1] == "R" else "left"
+		await _turn_back_diag()
+		_turning = true
+	elif to[0] == a["from"][0]:
+		await _turn_to("right" if to[1] == "R" else "left")
+		_turning = true
+	else:
+		if to.length() > 1:
+			dir = "right" if to[1] == "R" else "left"
+		await _turn_view({"S": 0, "D": 1, "B": 2}[to[0]])
+		_turning = true
 
 
 ## Dreht ihn eine Stufe weiter (Seite <-> schräg <-> hinten, auf der Seite von dir). Läuft immer zu Ende,
@@ -273,9 +377,8 @@ func _turn_view(to: int) -> bool:
 			_stand = VIEWS[to]["stops"][0] if to > 0 else 0.0
 		_set_texture(_idle_tex())
 		return true
-	_turning = true
-	if _view > 0 and _stand != 0.0:
-		await _step_to_turn_pose()
+	# aus dem Stand beginnt die Drehung direkt in der Drehpose (nur die Beine springen)
+	_stand = 0.0
 	var deeper := to > _view
 	var turn: Dictionary = VIEW_TURNS[maxi(to, _view)]
 	var frames: Array = _vtex[maxi(to, _view)]["turn"]
@@ -289,8 +392,22 @@ func _turn_view(to: int) -> bool:
 	_view = to
 	_stand = 0.0
 	_turning = false
-	_set_texture(_idle_tex())
+	# letztes Drehbild bleibt stehen: geht es weiter (nächste Drehung, Laufen), blitzt so kein Standbild auf;
+	# bleibt er stehen, setzt _process das Standbild
 	return my == _token
+
+
+## Von hinten nach schräg (Seite nach dir), endet im Schräg-Standbild; weiter geht es ab einem Haltebild.
+func _turn_back_diag() -> void:
+	_turning = true
+	var n: int = BACK_DIAG["frames"]
+	for i in n:
+		var t := (i + 1) / float(n + 1)
+		_set_texture(_back_diag[i], (BACK_DIAG["from"] as Vector2).lerp(BACK_DIAG["to"], t))
+		await get_tree().create_timer(1.0 / TURN_FPS).timeout
+	_view = 1
+	_stand = VIEWS[1]["stops"][0]
+	_turning = false
 
 
 ## Dreht ihn auf die andere Seite (immer zu Ende); false, wenn währenddessen ein neuer Befehl kam.
@@ -320,9 +437,8 @@ func gesture(kind: String) -> void:
 		return
 	while _turning:
 		await get_tree().process_frame
-	while _view > 0:
-		if not await _turn_view(_view - 1):
-			return
+	if _view > 0 and not await turn_to_state("SR" if dir == "right" else "SL"):
+		return
 	var my := _token
 	_gesturing = true
 	for tex in _gestures[kind]:
@@ -435,6 +551,8 @@ func walk_to(target: Vector2) -> bool:
 		await get_tree().process_frame
 	if my != _token:
 		return false
+	# läuft er schon (neues Ziel unterwegs), muss er vor einer Drehung erst auslaufen; aus dem Stand nicht
+	var stepping := _moving
 	if not _moving:
 		_anim = _stand if _view > 0 else 0.0
 	_moving = true
@@ -452,31 +570,27 @@ func walk_to(target: Vector2) -> bool:
 		var step := SPEED * h * slow * dt
 		var side := "right" if d.x > 0 else "left"
 		# fast senkrechte Wege behalten die bisherige Seite, damit er nicht hin- und herspringt
-		var flip := absf(d.x) > 0.2 * absf(d.y) and dir != side
+		var lateral := absf(d.x) > 0.2 * absf(d.y)
 		var view := _view_for(d, h)
-		if flip and _view == 2:
+		if lateral and view == 2 and _view == 2:
 			# von hinten fast symmetrisch: Seite ohne Drehung wechseln
 			dir = side
-		elif flip or view != _view:
+		var want := _state_for(view, side if lateral else dir)
+		if want != state():
 			_turning = true
-			if _moving:
+			# läuft er schon, erst bis zur Drehpose auslaufen
+			if stepping:
 				await _settle()
 				_stand = 0.0
 			_moving = false
-			var ok: bool
-			if flip and _view == 0:
-				ok = await _turn_to(side)
-			elif flip:
-				# schräg auf die andere Seite: über die Rückansicht
-				ok = await _turn_view(2)
-				dir = side
-			else:
-				ok = await _turn_view(_view + (1 if view > _view else -1))
+			var ok := await turn_to_state(want)
 			_turning = false
 			if not ok or my != _token:
 				return false
-			_anim = 0.0
+			# nach einer Drehung, die im Standbild endet, ab dem Haltebild weiter, sonst ab der Drehpose
+			_anim = _stand if _view > 0 else 0.0
 			_moving = true
+			stepping = false
 			continue
 		if _view > 0:
 			var stride: float = VIEWS[_view]["stride"]
@@ -493,6 +607,7 @@ func walk_to(target: Vector2) -> bool:
 			# Bildfolge nach zurückgelegtem Weg, damit die Füße nicht rutschen
 			_anim += minf(step, d.length()) / h / STRIDE * _stop_rate(d.length() / h / STRIDE)
 		_heading = d.normalized()
+		stepping = true
 		position = target if d.length() <= step else position + d.normalized() * step
 		update_scale()
 		_set_texture(_walk_frame())
@@ -501,3 +616,55 @@ func walk_to(target: Vector2) -> bool:
 	_moving = false
 	_set_texture(_idle_tex())
 	return true
+
+
+## Vorschau im Animations-Debug: steht im Zustand from, spielt die Kürzel nacheinander, springt falls nötig nach to
+## und läuft dort ein paar Schritte auf der Stelle; on_code(code) meldet die laufende Animation.
+func preview(from: String, codes: Array, to: String, on_code := Callable()) -> void:
+	_token += 1
+	var my := _token
+	_moving = false
+	_gesturing = false
+	set_state(from)
+	_turning = true
+	_set_texture(_idle_tex())
+	if on_code.is_valid():
+		on_code.call("Stand " + from)
+	await get_tree().create_timer(0.7).timeout
+	for code in codes:
+		if my != _token:
+			return
+		if not ANIMS.has(code):
+			continue
+		if on_code.is_valid():
+			on_code.call(code)
+		await _play_anim(code)
+	if my != _token:
+		return
+	if state() != to:
+		if on_code.is_valid():
+			on_code.call("Sprung → " + to)
+		set_state(to)
+	if on_code.is_valid():
+		on_code.call("Laufen " + to)
+	_turning = false
+	_moving = true
+	_anim = _stand if _view > 0 else 0.0
+	var t := 0.0
+	while t < 1.8:
+		await get_tree().process_frame
+		if my != _token:
+			return
+		var dt := get_process_delta_time()
+		t += dt
+		if _view > 0:
+			_anim += SPEED * dt / VIEWS[_view]["stride"]
+		else:
+			_anim += SPEED * dt / STRIDE * (SUIT_START_RATE if suit and _anim < START_FRAMES else 1.0)
+		_set_texture(_walk_frame())
+	_moving = false
+	if _view > 0:
+		_stand = _nearest_stop(_anim)
+	_set_texture(_idle_tex())
+	if on_code.is_valid():
+		on_code.call("")
