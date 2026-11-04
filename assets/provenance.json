@@ -3578,6 +3578,40 @@
      "job_id": "d1453858f4b7",
      "seed": 2000,
      "part": 2
+    },
+    "ah_nothing": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000
+    },
+    "key_back": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000
+    },
+    "p2_pjotr_ask_antenna": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_pjotr_gate_heating": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_pjotr_vouch": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_pjotr_bye": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
     }
    }
   },

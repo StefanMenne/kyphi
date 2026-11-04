@@ -2583,6 +2583,30 @@
     "p2_ant_platform_train_open": {
      "file": "voices/martin/p2_ant_platform_train_open.wav",
      "text": "Der Zug wartet in der Schleuse. Die Tür steht offen."
+    },
+    "ah_nothing": {
+     "file": "voices/martin/ah_nothing.wav",
+     "text": "Ach, nichts."
+    },
+    "key_back": {
+     "file": "voices/martin/key_back.wav",
+     "text": "Hier ist der Depotschlüssel zurück."
+    },
+    "p2_pjotr_ask_antenna": {
+     "file": "voices/martin/p2_pjotr_ask_antenna.wav",
+     "text": "Was ist mit der Antenne?"
+    },
+    "p2_pjotr_gate_heating": {
+     "file": "voices/martin/p2_pjotr_gate_heating.wav",
+     "text": "Die Torheizung in der Schleuse geht nicht."
+    },
+    "p2_pjotr_vouch": {
+     "file": "voices/martin/p2_pjotr_vouch.wav",
+     "text": "Würden Sie für mich bürgen?"
+    },
+    "p2_pjotr_bye": {
+     "file": "voices/martin/p2_pjotr_bye.wav",
+     "text": "Bis später."
     }
    }
   },

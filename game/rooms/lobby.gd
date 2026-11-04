@@ -179,12 +179,14 @@ func talk() -> void:
 				await say("Wo waren Sie gestern Abend, Frau Ackermann?")
 				await ack("Ich bin um 17 Uhr zu Hause. Ich habe einen Kater, der wartet nicht.", "ackermann/home_at_five")
 			"return":
+				await say("Hier ist der Depotschlüssel zurück.")
 				await return_key()
 			"key":
 				await ask_key()
 			"fire":
 				await ask_fire()
 			"bye":
+				await say("Ach, nichts.")
 				return
 
 

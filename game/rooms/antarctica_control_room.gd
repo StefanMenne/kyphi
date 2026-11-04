@@ -176,6 +176,7 @@ func talk() -> void:
 		var opts := ["Was ist mit der Antenne?", "Die Torheizung in der Schleuse geht nicht.",
 			"Würden Sie für mich bürgen?", "Bis später."]
 		var i := await Game.choose(opts)
+		await say(opts[i])
 		match i:
 			0:
 				await pj("Seit dem Unfall ist die Leiterheizung aus. Die Leiter ist ein einziger Eiszapfen.")
