@@ -41,7 +41,7 @@ const GESTURES := {"use": 35, "pickup": 54}
 const GESTURE_FPS := 30.0
 ## Ansichten in die Tiefe (1 = schräg von hinten, 2 = von hinten): Anker im eigenen Zuschnitt, Zyklus, Bild des
 ## Zyklus, das Anfang und Ende der Drehungen entspricht (Drehpose, ein Fuß in der Luft), Haltebilder relativ dazu
-## (beide Füße am Boden; im Stand wird das zuletzt erreichte gezeigt), Weg pro Bild auf dem Bildschirm (kürzer als
+## (beide Füße am Boden, nahe am Standbild; von dort geht es beim Losgehen weiter), Weg pro Bild auf dem Bildschirm (kürzer als
 ## seitlich, weil die Tiefe verkürzt wirkt). Mit und ohne Anzug gleiche Phase.
 const VIEWS := {
 	1: {"name": "diag", "anchor": Vector2(119, 653), "frames": 32, "idle": 2, "stops": [6, 22], "stride": 0.0115},
@@ -92,7 +92,7 @@ var _gesturing := false
 var _gestures := {}
 ## 0 = Seite, 1 = schräg von hinten, 2 = von hinten
 var _view := 0
-## je Ansicht 1, 2: {"walk": [...], "turn": [...]}
+## je Ansicht 1, 2: {"idle": Texture2D, "walk": [...], "turn": [...]}
 var _vtex := {}
 ## läuft gerade (ein neues Ziel während des Laufens setzt den Zyklus fort statt neu anzulaufen)
 var _moving := false
@@ -123,7 +123,7 @@ func _init() -> void:
 			_gestures[kind].append(load("res://assets/characters/martin/%s_%02d.png" % [kind, i]))
 	for v in VIEWS:
 		var n: String = VIEWS[v]["name"]
-		var t := {"walk": [], "turn": []}
+		var t := {"idle": load("res://assets/characters/martin/%s_idle.png" % n), "walk": [], "turn": []}
 		for i in VIEWS[v]["frames"]:
 			t["walk"].append(load("res://assets/characters/martin/%s_walk_%02d.png" % [n, i]))
 		for i in VIEW_TURNS[v]["frames"]:
@@ -202,7 +202,7 @@ func set_suit(on: bool) -> void:
 			t["idle_loop"].append(idle)
 		for v in VIEWS:
 			var n: String = VIEWS[v]["name"]
-			var vt := {"walk": [], "turn": []}
+			var vt := {"idle": load(SUIT_DIR + "%s_idle.png" % n), "walk": [], "turn": []}
 			for i in VIEWS[v]["frames"]:
 				vt["walk"].append(load(SUIT_DIR + "%s_walk_%02d.png" % [n, i]))
 			t["vtex"][v] = vt
@@ -223,11 +223,9 @@ func _textures() -> Dictionary:
 	return {"idle": _idle, "walk": _walk, "start": _start, "idle_loop": _idle_loop, "talk": _talk, "vtex": _vtex}
 
 
+## im Stand: eigenes Standbild (beide Füße am Boden, an Größe und Fußpunkt der Haltebilder ausgerichtet)
 func _idle_tex() -> Texture2D:
-	if _view == 0:
-		return _idle
-	var v: Dictionary = VIEWS[_view]
-	return _vtex[_view]["walk"][(v["idle"] + int(_stand)) % v["frames"]]
+	return _vtex[_view]["idle"] if _view > 0 else _idle
 
 
 ## Haltebild der Ansicht, das der Zyklusposition a (relativ zur Drehpose) am nächsten liegt

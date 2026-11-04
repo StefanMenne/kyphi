@@ -1333,6 +1333,17 @@
       "params": "768x1024, 5 s, 24 fps",
       "prompt": "The man in the beige work coat, seen from behind, walks on the spot, as if on a treadmill: he takes steady, natural walking steps away from the viewer into the depth of the picture toward the upper right, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps, we keep seeing his back and the back of his head. He does not turn around, does not rotate, does not show his face. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
       "note": "dreht im Video auf gerade Rückansicht; Bilder 52-77 = back_walk_00..25 (Periode 26), Bild 64 = back_idle; Zuschnitt 192,27-627,1019, auf 2/3 verkleinert"
+     },
+     "stand": {
+      "file": "characters/martin/back_idle.png",
+      "tool": "qwen-image-edit",
+      "job_id": "4af4517092b6",
+      "seed": 5023,
+      "inputs": [
+       "video_5102 Bild 59 (= back_walk_07)"
+      ],
+      "prompt": "The same man in exactly the same pose of his upper body, the same body rotation, the same shoulders and the same view from behind, but now he stands still: both shoes flat and firmly on the floor next to each other, weight evenly on both legs, legs straight. Only the legs and feet change, everything above the hem of the coat stays exactly as it is. Same size and same position in the picture, full body from head to shoes, uncropped. Keep his hair, beige work coat, blue jeans, brown shoes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture.",
+      "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds back_walk_07 ausgerichtet; verworfen: job 2c9eea05c060 (5010-5013, Schultern breiter als im Lauf)"
      }
     },
     "diag": {
@@ -1370,6 +1381,11 @@
       "params": "768x1024, 1 s, 24 fps",
       "prompt": "The man in the beige work coat, seen diagonally from behind, turns on the spot, calmly and naturally, a little further away from the viewer until we see him directly from behind, his back and the back of his head. A small natural step, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
       "note": "Bilder 1-23 jedes zweite = turn_diag_back_00..11"
+     },
+     "stand": {
+      "file": "characters/martin/diag_idle.png",
+      "source": "image_5001 (Startbild des Laufvideos 5300, qwen-image-edit job 6dc04e32d181)",
+      "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds diag_walk_08 ausgerichtet"
      }
     }
    },
@@ -1408,6 +1424,23 @@
       "video_5102 Bild 64",
       "Anzug 6202"
      ]
+    },
+    "diag_stand": {
+     "file": "characters/martin_suit/diag_idle.png",
+     "tool": "qwen-image-edit",
+     "job_id": "f90df06bca9b",
+     "seed": 6241,
+     "inputs": [
+      "Anzug-Laufvideo diag Bild 84 (= diag_walk_08)",
+      "image_5001 (Beinstellung)"
+     ],
+     "prompt": "The man in the orange cold weather suit from image 1, seen from exactly the same angle as in image 1: from the side and slightly from behind, facing to the right, we see the right side of his body, his back and the right side of his face. Do not rotate him, do not turn him toward or away from the viewer. Only his legs change: he stands still with the leg and foot position of the man in image 2, both boots flat and firmly on the floor, weight on both legs. Same size and same position as in image 1, full body from head to boots. Keep the suit, hood with fur, gloves, white boots, colors and drawing style of image 1 exactly the same. Plain flat light grey background, nothing else in the picture.",
+     "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds diag_walk_08 ausgerichtet; verworfen: job d11b0a676cd0 (6230-6233, auf Rückansicht gedreht)"
+    },
+    "back_stand": {
+     "file": "characters/martin_suit/back_idle.png",
+     "source": "image_6220 (qwen-image-edit job 0710ef7b507f, Variante seed 6220, Eingaben wie views/back)",
+     "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds back_walk_07 ausgerichtet"
     }
    },
    "walk": {
