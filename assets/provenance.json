@@ -1356,7 +1356,7 @@
       ],
       "params": "768x1024, 1 s, 24 fps",
       "prompt": "The man in the beige work coat stands seen directly from behind and turns on the spot, calmly and naturally, a little toward the right of the picture until we see him diagonally from behind, his back, the right side of his body and a little of his right ear. He makes one small natural step forward with his right foot in the direction he turns to and then stands still with both feet on the floor, arms hanging relaxed. He never steps backward. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
-      "note": "Varianten 5600-5603, gewählt 5600; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 2-20 jedes zweite = turn_back_diag_00..09, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); ersetzt das rückwärts abgespielte turn_diag_back für BDR/BDL"
+      "note": "Varianten 5600-5603, gewählt 5600; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 1-19 jedes zweite = turn_back_diag_00..09, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); ersetzt das rückwärts abgespielte turn_diag_back für BDR/BDL"
      }
     },
     "diag": {
@@ -1412,12 +1412,17 @@
      ],
      "params": "768x1024, 1,5 s, 24 fps",
      "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right and turns around on the spot, calmly and naturally, away from the viewer: he turns his back toward the viewer, passes through a view directly from behind, and keeps turning until we see him diagonally from behind, facing the upper left of the picture. He never faces the viewer, we do not see his face again after the start. He steps around with small natural steps, his feet always stay under his body, he never steps backward. Arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
-     "note": "Varianten 5700-5703, gewählt 5702; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 2-27 = turn_side_back_00..25, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); Animationen SRDL und gespiegelt SLDR"
+     "note": "Varianten 5700-5703, gewählt 5702; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 1-26 = turn_side_back_00..25, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); Animationen SRDL und gespiegelt SLDR"
     }
    },
    "shadow": {
     "tool": "Python (Pillow)",
     "note": "radialer Verlauf 256x64, Alpha = (1 - r)^0.9, schwarz"
+   },
+   "cutout_2026_11_05": {
+    "files": "characters/martin/*.png außer shadow.png (alle Sprites ohne Anzug)",
+    "tool": "ltx-2.5 generate_video (frames=True) + BiRefNet-matting remove_background (mask=True), gb10-assets 0.1.4",
+    "note": "Ersetzt die bisherige Freistellung. Alle Videos (3800, 3900, 4100, 4202, 4301, 5102, 5300, 5401, 5502, 5600, 5702) mit denselben Prompts, Seeds, Keyframes und Parametern wie oben neu erzeugt; die Videobilder sind pixelgleich mit den früheren MP4s, jetzt zusätzlich verlustfrei als PNG. Alpha aus der BiRefNet-Maske je Bild (größte zusammenhängende Fläche), Farbe durch Herausrechnen des Hintergrundgraus (Median der Bildränder) an halbtransparenten Pixeln; Bildnummern, Zuschnitte und Verkleinerung auf 2/3 (vormultipliziertes Alpha) wie bisher. Sprechbilder: dieselben Mund-Patches, Alpha aus der Maske von Bild 0 (3800). Standbilder schräg/hinten: image_5001 und image_5023 mit BiRefNet freigestellt, wie bisher am Haltebild diag_walk_08 bzw. back_walk_07 ausgerichtet. Skripte: work/characters/martin/regen/scripts/build.py; Job-IDs in work/characters/jobs.txt; alter Stand in work/characters/martin/backup_before_regen_2026-11-05/"
    }
   },
   "martin_suit": {
