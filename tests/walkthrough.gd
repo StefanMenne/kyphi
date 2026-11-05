@@ -4,6 +4,8 @@ extends Node
 
 var main: Node
 var failed := false
+## Blickrichtungen passen nicht (bricht den Durchlauf nicht ab, das Ergebnis ist trotzdem FEHLER)
+var facing_failed := false
 var last := ""
 
 
@@ -16,9 +18,10 @@ func _ready() -> void:
 	main = load("res://game/main.tscn").instantiate()
 	add_child(main)
 	await get_tree().process_frame
+	check_facing()
 	await run()
-	print("\nERGEBNIS: ", "FEHLER" if failed or not Game.flag("medal_found") else "OK – Ende von Teil 1 erreicht, in Teil 2 Antarktis bis zur Medaille und zurück")
-	get_tree().quit(1 if failed or not Game.flag("medal_found") else 0)
+	print("\nERGEBNIS: ", "FEHLER" if failed or facing_failed or not Game.flag("medal_found") else "OK – Ende von Teil 1 erreicht, in Teil 2 Antarktis bis zur Medaille und zurück")
+	get_tree().quit(1 if failed or facing_failed or not Game.flag("medal_found") else 0)
 
 
 func check(cond: bool, what: String) -> void:
@@ -26,6 +29,32 @@ func check(cond: bool, what: String) -> void:
 		failed = true
 		push_error("Prüfung fehlgeschlagen: " + what)
 		print("!! FEHLER: " + what)
+
+
+## Blickrichtung jedes Hotspots passt zu seinem Laufpunkt: bei "left"/"right" liegt die Mitte des Bereichs auf
+## dieser Seite, bei "back" liegt der Laufpunkt (bis auf 5 % Figurhöhe) unter dem Bereich. Räume ohne Martin
+## (Zugabteil) zählen nicht.
+func check_facing() -> void:
+	var rooms: Dictionary = main.ROOMS
+	for rid in rooms:
+		var room: Room = rooms[rid].new()
+		room.id = rid
+		room.process_mode = Node.PROCESS_MODE_DISABLED
+		add_child(room)
+		room.setup()
+		if room.show_player:
+			for hs in room.hotspots:
+				var r: Rect2 = hs["area"]
+				var w: Vector2 = hs["walk"]
+				var tol := 0.05 * room.height_at(w.y)
+				var ok: bool = {"left": r.get_center().x < w.x, "right": r.get_center().x > w.x,
+					"back": w.x > r.position.x - tol and w.x < r.end.x + tol}.get(hs["face"], false)
+				if not ok:
+					facing_failed = true
+					push_error("Blickrichtung falsch")
+					print("!! FEHLER: Blickrichtung %s von %s in %s passt nicht zum Laufpunkt %s (Bereich x %d bis %d)" % [
+						hs["face"], hs["id"], rid, w, r.position.x, r.end.x])
+		room.free()
 
 
 ## Hotspot benutzen (item leer), ansehen (mode "look") oder Gegenstand darauf anwenden.

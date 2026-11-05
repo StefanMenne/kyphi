@@ -9,9 +9,9 @@
   "antarctica_airlock": {"pos": [2800, 500], "face": "front", "door": ""}
  },
  "hotspots": {
-  "train_airlock": {"area": [727, 154, 799, 307], "walk": [1305, 490]},
-  "control_door": {"area": [2365, 164, 195, 317], "walk": [2460, 500]},
-  "airlock_door": {"area": [2703, 164, 195, 317], "walk": [2800, 500]},
-  "stairs": {"area": [3482, 82, 532, 399], "walk": [3700, 520]}
+  "train_airlock": {"area": [727, 154, 799, 307], "walk": [1305, 490], "face": "back"},
+  "control_door": {"area": [2365, 164, 195, 317], "walk": [2460, 500], "face": "back"},
+  "airlock_door": {"area": [2703, 164, 195, 317], "walk": [2800, 500], "face": "back"},
+  "stairs": {"area": [3482, 82, 532, 399], "walk": [3700, 520], "face": "right"}
  }
 }

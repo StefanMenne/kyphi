@@ -1,13 +1,13 @@
 class_name LayoutEditor
 extends Node2D
-## Entwicklermodus (F9, nur in Debug-Builds): Lauffläche, Tiefe, Eingänge, Hotspot-Bereiche und Laufpunkte
-## und verschiebbare Sprites des aktuellen Raums anzeigen und mit der Maus bearbeiten; Strg+S schreibt
+## Entwicklermodus (F9, nur in Debug-Builds): Lauffläche, Tiefe, Eingänge, Hotspot-Bereiche, Laufpunkte mit
+## Blickrichtung und verschiebbare Sprites des aktuellen Raums anzeigen und mit der Maus bearbeiten; Strg+S schreibt
 ## game/rooms/<id>.json.
 
 const HANDLE := 7.0
 const HELP := "Entwicklermodus (F9 beendet)   Strg+S speichern   Strg+R neu laden   A/D oder ←/→ Kamera\n" + \
 	"Ecken, Laufpunkte (blau), Eingänge (violett), Tiefe (links) ziehen   Hotspot anklicken: verschieben, " + \
-	"Ecken ändern\nSprites (rosa Marke oben links) ziehen   Doppelklick auf Kante: Ecke einfügen   Rechtsklick auf Ecke: löschen   " + \
+	"Ecken ändern   F: Blickrichtung drehen\nSprites (rosa Marke oben links) ziehen   Doppelklick auf Kante: Ecke einfügen   Rechtsklick auf Ecke: löschen   " + \
 	"Mausrad an Tiefenmarke: Figurhöhe"
 
 var main: Node
@@ -18,7 +18,11 @@ var _drag := {}
 var _dirty := false
 var _info: Label
 var _layer := CanvasLayer.new()
-var _ghost: Texture2D
+## Martin als Vorschau: Blickrichtung -> [Standbild, Fußpunkt darin, gespiegelt]
+var _ghosts := {}
+## Blickrichtung der Vorschau an der Maus, solange kein Hotspot gewählt ist
+var _ghost_face := "right"
+const FACES := ["left", "back", "right"]
 
 
 func _init(owner_main: Node) -> void:
@@ -42,7 +46,10 @@ func _ready() -> void:
 	_info.add_theme_font_size_override("font_size", 15)
 	_info.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_layer.add_child(_info)
-	_ghost = load("res://assets/characters/martin/right_idle.png")
+	var side: Texture2D = load("res://assets/characters/martin/right_idle.png")
+	var back: Texture2D = load("res://assets/characters/martin/back_idle.png")
+	_ghosts = {"right": [side, Player.ANCHOR, false], "left": [side, Player.ANCHOR, true],
+		"back": [back, Player.VIEWS[2]["anchor"], false]}
 
 
 func toggle() -> void:
@@ -116,6 +123,7 @@ func _draw() -> void:
 		_text(r.position + Vector2(4, 16) * k, hs["id"], c, k)
 		draw_line(r.get_center(), hs["walk"], Color(0.3, 0.7, 1, 0.5 if sel else 0.2), 1.5 * k)
 		draw_circle(hs["walk"], (6 if sel else 4) * k, Color(0.3, 0.7, 1))
+		_arrow(hs["walk"], hs["face"], k)
 		if sel:
 			for p in _corners(r):
 				_handle(p, c, k)
@@ -135,15 +143,31 @@ func _draw() -> void:
 		draw_colored_polygon(PackedVector2Array([p + Vector2(0, -s), p + Vector2(s, 0), p + Vector2(0, s),
 			p + Vector2(-s, 0)]), Color(0.85, 0.3, 1))
 		_text(p + Vector2(10, 5) * k, key if key != "" else "Start", Color(0.85, 0.3, 1), k)
-	# Martin in der Größe an der Mausposition
-	var m := _mouse()
-	var h := room.height_at(m.y)
+	# Martin in der Größe am Laufpunkt des gewählten Hotspots in dessen Blickrichtung, sonst an der Maus
+	if _selected:
+		_draw_ghost(_selected["walk"], _selected["face"], 0.5)
+	else:
+		_draw_ghost(_mouse(), _ghost_face, 0.35)
+
+
+func _draw_ghost(p: Vector2, face: String, alpha: float) -> void:
+	var h := room.height_at(p.y)
 	if h < 20.0:
 		return
+	var g: Array = _ghosts.get(face, _ghosts["right"])
 	var sc := h / Player.BODY_PX
-	draw_set_transform(m - Player.ANCHOR * sc, 0, Vector2(sc, sc))
-	draw_texture(_ghost, Vector2.ZERO, Color(1, 1, 1, 0.35))
+	draw_set_transform(p, 0, Vector2(-sc if g[2] else sc, sc))
+	draw_texture(g[0], -g[1], Color(1, 1, 1, alpha))
 	draw_set_transform(Vector2.ZERO)
+
+
+## Pfeil vom Laufpunkt in die Blickrichtung ("back": nach oben)
+func _arrow(p: Vector2, face: String, k: float) -> void:
+	var d: Vector2 = {"left": Vector2.LEFT, "right": Vector2.RIGHT}.get(face, Vector2.UP)
+	var tip := p + d * 22 * k
+	var n := d.orthogonal() * 6 * k
+	draw_line(p, tip, Color(0.3, 0.7, 1), 2.5 * k)
+	draw_colored_polygon(PackedVector2Array([tip + d * 8 * k, tip + n, tip - n]), Color(0.3, 0.7, 1))
 
 
 func _text(p: Vector2, t: String, c: Color, k: float) -> void:
@@ -183,6 +207,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			room.load_layout()
 			_selected = null
 			_dirty = false
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F:
+		if _selected:
+			_selected["face"] = FACES[(FACES.find(_selected["face"]) + 1) % FACES.size()]
+			_dirty = true
+		else:
+			_ghost_face = FACES[(FACES.find(_ghost_face) + 1) % FACES.size()]
 		get_viewport().set_input_as_handled()
 		return
 	if event is InputEventMouseButton:

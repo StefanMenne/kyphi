@@ -1413,6 +1413,30 @@
      "params": "768x1024, 1,5 s, 24 fps",
      "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right and turns around on the spot, calmly and naturally, away from the viewer: he turns his back toward the viewer, passes through a view directly from behind, and keeps turning until we see him diagonally from behind, facing the upper left of the picture. He never faces the viewer, we do not see his face again after the start. He steps around with small natural steps, his feet always stay under his body, he never steps backward. Arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
      "note": "Varianten 5700-5703, gewählt 5702; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 1-26 = turn_side_back_00..25, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); Animationen SRDL und gespiegelt SLDR"
+    },
+    "back_use": {
+     "files": "characters/martin/back_use_00..46.png",
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "814341d40afa",
+     "seed": 6001,
+     "inputs": [
+      "Startbild: work/characters/martin/back/gestures/start_back.png (back/stand/image_5023.png auf 775x1024 verkleinert, Mitte 768 breit), als erstes und letztes Bild"
+     ],
+     "params": "768x1024, 2 s, 24 fps, frames=True, count 4 ab seed 6000",
+     "prompt": "The man in the beige work coat stands seen from behind, facing away from the viewer into the depth of the picture. He calmly raises his right arm and reaches forward with it toward something at chest height directly in front of him, his hand clearly visible beside his body as it moves forward, touches it briefly with his hand as if pressing or taking hold of it, then lowers his arm again and stands relaxed as before. His hand stays empty, no object is visible. His feet stay in place, we keep seeing his back and the back of his head, he does not walk, does not turn and does not show his face. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a soft click.",
+     "note": "Bilder 1-47 = back_use_00..46, BiRefNet-Masken, work/characters/martin/regen/scripts/build.py gestures: auf 2/3 verkleinert, wie back_idle ausgerichtet (Skalierung 1.0094), Leinwand 306x661, Fußpunkt 149,649; verworfen: 6000 (winkt zur Seite), 6002 (wirkt wie Kopfkratzen), 6003 (kaum Bewegung)"
+    },
+    "back_pickup": {
+     "files": "characters/martin/back_pickup_00..71.png",
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "65335843c1a1",
+     "seed": 6101,
+     "inputs": [
+      "Startbild: work/characters/martin/back/gestures/start_back.png (back/stand/image_5023.png auf 775x1024 verkleinert, Mitte 768 breit), als erstes und letztes Bild"
+     ],
+     "params": "768x1024, 3 s, 24 fps, frames=True, count 4 ab seed 6100",
+     "prompt": "The man in the beige work coat stands seen from behind, facing away from the viewer into the depth of the picture. He bends his knees and crouches down toward the floor in front of him, reaches down with his right hand, his hand visible beside his body, and closes it as if picking up a small object from the floor, then straightens up again and stands relaxed as before. His hand stays closed and nothing is visible in it. His feet stay in place, we keep seeing his back and the back of his head, he does not walk, does not turn and does not show his face. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: the rustle of a coat.",
+     "note": "Bilder 1-72 = back_pickup_00..71, wie back_use freigestellt und ausgerichtet, Leinwand 290x661, Fußpunkt 133,649; verworfen: 6102 (Sprung bei Bild 7), 6100, 6103 (Hände am Ende in die Hüften)"
     }
    },
    "shadow": {

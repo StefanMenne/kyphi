@@ -11,10 +11,10 @@ func _init() -> void:
 func build() -> void:
 	tint = Color(0.8, 0.82, 0.86)
 	hotspot("reliefs", "Reliefs")
-	hotspot("elevator", "Aufzug", "left", "none")
-	hotspot("side_door", "Panzertor", "right")
+	hotspot("elevator", "Aufzug", "none")
+	hotspot("side_door", "Panzertor")
 	hotspot("train", "Zug in der Schleuse")
-	hotspot("train_door", "Offene Zugtür", "back", "none")
+	hotspot("train_door", "Offene Zugtür", "none")
 	set_verbs({"train_door": "go"})
 
 

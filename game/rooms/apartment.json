@@ -6,17 +6,17 @@
   "lobby": {"pos": [1095, 625], "face": "front", "door": "door_open"}
  },
  "hotspots": {
-  "window": {"area": [80, 5, 190, 335], "walk": [430, 590]},
-  "bookshelf": {"area": [498, 75, 340, 150], "walk": [660, 590]},
-  "poster": {"area": [893, 132, 105, 155], "walk": [940, 590]},
-  "poster2": {"area": [1210, 22, 103, 230], "walk": [1180, 665]},
-  "plant": {"area": [305, 215, 140, 310], "walk": [450, 590]},
-  "sofa": {"area": [0, 355, 370, 360], "walk": [440, 660]},
-  "desk": {"area": [478, 358, 395, 200], "walk": [670, 590]},
-  "answering_machine": {"area": [538, 345, 62, 28], "walk": [600, 590]},
-  "laptop": {"area": [600, 283, 135, 92], "walk": [665, 590]},
-  "dictaphone": {"area": [747, 353, 91, 33], "walk": [790, 590]},
-  "remote": {"area": [183, 475, 88, 35], "walk": [440, 630]},
-  "door": {"area": [1060, 40, 110, 560], "walk": [1095, 620]}
+  "window": {"area": [80, 5, 190, 335], "walk": [430, 590], "face": "back"},
+  "bookshelf": {"area": [498, 75, 340, 150], "walk": [660, 590], "face": "back"},
+  "poster": {"area": [893, 132, 105, 155], "walk": [940, 590], "face": "back"},
+  "poster2": {"area": [1210, 22, 103, 230], "walk": [1180, 665], "face": "right"},
+  "plant": {"area": [305, 215, 140, 310], "walk": [450, 590], "face": "back"},
+  "sofa": {"area": [0, 355, 370, 360], "walk": [440, 660], "face": "left"},
+  "desk": {"area": [478, 358, 395, 200], "walk": [670, 590], "face": "back"},
+  "answering_machine": {"area": [538, 345, 62, 28], "walk": [600, 590], "face": "back"},
+  "laptop": {"area": [600, 283, 135, 92], "walk": [665, 590], "face": "back"},
+  "dictaphone": {"area": [747, 353, 91, 33], "walk": [790, 590], "face": "back"},
+  "remote": {"area": [183, 475, 88, 35], "walk": [440, 630], "face": "left"},
+  "door": {"area": [1060, 40, 110, 560], "walk": [1095, 620], "face": "back"}
  }
 }

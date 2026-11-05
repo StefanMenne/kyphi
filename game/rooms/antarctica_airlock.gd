@@ -11,13 +11,13 @@ func _init() -> void:
 
 func build() -> void:
 	tint = Color(0.82, 0.87, 0.93)
-	hotspot("platform_door", "Tür zum Bahnsteig", "left", "none")
+	hotspot("platform_door", "Tür zum Bahnsteig", "none")
 	hotspot("gate", "Außentor")
 	hotspot("cabinet", "Wartungsschrank")
 	hotspot("glycol", "Kanister")
 	hotspot("raincoat", "Spind mit Regenjacke")
 	hotspot("suit", "Kälteanzug im Spind")
-	hotspot("locker", "Großer Schrank", "right")
+	hotspot("locker", "Großer Schrank")
 	set_verbs({"platform_door": "go", "gate": "go"})
 
 

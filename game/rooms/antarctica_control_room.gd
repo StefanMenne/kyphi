@@ -64,11 +64,11 @@ func build() -> void:
 	move_child(pjotr, 1)
 
 	hotspot("monitors", "Bildschirme")
-	hotspot("coffee", "Kaffeeautomat", "left")
-	hotspot("pjotr", "Pjotr", "left", "none")
+	hotspot("coffee", "Kaffeeautomat")
+	hotspot("pjotr", "Pjotr", "none")
 	hotspot("heating_panel", "Schalttafel Leiterheizung")
 	hotspot("fuse_box", "Sicherungskasten")
-	hotspot("door", "Tür zum Bahnsteig", "right", "none")
+	hotspot("door", "Tür zum Bahnsteig", "none")
 	set_verbs({"pjotr": "talk", "door": "go"})
 
 

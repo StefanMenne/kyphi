@@ -7,11 +7,11 @@
  },
  "sprites": {"pjotr": [360, 178]},
  "hotspots": {
-  "monitors": {"area": [338, 31, 1075, 205], "walk": [900, 430]},
-  "coffee": {"area": [36, 128, 282, 369], "walk": [520, 500]},
-  "pjotr": {"area": [360, 178, 100, 300], "walk": [600, 490]},
-  "heating_panel": {"area": [1449, 133, 118, 112], "walk": [1500, 440]},
-  "fuse_box": {"area": [1608, 97, 113, 174], "walk": [1660, 455]},
-  "door": {"area": [1823, 26, 184, 456], "walk": [1840, 490]}
+  "monitors": {"area": [338, 31, 1075, 205], "walk": [900, 430], "face": "back"},
+  "coffee": {"area": [36, 128, 282, 369], "walk": [520, 500], "face": "left"},
+  "pjotr": {"area": [360, 178, 100, 300], "walk": [600, 490], "face": "left"},
+  "heating_panel": {"area": [1449, 133, 118, 112], "walk": [1500, 440], "face": "back"},
+  "fuse_box": {"area": [1608, 97, 113, 174], "walk": [1660, 455], "face": "back"},
+  "door": {"area": [1823, 26, 184, 456], "walk": [1840, 490], "face": "right"}
  }
 }

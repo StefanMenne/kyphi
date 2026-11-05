@@ -16,8 +16,8 @@ func build() -> void:
 	tint = Color(0.82, 0.9, 0.92)
 	shadow_alpha = 0.35
 	hotspot("tower", "Antenne")
-	hotspot("runner", "Etwas im Schnee", "left")
-	hotspot("station", "Zurück zur Station", "left", "none")
+	hotspot("runner", "Etwas im Schnee")
+	hotspot("station", "Zurück zur Station", "none")
 	set_verbs({"station": "go"})
 
 

@@ -22,13 +22,13 @@ func build() -> void:
 	add_child(shade)
 
 	hotspot("neon", "Neonröhre")
-	hotspot("shelf_a", "Regal A", "left")
+	hotspot("shelf_a", "Regal A")
 	hotspot("shelf_b", "Regal B")
 	hotspot("shelf_c", "Regal C")
 	hotspot("shelf_d", "Regal D")
-	hotspot("box", "Hollmanns Kiste", "right")
+	hotspot("box", "Hollmanns Kiste")
 	hotspot("switch", "Lichttaster")
-	hotspot("stairs", "Treppe nach oben", "right", "none")
+	hotspot("stairs", "Treppe nach oben", "none")
 	set_verbs({"stairs": "go"})
 
 

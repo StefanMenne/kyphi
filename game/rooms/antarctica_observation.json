@@ -6,9 +6,9 @@
   "antarctica_platform": {"pos": [600, 535], "face": "right", "door": ""}
  },
  "hotspots": {
-  "stairs": {"area": [0, 143, 481, 433], "walk": [560, 535]},
-  "antennas": {"area": [492, 133, 778, 246], "walk": [900, 470]},
-  "telescope": {"area": [1280, 184, 215, 292], "walk": [1230, 480]},
-  "recorder": {"area": [1771, 292, 72, 133], "walk": [1680, 520]}
+  "stairs": {"area": [0, 143, 481, 433], "walk": [560, 535], "face": "left"},
+  "antennas": {"area": [492, 133, 778, 246], "walk": [900, 470], "face": "back"},
+  "telescope": {"area": [1280, 184, 215, 292], "walk": [1230, 480], "face": "right"},
+  "recorder": {"area": [1771, 292, 72, 133], "walk": [1680, 520], "face": "right"}
  }
 }

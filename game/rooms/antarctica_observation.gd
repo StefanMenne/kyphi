@@ -12,10 +12,10 @@ func _init() -> void:
 
 func build() -> void:
 	tint = Color(0.8, 0.86, 0.95)
-	hotspot("stairs", "Treppe nach unten", "left", "none")
+	hotspot("stairs", "Treppe nach unten", "none")
 	hotspot("antennas", "Antennenfeld")
-	hotspot("telescope", "Fernrohr", "right")
-	hotspot("recorder", "Windschreiber", "right")
+	hotspot("telescope", "Fernrohr")
+	hotspot("recorder", "Windschreiber")
 	set_verbs({"stairs": "go"})
 
 

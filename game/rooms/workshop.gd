@@ -22,7 +22,7 @@ func _init() -> void:
 
 func build() -> void:
 	tint = Color(1.0, 0.97, 0.92)
-	hotspot("boxes", "Kisten", "left")
+	hotspot("boxes", "Kisten")
 	hotspot("boxes2", "Kisten")
 	hotspot("shelf", "Regal")
 	hotspot("pegboard", "Lochwand")
@@ -31,8 +31,8 @@ func build() -> void:
 		var t: Array = TOOLS[item]
 		hotspot(item, t[1])
 		set_verbs({item: "take"})
-	hotspot("lobby_door", "Tür zur Lobby", "left")
-	hotspot("altar_door", "Tür zum Altarraum", "right")
+	hotspot("lobby_door", "Tür zur Lobby")
+	hotspot("altar_door", "Tür zum Altarraum")
 	set_verbs({"lobby_door": "go", "altar_door": "go"})
 
 

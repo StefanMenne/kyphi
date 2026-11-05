@@ -5,12 +5,12 @@
   "": {"pos": [1030, 560], "face": "back", "door": ""}
  },
  "hotspots": {
-  "st_museum": {"area": [781, 107, 60, 60], "walk": [1030, 560]},
-  "st_abc": {"area": [997, 103, 60, 60], "walk": [1030, 560]},
-  "st_area52": {"area": [1213, 107, 60, 60], "walk": [1030, 560]},
-  "st_inner_earth": {"area": [781, 310, 60, 60], "walk": [1030, 560]},
-  "st_antarctica": {"area": [1212, 309, 60, 60], "walk": [1030, 560]},
-  "cabin_door": {"area": [534, 99, 154, 337], "walk": [1030, 560]},
-  "seats": {"area": [0, 435, 615, 141], "walk": [1030, 560]}
+  "st_museum": {"area": [781, 107, 60, 60], "walk": [1030, 560], "face": "back"},
+  "st_abc": {"area": [997, 103, 60, 60], "walk": [1030, 560], "face": "back"},
+  "st_area52": {"area": [1213, 107, 60, 60], "walk": [1030, 560], "face": "back"},
+  "st_inner_earth": {"area": [781, 310, 60, 60], "walk": [1030, 560], "face": "back"},
+  "st_antarctica": {"area": [1212, 309, 60, 60], "walk": [1030, 560], "face": "back"},
+  "cabin_door": {"area": [534, 99, 154, 337], "walk": [1030, 560], "face": "left"},
+  "seats": {"area": [0, 435, 615, 141], "walk": [1030, 560], "face": "back"}
  }
 }

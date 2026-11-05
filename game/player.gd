@@ -7,7 +7,7 @@ extends Node2D
 ## einem Zyklusbild, das dem Stand nahekommt. Im Stand atmet er (Schleife); beim Sprechen bewegt sich der Mund.
 ## Auf Wegen in die Tiefe dreht er sich je nach Winkel schräg (45°) oder ganz in die Rückansicht (eigene
 ## Laufzyklen, für links gespiegelt); Drehungen gehen immer eine Stufe weiter (Seite <-> schräg <-> hinten).
-## Gesten und Hotspot-Blickrichtungen nutzen immer die Seitenansicht.
+## Gesten gibt es in der Seitenansicht und von hinten; aus der Schrägansicht dreht er sich dafür zur Seite.
 ## Welche Drehungen zwischen zwei Zuständen (SR, SL, DR, DL, B) laufen, steht in game/turns.json (bearbeitbar im
 ## Animations-Debug, F11); passt eine Animation nicht an die vorige oder endet die Liste nicht im Ziel, springt er.
 ## Im Kälteanzug (set_suit) gibt es nur Laufen und Stehen: keine Drehungen (Seiten- und Ansichtswechsel sofort),
@@ -41,6 +41,9 @@ const IDLE_FPS := 12.0
 ## Gesten (gleicher Fußpunkt wie das Standbild, Bild 0 und letztes Bild nahe am Standbild)
 const GESTURES := {"use": 35, "pickup": 54}
 const GESTURE_FPS := 30.0
+## Gesten von hinten (gleicher Fußpunkt wie back_idle, Leinwand breiter für den Arm): Bilder, Fußpunkt im Zuschnitt
+const BACK_GESTURES := {"use": {"frames": 47, "anchor": Vector2(149, 649)},
+	"pickup": {"frames": 72, "anchor": Vector2(133, 649)}}
 ## Ansichten in die Tiefe (1 = schräg von hinten, 2 = von hinten): Anker im eigenen Zuschnitt, Zyklus, Bild des
 ## Zyklus, das Anfang und Ende der Drehungen entspricht (Drehpose, ein Fuß in der Luft), Haltebilder relativ dazu
 ## (beide Füße am Boden, nahe am Standbild; von dort geht es beim Losgehen weiter), Weg pro Bild auf dem Bildschirm (kürzer als
@@ -120,6 +123,7 @@ var _idle_t := 0.0
 var _turning := false
 var _gesturing := false
 var _gestures := {}
+var _back_gestures := {}
 ## 0 = Seite, 1 = schräg von hinten, 2 = von hinten
 var _view := 0
 ## je Ansicht 1, 2: {"idle": Texture2D, "walk": [...], "turn": [...]}
@@ -157,6 +161,10 @@ func _init() -> void:
 		_gestures[kind] = []
 		for i in GESTURES[kind]:
 			_gestures[kind].append(load("res://assets/characters/martin/%s_%02d.png" % [kind, i]))
+	for kind in BACK_GESTURES:
+		_back_gestures[kind] = []
+		for i in BACK_GESTURES[kind]["frames"]:
+			_back_gestures[kind].append(load("res://assets/characters/martin/back_%s_%02d.png" % [kind, i]))
 	for v in VIEWS:
 		var n: String = VIEWS[v]["name"]
 		var t := {"idle": load("res://assets/characters/martin/%s_idle.png" % n), "walk": [], "turn": []}
@@ -206,8 +214,8 @@ func _set_texture(tex: Texture2D, anchor := Vector2.INF) -> void:
 	_sprite.offset = -Vector2(tex.get_width() - anchor.x if _sprite.flip_h else anchor.x, anchor.y)
 
 
-## "front" und "back" behalten die bisherige Ansicht; "left"/"right" drehen ihn zur Seite
-## (aus der Rückansicht zuerst zurück) (instant: ohne Drehung).
+## "left"/"right" drehen ihn zur Seite (aus der Rückansicht zuerst zurück), "back" in die Rückansicht,
+## "front" behält die bisherige Ansicht (instant: ohne Drehung, immer Seitenansicht).
 func face(d: String, instant := false) -> void:
 	if instant:
 		_view = 0
@@ -217,6 +225,9 @@ func face(d: String, instant := false) -> void:
 		return
 	if d in ["left", "right"] and (_view > 0 or d != dir):
 		_face_side(d)
+		return
+	if d == "back" and _view != 2:
+		turn_to_state("B")
 		return
 	_set_texture(_idle_tex())
 
@@ -465,23 +476,25 @@ func _turn_to(d: String) -> bool:
 	return my == _token
 
 
-## Spielt eine Geste ("use": Hand nach vorn, "pickup": bücken) und endet im Standbild.
+## Spielt eine Geste ("use": Hand nach vorn, "pickup": bücken) und endet im Standbild; von hinten in der
+## Rückansicht, schräg nach einer Drehung zur Seite.
 func gesture(kind: String) -> void:
 	if Game.fast or suit:
 		return
 	while _turning:
 		await get_tree().process_frame
-	if _view > 0 and not await turn_to_state("SR" if dir == "right" else "SL"):
+	var back: bool = _view == 2 and not _back_gestures[kind].is_empty()
+	if _view > 0 and not back and not await turn_to_state("SR" if dir == "right" else "SL"):
 		return
 	var my := _token
 	_gesturing = true
-	for tex in _gestures[kind]:
-		_set_texture(tex)
+	for tex in (_back_gestures[kind] if back else _gestures[kind]):
+		_set_texture(tex, BACK_GESTURES[kind]["anchor"] if back else Vector2.INF)
 		await get_tree().create_timer(1.0 / GESTURE_FPS).timeout
 		if my != _token:
 			break
 	_gesturing = false
-	_set_texture(_idle)
+	_set_texture(_idle_tex())
 
 
 func update_scale() -> void:

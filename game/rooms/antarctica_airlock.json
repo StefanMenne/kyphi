@@ -7,12 +7,12 @@
   "antarctica_antenna": {"pos": [930, 470], "face": "front", "door": "gate_open"}
  },
  "hotspots": {
-  "platform_door": {"area": [87, 61, 251, 451], "walk": [330, 500]},
-  "gate": {"area": [793, 123, 267, 328], "walk": [930, 465]},
-  "cabinet": {"area": [1185, 215, 95, 205], "walk": [1230, 470]},
-  "glycol": {"area": [1209, 355, 57, 66], "walk": [1230, 470]},
-  "raincoat": {"area": [1320, 200, 108, 250], "walk": [1370, 480]},
-  "suit": {"area": [1444, 138, 184, 333], "walk": [1500, 500]},
-  "locker": {"area": [1643, 97, 345, 450], "walk": [1700, 540]}
+  "platform_door": {"area": [87, 61, 251, 451], "walk": [330, 500], "face": "left"},
+  "gate": {"area": [793, 123, 267, 328], "walk": [930, 465], "face": "back"},
+  "cabinet": {"area": [1185, 215, 95, 205], "walk": [1230, 470], "face": "back"},
+  "glycol": {"area": [1209, 355, 57, 66], "walk": [1230, 470], "face": "back"},
+  "raincoat": {"area": [1320, 200, 108, 250], "walk": [1370, 480], "face": "back"},
+  "suit": {"area": [1444, 138, 184, 333], "walk": [1500, 500], "face": "back"},
+  "locker": {"area": [1643, 97, 345, 450], "walk": [1700, 540], "face": "right"}
  }
 }

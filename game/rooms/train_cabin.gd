@@ -33,7 +33,7 @@ func build() -> void:
 	add_child(overlay)
 	overlay.draw.connect(_draw_map)
 	for sid in STATIONS:
-		hotspot("st_" + sid, STATIONS[sid][0], "back", "none")
+		hotspot("st_" + sid, STATIONS[sid][0], "none")
 		var l := Label.new()
 		l.text = STATIONS[sid][0]
 		var ls := LabelSettings.new()
@@ -46,7 +46,7 @@ func build() -> void:
 		l.position = STATIONS[sid][2] + Vector2(-100, DOT_R + 4)
 		l.name = "label_" + sid
 		add_child(l)
-	hotspot("cabin_door", "Tür zum Bahnsteig", "left", "none")
+	hotspot("cabin_door", "Tür zum Bahnsteig", "none")
 	hotspot("seats", "Sitze")
 	var verbs := {"cabin_door": "go"}
 	for sid in STATIONS:

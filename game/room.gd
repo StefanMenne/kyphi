@@ -73,10 +73,11 @@ func movable(sid: String, s: Sprite2D) -> void:
 	movables[sid] = s
 
 
+## Blickrichtung beim Benutzen ("left", "right", "back") steht mit dem Laufpunkt in game/rooms/<id>.json.
 ## gesture: "auto" (nach Höhe: "pickup" am Boden, sonst "use") oder "none" (ohne Gegenstand keine Geste,
 ## z. B. Personen und offene Durchgänge)
-func hotspot(hid: String, name: String, face := "back", gesture := "auto") -> void:
-	hotspots.append({"id": hid, "name": name, "area": Rect2(), "walk": Vector2.ZERO, "face": face,
+func hotspot(hid: String, name: String, gesture := "auto") -> void:
+	hotspots.append({"id": hid, "name": name, "area": Rect2(), "walk": Vector2.ZERO, "face": "back",
 		"gesture": gesture, "verb": "use"})
 
 
@@ -126,6 +127,7 @@ func load_layout() -> void:
 			continue
 		hs["area"] = Rect2(g["area"][0], g["area"][1], g["area"][2], g["area"][3])
 		hs["walk"] = Vector2(g["walk"][0], g["walk"][1])
+		hs["face"] = g.get("face", "back")
 
 
 ## Schreibt die aktuelle Geometrie zurück (ganzzahlig, ein Eintrag pro Zeile).
@@ -151,8 +153,9 @@ func save_layout() -> void:
 	var hs_lines := []
 	for hs in hotspots:
 		var r: Rect2 = hs["area"]
-		hs_lines.append('  %s: {"area": [%d, %d, %d, %d], "walk": %s}' % [JSON.stringify(hs["id"]),
-			roundi(r.position.x), roundi(r.position.y), roundi(r.size.x), roundi(r.size.y), v.call(hs["walk"])])
+		hs_lines.append('  %s: {"area": [%d, %d, %d, %d], "walk": %s, "face": %s}' % [JSON.stringify(hs["id"]),
+			roundi(r.position.x), roundi(r.position.y), roundi(r.size.x), roundi(r.size.y), v.call(hs["walk"]),
+			JSON.stringify(hs["face"])])
 	lines.append(",\n".join(hs_lines))
 	lines.append(" }")
 	lines.append("}")

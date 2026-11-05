@@ -46,7 +46,7 @@ func build() -> void:
 		# von hinten (links im Bild) nach vorn nummeriert, wie im Notizbuch
 		hotspot("panel_%d" % (i + 1), "Paneel %d" % (i + 1))
 	hotspot("steel_door", "Stahltür mit Kartenleser")
-	hotspot("workshop_door", "Tür zur Werkstatt", "left")
+	hotspot("workshop_door", "Tür zur Werkstatt")
 	set_verbs({"workshop_door": "go"})
 
 
