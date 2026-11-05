@@ -1,7 +1,7 @@
 {
-	"SR": {"SL": "SRSL", "DR": "SRDR", "DL": "SRDR DRB BDL", "B": "SRDR DRB"},
-	"SL": {"SR": "SLSR", "DL": "SLDL", "DR": "SLDL DLB BDR", "B": "SLDL DLB"},
-	"DR": {"SR": "DRSR", "SL": "DRSR SRSL", "DL": "DRB BDL", "B": "DRB"},
-	"DL": {"SL": "DLSL", "SR": "DLSL SLSR", "DR": "DLB BDR", "B": "DLB"},
+	"SR": {"SL": "SRSL", "DR": "SRDR", "DL": "SRDR DRB2 BDL", "B": "SRDR DRB"},
+	"SL": {"SR": "SLSR", "DL": "SLDL", "DR": "SLDL DLB2 BDR", "B": "SLDL DLB"},
+	"DR": {"SR": "DRSR", "SL": "DRSR SRSL", "DL": "DRB2 BDL", "B": "DRB2"},
+	"DL": {"SL": "DLSL", "SR": "DLSL SLSR", "DR": "DLB2 BDR", "B": "DLB2"},
 	"B": {"SR": "BDR DRSR", "SL": "BDL DLSL", "DR": "BDR", "DL": "BDL"}
 }

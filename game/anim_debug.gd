@@ -100,11 +100,11 @@ func _ready() -> void:
 
 	# Liste der Animationen
 	var list_title := _label("Animationen (Klick hängt das Kürzel an das gewählte Feld an)", 15)
-	list_title.position = Vector2(36, 392)
+	list_title.position = Vector2(36, 412)
 	add_child(list_title)
 	var list := GridContainer.new()
 	list.columns = 2
-	list.position = Vector2(36, 420)
+	list.position = Vector2(36, 440)
 	list.add_theme_constant_override("h_separation", 10)
 	list.add_theme_constant_override("v_separation", 4)
 	add_child(list)

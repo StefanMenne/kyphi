@@ -61,12 +61,15 @@ const BACK_DIAG := {"name": "turn_back_diag", "frames": 10, "from": Vector2(133,
 const STATES := ["SR", "SL", "DR", "DL", "B"]
 const STATE_NAMES := {"SR": "Seite rechts", "SL": "Seite links", "DR": "schräg hinten rechts",
 	"DL": "schräg hinten links", "B": "hinten"}
-## Drehanimationen: Kürzel = Ausgangs- und Endzustand
+## Drehanimationen: Kürzel = Ausgangs- und Endzustand; "stand": beginnt und endet im Standbild (aus dem Laufen
+## läuft er dafür bis zu einem Haltebild aus statt bis zur Drehpose)
 const ANIMS := {
 	"SRDR": {"from": "SR", "to": "DR"}, "DRSR": {"from": "DR", "to": "SR"},
 	"SLDL": {"from": "SL", "to": "DL"}, "DLSL": {"from": "DL", "to": "SL"},
-	"DRB": {"from": "DR", "to": "B"}, "BDR": {"from": "B", "to": "DR"},
-	"DLB": {"from": "DL", "to": "B"}, "BDL": {"from": "B", "to": "DL"},
+	"DRB": {"from": "DR", "to": "B"}, "BDR": {"from": "B", "to": "DR", "stand": true},
+	"DLB": {"from": "DL", "to": "B"}, "BDL": {"from": "B", "to": "DL", "stand": true},
+	# Versuch: BDR/BDL rückwärts, damit schräg -> hinten -> schräg zusammenpasst
+	"DRB2": {"from": "DR", "to": "B", "stand": true}, "DLB2": {"from": "DL", "to": "B", "stand": true},
 	"SRSL": {"from": "SR", "to": "SL"}, "SLSR": {"from": "SL", "to": "SR"},
 }
 const TURNS_PATH := "res://game/turns.json"
@@ -289,6 +292,8 @@ static func sequence(from: String, to: String) -> Array:
 static func anim_name(code: String) -> String:
 	var a: Dictionary = ANIMS[code]
 	var via := " (über vorn)" if code in ["SRSL", "SLSR"] else ""
+	if a.get("stand", false):
+		via += " (Stand zu Stand)"
 	return "%s → %s%s" % [STATE_NAMES[a["from"]], STATE_NAMES[a["to"]], via]
 
 
@@ -357,6 +362,9 @@ func _play_anim(code: String) -> void:
 		dir = "right" if to[1] == "R" else "left"
 		await _turn_back_diag()
 		_turning = true
+	elif code in ["DRB2", "DLB2"]:
+		await _turn_back_diag(true)
+		_turning = true
 	elif to[0] == a["from"][0]:
 		await _turn_to("right" if to[1] == "R" else "left")
 		_turning = true
@@ -398,15 +406,17 @@ func _turn_view(to: int) -> bool:
 
 
 ## Von hinten nach schräg (Seite nach dir), endet im Schräg-Standbild; weiter geht es ab einem Haltebild.
-func _turn_back_diag() -> void:
+## reverse: rückwärts von schräg nach hinten, endet im Rücken-Standbild.
+func _turn_back_diag(reverse := false) -> void:
 	_turning = true
 	var n: int = BACK_DIAG["frames"]
-	for i in n:
+	for k in n:
+		var i := n - 1 - k if reverse else k
 		var t := (i + 1) / float(n + 1)
 		_set_texture(_back_diag[i], (BACK_DIAG["from"] as Vector2).lerp(BACK_DIAG["to"], t))
 		await get_tree().create_timer(1.0 / TURN_FPS).timeout
-	_view = 1
-	_stand = VIEWS[1]["stops"][0]
+	_view = 2 if reverse else 1
+	_stand = VIEWS[_view]["stops"][0]
 	_turning = false
 
 
@@ -510,7 +520,7 @@ func _view_for(d: Vector2, h: float) -> int:
 
 ## Läuft aus dem Gehen bis zum nächsten Haltebild weiter (Richtung des letzten Schritts), damit eine Drehung
 ## aus dem Stand beginnt; früh im Anlauf geht er stattdessen auf der Stelle zurück ins Standbild.
-func _settle() -> void:
+func _settle(to_stand := false) -> void:
 	var start := 0 if _view > 0 else START_FRAMES
 	var frames: int = VIEWS[_view]["frames"] if _view > 0 else FRAMES
 	var stride: float = VIEWS[_view]["stride"] if _view > 0 else STRIDE
@@ -524,7 +534,7 @@ func _settle() -> void:
 	var base := maxf(_anim - start, 0.0)
 	var goal := INF
 	# in der Tiefe bis zur Drehpose, an der die Drehung nahtlos anschließt
-	for f in ([0] if _view > 0 else STOP_FRAMES):
+	for f in (VIEWS[_view]["stops"] if _view > 0 and to_stand else ([0] if _view > 0 else STOP_FRAMES)):
 		goal = minf(goal, start + f + ceilf((base - f) / frames) * frames)
 	var slow := lerpf(1.0, 0.55, absf(_heading.y))
 	while _anim < goal:
@@ -580,7 +590,9 @@ func walk_to(target: Vector2) -> bool:
 			_turning = true
 			# läuft er schon, erst bis zur Drehpose auslaufen
 			if stepping:
-				await _settle()
+				# beginnt die erste Drehung im Standbild, bis zu einem Haltebild, sonst bis zur Drehpose
+				var first: Array = sequence(state(), want)
+				await _settle(not first.is_empty() and ANIMS.get(first[0], {}).get("stand", false))
 				_stand = 0.0
 			_moving = false
 			var ok := await turn_to_state(want)
