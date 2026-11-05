@@ -6,7 +6,7 @@
 		"SR": "BDR DRSR"
 	},
 	"DL": {
-		"B": "DLB2",
+		"B": "DLB",
 		"DR": "DLB2 BDR",
 		"SL": "DLSL",
 		"SR": "DLSL SLSR"
