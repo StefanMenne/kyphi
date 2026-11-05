@@ -57,12 +57,13 @@ Lizenzen; keine Cloud-Dienste und keine Modelle, deren Lizenz die Nutzung der Er
 
 ### Verwendete Werkzeuge und Lizenzen
 
-Stand: gb10-assets 0.1.2 (Commit `40c9d8c`, 29.10.2026)
+Stand: gb10-assets 0.1.4 (Commit `4867dc4`, 05.11.2026)
 
 | Tool | Modell | Wofür | Lizenz |
 |---|---|---|---|
 | `flux2-klein` | [FLUX.2 \[klein\] 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B) (Black Forest Labs) | Bilder aus Text, optional mit Referenzbildern | Apache-2.0 |
 | `qwen-image-edit` | [Qwen-Image-Edit-2511](https://huggingface.co/Qwen/Qwen-Image-Edit-2511) (Alibaba) mit [Lightning-LoRA](https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning) | Bilder bearbeiten und kombinieren | Apache-2.0 |
+| `birefnet` | [BiRefNet-matting](https://huggingface.co/ZhengPeng7/BiRefNet-matting), ausgeführt von ComfyUI | Freistellen (Maske mit weichem Alpha), z. B. für Martins Sprites | MIT; ComfyUI: GPL-3.0 |
 | `qwen-tts` | [Qwen3-TTS 1.7B VoiceDesign](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign) und [Base](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base) (Alibaba) | Stimmen entwerfen, Sprachausgabe | Apache-2.0 |
 | `ltx-video` | [LTX-2.5](https://huggingface.co/Lightricks/LTX-2.5) 22B (Lightricks) | Videos mit Ton | [LTX-2.x Community License](https://github.com/Lightricks/LTX-2/blob/main/LICENSE-2_x) |
 | `pixal3d` | [Pixal3D](https://huggingface.co/Comfy-Org/Pixal3D) auf TRELLIS.2, ausgeführt von ComfyUI | 3D-Modelle (GLB) aus einem Bild | MIT; Bildencoder DINOv3: [DINOv3 License](https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m); ComfyUI: GPL-3.0 |
