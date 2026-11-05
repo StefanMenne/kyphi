@@ -1400,6 +1400,19 @@
       "source": "image_5001 (Startbild des Laufvideos 5300, qwen-image-edit job 6dc04e32d181)",
       "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds diag_walk_08 ausgerichtet"
      }
+    },
+    "turn_side_back": {
+     "files": "characters/martin/turn_side_back_00..25.png",
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "d3043943f4f0",
+     "seed": 5702,
+     "inputs": [
+      "video_3800 Bild 0 (erstes Bild)",
+      "image_5001 gespiegelt (letztes Bild)"
+     ],
+     "params": "768x1024, 1,5 s, 24 fps",
+     "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right and turns around on the spot, calmly and naturally, away from the viewer: he turns his back toward the viewer, passes through a view directly from behind, and keeps turning until we see him diagonally from behind, facing the upper left of the picture. He never faces the viewer, we do not see his face again after the start. He steps around with small natural steps, his feet always stay under his body, he never steps backward. Arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
+     "note": "Varianten 5700-5703, gewählt 5702; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 2-27 = turn_side_back_00..25, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); Animationen SRDL und gespiegelt SLDR"
     }
    },
    "shadow": {

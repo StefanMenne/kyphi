@@ -57,6 +57,9 @@ const VIEW_TURNS := {
 ## Drehung hinten -> schräg als eigenes Video (vorwärts, vom Rücken- ins Schräg-Standbild); die Gegenrichtung
 ## rückwärts abzuspielen sähe aus, als ginge er einen Schritt zurück. Anker vom Rücken- zum Schräg-Standbild.
 const BACK_DIAG := {"name": "turn_back_diag", "frames": 10, "from": Vector2(133, 649), "to": Vector2(119, 653)}
+## Halbe Drehung Seite rechts -> über den Rücken -> schräg hinten links als eigenes Video (Standbild zu Standbild),
+## gespiegelt Seite links -> schräg hinten rechts. Anker im Zuschnitt der Schräg-Laufbilder.
+const SIDE_BACK := {"name": "turn_side_back", "frames": 26, "from": Vector2(135, 643.7), "to": Vector2(137, 653)}
 ## Zustände: Seite rechts/links, schräg von hinten rechts/links, von hinten (fast symmetrisch, ohne Seite)
 const STATES := ["SR", "SL", "DR", "DL", "B"]
 const STATE_NAMES := {"SR": "Seite rechts", "SL": "Seite links", "DR": "schräg hinten rechts",
@@ -70,6 +73,7 @@ const ANIMS := {
 	"DLB": {"from": "DL", "to": "B"}, "BDL": {"from": "B", "to": "DL", "stand": true},
 	# Versuch: BDR/BDL rückwärts, damit schräg -> hinten -> schräg zusammenpasst
 	"DRB2": {"from": "DR", "to": "B", "stand": true}, "DLB2": {"from": "DL", "to": "B", "stand": true},
+	"SRDL": {"from": "SR", "to": "DL", "stand": true}, "SLDR": {"from": "SL", "to": "DR", "stand": true},
 	"SRSL": {"from": "SR", "to": "SL"}, "SLSR": {"from": "SL", "to": "SR"},
 }
 const TURNS_PATH := "res://game/turns.json"
@@ -105,6 +109,7 @@ var _idle: Texture2D
 var _walk := []
 var _turn := []
 var _back_diag := []
+var _side_back := []
 var _start := []
 var _idle_loop := []
 var _talk := []
@@ -142,6 +147,8 @@ func _init() -> void:
 		_start.append(load("res://assets/characters/martin/start_%02d.png" % i))
 	for i in TURN_FRAMES:
 		_turn.append(load("res://assets/characters/martin/turn_%02d.png" % i))
+	for i in SIDE_BACK["frames"]:
+		_side_back.append(load("res://assets/characters/martin/%s_%02d.png" % [SIDE_BACK["name"], i]))
 	for i in BACK_DIAG["frames"]:
 		_back_diag.append(load("res://assets/characters/martin/%s_%02d.png" % [BACK_DIAG["name"], i]))
 	for i in IDLE_FRAMES:
@@ -291,9 +298,9 @@ static func sequence(from: String, to: String) -> Array:
 ## Bezeichnung einer Animation, z. B. „Seite rechts → schräg hinten rechts“
 static func anim_name(code: String) -> String:
 	var a: Dictionary = ANIMS[code]
-	var via := " (über vorn)" if code in ["SRSL", "SLSR"] else ""
-	if a.get("stand", false):
-		via += " (Stand zu Stand)"
+	var via := " (über vorn)" if code in ["SRSL", "SLSR"] else (" (über den Rücken)" if code in ["SRDL", "SLDR"] else "")
+	if a.get("stand", false) and via == "":
+		via = " (Stand zu Stand)"
 	return "%s → %s%s" % [STATE_NAMES[a["from"]], STATE_NAMES[a["to"]], via]
 
 
@@ -362,6 +369,9 @@ func _play_anim(code: String) -> void:
 		dir = "right" if to[1] == "R" else "left"
 		await _turn_back_diag()
 		_turning = true
+	elif code in ["SRDL", "SLDR"]:
+		await _turn_side_back()
+		_turning = true
 	elif code in ["DRB2", "DLB2"]:
 		await _turn_back_diag(true)
 		_turning = true
@@ -417,6 +427,20 @@ func _turn_back_diag(reverse := false) -> void:
 		await get_tree().create_timer(1.0 / TURN_FPS).timeout
 	_view = 2 if reverse else 1
 	_stand = VIEWS[_view]["stops"][0]
+	_turning = false
+
+
+## Halbe Drehung von der Seite über den Rücken in die Schrägansicht der anderen Seite, endet im Standbild.
+func _turn_side_back() -> void:
+	_turning = true
+	var n: int = SIDE_BACK["frames"]
+	for i in n:
+		var t := (i + 1) / float(n + 1)
+		_set_texture(_side_back[i], (SIDE_BACK["from"] as Vector2).lerp(SIDE_BACK["to"], t))
+		await get_tree().create_timer(1.0 / TURN_FPS).timeout
+	dir = "left" if dir == "right" else "right"
+	_view = 1
+	_stand = VIEWS[1]["stops"][0]
 	_turning = false
 
 
