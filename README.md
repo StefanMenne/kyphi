@@ -9,11 +9,11 @@ gebaut hat. Das Spiel erscheint in Teilen; in Arbeit ist **Teil 1: Der Zugang**.
 | Pfad | Inhalt | Im Repo |
 |---|---|---|
 | `concept/game.md` | Grundlagen des Spiels: Genre, Sprache, Aufbau, Regeln für die Geschichte | ja |
-| `concept/part_*.md` | Story, je Teil ein Dokument (`part_1_access.md`) | nein (`.gitignore`) |
+| `concept/part_*.md` | Story, je Teil ein Dokument (`part_1_access.md`); Symlinks nach `work/story/` | nein, in kyphi-assets |
 | `assets/` | Fertige Assets: Szenen-Hintergründe mit Ebenen (`scenes/`), Videos (`videos/`, Ogg Theora), Inventar-Icons (`items/`), Verb-Icons (`ui/`), Katalog, Herkunft, Übersicht (`overview.html`) | ja |
 | `game/` | Spielcode (Godot 4.7, GDScript): `main.gd`, Oberfläche, Martin, Räume in `rooms/` | ja |
 | `tests/` | Automatischer Durchlauf von Teil 1 | ja |
-| `work/` | Arbeitsdateien: generierte Bilder, Stimmen, Videos, 3D-Modelle, Entwürfe | nein (`.gitignore`) |
+| `work/` | Story, Konzeptbilder, Quellen und Rezepte der Assets: eigenes privates Repo [kyphi-assets](https://github.com/StefanMenne/kyphi-assets), nach `work/` klonen | nein, eigenes Repo |
 
 ## Spielen
 
