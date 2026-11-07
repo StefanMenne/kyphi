@@ -667,6 +667,55 @@ func walk_to(target: Vector2) -> bool:
 	return true
 
 
+## Alle Bildfolgen für die Seite „Alle Animationen“ im Animations-Debug, mit dem aktuellen Satz (mit oder ohne
+## Kälteanzug): [{name, frames, anchors (Fußpunkt je Bild, wie im Spiel), fps, ref: [Standbild, Fußpunkt]}]
+func debug_sequences() -> Array:
+	var out := []
+	var side_anchor: Vector2 = SUIT_ANCHORS[0] if suit else ANCHOR
+	var add := func(name: String, frames: Array, anchors, fps: float, ref: Texture2D, ref_anchor: Vector2) -> void:
+		if frames.is_empty():
+			return
+		var an := []
+		for i in frames.size():
+			if anchors is Callable:
+				an.append(anchors.call(i, frames.size()))
+			else:
+				an.append(anchors)
+		out.append({"name": name, "frames": frames, "anchors": an, "fps": fps, "ref": [ref, ref_anchor]})
+	var lerp_anchor := func(from: Vector2, to: Vector2) -> Callable:
+		return func(i: int, n: int) -> Vector2: return from.lerp(to, (i + 1) / float(n + 1))
+	var walk_fps := SPEED / STRIDE
+	var vanchor := func(v: int) -> Vector2: return SUIT_ANCHORS[v] if suit else VIEWS[v]["anchor"]
+	if not suit:
+		add.call("Atmen im Stand (Seite)", _idle_loop, side_anchor, IDLE_FPS, _idle, side_anchor)
+		add.call("Sprechen (Mundbilder)", _talk, side_anchor, 8.0, _idle, side_anchor)
+	add.call("Anlauf aus dem Stand (Seite)", _start, side_anchor, walk_fps, _idle, side_anchor)
+	add.call("Laufen Seite", _walk, side_anchor, walk_fps, _idle, side_anchor)
+	for v in VIEWS:
+		add.call("Laufen " + ("schräg von hinten" if v == 1 else "von hinten"), _vtex[v]["walk"], vanchor.call(v),
+			SPEED / VIEWS[v]["stride"], _vtex[v]["idle"], vanchor.call(v))
+	if suit:
+		return out
+	add.call("Drehung Seite rechts → links (über vorn)", _turn,
+		func(i: int, n: int) -> Vector2: return Vector2(lerpf(TURN_ANCHOR_RIGHT, TURN_ANCHOR_LEFT, (i + 1) / float(n + 1)), ANCHOR.y),
+		TURN_FPS, _idle, ANCHOR)
+	add.call("Drehung Seite → schräg hinten", _vtex[1]["turn"], lerp_anchor.call(VIEW_TURNS[1]["from"], VIEW_TURNS[1]["to"]),
+		TURN_FPS, _idle, ANCHOR)
+	add.call("Drehung schräg hinten → hinten", _vtex[2]["turn"], lerp_anchor.call(VIEW_TURNS[2]["from"], VIEW_TURNS[2]["to"]),
+		TURN_FPS, _vtex[1]["idle"], VIEWS[1]["anchor"])
+	add.call("Drehung hinten → schräg hinten", _back_diag, lerp_anchor.call(BACK_DIAG["from"], BACK_DIAG["to"]),
+		TURN_FPS, _vtex[2]["idle"], VIEWS[2]["anchor"])
+	add.call("Halbe Drehung Seite → über den Rücken → schräg andere Seite", _side_back,
+		lerp_anchor.call(SIDE_BACK["from"], SIDE_BACK["to"]), TURN_FPS, _idle, ANCHOR)
+	add.call("Geste benutzen (Seite)", _gestures["use"], ANCHOR, GESTURE_FPS, _idle, ANCHOR)
+	add.call("Geste aufheben (Seite)", _gestures["pickup"], ANCHOR, GESTURE_FPS, _idle, ANCHOR)
+	add.call("Geste benutzen (hinten)", _back_gestures["use"], BACK_GESTURES["use"]["anchor"], GESTURE_FPS,
+		_vtex[2]["idle"], VIEWS[2]["anchor"])
+	add.call("Geste aufheben (hinten)", _back_gestures["pickup"], BACK_GESTURES["pickup"]["anchor"], GESTURE_FPS,
+		_vtex[2]["idle"], VIEWS[2]["anchor"])
+	return out
+
+
 ## Vorschau im Animations-Debug: steht im Zustand from, spielt die Kürzel nacheinander, springt falls nötig nach to
 ## und läuft dort ein paar Schritte auf der Stelle; on_code(code) meldet die laufende Animation.
 func preview(from: String, codes: Array, to: String, on_code := Callable()) -> void:
