@@ -6,7 +6,7 @@
   "lobby": {"pos": [1095, 625], "face": "front", "door": "door_open"}
  },
  "hotspots": {
-  "window": {"area": [80, 5, 190, 335], "walk": [430, 590], "face": "back"},
+  "window": {"area": [80, 5, 190, 335], "walk": [430, 590], "face": "left"},
   "bookshelf": {"area": [498, 75, 340, 150], "walk": [660, 590], "face": "back"},
   "poster": {"area": [893, 132, 105, 155], "walk": [940, 590], "face": "back"},
   "poster2": {"area": [1210, 22, 103, 230], "walk": [1180, 665], "face": "right"},

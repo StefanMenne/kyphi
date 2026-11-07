@@ -6,7 +6,7 @@
   "lobby": {"pos": [1660, 545], "face": "left", "door": ""}
  },
  "hotspots": {
-  "neon": {"area": [583, 26, 97, 61], "walk": [700, 470], "face": "back"},
+  "neon": {"area": [583, 26, 97, 61], "walk": [660, 470], "face": "back"},
   "shelf_a": {"area": [0, 0, 287, 481], "walk": [320, 540], "face": "left"},
   "shelf_b": {"area": [297, 40, 317, 400], "walk": [450, 470], "face": "back"},
   "shelf_c": {"area": [614, 120, 266, 280], "walk": [740, 470], "face": "back"},

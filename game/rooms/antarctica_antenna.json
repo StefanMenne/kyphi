@@ -7,7 +7,7 @@
  },
  "hotspots": {
   "tower": {"area": [880, 0, 300, 450], "walk": [1010, 470], "face": "back"},
-  "runner": {"area": [700, 460, 110, 60], "walk": [660, 500], "face": "left"},
+  "runner": {"area": [700, 460, 110, 60], "walk": [660, 500], "face": "right"},
   "station": {"area": [0, 300, 140, 276], "walk": [80, 520], "face": "left"}
  }
 }

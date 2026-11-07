@@ -7,7 +7,7 @@
   "train_cabin": {"pos": [1303, 445], "face": "front", "door": ""}
  },
  "hotspots": {
-  "reliefs": {"area": [72, 72, 184, 276], "walk": [300, 500], "face": "back"},
+  "reliefs": {"area": [72, 72, 184, 276], "walk": [240, 500], "face": "back"},
   "elevator": {"area": [282, 164, 87, 307], "walk": [360, 480], "face": "left"},
   "side_door": {"area": [1562, 113, 384, 389], "walk": [1640, 500], "face": "right"},
   "train": {"area": [717, 159, 829, 263], "walk": [1000, 450], "face": "back"},
