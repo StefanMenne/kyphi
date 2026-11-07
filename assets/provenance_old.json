@@ -1,0 +1,4095 @@
+{
+ "date": "2026-10-29",
+ "tools": "gb10-assets 0.1.3 (flux2-klein, qwen-image-edit); Freistellen und Zusammensetzen per Python (Pillow, NumPy, SciPy); qwen-tts (design_voice, speak); Filter per ffmpeg",
+ "method": "Icons: auf Magenta/Grau erzeugt, Hintergrund per Skript entfernt. Szenen: Ausschnitt mit qwen-image-edit bearbeitet, ausgerichtet und nur im veränderten Bereich übernommen; offene Türen nur innerhalb der Öffnung des Originalrahmens. Werkstatt komplett neu über qwen-image-edit (werkstatt_full_with_items), Hintergrund daraus abgeleitet.",
+ "items": {
+  "dictaphone": {
+   "tool": "flux2-klein",
+   "job_id": "15f22b3d6b23",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "small black handheld digital voice recorder with a little display and a red record button, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "batteries": {
+   "tool": "flux2-klein",
+   "job_id": "606bb5a79d32",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "two AA batteries lying side by side, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "ladder": {
+   "tool": "flux2-klein",
+   "job_id": "e78b0c9f3fc6",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "folded aluminium painter's step ladder with five steps, paint splatters, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "tweezers": {
+   "tool": "flux2-klein",
+   "job_id": "87dc05a2d925",
+   "seed": 702,
+   "size": "1024x1024",
+   "prompt": "a pair of fine stainless steel tweezers made from one single piece of bent metal, the two arms joined at the rear end, pointed tips slightly apart, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "brush": {
+   "tool": "flux2-klein",
+   "job_id": "07455740f298",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "restorer's flat paint brush with a wooden handle and soft natural bristles, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "spatula": {
+   "tool": "flux2-klein",
+   "job_id": "b604f289383a",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "small steel restorer's spatula with a flat thin blade and a wooden handle, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "masking_tape": {
+   "tool": "flux2-klein",
+   "job_id": "2de28ea4f516",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "roll of beige masking tape with a red warning stripe, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "caliper": {
+   "tool": "flux2-klein",
+   "job_id": "124b6b367b42",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "stainless steel vernier caliper with depth rod, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "uv_lamp": {
+   "tool": "flux2-klein",
+   "job_id": "70eb4bba1a5b",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "small handheld black UV flashlight with a purple lens, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "depot_key": {
+   "tool": "flux2-klein",
+   "job_id": "e77621a33f79",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "old brass key on a ring with a small paper key tag, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "notebook": {
+   "tool": "flux2-klein",
+   "job_id": "9da7af88e963",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "worn brown leather notebook with an elastic band, slightly stained, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "incense_cone": {
+   "tool": "flux2-klein",
+   "job_id": "577fc719a8f0",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "dark brown resin incense cone, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "lighter": {
+   "tool": "flux2-klein",
+   "job_id": "4825471a9271",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "cheap red plastic disposable lighter, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "saucer": {
+   "tool": "flux2-klein",
+   "job_id": "26e60676d91f",
+   "seed": 100,
+   "size": "1024x1024",
+   "prompt": "small white porcelain saucer with dried paint smudges, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "drill": {
+   "tool": "flux2-klein",
+   "job_id": "454c77fae850",
+   "seed": 101,
+   "size": "1024x1024",
+   "prompt": "red and black cordless drill driver with battery pack, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "evidence_bag": {
+   "tool": "flux2-klein",
+   "job_id": "5617ab183b42",
+   "seed": 301,
+   "size": "1024x1024",
+   "prompt": "small empty clear plastic zip lock evidence bag with a white label strip, frosted translucent plastic, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid light grey background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "index_card": {
+   "tool": "flux2-klein",
+   "job_id": "3ae0adabfed1",
+   "seed": 301,
+   "size": "1024x1024",
+   "prompt": "single blank cream colored archive index card with thin blue ruled lines and a red header line, no lettering, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "brush_soot": {
+   "tool": "qwen-image-edit",
+   "job_id": "9d8b34a73d16",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Blacken the bristle tip of the brush with soft black soot powder. Keep the brush shape, the handle and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/brush/image_101.png"
+   ]
+  },
+  "spatula_soot": {
+   "tool": "qwen-image-edit",
+   "job_id": "647ba5f9dcc7",
+   "seed": 300,
+   "size": "wie Eingabe",
+   "prompt": "Put a small heap of black soot powder on the tip of the spatula blade. Keep the spatula shape, the handle and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/spatula/image_101.png"
+   ]
+  },
+  "id_card": {
+   "tool": "qwen-image-edit",
+   "job_id": "206da2f14db4",
+   "seed": 5101,
+   "size": "wie Eingabe",
+   "prompt": "Replace the badge with a thin plain matte black plastic key card in portrait format with rounded corners, without the clip, the holder and the photo. The card is completely black except for the number \"666\" printed large in blood-red digits in its center, exactly three sixes. Keep the plain flat solid magenta background, no shadow, no other text. Same drawing style: clean bold black ink outlines, flat cel shading with soft gradients, comic illustration style.",
+   "inputs": [
+    "bisheriges Icon assets/items/id_card.png (Hollmanns Ausweis) auf Magenta"
+   ],
+   "note": "Schwarze Karte statt Mitarbeiterausweis; FLUX.2 klein (Job 2712478d78eb) schrieb die Ziffern falsch. Magenta per Skript entfernt (work/items/black_card/key_icon.py)"
+  },
+  "screw_bit": {
+   "tool": "flux2-klein",
+   "job_id": "92398f32f5c6",
+   "seed": 803,
+   "size": "1024x1024",
+   "prompt": "one short steel screwdriver bit as sold in a bit set, 25 mm long, lying diagonally: a hexagonal shank with six flat sides and a small groove, ending in a short tip shaped like a three-pointed triangle, the tip looks like a small triangular star, the bit is compact and stubby, shiny grey metal, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "drill_bit": {
+   "tool": "qwen-image-edit",
+   "job_id": "88e14ca96da6",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Insert a short steel screwdriver bit with a three-bladed triangular tri-wing tip into the chuck of the drill. Keep the drill and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/drill/image_101.png"
+   ]
+  },
+  "cone_saucer": {
+   "tool": "qwen-image-edit",
+   "job_id": "6926a09a0d53",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Place the incense cone from image 2, smaller, in the middle of the saucer from image 1. The tip of the cone glows and a thin wisp of smoke rises. Keep the saucer, the drawing style and the plain magenta background of image 1 exactly unchanged.",
+   "inputs": [
+    "items/raw/saucer/image_100.png",
+    "items/raw/incense_cone/image_100.png"
+   ]
+  },
+  "evidence_bag_hair": {
+   "tool": "qwen-image-edit",
+   "job_id": "ae8e9f38271b",
+   "seed": 300,
+   "size": "wie Eingabe",
+   "prompt": "Put a single long thin grey hair inside the clear plastic bag, curving loosely across it, clearly visible. Keep the bag, the white label and the plain light grey background exactly unchanged.",
+   "inputs": [
+    "items/raw/evidence_bag_v2/image_301.png"
+   ]
+  },
+  "index_card_revealed": {
+   "tool": "qwen-image-edit",
+   "job_id": "f9a57ccfad1e",
+   "seed": 301,
+   "size": "wie Eingabe",
+   "prompt": "Cover the lower part of the index card with a thin smudgy layer of black soot, in which a few lines of pale indented handwriting stand out light against the black. Keep the card shape, the red header line and the plain magenta background exactly unchanged.",
+   "inputs": [
+    "items/raw/index_card_v2/image_301.png"
+   ]
+  },
+  "remote": {
+   "tool": "flux2-klein",
+   "job_id": "de06294e9a85",
+   "seed": 401,
+   "size": "1024x1024",
+   "prompt": "black TV remote control with grey rubber buttons and a small battery cover on the back, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+  },
+  "drill_battery": {
+   "tool": "flux2-klein",
+   "job_id": "1798397e044f",
+   "seed": 6100,
+   "size": "1024x1024",
+   "prompt": "rechargeable battery pack for a cordless drill, black and orange plastic housing with a slide-on rail and a small row of four charge indicator lights that are all dark, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "drill_battery_charged": {
+   "tool": "qwen-image-edit",
+   "job_id": "4039b2e0a668",
+   "seed": 6104,
+   "size": "1024x1024",
+   "prompt": "The four small charge indicator lights on the battery pack now glow bright green. Keep everything else exactly the same, including the magenta background.",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02",
+   "input": "drill_battery (Seed 6100)"
+  },
+  "fuse": {
+   "tool": "flux2-klein",
+   "job_id": "4c1ef13ed3d6",
+   "seed": 6112,
+   "size": "1024x1024",
+   "prompt": "industrial cylindrical cartridge fuse, white ceramic body with two shiny metal end caps, small and simple, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "glycol_canister": {
+   "tool": "flux2-klein",
+   "job_id": "b66a9cd95d88",
+   "seed": 6122,
+   "size": "1024x1024",
+   "prompt": "small green plastic jerrycan for antifreeze with a black screw cap and a handle, a blank white label on the side, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "thermos": {
+   "tool": "flux2-klein",
+   "job_id": "037afd666c59",
+   "seed": 6135,
+   "size": "1024x1024",
+   "prompt": "classic old vacuum flask thermos, dented dark green metal body, a silver drinking cup screwed on as the lid, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "salt": {
+   "tool": "flux2-klein",
+   "job_id": "5190f1bf9ed7",
+   "seed": 6141,
+   "size": "1024x1024",
+   "prompt": "large canteen kitchen salt container, a white and blue cardboard tube with a metal pouring spout at the top, a few salt grains next to it, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "runner_broken": {
+   "tool": "flux2-klein",
+   "job_id": "7c839342d76a",
+   "seed": 6150,
+   "size": "1024x1024",
+   "prompt": "fall arrester runner for a ladder climbing safety rail, a compact steel sliding device with a locking lever and a carabiner on a short strap, its small coil spring is broken and sticks out, scratched and frosted, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "runner": {
+   "tool": "qwen-image-edit",
+   "job_id": "b98297a897e1",
+   "seed": 6153,
+   "size": "1024x1024",
+   "prompt": "Make this a brand new fall arrester runner: clean shiny steel without scratches or frost, the coil spring intact and neatly in place, nothing broken or sticking out. Keep the shape, the carabiner, the view and the magenta background the same.",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02",
+   "input": "runner_broken (Seed 6150)"
+  },
+  "duct_tape": {
+   "tool": "flux2-klein",
+   "job_id": "42f90fc19b16",
+   "seed": 6160,
+   "size": "1024x1024",
+   "prompt": "roll of silver grey duct tape with the loose end hanging down a little, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "medal": {
+   "tool": "flux2-klein",
+   "job_id": "1fd2a8191a9b",
+   "seed": 6174,
+   "size": "1024x1024",
+   "prompt": "small round bronze medal of honor with an engraved eye symbol, a fine crack runs across the medal, a little frost on it, its thin chain lies coiled loosely beside the medal, everything small and fully inside the picture, single object, centered, the whole object fully visible with wide margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "Hintergrund per Farbton vom Rand her freigestellt (work/items/antarctica/tools/key_icon.py), quadratisch 512 und 128 px",
+   "part": 2,
+   "date": "2026-11-02"
+  }
+ },
+ "scenes": {
+  "wohnung": {
+   "original": "work/wohnung.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "wohnung_door_v3": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open only the wooden apartment door on the right: it is hinged on the LEFT side of its frame and swings away from the viewer into the stairwell behind it. The open door leaf is seen at a steep angle inside the doorway along the left jamb, entirely within the door opening. Through the rest of the doorway we see a dim stairwell landing with a staircase railing. The door frame, the walls, the floor, the other doors and everything else in the picture stay exactly unchanged.",
+     "box": [
+      0,
+      0,
+      1344,
+      768
+     ],
+     "scale": 1,
+     "jobs": [
+      {
+       "job_id": "5803e0ff7389",
+       "seed": 601
+      }
+     ],
+     "mask": "closed door opening (quad 1060 84 1168 38 1168 602 1060 530); Qwen öffnete zum Betrachter, nur die Öffnung übernommen"
+    },
+    "wohnung_remove_dictaphone": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the small black device with the red dot lying on the right side of the desk. The desk surface continues there, empty. Keep everything else exactly unchanged.",
+     "box": [
+      640,
+      296,
+      896,
+      424
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "10e78227a9e2",
+       "seed": 200
+      }
+     ]
+    },
+    "wohnung_remove_remote": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the black TV remote control lying on the sofa seat. The sofa cushion continues there, empty. Keep everything else exactly unchanged.",
+     "box": [
+      136,
+      440,
+      328,
+      536
+     ],
+     "scale": 6,
+     "jobs": [
+      {
+       "job_id": "6163021c53c1",
+       "seed": 400
+      }
+     ]
+    }
+   }
+  },
+  "lobby": {
+   "original": "work/lobby.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "lobby_stairs_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the grey door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the stairwell behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a concrete staircase leads DOWN to the basement: right behind the threshold the steps drop away downwards, we look down onto the treads, with a metal handrail going down. Keep the door frame, the walls, the baseboard, the cardboard sheets and the floor exactly unchanged.",
+     "box": [
+      20,
+      60,
+      300,
+      572
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "b6f4ded8d20b",
+       "seed": 410
+      }
+     ],
+     "followup": {
+      "job": "lobby_stairs_down",
+      "input": "edits/lobby_stairs_door_open/image_402.png",
+      "prompt": "Change only the staircase seen through the open doorway: behind the door there is a small floor landing, and from it a concrete staircase goes DOWNWARD away from the viewer into a darker basement, the steps sink below the landing level so we look down onto the tops of the treads, they get smaller and darker further down, the handrail slopes downward. Keep the door, the door frame, the wall, the floor and the cardboard sheets exactly unchanged."
+     },
+     "mask": "closed door opening (quad 88 121 198 147 198 440 88 470)"
+    },
+    "lobby_workshop_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the grey door wide: the door leaf swings inward away from the viewer, and through the open doorway a workshop with a wooden workbench and a tool wall is visible. Keep the door frame, the stone wall, the walls and the floor exactly unchanged.",
+     "box": [
+      1340,
+      120,
+      1520,
+      420
+     ],
+     "scale": 3.2,
+     "jobs": [
+      {
+       "job_id": "504a5d7acdcf",
+       "seed": 620
+      }
+     ],
+     "followup": {
+      "job": "lobby_workshop_door_open_c",
+      "input": "edits/lobby_workshop_door_open_in.png",
+      "prompt": "The grey door is now open, pushed away from us into the workshop behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the workshop, hinged at the right jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the right side of the frame, smaller because it is further away. The doorway opening shows a workshop with a wooden workbench and a tool wall. Nothing sticks out of the frame toward us. Keep the door frame, the stone wall, the walls and the floor of our room exactly unchanged."
+     }
+    }
+   }
+  },
+  "werkstatt": {
+   "original": "work/werkstatt.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "werkstatt_altar_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the wooden door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the dark room behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a dim room with dark walls and a painted ancient Egyptian column in red and green is visible. Keep the door frame, the light switch, the walls, the shelf, the box and the floor exactly unchanged.",
+     "box": [
+      1100,
+      60,
+      1340,
+      540
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "87655becd781",
+       "seed": 423
+      }
+     ],
+     "followup": {
+      "job": "werkstatt_altar_door_open_b",
+      "input": "edits/werkstatt_altar_door_open_in.png",
+      "prompt": "The wooden door is now open, pushed away from us into the dark room behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the dark room, hinged at the left jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the left side of the frame, smaller because it is further away. The doorway opening shows a dim room with dark walls and a painted ancient Egyptian column in red and green. Nothing sticks out of the frame toward us. Keep the door frame, the light switch, the walls, the shelf, the box and the floor of our room exactly unchanged."
+     },
+     "mask": "closed door opening (quad 1200 140 1279 108 1279 517 1200 480)"
+    },
+    "werkstatt_bench_items": {
+     "tool": "qwen-image-edit",
+     "prompt": "On the wooden tabletop of the workbench place these objects clearly separated from each other with generous gaps, lying flat on the table, from left to right: a red and black cordless drill lying on its side, a small black UV flashlight with a purple lens, a pair of steel tweezers, two small clear plastic zip bags, a steel vernier caliper, a small white saucer, a roll of beige masking tape. Hang a flat paint brush with a wooden handle and light bristles on the empty left part of the pegboard. All objects in the same drawing style with bold ink outlines, clearly readable. Keep the two desk lamps, the paint can, the jar, the wrenches, the pegboard, the wall and the shelf unchanged.",
+     "box": [
+      380,
+      150,
+      980,
+      358
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "6420fa9af5ff",
+       "seed": 403
+      }
+     ]
+    },
+    "werkstatt_full_empty": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove these objects and nothing else: on the tabletop the red cordless drill, the black UV flashlight, the tweezers, the small plastic bag, the caliper, the white saucer and the roll of tape; on the pegboard the large paint brush on the far left and the flat scraper spatula; and the aluminium step ladder standing in front of the cardboard boxes. The empty tabletop, the empty pegboard with its holes and the boxes and wall behind the ladder continue there. Keep the two desk lamps, the paint can, the jar, all other tools, the doors, the shelves and everything else exactly unchanged.",
+     "box": [
+      0,
+      0,
+      1344,
+      768
+     ],
+     "scale": 1,
+     "jobs": [
+      {
+       "job_id": "70f904eb9dcb",
+       "seed": 490
+      }
+     ],
+     "note": "Nur der Tischbereich aus image_490.png übernommen."
+    },
+    "werkstatt_full_with_items": {
+     "tool": "qwen-image-edit",
+     "prompt": "Clean up this drawing: the workbench tabletop is one continuous straight wooden plank from its left end to its right end with a single crisp black front edge, the right desk lamp has one clean round base, the pegboard has clean corners. Remove all faint doubled ghost lines, steps and breaks. Keep every object, its position and size, the ladder, the doors, the shelves, the boxes, the colors and the lighting exactly unchanged.",
+     "box": [
+      0,
+      0,
+      1344,
+      768
+     ],
+     "scale": 1,
+     "jobs": [
+      {
+       "job_id": "60ceb7195e11",
+       "seed": 481
+      }
+     ],
+     "note": "Eingabe: alter Hintergrund + Gegenstände aus werkstatt_bench_items/image_403.png + Leiter. Ergebnis image_481.png ist die neue Werkstatt mit allen Gegenständen."
+    },
+    "werkstatt_ladder_removed": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the aluminium step ladder. The stacked cardboard boxes, the wall with its corner and baseboard, and the grey floor continue behind it, complete and clean. Keep the boxes, the wall, the floor and the table leg exactly unchanged. Same framing, do not zoom.",
+     "box": [
+      300,
+      230,
+      420,
+      480
+     ],
+     "scale": 3.2,
+     "jobs": [
+      {
+       "job_id": "78e8982dade9",
+       "seed": 500
+      }
+     ]
+    },
+    "werkstatt_lobby_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the wooden door: it is hinged on the RIGHT side of the door frame and swings away from the viewer into the bright lobby behind it, so the open door leaf is seen at an angle inside the doorway along the right side. Through the open doorway a bright modern museum lobby with white walls and a light grey tiled floor is visible. Keep the door frame, the light switches, the walls, the boxes and the floor exactly unchanged.",
+     "box": [
+      40,
+      60,
+      280,
+      540
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "9a14c7719aad",
+       "seed": 423
+      }
+     ],
+     "followup": {
+      "job": "werkstatt_lobby_door_open_b",
+      "input": "edits/werkstatt_lobby_door_open_in.png",
+      "prompt": "The wooden door is now open, pushed away from us into the bright lobby behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the lobby, hinged at the right jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the right side of the frame, smaller because it is further away. The doorway opening shows a bright modern museum lobby with white walls and a light grey tiled floor. Nothing sticks out of the frame toward us. Keep the door frame, the light switches, the walls, the boxes and the floor of our room exactly unchanged."
+     },
+     "mask": "closed door opening (quad 102 111 188 140 188 476 103 510)"
+    },
+    "werkstatt_peg_left_empty": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the large paint brush with the red wooden handle hanging on the far left, and the flat grey scraper spatula hanging on the right. The empty pegboard with its regular rows of holes continues there. Keep the tool rail with the small hanging tools, the small brush head, the wrench, the lamp and everything else exactly unchanged. Same framing, do not zoom.",
+     "box": [
+      440,
+      150,
+      620,
+      250
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "665a5ff5d46b",
+       "seed": 500
+      }
+     ]
+    },
+    "werkstatt_peg_spatula_empty": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the grey flat scraper spatula with the black handle hanging in the middle of the pegboard. The empty pegboard with its regular rows of round holes continues there. Keep everything else exactly unchanged. Same framing, do not zoom.",
+     "box": [
+      540,
+      150,
+      660,
+      260
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "6305e7ec1f75",
+       "seed": 511
+      }
+     ]
+    },
+    "werkstatt_tape_sprite": {
+     "tool": "qwen-image-edit",
+     "prompt": "Keep only the roll of beige masking tape in the middle, complete and unchanged in shape, size, position, colors and outlines. Replace everything else (the wall, the table, the objects on the left and right) with a plain flat solid magenta background.",
+     "box": [
+      816,
+      304,
+      880,
+      352
+     ],
+     "scale": 8,
+     "jobs": [
+      {
+       "job_id": "c8ee8e03a100",
+       "seed": 701
+      }
+     ]
+    },
+    "werkstatt_pegboard_tools": {
+     "tool": "qwen-image-edit",
+     "job_id": "ab8fc77193cb",
+     "seed": 4904,
+     "input": "Ausschnitt x 428-612, y 128-272 des Hintergrunds mit rotem Markierungskasten (x 490-544, y 162-236), 6-fach vergrößert",
+     "prompt": "Edit only the area inside the red rectangle, then remove the red rectangle completely. Inside it, the four unclear grey strips hanging from the metal rod and the loose fragment below them become clearly drawn real workshop tools hanging from the rod, such as a screwdriver, a small file, a chisel and a putty knife, each complete with handle and tip, ending above the lower rows of pegboard holes. Nothing floats loose. Everything outside the red rectangle stays exactly unchanged: the rod, the wrench on the right, the pegboard and its holes, the lamp, the wall. Same drawing style with clean bold black ink outlines and flat cel shading, muted natural colors.",
+     "box": [
+      490,
+      162,
+      545,
+      237
+     ],
+     "note": "Ergebnis verkleinert und nur innerhalb des Kastens mit 1 px weichem Rand in den Hintergrund eingesetzt (work/scenes/werkstatt_tools/paste.py)"
+    }
+   }
+  },
+  "altarraum": {
+   "original": "work/altarraum.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {
+    "altarraum_detector_taped": {
+     "tool": "qwen-image-edit",
+     "prompt": "Tape over the round white smoke detector: two crossing strips of beige masking tape are stuck over its front, covering the red LED, the tape ends stick onto the dark ceiling. Same drawing style with bold ink outlines. Keep the smoke detector shape and the dark sooty ceiling exactly unchanged.",
+     "box": [
+      880,
+      0,
+      1168,
+      144
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "57daa559691a",
+       "seed": 632
+      }
+     ]
+    },
+    "altarraum_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the wooden door wide: the door leaf swings inward away from the viewer, and through the open doorway a lit restorer's workshop with a light grey floor is visible. Keep the door frame, the light switch, the walls and the floor exactly unchanged.",
+     "box": [
+      0,
+      110,
+      240,
+      510
+     ],
+     "scale": 2.4,
+     "jobs": [
+      {
+       "job_id": "b8b093fdd5d5",
+       "seed": 621
+      }
+     ],
+     "followup": {
+      "job": "altarraum_door_open_c",
+      "input": "edits/altarraum_door_open_in.png",
+      "prompt": "The wooden door is now open, pushed away from us into the lit workshop behind it. The door leaf is no longer in the frame: it stands BEHIND the door frame inside the workshop, hinged at the right jamb, swung back about 70 degrees, seen nearly edge-on, partly hidden behind the right side of the frame, smaller because it is further away. The doorway opening shows a lit restorer's workshop with a light grey floor. Nothing sticks out of the frame toward us. Keep the door frame, the light switch, the walls and the floor of our room exactly unchanged."
+     }
+    },
+    "altarraum_panel_removed": {
+     "tool": "qwen-image-edit",
+     "prompt": "The wide wooden wall panel in the middle has been taken off. In the rectangular opening where it was, a plain modern grey steel door is set into the wall, with a metal lever handle and a small black card reader with a red LED mounted next to it. Keep the neighbouring wooden panels, the floor and the lighting exactly unchanged.",
+     "box": [
+      1776,
+      48,
+      1952,
+      480
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "e722615e735e",
+       "seed": 201
+      }
+     ]
+    },
+    "altarraum_remove_door": {
+     "tool": "qwen-image-edit",
+     "prompt": "Remove the door on the right and continue the wooden wall paneling in its place, so that the whole right wall is covered by six equally wide tall oak panels separated by vertical wooden strips. Keep the column, the steps, the floor and the lighting exactly unchanged.",
+     "box": [
+      1504,
+      64,
+      2048,
+      480
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "20556ce8fe47",
+       "seed": 201
+      }
+     ]
+    },
+    "altarraum_smoke_detector": {
+     "tool": "qwen-image-edit",
+     "prompt": "Redraw the small object at the top edge as a clearly visible round white ceiling smoke detector mounted on the dark sooty ceiling, a flat white disc with a small red LED dot, bold black ink outline, completely free, no tape on it. Keep the dark ceiling with its black soot stains and everything else exactly unchanged.",
+     "box": [
+      880,
+      0,
+      1168,
+      144
+     ],
+     "scale": 4,
+     "jobs": [
+      {
+       "job_id": "492d51b92d44",
+       "seed": 610
+      }
+     ]
+    },
+    "altarraum_steel_door_open": {
+     "tool": "qwen-image-edit",
+     "prompt": "Open the grey steel door: it is hinged on the RIGHT side of the door frame and swings away from the viewer into the dark space behind it, so the open door leaf is seen at an angle inside the doorway along the right side. Through the open doorway a narrow concrete staircase leads DOWN: right behind the threshold the steps drop away downwards into darkness, we look down onto the treads, a weak lamp on the side wall far below. The card reader next to the door shows a green LED. Keep the wooden panels, the floor and the lighting exactly unchanged.",
+     "box": [
+      1702,
+      40,
+      1990,
+      520
+     ],
+     "scale": 2,
+     "jobs": [
+      {
+       "job_id": "169a72332256",
+       "seed": 431
+      }
+     ],
+     "note": "Eingabe gespiegelt (altarraum_steel_door_open_in_mirror.png), Ergebnis zurückgespiegelt (unmirrored_431.png); Prompt sagt dort LEFT, nach dem Spiegeln hängt die Tür rechts.",
+     "prompt_mirror": "Open the grey steel door: it is hinged on the LEFT side of the door frame and swings away from the viewer into the dark space behind it, so the open door leaf is seen at an angle inside the doorway along the left side. Through the open doorway a narrow concrete staircase leads DOWN: right behind the threshold the steps drop away downwards into darkness, we look down onto the treads, a weak lamp on the side wall far below. The card reader next to the door shows a green LED. Keep the wooden panels, the floor and the lighting exactly unchanged."
+    }
+   },
+   "sprites": {
+    "ladder": {
+     "tool": "qwen-image-edit",
+     "job_id": "29529cd0a076",
+     "seed": 4700,
+     "size": "1216x1008",
+     "inputs": [
+      "Ausschnitt x 668-1368 von assets/scenes/altarraum/background.png, auf 1216x1008 skaliert",
+      "gerade Leiter von vorn (qwen-image-edit, Job 94b737ca5693, Seed 4501, aus assets/items/ladder.png)"
+     ],
+     "prompt": "Place the aluminium step ladder from image 2 into the room of image 1: it stands fully opened and upright on the top of the stone podium, between the two stone altars, below the round smoke detector on the ceiling. The ladder is small: a normal household step ladder, only a little taller than the stone altars, its top far below the smoke detector with a large gap to the ceiling. Match the perspective, scale and lighting of the room, with a soft contact shadow on the podium. Keep everything else in image 1 exactly unchanged, including the taped smoke detector, same drawing style with clean bold black ink outlines and flat cel shading.",
+     "note": "Leiter per Differenz zum unveränderten Ausschnitt freigestellt, nur in einem Trapez um die Holme: nichts über der Leiter (dort hat das Modell den Rauchmelder verändert), unter der Podestkante nur die Füße (ohne Schatten); schwarze Konturen neben der Leiter ergänzt; in Hintergrundpixel umgerechnet (work/scenes/altarraum_ladder/v4/extract.py)"
+    }
+   }
+  },
+  "depot": {
+   "original": "work/depot.png (Entwurf, flux2-klein + qwen-image-edit, Prompt nicht festgehalten)",
+   "edits": {},
+   "sprites": {
+    "hollmann_box": {
+     "tool": "flux2-klein",
+     "job_id": "c0199d88d951",
+     "seed": 301,
+     "size": "1024x1024",
+     "prompt": "old brown cardboard museum storage box with lid and a hand grip hole, a small white paper label on the front, standing on the floor, slightly dusty, single object, centered, the whole object fully visible with margin, front three-quarter view at eye level, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+     "post": "Magenta freigestellt, auf 88 px Breite skaliert, Sättigung 0.8 und Helligkeit 0.72 für das dunkle Depot"
+    }
+   }
+  },
+  "museum_station": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "16787ac57080",
+     "seed": 8002,
+     "size": "2048x576",
+     "note": "Bahnhof im Fels mit Zug"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "c9bfb5dced5f",
+     "seed": 8013,
+     "note": "Zug größer, in einer Schleuse mit Rolltor"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "7630294fc80d",
+     "seed": 8025,
+     "prompt": "Make the airlock chamber in the back wall much wider, spanning most of the back wall from just right of the elevator to near the right edge, with the same riveted steel frame, red warning lights and the heavy steel shutter retracted above it, just as wide as the opening. Inside the chamber a long silver high-speed train is seen exactly from the side, parallel to the wall, filling the chamber from left to right, as tall as the elevator door. In the middle of the train one passenger door is open toward the platform, warm light inside. Keep the rock walls, the Egyptian reliefs, the elevator door on the left, the stone floor and the hand-drawn comic style with bold black outlines unchanged."
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "8808121930f9",
+     "seed": 8032,
+     "prompt": "Remove the large riveted steel plate hanging from the ceiling above the airlock opening, so the rocky cave ceiling is visible there instead. Keep the airlock frame with its red warning lights, the two small lamps on top of the frame, the train with the open lit door, the elevator, the reliefs, the side door, the floor and the hand-drawn comic style with bold black outlines unchanged."
+    }
+   ],
+   "background_closed": {
+    "tool": "qwen-image-edit",
+    "job_id": "b5c916ac1824",
+    "seed": 8041,
+    "input": "background.png",
+    "prompt": "Close the airlock: a heavy riveted steel bulkhead now fills the opening of the airlock chamber exactly inside its riveted steel frame, from the top of the frame down to the floor line, so the train is no longer visible. The bulkhead sits flush in the frame in the back wall, not in front of it. The red warning lights on the frame glow. Keep the rock cave, the ceiling, the two small lamps, the elevator, the reliefs, the side door on the right, the floor and the hand-drawn comic style with bold black outlines unchanged."
+   },
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "train_cabin": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "a6f6e9bf707d",
+     "seed": 8905,
+     "size": "2048x576",
+     "prompt": "Interior of a futuristic high-speed train cabin seen from the aisle, a few curved white passenger seats on the left and right, in the middle of the front wall a large glowing illuminated route map panel: a dark blue screen with one long bright line connecting five round glowing station buttons, the line branches across the panel like a subway map, no letters or labels on the map, small panels with blinking lights around it, windows on both sides showing a dark tunnel with motion streaks, soft cool interior lighting with warm accents, hand-drawn 2D point-and-click adventure game background art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style, wide panoramic shot at eye level, open walkable floor across the foreground, no people, no text"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "41665ed5918a",
+     "seed": 8913,
+     "note": "Karte durch Stern mit Endpunkten ersetzt (vier Punkte)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "cbcba8075b27",
+     "seed": 8922,
+     "prompt": "On the large blue screen, add one more glowing line from the small star in the center straight up to a fifth large glowing round dot near the top edge of the screen, at the center, the same size and glow as the four dots in the corners. Then the map has exactly five dots, all at the ends of the lines. Keep everything else unchanged, no letters, no text."
+    }
+   ],
+   "post": "Qwen-Ausgabe 1920x544 auf 2048x576 skaliert; Stationsnamen kommen im Spiel dazu",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_platform": {
+   "chain": [
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "0d6ee6382584",
+     "seed": 8106,
+     "input": "museum_station/background_closed.png",
+     "note": "Station unter dem Eis: bereifter Fels, Reliefs und Aufzug entfernt"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "b98163e5131c",
+     "seed": 8116,
+     "note": "nach rechts fortgesetzt (Canvas: rechte Hälfte + grau): zwei Stahltüren"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "b10feeec681c",
+     "seed": 8135,
+     "note": "nach rechts fortgesetzt: Treppe nach oben"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "15a72baf52e9",
+     "seed": 8162,
+     "note": "Felssäule zwischen Schleuse und Türen entfernt, Boden vorne durchgehend (Ausschnitt 1460-2484)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "60b794d70cf0",
+     "seed": 8164,
+     "note": "Felssäule zwischen Türen und Treppe entfernt (Ausschnitt 2668-3692)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "f927293e2682",
+     "seed": 8171,
+     "note": "schräge Metallplatte rechts vom Schott entfernt (Ausschnitt 1200-2224)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "7df84a87699e",
+     "seed": 6700,
+     "inputs": [
+      "Ausschnitt 640-1640 x 100-500 des Bahnsteigs",
+      "derselbe Ausschnitt aus museum_station/background.png (offene Schleuse mit Zug)"
+     ],
+     "prompt": "Open the airlock in image 1: the closed steel bulkhead inside the riveted frame is gone, and through the opening we see the airlock chamber with the silver high-speed train exactly as in image 2, seen from the side, with its passenger door open and warm light inside, the warm light falling onto the floor in front of the door. Add a little frost and a few small icicles on the roof of the train and along the edges of the chamber, as it is very cold here. Keep the riveted frame with its red lights and the two lamps, the frosted rock walls, the icicles, the frosty floor tiles and the hand-drawn comic style of image 1 exactly the same.",
+     "note": "nur der veränderte Bereich zurück ins Panorama (work/scenes/antarctica_platform_open/compose.py)"
+    }
+   ],
+   "post": "Panorama 4096x576 aus den Teilen zusammengesetzt, Ausschnitte mit weicher Maske eingesetzt (Python, Pillow, NumPy)",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_control_room": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "12053b428d0a",
+     "seed": 8213,
+     "size": "2048x576",
+     "note": "Prompt ähnlich Entwurf 8201 mit mehr Lauffläche, Stilzeile wie Teil 1"
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02",
+   "layers": {
+    "coffee_open": {
+     "tool": "qwen-image-edit",
+     "job_id": "338b2bd91e9a",
+     "seed": 6660,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "A small square maintenance flap on the front of the old coffee vending machine is open, swung down, and behind it in a holder sits a white cylindrical cartridge fuse with shiny metal end caps, clearly visible. Keep the rest of the machine, the wall, the floor and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   }
+  },
+  "antarctica_airlock": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "385b9f125d79",
+     "seed": 8302,
+     "size": "2048x576"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "fe7b117e9913",
+     "seed": 8312,
+     "note": "Spind mit nur einem dicken Anzug, schmaleres Außentor, zweiter Schrank schlichter"
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02",
+   "layers": {
+    "gate_open": {
+     "tool": "qwen-image-edit",
+     "job_id": "b2e17e678cf6",
+     "seed": 6611,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The heavy frozen steel door is now open: it has swung inward to the left, the ice on its frame has cracked off and lies in chunks on the floor, and through the open doorway we see the dark Antarctic night outside with snow drifting in, a snowfield and a green aurora. Keep the wall, the floor, the doorframe and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    },
+    "glycol_canister": {
+     "tool": "qwen-image-edit",
+     "job_id": "f963c13bf313",
+     "seed": 6621,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "On the lower shelf of the narrow open maintenance cabinet now stands a small green plastic jerrycan with a black screw cap and a blank white label, clearly visible. Keep the cabinet, the tools on the upper hooks, the wall and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    },
+    "suit_taped": {
+     "tool": "qwen-image-edit",
+     "job_id": "3a489d514dac",
+     "seed": 6671,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "Wrap silver grey duct tape tightly around the empty red-orange polar suit hanging in the locker: several turns of tape around both wrists, around both upper arms, around the waist over the harness and around both legs above the knees and above the boots, so the baggy suit is cinched tight. Keep everything else, the locker, the wall and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   },
+   "suit_in_locker": {
+    "tool": "qwen-image-edit",
+    "job_id": "d1f5db2912e8",
+    "seed": 6600,
+    "inputs": [
+     "Ausschnitt Spind",
+     "Anzug 6202"
+    ],
+    "note": "gelber Anzug im Spind durch Martins rot-orangen Anzug ersetzt, direkt in den Hintergrund übernommen"
+   }
+  },
+  "antarctica_observation": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "726d566e9b7b",
+     "seed": 8412,
+     "size": "2048x576",
+     "prompt": "Observation room under a large glass dome on the Antarctic ice at night, through the glass huge steel lattice antenna towers rise into a green aurora sky, a large modern white research telescope on a heavy motorized mount at the right side of the room, an old wind recorder with a paper strip drum on a small table beside it, a spiral staircase going down through a round opening in the floor on the left, wide open floor across the foreground for walking, hand-drawn 2D point-and-click adventure game background art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style, wide panoramic shot at eye level, open walkable floor across the foreground, no people, no text"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "4bf313f11e2d",
+     "seed": 8433,
+     "prompt": "Replace the wooden staircase on the left that goes up with a staircase going down: a rectangular opening in the floor on the left with a wooden railing around it and wooden stairs descending into the floor below, the steps disappearing downward into the dark. Nothing goes up anymore, the curved dome wall on the left is plain. Keep the glass dome, the aurora, the antenna towers, the telescope, the table, the open floor and the hand-drawn comic style with bold black outlines unchanged."
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02",
+   "layers": {
+    "telescope_frozen": {
+     "tool": "qwen-image-edit",
+     "job_id": "e3ac49e39b7e",
+     "seed": 6650,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The telescope is completely frozen: a thick layer of white frost and ice covers the tube, the front lens and the eyepiece is encased in a lump of ice, small icicles hang from the tube and the mount. Keep the shape and position of the telescope, the mount, the glass dome behind it, the floor and the drawing style exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   }
+  },
+  "antarctica_antenna": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "aa6fe50b7ba6",
+     "seed": 8501,
+     "size": "2048x576"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "182487160d06",
+     "seed": 8511,
+     "note": "Leiter nach vorne, Trümmer aus der Lauffläche; untere Leiter per Ausschnitt entfernt (Job 50e88d827fda)"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "96b2f8161771",
+     "seed": 8531,
+     "note": "ganzer Turm im Bild"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "f969fca5369a",
+     "seed": 8552,
+     "prompt": "Make the antenna tower twice as wide and much taller: its wide lattice base stands in the snow in the middle, and the tower rises out of the top edge of the picture, so the tip of the tower is hidden above the picture. Several platforms are visible along the tower, the vertical ladder runs inside the tower upward out of the picture, but the lowest part of the ladder near the ground is missing. Keep the snow field, the aurora sky, the falling snow and the hand-drawn comic style with bold black outlines."
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "f412ca46ef27",
+     "seed": 8563,
+     "input": "Ausschnitt x 774-1274, 2x vergrößert",
+     "prompt": "Remove the vertical ladder with its rungs and rails inside the lattice tower completely, from the platform down to the snow. Behind it the diagonal steel struts of the tower and the aurora sky continue. Keep the tower legs, the cross braces, the platform, the snow, the sky and the hand-drawn comic style with bold black outlines unchanged."
+    }
+   ],
+   "part": 2,
+   "date": "2026-11-02",
+   "post": "Nur die Leiterspalte unterhalb y=280 (x 1024-1079) aus dem leiterlosen Ergebnis übernommen, weicher Rand (Python, Pillow, NumPy); die Leiter beginnt damit etwa 150 px über dem Schnee",
+   "layers": {
+    "ladder": {
+     "source": "assets/scenes/altarraum/sprites/ladder.png (Malerleiter aus dem Altarraum, siehe dort)",
+     "post": "auf 208 px Höhe skaliert, Mitte und Unterkante wie die frühere Qwen-Ebene (die hatte beim Verkleinern Artefakte aus dem Schnee-Ausschnitt)",
+     "part": 2,
+     "date": "2026-11-02"
+    },
+    "runner_broken": {
+     "tool": "qwen-image-edit",
+     "job_id": "d40a51b2fa97",
+     "seed": 6641,
+     "input": "Ausschnitt des Hintergrunds (work/scenes/antarctica_layers/crops.json)",
+     "prompt": "The small steel fall arrester runner from image 2 lies half buried in the snow in the middle of image 1, small, with its carabiner and the broken spring sticking out of the snow, a little frost on it. Keep the snow surface, the shading and the drawing style of image 1 exactly the same.",
+     "post": "auf Ausschnittgröße, nur der veränderte Bereich (Differenzmaske, weicher Rand) als Ebene (work/scenes/antarctica_layers/compose.py)",
+     "part": 2,
+     "date": "2026-11-02"
+    }
+   }
+  },
+  "antarctica_telescope_top": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "26242d48f19b",
+     "seed": 8601,
+     "size": "2048x576",
+     "reference": "antarctica_antenna/background.png (Entwurf 8552)",
+     "note": "Spitze des Turms mit Plattform"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "7449cfd1ed84",
+     "seed": 8623,
+     "prompt": "Remove the big lump of ice and the large medal from the top platform. Instead a person in a dark orange polar suit with a hood lies motionless on the grating near the railing, curled up on his side, half covered with snow and white rime, frozen to the grating, face not visible, one gloved hand hanging over the edge of the platform. A small part of the railing next to him is bent. Nothing gory. Keep the tower, the platform, the ladder, the small box in the corner, the aurora sky, the falling snow and the hand-drawn comic style with bold black outlines."
+    }
+   ],
+   "post": "Qwen-Ausgabe 1920x544 auf 2048x576 skaliert",
+   "todo": "vorläufig, Figur noch zu groß",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "antarctica_telescope_level": {
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "2329fea24d55",
+     "seed": 8613,
+     "size": "2048x576",
+     "reference": "Entwurf 8552",
+     "prompt": "View through a telescope of a middle section of a tall steel lattice antenna tower in Antarctica at night: one small grating platform with a railing around the tower, a vertical steel ladder runs inside the lattice from below through the platform and continues upward out of the picture, the lattice tower continues above and below out of the picture, at the corner of the platform a short thin empty steel pole sticks up from the railing with nothing mounted on it, frost and rime on all steel struts, green aurora sky with stars behind, blowing snow, hand-drawn 2D point-and-click adventure game background art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style, close-up, the platform fills the middle of the picture, no people, no text"
+    }
+   ],
+   "post": "Windfahne wird im Spiel dynamisch eingesetzt",
+   "part": 2,
+   "date": "2026-11-02",
+   "sprites": {
+    "vane_calm": {
+     "tool": "flux2-klein",
+     "job_id": "4ef73dd3dc55",
+     "seed": 6400,
+     "size": "1024x1024",
+     "prompt": "a small rectangular orange and white striped wind flag hanging limp and motionless straight down from the top of a short thin vertical steel pole, no wind at all, a little frost on the pole, single object, centered, the whole object fully visible with margin, side view, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    "vane_breeze": {
+     "tool": "flux2-klein",
+     "job_id": "8ef85ee87c19",
+     "seed": 6413,
+     "size": "1024x1024",
+     "prompt": "a small rectangular orange and white striped wind flag on a short thin vertical steel pole, in a light breeze: the flag is only half lifted, it hangs diagonally down at about 45 degrees to the right, softly curved with a few folds, a little frost on the pole, single object, centered, the whole object fully visible with margin, side view, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    "vane_storm": {
+     "tool": "flux2-klein",
+     "job_id": "5c973695c367",
+     "seed": 6422,
+     "size": "1024x1024",
+     "prompt": "a small rectangular orange and white striped wind flag on a short thin vertical steel pole in a violent storm, the flag stands out completely straight and horizontal to the right, taut and snapping, its frayed end torn into strands, snow streaks flying past, a little frost on the pole, single object, centered, the whole object fully visible with margin, side view, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    "post": "per Farbton freigestellt (work/items/antarctica/tools/key_icon.py), zugeschnitten, auf 190 px Höhe; im Spiel je Stufe leicht bewegt (Skalierung/Drehung um den Mastfuß)",
+    "part": 2,
+    "date": "2026-11-02"
+   }
+  }
+ },
+ "characters": {
+  "ackermann": {
+   "idle": {
+    "tool": "qwen-image-edit",
+    "job_id": "76e15d9e6eb9",
+    "seed": 4703,
+    "inputs": [
+     "Ackermann frontal (image_4501, siehe front)"
+    ],
+    "prompt": "The same woman, but her whole body and her head are turned in a three-quarter view toward the right side of the picture, and she looks toward the lower right, slightly downward, as if at someone standing in front of her to the right. Arms hanging relaxed at her sides, full body from head to shoes, uncropped. Keep her face, glasses, hair, clothes, colors, the drawing style and the plain flat magenta background exactly the same.",
+    "note": "freigestellt, auf 229 px Höhe skaliert, an der Hinterkante der Tresenplatte abgeschnitten und die Dinge auf dem Tresen ausgespart (work/characters/ackermann/v2/make_sprite.py, occluder_counter.png)",
+    "front": {
+     "tool": "qwen-image-edit",
+     "job_id": "64a1d8f94029",
+     "seed": 4501,
+     "inputs": [
+      "work/ackermann.png (Entwurf)",
+      "bisheriges Lobby-Sprite (Stilreferenz)"
+     ],
+     "prompt": "The woman from image 1, drawn in the style of the woman in image 2: clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style. Same woman: grey hair in a bun, glasses, dark grey cardigan over a white blouse, black skirt. She stands upright facing the viewer with a friendly but strict expression, both arms hanging relaxed at her sides, full body from head to shoes, uncropped. Plain flat solid magenta background, no shadow, no floor, nothing else in the picture."
+    }
+   },
+   "talk_open": {
+    "tool": "qwen-image-edit",
+    "job_id": "85d6845d245e",
+    "seed": 4801,
+    "inputs": [
+     "idle (image_4703)"
+    ],
+    "prompt": "The woman is speaking: her mouth is open in the middle of a word. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes, the plain magenta background and everything else in the picture exactly unchanged.",
+    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet"
+   },
+   "talk_small": {
+    "tool": "qwen-image-edit",
+    "job_id": "899bf78cdf75",
+    "seed": 4811,
+    "inputs": [
+     "idle (image_4703)"
+    ],
+    "prompt": "The woman is speaking: her mouth is slightly open, a narrow opening, as in a soft vowel. Change only her mouth. Keep her face, eyes, glasses, hair, pose, hands, clothes, the plain magenta background and everything else in the picture exactly unchanged.",
+    "note": "nur der Mundbereich übernommen, am Gesicht ausgerichtet"
+   },
+   "incense_cone": {
+    "tool": "qwen-image-edit",
+    "job_id": "44f9d625ac39",
+    "seed": 4822,
+    "inputs": [
+     "idle (image_4703)"
+    ],
+    "prompt": "The same woman raises one hand and holds a small dark brown cone of incense between her fingertips right in front of her nose and sniffs at it with her eyes half closed, her other arm hangs relaxed. The incense is not burning, there is no smoke. Keep her face, glasses, hair, clothes, body, the plain magenta background and the drawing style exactly unchanged, full body from head to shoes.",
+    "note": "am Rumpf des Grundbilds ausgerichtet (align_full.py)"
+   }
+  },
+  "martin": {
+   "restyle": {
+    "tool": "qwen-image-edit",
+    "job_id": "c6eb67f80a3f",
+    "seed": 901,
+    "inputs": [
+     "work/martin.png (Entwurf)",
+     "assets/scenes/werkstatt/background.png (Stilreferenz)"
+    ],
+    "prompt": "Redraw the man from image 1 in the drawing style of image 2: clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style. Same man, same clothes (beige work coat with glasses in the breast pocket, green shirt, belt, blue jeans, brown shoes), same face, same standing pose facing the viewer, full body from head to shoes. Plain flat solid magenta background, no shadow, nothing else in the picture."
+   },
+   "apose": {
+    "tool": "qwen-image-edit",
+    "job_id": "e68548417101",
+    "seed": 941,
+    "inputs": [
+     "restyle image_901"
+    ],
+    "prompt": "Same man, same clothes, same face and same drawing style, standing straight facing the viewer in a relaxed A-pose: both arms hang slightly away from the body with a small gap between arms and coat, hands open, legs straight and slightly apart with a gap between them, feet flat. Plain flat light grey background, no shadow on the floor, nothing else in the picture."
+   },
+   "model": {
+    "tool": "pixal3d (image_to_3d)",
+    "job_id": "9fc3c1e1c029",
+    "seed": 951,
+    "params": "max_faces 40000, texture_size 2048"
+   },
+   "post": {
+    "tool": "blender glb_post",
+    "job_id": "7ee43e0b0b0c",
+    "args": "--height 1.8"
+   },
+   "rig": {
+    "tool": "blender rig_biped",
+    "job_id": "39c3a4f3b206",
+    "args": "--landmarks human2.json (eigenes Menschenprofil) --walk 1.0 --stride 0.4",
+    "note": "danach eigene Gewichtskorrektur (Job 2baef9570707): Arm-Gewichte komplett auf chest, Bein-Gewichte oberhalb des Mantelsaums (z>0.62 m) auf hips, damit der Mantel nicht aufreißt"
+   },
+   "sprites": {
+    "tool": "blender (eigener Code, EEVEE)",
+    "job_id": "aa18b176266a",
+    "note": "Orthografische Kamera, 10° von oben, 4 Richtungen x (1 Stand + 8 Lauf), transparenter Hintergrund; danach gemeinsamer Zuschnitt und 3 px Außenkontur per Python; nicht mehr im Spiel (durch die Videoansicht ersetzt)"
+   },
+   "side": {
+    "three_quarter": {
+     "tool": "qwen-image-edit",
+     "job_id": "9a5293586f51",
+     "seed": 3001,
+     "inputs": [
+      "work/martin.png (Entwurf)"
+     ],
+     "prompt": "The same man in a three-quarter view: his body and face turned about 45 degrees to the left of the viewer, standing upright and relaxed, arms hanging naturally, full body from head to shoes, uncropped. Keep his face, hair, clothes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture."
+    },
+    "three_quarter_45": {
+     "tool": "qwen-image-edit",
+     "job_id": "d4ab31ebb2e2",
+     "seed": 3202,
+     "inputs": [
+      "three_quarter image_3001"
+     ],
+     "prompt": "Rotate the man so that he is clearly in a three-quarter view: his whole body, feet, hips, shoulders and head turned 45 degrees toward the right side of the picture, he looks toward the right edge of the picture, his left shoulder is closer to the viewer, we see the front of his coat at an angle and part of his left side. Standing upright and relaxed, arms hanging naturally, full body from head to shoes, uncropped. Keep his face, hair, clothes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture."
+    },
+    "video": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "444bd2c99178",
+     "seed": 3800,
+     "inputs": [
+      "no_glasses image_3702 (Startbild)"
+     ],
+     "params": "768x1024, 5 s, 24 fps",
+     "prompt": "The man in the beige work coat walks on the spot, as if on a treadmill: he takes steady, natural walking steps in the direction he is facing, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps. His body, head and face stay turned exactly the same way the whole time, in the same three-quarter view toward the right; he does not turn, does not rotate, does not look at the viewer. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor."
+    },
+    "sprites": {
+     "tool": "ffmpeg + Python (numpy, scipy, Pillow)",
+     "note": "Bild 0 = right_idle, Bilder 69-101 = right_walk_00..32 (Periode 33 Bilder per Maskenvergleich); Hintergrund per Flutfüllung grauer, entsättigter Flächen entfernt (inkl. Schatten), gemeinsamer Zuschnitt 192,37-627,1019, auf 2/3 verkleinert"
+    },
+    "no_glasses": {
+     "tool": "qwen-image-edit",
+     "job_id": "4c846876cb06",
+     "seed": 3702,
+     "inputs": [
+      "three_quarter_45 image_3202"
+     ],
+     "prompt": "Remove the glasses from the breast pocket of his coat: the breast pocket is empty and flat, plain coat fabric. Keep everything else exactly unchanged: his face, hair, pose, clothes, colors, drawing style and the plain light grey background.",
+     "note": "Brille entfernt, damit das Spiegeln für links keinen Seitenwechsel der Brille zeigt"
+    },
+    "turn": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "966814ad258f",
+     "seed": 3900,
+     "inputs": [
+      "video_3800 Bild 0 (erstes Bild)",
+      "dasselbe gespiegelt (letztes Bild)"
+     ],
+     "params": "768x1024, 2 s, 24 fps",
+     "prompt": "The man in the beige work coat turns around on the spot, calmly and naturally: he starts in a three-quarter view looking toward the right, turns his body and head toward the viewer, passes through a front view facing the viewer, and ends in a three-quarter view looking toward the left. He steps around with small natural steps, arms hanging relaxed. His face, hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: two quiet footsteps on a hard floor.",
+     "note": "jedes zweite Bild 2-46 = turn_00..22, freigestellt wie der Laufzyklus, Zuschnitt 170,37-610,1019, auf 2/3 verkleinert"
+    },
+    "start": {
+     "tool": "Python (numpy, scipy, Pillow)",
+     "inputs": [
+      "video_3800"
+     ],
+     "note": "Bilder 3-35 = start_00..32 (ab Bild 36 periodisch, Bild 36 entspricht Bild 69 = right_walk_00), freigestellt und zugeschnitten wie der Laufzyklus"
+    },
+    "talk": {
+     "talk_open": {
+      "tool": "qwen-image-edit",
+      "job_id": "2d42f414e999",
+      "seed": 4002,
+      "inputs": [
+       "video_3800 Bild 0 (Standbild)"
+      ],
+      "prompt": "The man is speaking: his mouth is open in the middle of a word. Change only his mouth. Keep his face, eyes, hair, pose, hands, clothes, the plain light grey background and everything else in the picture exactly unchanged."
+     },
+     "talk_small": {
+      "tool": "qwen-image-edit",
+      "job_id": "55a4a3ba0664",
+      "seed": 4010,
+      "inputs": [
+       "video_3800 Bild 0 (Standbild)"
+      ],
+      "prompt": "The man is speaking: his mouth is slightly open, a narrow opening, as in a soft vowel. Change only his mouth. Keep his face, eyes, hair, pose, hands, clothes, the plain light grey background and everything else in the picture exactly unchanged."
+     },
+     "note": "nur der Mundbereich übernommen (Ellipse um 430,172, weicher Rand), vorher per Skalierung+Verschiebung am Gesicht ausgerichtet; Alpha vom Standbild"
+    },
+    "idle_loop": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "be11019c3390",
+     "seed": 4100,
+     "inputs": [
+      "video_3800 Bild 0 (erstes und letztes Bild)"
+     ],
+     "params": "768x1024, 4 s, 24 fps",
+     "prompt": "The man in the beige work coat stands still and relaxed in a three-quarter view looking toward the right, waiting calmly. He breathes slowly, his chest and shoulders rise and fall slightly, he blinks once, and shifts his weight very slightly. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet room tone.",
+     "note": "jedes zweite Bild 0-94 = idle_00..47, freigestellt und zugeschnitten wie der Laufzyklus"
+    },
+    "use": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "eff54dfa5120",
+     "seed": 4202,
+     "inputs": [
+      "video_3800 Bild 0 (erstes und letztes Bild)"
+     ],
+     "params": "768x1024, 2 s, 24 fps",
+     "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right. He calmly reaches forward with his arm toward something at chest height in front of him on the right, touches it briefly with his hand as if pressing or taking hold of it, then lowers his arm again and stands relaxed as before. His hand stays empty, no object is visible. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a soft click.",
+     "note": "Bilder 2-36 = use_00..34, freigestellt, Zuschnitt 192,37-762,1019, auf 2/3 verkleinert"
+    },
+    "pickup": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "4fede0d019cf",
+     "seed": 4301,
+     "inputs": [
+      "video_3800 Bild 0 (erstes und letztes Bild)"
+     ],
+     "params": "768x1024, 3 s, 24 fps",
+     "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right. He bends his knees and crouches down to the floor in front of him, reaches down with his hand and closes it as if picking up a small object from the floor, then straightens up again and stands relaxed as before. His hand stays closed and nothing is visible in it. His feet stay in place, his body and head stay turned the same way, he does not walk, does not turn and does not look at the viewer. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: the rustle of a coat.",
+     "note": "Bilder 3-56 = pickup_00..53, freigestellt, Zuschnitt 192,37-700,1019, auf 2/3 verkleinert"
+    },
+    "back": {
+     "view": {
+      "tool": "qwen-image-edit",
+      "job_id": "6dc04e32d181",
+      "seed": 5001,
+      "inputs": [
+       "video_3800 Bild 0 (Standbild)"
+      ],
+      "prompt": "The same man seen from behind in a three-quarter back view: he has turned away from the viewer and faces into the depth of the picture toward the upper right, we see his back, the back of his head and his black hair, only a small part of his right cheek and ear is visible, no face. Standing upright and relaxed, arms hanging naturally, full body from head to shoes, uncropped, same size and same position in the picture. Keep his hair, beige work coat, blue jeans, brown shoes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture."
+     },
+     "walk": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "a645745ae1dc",
+      "seed": 5102,
+      "inputs": [
+       "back view image_5001 (Startbild)"
+      ],
+      "params": "768x1024, 5 s, 24 fps",
+      "prompt": "The man in the beige work coat, seen from behind, walks on the spot, as if on a treadmill: he takes steady, natural walking steps away from the viewer into the depth of the picture toward the upper right, but stays at the same place in the picture. His arms swing gently, the coat moves with his steps, we keep seeing his back and the back of his head. He does not turn around, does not rotate, does not show his face. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
+      "note": "dreht im Video auf gerade Rückansicht; Bilder 52-77 = back_walk_00..25 (Periode 26), Bild 64 = back_idle; Zuschnitt 192,27-627,1019, auf 2/3 verkleinert"
+     },
+     "stand": {
+      "file": "characters/martin/back_idle.png",
+      "tool": "qwen-image-edit",
+      "job_id": "4af4517092b6",
+      "seed": 5023,
+      "inputs": [
+       "video_5102 Bild 59 (= back_walk_07)"
+      ],
+      "prompt": "The same man in exactly the same pose of his upper body, the same body rotation, the same shoulders and the same view from behind, but now he stands still: both shoes flat and firmly on the floor next to each other, weight evenly on both legs, legs straight. Only the legs and feet change, everything above the hem of the coat stays exactly as it is. Same size and same position in the picture, full body from head to shoes, uncropped. Keep his hair, beige work coat, blue jeans, brown shoes, colors and drawing style exactly the same. Plain flat light grey background, nothing else in the picture.",
+      "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds back_walk_07 ausgerichtet; verworfen: job 2c9eea05c060 (5010-5013, Schultern breiter als im Lauf)"
+     },
+     "turn_to_diag": {
+      "files": "characters/martin/turn_back_diag_00..09.png",
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "f5bbb01fd87b",
+      "seed": 5600,
+      "inputs": [
+       "Rücken-Standbild (image_5023 freigestellt, in Videogeometrie gesetzt: work/characters/martin/back/turn_to_diag/start_back.png, erstes Bild)",
+       "image_5001 (letztes Bild)"
+      ],
+      "params": "768x1024, 1 s, 24 fps",
+      "prompt": "The man in the beige work coat stands seen directly from behind and turns on the spot, calmly and naturally, a little toward the right of the picture until we see him diagonally from behind, his back, the right side of his body and a little of his right ear. He makes one small natural step forward with his right foot in the direction he turns to and then stands still with both feet on the floor, arms hanging relaxed. He never steps backward. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
+      "note": "Varianten 5600-5603, gewählt 5600; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 1-19 jedes zweite = turn_back_diag_00..09, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); ersetzt das rückwärts abgespielte turn_diag_back für BDR/BDL"
+     }
+    },
+    "diag": {
+     "walk": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "268a5ffbff07",
+      "seed": 5300,
+      "inputs": [
+       "back view image_5001 (erstes und letztes Bild)"
+      ],
+      "params": "768x1024, 5 s, 24 fps",
+      "prompt": "The man in the beige work coat, seen diagonally from behind, walks on the spot, as if on a treadmill: he takes steady, natural walking steps diagonally away from the viewer toward the upper right of the picture, but stays at the same place in the picture. His body stays turned exactly the same way the whole time, a three-quarter back view at 45 degrees: we see his back and the right side of his body, the back of his head and a little of his right ear. He does not turn further away, does not turn toward the viewer, does not rotate. His arms swing gently, the coat moves with his steps. Constant even gait from start to end. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
+      "note": "Bilder 78-109 = diag_walk_00..31 (Periode 32), Bild 80 = diag_idle; Zuschnitt 192,27-627,1024, auf 2/3 verkleinert"
+     },
+     "turn_side": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "dba02bd8c726",
+      "seed": 5401,
+      "inputs": [
+       "video_3800 Bild 0 (erstes Bild)",
+       "video_5300 Bild 80 (letztes Bild)"
+      ],
+      "params": "768x1024, 1 s, 24 fps",
+      "prompt": "The man in the beige work coat turns on the spot, calmly and naturally: he starts in a three-quarter view looking toward the right and turns a little further away from the viewer until we see him diagonally from behind, his back and the right side of his body. A small natural step, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
+      "note": "Bilder 1-23 jedes zweite = turn_diag_00..11"
+     },
+     "turn_back": {
+      "tool": "ltx-2.5 generate_video",
+      "job_id": "171057937dc6",
+      "seed": 5502,
+      "inputs": [
+       "video_5300 Bild 80 (erstes Bild)",
+       "video_5102 Bild 64 (letztes Bild)"
+      ],
+      "params": "768x1024, 1 s, 24 fps",
+      "prompt": "The man in the beige work coat, seen diagonally from behind, turns on the spot, calmly and naturally, a little further away from the viewer until we see him directly from behind, his back and the back of his head. A small natural step, arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a quiet footstep on a hard floor.",
+      "note": "Bilder 1-23 jedes zweite = turn_diag_back_00..11"
+     },
+     "stand": {
+      "file": "characters/martin/diag_idle.png",
+      "source": "image_5001 (Startbild des Laufvideos 5300, qwen-image-edit job 6dc04e32d181)",
+      "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds diag_walk_08 ausgerichtet"
+     }
+    },
+    "turn_side_back": {
+     "files": "characters/martin/turn_side_back_00..25.png",
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "d3043943f4f0",
+     "seed": 5702,
+     "inputs": [
+      "video_3800 Bild 0 (erstes Bild)",
+      "image_5001 gespiegelt (letztes Bild)"
+     ],
+     "params": "768x1024, 1,5 s, 24 fps",
+     "prompt": "The man in the beige work coat stands in a three-quarter view looking toward the right and turns around on the spot, calmly and naturally, away from the viewer: he turns his back toward the viewer, passes through a view directly from behind, and keeps turning until we see him diagonally from behind, facing the upper left of the picture. He never faces the viewer, we do not see his face again after the start. He steps around with small natural steps, his feet always stay under his body, he never steps backward. Arms hanging relaxed. His hair and clothes stay the same. He stays at the same place in the picture. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: quiet footsteps on a hard floor.",
+     "note": "Varianten 5700-5703, gewählt 5702; freigestellt mit walk_inplace_45/scripts/key.py, Bilder 1-26 = turn_side_back_00..25, Zuschnitt 192,27-627,1024, auf 2/3 verkleinert (wie der Schräg-Laufzyklus); Animationen SRDL und gespiegelt SLDR"
+    },
+    "back_use": {
+     "files": "characters/martin/back_use_00..46.png",
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "814341d40afa",
+     "seed": 6001,
+     "inputs": [
+      "Startbild: work/characters/martin/back/gestures/start_back.png (back/stand/image_5023.png auf 775x1024 verkleinert, Mitte 768 breit), als erstes und letztes Bild"
+     ],
+     "params": "768x1024, 2 s, 24 fps, frames=True, count 4 ab seed 6000",
+     "prompt": "The man in the beige work coat stands seen from behind, facing away from the viewer into the depth of the picture. He calmly raises his right arm and reaches forward with it toward something at chest height directly in front of him, his hand clearly visible beside his body as it moves forward, touches it briefly with his hand as if pressing or taking hold of it, then lowers his arm again and stands relaxed as before. His hand stays empty, no object is visible. His feet stay in place, we keep seeing his back and the back of his head, he does not walk, does not turn and does not show his face. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: a soft click.",
+     "note": "Bilder 1-47 = back_use_00..46, BiRefNet-Masken, work/characters/martin/regen/scripts/build.py gestures: auf 2/3 verkleinert, wie back_idle ausgerichtet (Skalierung 1.0094), Leinwand 306x661, Fußpunkt 149,649; verworfen: 6000 (winkt zur Seite), 6002 (wirkt wie Kopfkratzen), 6003 (kaum Bewegung)"
+    },
+    "back_pickup": {
+     "files": "characters/martin/back_pickup_00..71.png",
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "65335843c1a1",
+     "seed": 6101,
+     "inputs": [
+      "Startbild: work/characters/martin/back/gestures/start_back.png (back/stand/image_5023.png auf 775x1024 verkleinert, Mitte 768 breit), als erstes und letztes Bild"
+     ],
+     "params": "768x1024, 3 s, 24 fps, frames=True, count 4 ab seed 6100",
+     "prompt": "The man in the beige work coat stands seen from behind, facing away from the viewer into the depth of the picture. He bends his knees and crouches down toward the floor in front of him, reaches down with his right hand, his hand visible beside his body, and closes it as if picking up a small object from the floor, then straightens up again and stands relaxed as before. His hand stays closed and nothing is visible in it. His feet stay in place, we keep seeing his back and the back of his head, he does not walk, does not turn and does not show his face. The camera is completely static, locked off, no zoom, no pan. Plain flat light grey background, even soft light, same illustrated drawing style throughout. Sound: the rustle of a coat.",
+     "note": "Bilder 1-72 = back_pickup_00..71, wie back_use freigestellt und ausgerichtet, Leinwand 290x661, Fußpunkt 133,649; verworfen: 6102 (Sprung bei Bild 7), 6100, 6103 (Hände am Ende in die Hüften)"
+    }
+   },
+   "shadow": {
+    "tool": "Python (Pillow)",
+    "note": "radialer Verlauf 256x64, Alpha = (1 - r)^0.9, schwarz"
+   },
+   "cutout_2026_11_05": {
+    "files": "characters/martin/*.png außer shadow.png (alle Sprites ohne Anzug)",
+    "tool": "ltx-2.5 generate_video (frames=True) + BiRefNet-matting remove_background (mask=True), gb10-assets 0.1.4",
+    "note": "Ersetzt die bisherige Freistellung. Alle Videos (3800, 3900, 4100, 4202, 4301, 5102, 5300, 5401, 5502, 5600, 5702) mit denselben Prompts, Seeds, Keyframes und Parametern wie oben neu erzeugt; die Videobilder sind pixelgleich mit den früheren MP4s, jetzt zusätzlich verlustfrei als PNG. Alpha aus der BiRefNet-Maske je Bild (größte zusammenhängende Fläche), Farbe durch Herausrechnen des Hintergrundgraus (Median der Bildränder) an halbtransparenten Pixeln; Bildnummern, Zuschnitte und Verkleinerung auf 2/3 (vormultipliziertes Alpha) wie bisher. Sprechbilder: dieselben Mund-Patches, Alpha aus der Maske von Bild 0 (3800). Standbilder schräg/hinten: image_5001 und image_5023 mit BiRefNet freigestellt, wie bisher am Haltebild diag_walk_08 bzw. back_walk_07 ausgerichtet. Skripte: work/characters/martin/regen/scripts/build.py; Job-IDs in work/characters/jobs.txt; alter Stand in work/characters/martin/backup_before_regen_2026-11-05/"
+   }
+  },
+  "martin_suit": {
+   "part": 2,
+   "date": "2026-11-02",
+   "design": {
+    "tool": "qwen-image-edit",
+    "job_id": "262fd44e9436",
+    "seed": 6202,
+    "inputs": [
+     "video_3800 Bild 0 (Martin, Seitenansicht)"
+    ],
+    "prompt": "The same man now wears a bulky red-orange polar expedition suit that is clearly several sizes too big for him: a puffy one-piece overall with reflective stripes, the sleeves cover half of his hands which wear thick black gloves, the legs bunch up in folds over heavy white snow boots, the fur-trimmed hood is down on his shoulders, a black climbing harness with a metal ring around his waist and thighs. Same face, same black hair, same pose, same size and same position in the picture, three-quarter view toward the right, full body from head to boots. Keep the drawing style and the plain flat light grey background exactly the same."
+   },
+   "views": {
+    "diag": {
+     "tool": "qwen-image-edit",
+     "job_id": "67b02c5d1119",
+     "seed": 6210,
+     "inputs": [
+      "video_5300 Bild 80",
+      "Anzug 6202"
+     ]
+    },
+    "back": {
+     "tool": "qwen-image-edit",
+     "job_id": "0710ef7b507f",
+     "seed": 6221,
+     "inputs": [
+      "video_5102 Bild 64",
+      "Anzug 6202"
+     ]
+    },
+    "diag_stand": {
+     "file": "characters/martin_suit/diag_idle.png",
+     "tool": "qwen-image-edit",
+     "job_id": "f90df06bca9b",
+     "seed": 6241,
+     "inputs": [
+      "Anzug-Laufvideo diag Bild 84 (= diag_walk_08)",
+      "image_5001 (Beinstellung)"
+     ],
+     "prompt": "The man in the orange cold weather suit from image 1, seen from exactly the same angle as in image 1: from the side and slightly from behind, facing to the right, we see the right side of his body, his back and the right side of his face. Do not rotate him, do not turn him toward or away from the viewer. Only his legs change: he stands still with the leg and foot position of the man in image 2, both boots flat and firmly on the floor, weight on both legs. Same size and same position as in image 1, full body from head to boots. Keep the suit, hood with fur, gloves, white boots, colors and drawing style of image 1 exactly the same. Plain flat light grey background, nothing else in the picture.",
+     "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds diag_walk_08 ausgerichtet; verworfen: job d11b0a676cd0 (6230-6233, auf Rückansicht gedreht)"
+    },
+    "back_stand": {
+     "file": "characters/martin_suit/back_idle.png",
+     "source": "image_6220 (qwen-image-edit job 0710ef7b507f, Variante seed 6220, Eingaben wie views/back)",
+     "note": "freigestellt (key.py der jeweiligen Figur), mit work/characters/martin/stand_sprites/scripts/align.py auf Leinwand, Körperhöhe, Fußlinie und Kopfmitte des Haltebilds back_walk_07 ausgerichtet"
+    }
+   },
+   "walk": {
+    "side": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "c5dda438a8cc",
+     "seed": 6301,
+     "params": "768x1024, 5 s, 24 fps"
+    },
+    "diag": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "b2b89ab0ba87",
+     "seed": 6310,
+     "params": "768x1024, 5 s, 24 fps, Start = Ende"
+    },
+    "back": {
+     "tool": "ltx-2.5 generate_video",
+     "job_id": "919e924ba46b",
+     "seed": 6320,
+     "params": "768x1024, 5 s, 24 fps"
+    },
+    "prompt": "wie die Laufvideos ohne Anzug, mit „the man in the bulky red-orange polar suit“ und Stiefelschritten"
+   },
+   "sprites": {
+    "tool": "Python (numpy, scipy, Pillow)",
+    "note": "freigestellt per Flutung vom Rand, Sperre aus dunklen Konturen und Kanten (Sobel > 80), damit die weißen Stiefel auch bei Bewegungsunschärfe bleiben, Zyklus per Maskenvergleich, auf die Bildanzahl der Originale umgerechnet, Phase an den Original-Laufbildern ausgerichtet, auf die Körperhöhe der Original-Standbilder skaliert, gleicher Anker und gleiche Leinwand (work/characters/martin_suit/sprites/scripts); Anlauf (start_00..32) = Videobilder 1-50, endet vor Videobild 52, das dem ersten Zyklusbild gleicht (work/characters/martin_suit/sprites/scripts/start_fix.py); Leinwand je Seite um 100 px breiter, 30 oben, 40 unten (scripts/replace.py), Anker in player.gd SUIT_ANCHORS",
+    "build": {
+     "side": {
+      "scale": 0.6642,
+      "period": 27,
+      "cycle_start": 72,
+      "cycle_err": 0.0247,
+      "phase": 8,
+      "iou": 0.624,
+      "video_frames": [
+       79,
+       79,
+       80,
+       81,
+       82,
+       83,
+       83,
+       84,
+       85,
+       86,
+       87,
+       88,
+       88,
+       89,
+       90,
+       91,
+       92,
+       92,
+       93,
+       94,
+       95,
+       96,
+       97,
+       97,
+       98,
+       72,
+       73,
+       74,
+       74,
+       75,
+       76,
+       77,
+       78
+      ],
+      "idle_frame": 0,
+      "offset": [
+       -125.4,
+       -23.9
+      ],
+      "start_frames": [
+       1,
+       3,
+       4,
+       6,
+       7,
+       9,
+       10,
+       12,
+       13,
+       15,
+       16,
+       18,
+       20,
+       21,
+       23,
+       24,
+       26,
+       27,
+       29,
+       30,
+       32,
+       33,
+       35,
+       37,
+       38,
+       40,
+       41,
+       43,
+       44,
+       46,
+       47,
+       49,
+       50
+      ],
+      "start_end": 52
+     },
+     "diag": {
+      "scale": 0.68,
+      "period": 27,
+      "cycle_start": 64,
+      "cycle_err": 0.018,
+      "phase": 16,
+      "iou": 0.637,
+      "video_frames": [
+       78,
+       78,
+       79,
+       80,
+       81,
+       82,
+       83,
+       83,
+       84,
+       85,
+       86,
+       87,
+       88,
+       88,
+       89,
+       90,
+       64,
+       65,
+       66,
+       67,
+       67,
+       68,
+       69,
+       70,
+       71,
+       72,
+       72,
+       73,
+       74,
+       75,
+       76,
+       77
+      ],
+      "idle_frame": 79,
+      "offset": [
+       -122.4,
+       -20.9
+      ]
+     },
+     "back": {
+      "scale": 0.6477,
+      "period": 27,
+      "cycle_start": 50,
+      "cycle_err": 0.0115,
+      "phase": 17,
+      "iou": 0.713,
+      "video_frames": [
+       68,
+       69,
+       70,
+       71,
+       72,
+       73,
+       74,
+       75,
+       76,
+       50,
+       51,
+       52,
+       53,
+       54,
+       55,
+       56,
+       57,
+       58,
+       59,
+       60,
+       61,
+       62,
+       64,
+       65,
+       66,
+       67
+      ],
+      "idle_frame": 53,
+      "offset": [
+       -113.4,
+       -9.0
+      ]
+     }
+    }
+   }
+  },
+  "pjotr": {
+   "part": 2,
+   "date": "2026-11-02",
+   "front": {
+    "tool": "flux2-klein",
+    "job_id": "2c5f8d67af0c",
+    "seed": 4800,
+    "size": "832x1248",
+    "prompt": "Pjotr, a burly Russian station technician in his fifties at an Antarctic research station, round friendly face with a bushy grey moustache and stubble, small tired eyes, a knitted dark blue beanie, a worn padded orange work vest over a thick grey wool sweater with rolled-up sleeves, dark blue work trousers with many pockets, heavy felt-lined boots, a large enamel coffee mug in his right hand, a pencil behind his ear, relaxed slightly slouching posture, standing upright facing the viewer, both feet on the ground, full body from head to boots, uncropped, plain flat solid magenta background, no shadow, no floor, nothing else in the picture, hand-drawn 2D point-and-click adventure game character art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+   },
+   "idle": {
+    "tool": "qwen-image-edit",
+    "job_id": "df35f08c3e2e",
+    "seed": 4810,
+    "inputs": [
+     "front 4800"
+    ],
+    "prompt": "The same man, but his whole body and his head are turned in a three-quarter view toward the right side of the picture, and he looks toward the lower right, slightly downward, as if at someone standing in front of him to the right. He holds the enamel coffee mug in his right hand at chest height, the other arm hangs relaxed. Full body from head to boots, uncropped. Keep his face, moustache, beanie, clothes, colors, the drawing style and the plain flat magenta background exactly the same."
+   },
+   "talk_small": {
+    "tool": "qwen-image-edit",
+    "job_id": "1f5751885935",
+    "seed": 4821,
+    "inputs": [
+     "idle 4810"
+    ],
+    "prompt": "The man is speaking: his mouth is slightly open under his moustache, a narrow opening, as in a soft vowel. Change only his mouth. Keep his face, eyes, beanie, pose, hands, mug, clothes, the plain magenta background and everything else in the picture exactly unchanged."
+   },
+   "talk_open": {
+    "tool": "qwen-image-edit",
+    "job_id": "7f7a0064b629",
+    "seed": 4831,
+    "inputs": [
+     "idle 4810"
+    ],
+    "prompt": "The man is speaking: his mouth is open under his moustache in the middle of a word. Change only his mouth. Keep his face, eyes, beanie, pose, hands, mug, clothes, the plain magenta background and everything else in the picture exactly unchanged."
+   },
+   "note": "nur der Mundbereich der Sprechbilder übernommen (Ellipse 425,225-515,300, weicher Rand); Magenta per Farbton vom Rand her freigestellt, auf 300 px Höhe skaliert (work/characters/pjotr/sprite/make_sprite.py)"
+  }
+ },
+ "voices": {
+  "martin": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "6234a14a6c26",
+    "seed": 1002,
+    "text": "Asche auf dem Altar und Ruß an der Decke. Offenes Feuer ist hier streng verboten. Und der Rauchmelder hat nichts gemerkt? Interessant.",
+    "voice_description": "German man, mid thirties, medium-low pitch, calm and precise, dry ironic understatement, slightly tired, natural conversational pace, clear standard German pronunciation",
+    "language": "de"
+   },
+   "lines": {
+    "tv_overrated": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "contamination": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "empty_file": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "the_new_one": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "hollmann_missing": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "science": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "box_too_heavy": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "false_bottom": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "notebook": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "kyphi": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "got_fire": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "lighter_in_hand": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "no_advent_wreath": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "one_of_them": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "no_white_glue": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "old_fox": {
+     "tool": "qwen-tts speak",
+     "job_id": "4ec0e930b930",
+     "seed": 2000
+    },
+    "black_card": {
+     "tool": "qwen-tts speak",
+     "job_id": "9471ef7563c5",
+     "seed": 2000
+    },
+    "mein_diktiergerat_die_batterien_sind": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "vox_ist_an_jetzt_nimmt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Vox ist an. Jetzt nimmt es nur auf, wenn es etwas hört."
+    },
+    "belanglos_aber_hollmanns_karte_stand": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "d_0912_regal_d_fach": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Regal D, Fach null neun, Platz zwölf."
+    },
+    "kyphi_tempelraucherwerk_aus_hollmanns_kiste": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_raucherkegel_aus_dunklem_harz": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "dreikant_genau_wie_die_schrauben": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_schrauberbit_mit_dreikantkopf_damit": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "hm": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "das_diktiergerat_lauft_wieder": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "russ_auf_den_pinsel": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_eingedruckte_schrift_bleibt_hell": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "d_0912_die_inventarnummer": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Die Inventarnummer."
+    },
+    "mit_dem_spatel_verschmiere_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "passt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "brennt_schon": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_untertasse_anzunden_nein": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "kegel_auf_die_untertasse_gut": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ohne_feuerfeste_unterlage_brennt_mir": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "nicht_hier_wenn_dann_im": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "zwei_aa_batterien_noch_fast": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Zwei Doppel-A-Batterien. Noch fast voll."
+    },
+    "die_malerleiter_zusammengeklappt_passt_sie": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_pinzette": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "fundtutchen_fur_alles_was_man": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_langes_graues_haar_sauber": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_weicher_pinsel": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "der_pinsel_ist_voller_russ": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_spatel_mein_universalwerkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "feiner_russ_von_der_decke": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "kreppband_vorsicht_frisch_restauriert": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Kreppband: Vorsicht, frisch restauriert."
+    },
+    "ein_messschieber_mit_tiefenmass": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_uv_lampe_alter_schellack": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Eine U-V-Lampe. Alter Schellack leuchtet darunter grünlich."
+    },
+    "der_depotschlussel_ordnungsgemass_eingetragen": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_schwarze_karte_mit_chip": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Eine schwarze Karte mit Chip. Kein Name, kein Foto. Nur eine rote sechs sechs sechs."
+    },
+    "frau_ackermanns_feuerzeug_offiziell_besitzt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "eine_untertasse_sonst_mische_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "der_kegel_glimmt_feiner_rauch": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_akkuschrauber_fur_spezialschrauben_habe": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "akkuschrauber_mit_dreikant_bit": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_fernbedienung": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "nichts_besonderes": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "sieht_aus_wie_immer": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "das_bringt_mir_nichts": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "lieber_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "nein": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "das_passt_nicht_zusammen": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "damit_komme_ich_nicht_weiter": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "dreck_an_meinem_altar_das": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mal_sehen_ob_das_diktiergerat": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ein_grauer_morgen_passt_zum": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "fachliteratur_agyptische_steinmetzkunst_schellack_pigmente": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "billige_abenteuerromantik_ich_mag_es": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "sie_lebt_das_ist_mehr": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_sofa_die_fernbedienung_liegt": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_schreibtisch_mit_laptop_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "der_anrufbeantworter_eine_nachricht_von": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_diktiergerat_fur_restaurierungsnotizen": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_fernbedienung_da_stecken_zwei": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000,
+     "spoken": "Die Fernbedienung. Da stecken zwei Doppel-A-Batterien drin."
+    },
+    "die_wohnungstur_von_hier_geht": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_batterien_sind_leer": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "frau_ackermann_hat_den_depotschlussel": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "mein_laptop_darauf_hore_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "ohne_batterien_ist_sie_nur": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "keine_zeit_der_altar_wartet": {
+     "tool": "qwen-tts speak",
+     "job_id": "43b0a8c45735",
+     "seed": 2000
+    },
+    "die_bleiben_jetzt_im_diktiergerat": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "ich_habe_die_aufnahme_oft": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "verpackungsmaterial_und_restaurierungsabfalle": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "losemittel_pigmente_schellack_alles_ordentlich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_lochwand_jedes_werkzeug_hat": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "meine_werkbank": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_malerleiter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "eine_untertasse_darauf_mische_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "kreppband_vorsicht_frisch_restauriert_davon": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Kreppband: Vorsicht, frisch restauriert. Davon habe ich reichlich."
+    },
+    "der_akkuschrauber_fur_spezialschrauben_habe": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_tur_zur_lobby": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_tur_zum_altarraum": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "was_ich_brauche_liegt_offen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "eine_neonrohre_die_flackert_typisch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "ein_taster_licht_gibt_es": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_treppe_hoch_in_die": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hollmanns_kiste_d_0912": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Hollmanns Kiste. D, null neun, zwölf."
+    },
+    "lange_regalreihen_mit_lagerkisten_jede": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "regale_voller_kisten_man_sieht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "klebt_fest_das_licht_bleibt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_verwaltung_kann_mich_mal": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "wieder_dunkel_kaum_lasse_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zu_dunkel_die_schilder_kann": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hunderte_kisten_ohne_inventarnummer_suche": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hier_steht_nichts_mit_d": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "hollmanns_platz_ist_leer_die": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "nur_noch_altes_werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "den_boden_hebe_ich_mit": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zu_schwer_fur_das_bisschen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_versteck_ist_leer": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "wozu_da_ist_nur_werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "eine_schwarze_karte_mit_einer": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Eine schwarze Karte mit einer roten sechs sechs sechs. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit."
+    },
+    "den_schlussel_muss_ich_frau": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "als_taschenlampe_ist_die_uv": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "Als Taschenlampe ist die U-V-Lampe zu schwach. Ich brauche richtiges Licht."
+    },
+    "die_kiste_geht_nicht_noch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zu_dunkel_ich_sehe_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "abdeckplanen_die_renovierung_dauert_langer": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "im_gesperrten_flugel_arbeite_nur": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_schlusselbrett_es_hangt_hinter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_empfangstresen_darauf_das_ausleihbuch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "langes_graues_haar_hochgesteckt_hm": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "frau_ackermann_streng_korrekt_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_archivkartei_alphabetisch_nach_nachlassen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "dahinter_liegt_der_offentliche_bereich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_tur_zur_werkstatt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_eingangsportal_von_hier_bin": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "moderne_kunst_nicht_mein_fachgebiet": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_treppenhaus_unten_ist_der": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "abgeschlossen_den_schlussel_hat_frau": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "zwischen_hofmann_sammlung_und_holtz": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "wo_waren_sie_gestern_abend": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "ich_brauche_den_depotschlussel": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_habe_ich_gerade_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "d_0912_hollmann_nachlass": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Hollmann, Nachlass."
+    },
+    "besser_nicht_noch_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_archivkartei_gerade_suche_ich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "das_podest_nachgebaut_nach_den": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "die_saulen_bemalt_nicht_original": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_altarschrank_eine_nachbildung_ins": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_opferaltar_sechs_mal_drei": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "feine_asche_auf_dem_raucheraltar": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "russ_an_der_decke_direkt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "abgeklebt_diesmal_von_mir": {
+     "tool": "qwen-tts speak",
+     "job_id": "7d22ec02e1aa",
+     "seed": 2000
+    },
+    "der_rauchmelder_ist_wieder_frei": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "abgeklebt_darunter_klebt_ein_langes": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "noch_abgeklebt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_rauchmelder_bei_dem_russ": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "die_malerleiter_auf_dem_podest": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "eine_neue_stahltur_mit_kartenleser": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "dreikant_sicherheitsschrauben_hinter_einer_wandverkleidung": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "eichenpaneele_angeblich_aus_den_1920er": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000,
+     "spoken": "Eichenpaneele, angeblich aus den neunzehnhundertzwanziger Jahren. Holzzapfen verdecken die Schraubenköpfe."
+    },
+    "verschlossen_daneben_ein_kartenleser": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "fest_verschraubt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ein_bisschen_russ_konnte_nutzlich": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_melder_ist_mit_klebeband": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "und_das_klebeband_kommt_ab": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "hier_ist_nachts_jemand_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_melder_ist_frei": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "das_haar_habe_ich_schon": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "und_wohin_damit_ich_brauche": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "pinzette_fundtutchen_gesichert": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_ist_noch_abgeklebt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "halt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ich_habe_das_band_gerade": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "vorsicht_frisch_restauriert_passt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000,
+     "spoken": "Vorsicht, frisch restauriert. Passt."
+    },
+    "erst_will_ich_wissen_was": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ohne_batterien_nimmt_es_nichts": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "restkapazitat_vier_stunden_von_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "feierabend_ab_nach_hause": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "da_ist_es_abhoren_am": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mein_material_nichts_was_mir": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_melder_naturlich_den_muss": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "dahinter_ist_ein_hohlraum_mit": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "der_rauch_steigt_gerade_nach": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "alter_schellack_leuchtet_grunlich_aber": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "alles_grunlich_alter_schellack_wie": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "die_zapfen_sind_schon_draussen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "darunter_dreikant_sicherheitsschrauben_dafur_passt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "welche_zapfen_die_sehen_alle": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "kein_normaler_bit_passt_auf": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "ich_bohre_doch_keine_locher": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "hier_sind_keine_schrauben_zu": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mit_dem_brennenden_kegel_nicht": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "und_die_leiter_bleibt_unter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "viel_zu_hoch": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mit_blossen_fingern_dafur_gibt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "nicht_anfassen_das_ist_ein": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "asche_ist_zu_grob_fur": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "zu_hoch_erst_die_leiter": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "viel_zu_hoch_ich_brauche": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "mit_blossen_handen": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "das_diktiergerat_liegt_gut_versteckt": {
+     "tool": "qwen-tts speak",
+     "job_id": "7bf0d4caa8a1",
+     "seed": 2000
+    },
+    "na_also_licht": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "regal_d_fach_09_platz": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000,
+     "spoken": "Regal D, Fach null neun, Platz zwölf … da. D, null neun, zwölf, Hollmann, Nachlass."
+    },
+    "altes_werkzeug": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "aussen_achtzehn_zentimeter_innen_vierzehn": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "mal_sehen_was_du_versteckst": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "hofmann_sammlung_holtz_grafik_dazwischen": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "so_direkt_unter_den_melder": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "die_nehme_ich_wieder_mit": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "zwischen_die_farbdosen_da_sucht": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "dann_wollen_wir_mal_sehen": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "frau_ackermann_kein_wort_nur": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "der_rauch_er_wird_in": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "raus_mit_euch": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "die_schrauben_kommen_raus_und": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "mal_sehen_ob_sie_hier": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "grun": {
+     "tool": "qwen-tts speak",
+     "job_id": "9b5a5e041a60",
+     "seed": 2000
+    },
+    "p2_station_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_station_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "A B C GmbH. Da steht der Zug gerade."
+    },
+    "p2_cabin_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Area zweiundfünfzig. Da steht der Zug gerade."
+    },
+    "p2_cabin_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "A B C GmbH. Das Ziel leuchtet."
+    },
+    "p2_cabin_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Area zweiundfünfzig. Das Ziel leuchtet."
+    },
+    "p2_cabin_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "A B C GmbH. Das Ziel ist dunkel."
+    },
+    "p2_cabin_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Area zweiundfünfzig. Das Ziel ist dunkel."
+    },
+    "p2_cabin_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_cabin_21": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_platform_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Pjotrs Kaffeeautomat. Unter der Klappe steckt die Sicherung F sieben."
+    },
+    "p2_ant_control_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Leiterheizung Antenne, Ebene eins bis sechs. Je ein Schalter: Aus, Low, High."
+    },
+    "p2_ant_control_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Der Sicherungskasten. F sieben, Torheizung Schleuse, ist wieder drin."
+    },
+    "p2_ant_control_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Der Sicherungskasten. Ein Platz ist leer: F sieben, Torheizung Schleuse."
+    },
+    "p2_ant_control_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Passt. zehn mal achtunddreißig. Die Torheizung hat wieder Strom."
+    },
+    "p2_ant_control_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Hinter der Wartungsklappe ... eine Sicherung. Beschriftet: F sieben."
+    },
+    "p2_ant_control_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_control_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Hinter der Wartungsklappe steckt eine Sicherung. F sieben, die von der Torheizung."
+    },
+    "p2_ant_control_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Zehn Millimeter Durchmesser, achtunddreißig lang. Das merke ich mir."
+    },
+    "p2_ant_control_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "ab554d75aa27",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ein Schluck heißer Tee aufs Okular ..."
+    },
+    "p2_ant_observation_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_observation_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Da oben liegt jemand. Das muss Vierhundertzwölf sein."
+    },
+    "p2_ant_observation_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ein Kanister: Frostschutz, Glykol, Pistenraupe."
+    },
+    "p2_ant_airlock_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ein Kälteanzug. Größe Iks-Iks-Ell. Der einzige, der noch da ist. Mit Heizung und Klettergurt."
+    },
+    "p2_ant_airlock_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ohne Heizung ist der Anzug nur eine dicke Decke. Bei minus achtundsechzig reicht das nicht."
+    },
+    "p2_ant_airlock_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_21": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "... und ist leer. Den muss ich irgendwo laden."
+    },
+    "p2_ant_airlock_22": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_23": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_24": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Salz taut Eis nur bis minus einundzwanzig Grad. Draußen sind es minus achtundsechzig."
+    },
+    "p2_ant_airlock_25": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Glykol bei minus achtundsechzig? Das wird Gelee."
+    },
+    "p2_ant_airlock_26": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_27": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_28": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_airlock_29": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Die Torheizung hat das Eis gelöst. Anzug an ..."
+    },
+    "p2_ant_antenna_01": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_02": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_03": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_04": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_05": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_06": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_07": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_08": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_09": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_10": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_11": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ohne Steigschutzläufer gehe ich da nicht rauf. Ich will nicht enden wie Vierhundertzwölf."
+    },
+    "p2_ant_antenna_12": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_13": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Die Feder ... die ist gebrochen. Mit dem Ding klettere ich nicht weiter."
+    },
+    "p2_ant_antenna_14": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_15": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_16": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene eins ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_17": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene zwei ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_18": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene drei ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_19": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene vier ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_20": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene fünf ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_21": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ebene sechs ist komplett zugefroren. Da komme ich so nicht durch."
+    },
+    "p2_ant_antenna_22": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_23": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Ich war ganz oben. Da liegt wirklich Vierhundertzwölf."
+    },
+    "p2_ant_antenna_24": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_ant_antenna_25": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_drill_battery": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_drill_battery_charged": {
+     "tool": "qwen-tts speak",
+     "job_id": "333d15240cdf",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_fuse": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Eine Sicherung, zehn mal achtunddreißig Millimeter."
+    },
+    "p2_look_glycol_canister": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Frostschutz, Glykol. Pistenraupe steht drauf."
+    },
+    "p2_look_thermos": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_salt": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_runner_broken": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Vierhundertzwölfs Steigschutzläufer. Die Feder ist gebrochen."
+    },
+    "p2_look_runner": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_duct_tape": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_look_medal": {
+     "tool": "qwen-tts speak",
+     "job_id": "c42007f87596",
+     "seed": 2000,
+     "part": 2,
+     "spoken_text": "Die Medaille von Vierhundertzwölf. Quer durch läuft ein Sprung."
+    },
+    "p2_ant_platform_train_open": {
+     "tool": "qwen-tts speak",
+     "job_id": "d1453858f4b7",
+     "seed": 2000,
+     "part": 2
+    },
+    "ah_nothing": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000
+    },
+    "key_back": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000
+    },
+    "p2_pjotr_ask_antenna": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_pjotr_gate_heating": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_pjotr_vouch": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    },
+    "p2_pjotr_bye": {
+     "tool": "qwen-tts speak",
+     "job_id": "11be9ad48ca2",
+     "seed": 2000,
+     "part": 2
+    }
+   }
+  },
+  "ackermann": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "38c48441fc00",
+    "seed": 1000,
+    "text": "Ich muss das eintragen, Herr Kessler. Jeder Schlüssel kommt ins Ausleihbuch, mit Datum und Uhrzeit. Ordnung muss sein.",
+    "voice_description": "German woman, early sixties, medium pitch, strict and correct receptionist, crisp clear articulation, a little sharp but with hidden warmth, brisk pace, standard German",
+    "language": "de"
+   },
+   "lines": {
+    "answering_machine": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 300-3400 Hz, Kompressor, 8 kHz"
+    },
+    "glass_door": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "home_at_five": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000,
+     "spoken_text": "Ich bin um siebzehn Uhr zu Hause. Ich habe einen Kater, der wartet nicht."
+    },
+    "key_log": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "fingers": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "no_smoking": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "advent_wreath": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "not_yet": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "advent_wreath_again": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "incense_memory": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "not_from_me": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "alarm_1": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "alarm_2": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000,
+     "spoken_text": "Schon wieder?! Ich habe einen Kater, Herr Kessler. Der wartet nicht."
+    },
+    "alarm_3": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "key_return": {
+     "tool": "qwen-tts speak",
+     "job_id": "efea763784fc",
+     "seed": 2000
+    },
+    "finger_weg_vom_schlusselbrett_herr": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "herr_kessler_der_depotschlussel": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "was_soll_ich_damit_herr": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "guten_morgen_herr_kessler": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "welche_inventarnummer": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "ohne_nummer_kein_schlussel_herr": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "den_hatten_sie_mir_schon": {
+     "tool": "qwen-tts speak",
+     "job_id": "ef8d0419f71a",
+     "seed": 2000
+    },
+    "d_0912_eingetragen_hier_der": {
+     "tool": "qwen-tts speak",
+     "job_id": "35df5b9dc427",
+     "seed": 2000,
+     "spoken": "D, null neun, zwölf. Eingetragen. Hier, der Schlüssel. Und Sie bringen ihn zurück, Herr Kessler."
+    },
+    "hier_nehmen_sie_beides": {
+     "tool": "qwen-tts speak",
+     "job_id": "35df5b9dc427",
+     "seed": 2000
+    },
+    "so_alarm_aus_kegel_aus": {
+     "tool": "qwen-tts speak",
+     "job_id": "35df5b9dc427",
+     "seed": 2000
+    }
+   }
+  },
+  "cult1": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "322ae99c4730",
+    "seed": 1000,
+    "text": "Der Melder ist frei. Dann heute ohne Räucherwerk. Nur das Gebet. Und lasst ihn so, genau so, wie er ist.",
+    "voice_description": "German man, about forty, low voice, quiet and controlled, speaks in a hushed tone as if not to be overheard, authoritative, slow and deliberate",
+    "language": "de"
+   },
+   "lines": {
+    "detector_free": {
+     "tool": "qwen-tts speak",
+     "job_id": "a61b26afaca8",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    },
+    "only_prayer": {
+     "tool": "qwen-tts speak",
+     "job_id": "a61b26afaca8",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    }
+   }
+  },
+  "cult2": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "0b2caa54b78f",
+    "seed": 1002,
+    "text": "Jemand war hier. Seht ihr das nicht? Jemand war hier, heute, ganz sicher. Wir müssen vorsichtig sein.",
+    "voice_description": "German woman, about thirty, whispering softly, tense and alarmed, hushed, breathy, slow",
+    "language": "de"
+   },
+   "lines": {
+    "someone_was_here": {
+     "tool": "qwen-tts speak",
+     "job_id": "d413a1d305a2",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    }
+   }
+  },
+  "elder": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "a8ab81846959",
+    "seed": 1000,
+    "text": "Hollmanns Kiste steht immer noch unten im Depot. Im Frühjahr ist Inventur. Holt sie raus, bevor der Neue sie findet.",
+    "voice_description": "German man, about seventy, calm, soft and deep elderly voice, unhurried, quietly commanding, slightly hoarse, speaks very calmly as if nothing could disturb him",
+    "language": "de"
+   },
+   "lines": {
+    "hollmanns_box": {
+     "tool": "qwen-tts speak",
+     "job_id": "8187f43657a4",
+     "seed": 2000,
+     "filter": "ffmpeg: Bandpass 200-4500 Hz, Echo 40/70 ms, rosa Rauschen"
+    }
+   }
+  },
+  "pjotr": {
+   "reference": {
+    "tool": "qwen-tts design_voice",
+    "job_id": "18b12f5af140",
+    "seed": 1013,
+    "text": "Pjotr. Technik, Heizung, Kaffee. Das Letzte ist das Wichtigste. Seit dem Unfall ist die Leiterheizung aus. Bei dem Wetter holt den keiner runter.",
+    "voice_description": "Russian man in his fifties speaking German with a noticeable but light Russian accent, deep warm slightly hoarse bass voice, rolling R, jovial and laid-back station technician, a bit gruff but friendly, unhurried pace, chuckles easily",
+    "language": "de"
+   },
+   "lines": {
+    "visitor": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "intro": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "heating_off": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "still_up": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000,
+     "spoken_text": "Vierhundertzwölf liegt noch oben. …"
+    },
+    "nobody_knows": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "wind_hint": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "f7_missing": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000,
+     "spoken_text": "Sicherung F sieben fehlt. …"
+    },
+    "bail_again": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "bail": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "bye": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "hands_off": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "measure": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "coffee_still": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    },
+    "no_thanks": {
+     "tool": "qwen-tts speak",
+     "job_id": "122eee762f8e",
+     "seed": 2000
+    }
+   },
+   "part": 2,
+   "date": "2026-11-02"
+  }
+ },
+ "ui": {
+  "verb_look": {
+   "tool": "flux2-klein",
+   "job_id": "1b2173dede50",
+   "seed": 100,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of a human eye, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "verb_use": {
+   "tool": "flux2-klein",
+   "job_id": "a3c541ae7d1d",
+   "seed": 200,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of an open hand with the palm facing forward, reaching out to use something, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "verb_talk": {
+   "tool": "flux2-klein",
+   "job_id": "22d9c8fd8c4a",
+   "seed": 300,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of a speech bubble with three dots inside, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "verb_take": {
+   "tool": "flux2-klein",
+   "job_id": "8a45ca069607",
+   "seed": 502,
+   "size": "512x512",
+   "prompt": "A single simple user-interface icon of a hand grabbing, fingers closing to pick something up, bold warm cream-white glyph with clean thick strokes, flat, no shading, centered, generous margin, pure solid black background, no text, no frame",
+   "post": "Helligkeit als Alphakanal (Glyphe weiß), zugeschnitten, quadratisch auf 96x96 skaliert"
+  },
+  "scope_ring": {
+   "tool": "Python (numpy, Pillow)",
+   "note": "Fernrohr-Rand gezeichnet: runde Öffnung r=360 in 1344x768, Vignette, dünner Metallring (work/items/antarctica/vane/scope_ring.py)",
+   "part": 2,
+   "date": "2026-11-02"
+  },
+  "heating_panel": {
+   "part": 2,
+   "date": "2026-11-02",
+   "chain": [
+    {
+     "tool": "flux2-klein",
+     "job_id": "ac4bc7fc880c",
+     "seed": 6502,
+     "size": "1344x768",
+     "prompt": "close-up front view of an old grey industrial steel control panel box mounted on a wall in an Antarctic research station, a yellow and black hazard stripe along the top edge, a blank metal nameplate at the top, below it six empty round switch sockets in one horizontal row with evenly spaced gaps, each socket a dark recessed metal ring with a small unlit indicator lamp above it, rivets, scratches, a little frost in the corners, cables entering from below, the panel fills the whole picture, flat frontal view, no text, no letters, no numbers, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style"
+    },
+    {
+     "tool": "qwen-image-edit",
+     "job_id": "fd714b1eea9e",
+     "seed": 6503,
+     "prompt": "Remove the five round switch sockets and the two small lamps from the panel: the middle of the panel is now a plain, empty, slightly scratched grey metal plate. Keep the box, the yellow and black hazard stripe, the blank nameplate, the rivets, the frost in the corners, the cables below, the wall and the drawing style exactly the same."
+    }
+   ],
+   "note": "Schalter, Lampen und Beschriftung zeichnet das Spiel"
+  },
+  "rotary_knob": {
+   "part": 2,
+   "date": "2026-11-02",
+   "tool": "flux2-klein",
+   "job_id": "fd6812e04fc0",
+   "seed": 6512,
+   "size": "1024x1024",
+   "prompt": "a heavy round black rotary switch knob with a white pointer line, industrial, seen exactly from the front, single object, centered, the whole object fully visible with margin, isolated on a plain flat solid magenta background, no shadow, no text, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+   "post": "freigestellt, auf 128 px"
+  }
+ },
+ "videos": {
+  "lift_down": {
+   "part": 2,
+   "date": "2026-11-03",
+   "tool": "ltx-video",
+   "job_id": "74690af58192",
+   "seed": 9102,
+   "size": "1344x768",
+   "duration_s": 8,
+   "input": "Startbild: work/new/lift_first.png (erstes Bild von lift.mp4, Vorlage des Autors), Ausschnitt y 50-928, auf 1344x768 skaliert",
+   "prompt": "Hand-drawn comic style, dark rocky elevator shaft seen from above. The camera stays high in the shaft and looks straight down while the octagonal steel elevator cabin with its warm orange lit glass windows and the man in a beige coat inside starts to descend, slowly at first, then faster, sinking away from the camera deep into the narrow shaft, held by thick steel cables that stretch down into the depth. Small lamps on the rough rock walls flash past, the cabin becomes smaller and smaller until it is only a glowing orange dot far below, surrounded by a faint cold blue light at the bottom of the shaft. Dark, mysterious mood. Sounds: a heavy mechanical clunk as the brake releases, the deep hum of the electric winch, steel cables creaking and humming, a low rumble echoing through the shaft and fading into the depth.",
+   "note": "Liftfahrt nach der Geheimtür im Altarraum hinab ins Tunnelsystem; ersetzt die Fassung vom 2026-11-02 (1280x832, Job 2bf83983f2f4) wegen des Bildformats 1344x768",
+   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg, -q:v 7 -q:a 5)"
+  },
+  "train_departure": {
+   "part": 2,
+   "date": "2026-11-03",
+   "tool": "ltx-video",
+   "job_id": "be64eb819e3a",
+   "seed": 9332,
+   "size": "1344x768",
+   "duration_s": 8,
+   "keyframes": [
+    "museum_station/background.png, Ausschnitt x 799-1807 (Kamerabild an der Zugtür), auf 1344x768 skaliert",
+    "museum_station/background_closed.png, gleicher Ausschnitt"
+   ],
+   "prompt": "Hand-drawn comic style underground train station in a rock cave, seen from a completely static camera, no pan, no zoom. In the back wall a wide rectangular steel airlock frame with rivets holds a silver high-speed train. First the lit passenger door of the train slides shut with a hiss and its warm light goes out. Then the red warning lights on the steel frame start flashing and a riveted steel bulkhead slides down out of a narrow slot hidden in the thick upper beam of the frame. The bulkhead is exactly as wide as the opening and only ever visible inside the opening of the frame, below the upper beam; it never appears above the frame. The dark rock of the cave ceiling above the frame, the two lamps on the upper beam and the open steel door panel on the right stay exactly unchanged the whole time. The bulkhead moves down steadily until it reaches the floor of the opening and hides the train completely, then a little steam puffs out at its lower edge. The foreground floor stays empty. Sounds: door hiss, alarm beeps, grinding metal, a heavy clang as the bulkhead locks, a hiss of air being pumped out, then the muffled roar of the train accelerating away behind the bulkhead.",
+   "note": "Abfahrt des Zugs im Museumsbahnhof; ersetzt die Fassung vom 2026-11-02 (1792x512 mit dem ganzen Panorama, Job e1fe8e4a0182) wegen des Bildformats 1344x768",
+   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg, -q:v 7 -q:a 5)"
+  }
+ }
+}

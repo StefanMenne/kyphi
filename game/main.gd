@@ -126,7 +126,7 @@ func cheat_suit() -> void:
 	player.set_suit(not player.suit)
 
 
-## Gegenstände aus den noch nicht gebauten Orten (Abc GmbH, Innenerde), zum Ausprobieren der Antarktis.
+## Gegenstände aus den noch nicht gebauten Orten (ABC GmbH, Innenerde), zum Ausprobieren der Antarktis.
 func cheat_antarctica_items() -> void:
 	ui.hide_menu()
 	for item in ["thermos", "salt", "fuse", "duct_tape", "runner", "drill_battery_charged", "ladder", "caliper"]:

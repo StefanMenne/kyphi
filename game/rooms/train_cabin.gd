@@ -5,7 +5,7 @@ extends Room
 ## Ziel -> [Name, Raum oder "" (noch nicht anfahrbar), Punkt auf der Karte]
 const STATIONS := {
 	"museum": ["Museum", "museum_station", Vector2(811, 137)],
-	"abc": ["Abc GmbH", "", Vector2(1027, 133)],
+	"abc": ["ABC GmbH", "", Vector2(1027, 133)],
 	"area52": ["Area 52", "", Vector2(1243, 137)],
 	"inner_earth": ["Innenerde", "", Vector2(811, 340)],
 	"antarctica": ["Antarktis", "antarctica_platform", Vector2(1242, 339)],

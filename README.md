@@ -8,12 +8,11 @@ gebaut hat. Das Spiel erscheint in Teilen; in Arbeit ist **Teil 1: Der Zugang**.
 
 | Pfad | Inhalt | Im Repo |
 |---|---|---|
-| `concept/game.md` | Grundlagen des Spiels: Genre, Sprache, Aufbau, Regeln für die Geschichte | ja |
-| `concept/part_*.md` | Story, je Teil ein Dokument (`part_1_access.md`); Symlinks nach `work/story/` | nein, in kyphi-assets |
+| `concept/` | Story und Rätsel der gebauten Orte (`museum.md`, `antarctica.md`); Überblick und Ideen für die übrigen in `work/concept/` | ja |
 | `assets/` | Fertige Assets: Szenen-Hintergründe mit Ebenen (`scenes/`), Videos (`videos/`, Ogg Theora), Inventar-Icons (`items/`), Verb-Icons (`ui/`), Katalog, Herkunft, Übersicht (`overview.html`) | ja |
 | `game/` | Spielcode (Godot 4.7, GDScript): `main.gd`, Oberfläche, Martin, Räume in `rooms/` | ja |
 | `tests/` | Automatischer Durchlauf von Teil 1 | ja |
-| `work/` | Story, Konzeptbilder, Quellen und Rezepte der Assets: eigenes privates Repo [kyphi-assets](https://github.com/StefanMenne/kyphi-assets), nach `work/` klonen | nein, eigenes Repo |
+| `work/` | Ideen für noch nicht gebaute Orte (`concept/`), Fixpunkte, Konzeptbilder und Skripte der Assets (Regeln in `work/assets.md`): eigenes privates Repo [kyphi-assets](https://github.com/StefanMenne/kyphi-assets), nach `work/` klonen | nein, eigenes Repo |
 
 ## Spielen
 
@@ -85,7 +84,8 @@ Damit sich für jedes Asset belegen lässt, wie es entstanden ist, wird beim Üb
 Tool, Prompt, Seed, Referenzbilder und Datum. gb10-assets liefert diese Angaben pro Job (Job-ID, Parameter).
 Fremdmaterial (Fotos, Fonts, Musik, Geräusche aus anderen Quellen) kommt nur mit dokumentierter Lizenz ins Spiel.
 
-Für die Assets in `assets/` stehen diese Angaben in `assets/provenance.json`.
+Für die Assets in `assets/` stehen diese Angaben in `assets/provenance.json` (rekonstruierbare Kette von
+Erzeugungsschritten, Schema in `work/assets.md`), für den Altbestand in `assets/provenance_old.json`.
 
 Bilder entstehen in der Regel in zwei Schritten: ein Entwurf mit `flux2-klein`, danach Bearbeitung und
 Angleichung mit `qwen-image-edit`. So sind auch die bisherigen Entwürfe in `work/` entstanden (Figuren Martin,

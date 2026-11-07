@@ -1,6 +1,6 @@
 extends Room
 ## Antarktis: Bahnsteig unter dem Eis (Teil 2). Links die Schleuse zum Zug, in der Mitte die Türen zu Kontrollraum
-## und Schleuse, rechts die Treppe zur Außenbeobachtung. Die Räume dahinter sind noch nicht gebaut.
+## und Schleuse, rechts die Treppe zur Außenbeobachtung.
 
 const NOT_BUILT := "[Dieser Raum ist noch nicht gebaut.]"
 
