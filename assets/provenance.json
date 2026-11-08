@@ -2964,6 +2964,73 @@
    ],
    "output": "work/cache/characters/martin2/suit_use_low_fr/scaled/",
    "date": "2026-11-08"
+  },
+  "lift_down_start": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "In image 1, replace only the man standing inside the lit elevator cabin with the man from image 2: same face with light stubble, short tousled black hair, the long open warm brown-beige wool coat with large lower patch pockets, slate blue-grey button-up shirt, brown leather belt, faded blue jeans and brown leather lace-up shoes. He stands in the cabin in the same place, at the same size and in the same pose as the man in image 1, facing the viewer, seen from above, arms hanging at his sides, looking slightly down. Keep everything else in image 1 exactly as it is: the octagonal steel cabin, the warm orange light, the dark rocky shaft, the camera angle and the drawing style.",
+    "images": [
+     "work/assets/videos/lift_down/start_old.png",
+     "martin2_stand_fr"
+    ],
+    "width": 1344,
+    "height": 768,
+    "seed": 33002,
+    "count": 1
+   },
+   "inputs": [
+    "work/assets/videos/lift_down/start_old.png",
+    "martin2_stand_fr"
+   ],
+   "output": "work/cache/videos/lift_down/start_33002.png",
+   "date": "2026-11-08",
+   "note": "Startbild der alten Fahrt (Bild 0 von work/videos_1344/lift/video_9102.mp4, Fixpunkt) mit dem neuen Martin; gewählt aus seed 33000 count 4 (job c5aab08d57f9)."
+  },
+  "lift_down_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "Hand-drawn comic style, dark rocky elevator shaft seen from above. The camera stays high in the shaft and looks straight down while the octagonal steel elevator cabin with its warm orange lit glass windows and the man in a long brown coat inside starts to descend, slowly at first, then faster, sinking away from the camera deep into the narrow shaft, held by thick steel cables that stretch down into the depth. Small lamps on the rough rock walls flash past, the cabin becomes smaller and smaller until it is only a glowing orange dot far below, surrounded by a faint cold blue light at the bottom of the shaft. Dark, mysterious mood. Sounds: a heavy mechanical clunk as the brake releases, the deep hum of the electric winch, steel cables creaking and humming, a low rumble echoing through the shaft and fading into the depth.",
+    "images": [
+     "lift_down_start"
+    ],
+    "width": 1344,
+    "height": 768,
+    "duration_s": 8,
+    "fps": 24,
+    "frames": false,
+    "enhance_prompt": false,
+    "seed": 33100,
+    "count": 1
+   },
+   "inputs": [
+    "lift_down_start"
+   ],
+   "output": "work/cache/videos/lift_down/video_33100.mp4",
+   "date": "2026-11-08",
+   "note": "Gewählt aus seed 33100 count 4 (job d965d943b84c). Ton aus dem Video."
+  },
+  "lift_down_ogv": {
+   "tool": "script",
+   "script": "ffmpeg",
+   "args": [
+    "-c:v",
+    "libtheora",
+    "-q:v",
+    "7",
+    "-c:a",
+    "libvorbis",
+    "-q:a",
+    "5"
+   ],
+   "inputs": [
+    "lift_down_video"
+   ],
+   "output": "assets/videos/lift_down.ogv",
+   "date": "2026-11-08"
   }
  }
 }

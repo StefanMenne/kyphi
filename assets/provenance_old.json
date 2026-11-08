@@ -3519,19 +3519,6 @@
   }
  },
  "videos": {
-  "lift_down": {
-   "part": 2,
-   "date": "2026-11-03",
-   "tool": "ltx-video",
-   "job_id": "74690af58192",
-   "seed": 9102,
-   "size": "1344x768",
-   "duration_s": 8,
-   "input": "Startbild: work/new/lift_first.png (erstes Bild von lift.mp4, Vorlage des Autors), Ausschnitt y 50-928, auf 1344x768 skaliert",
-   "prompt": "Hand-drawn comic style, dark rocky elevator shaft seen from above. The camera stays high in the shaft and looks straight down while the octagonal steel elevator cabin with its warm orange lit glass windows and the man in a beige coat inside starts to descend, slowly at first, then faster, sinking away from the camera deep into the narrow shaft, held by thick steel cables that stretch down into the depth. Small lamps on the rough rock walls flash past, the cabin becomes smaller and smaller until it is only a glowing orange dot far below, surrounded by a faint cold blue light at the bottom of the shaft. Dark, mysterious mood. Sounds: a heavy mechanical clunk as the brake releases, the deep hum of the electric winch, steel cables creaking and humming, a low rumble echoing through the shaft and fading into the depth.",
-   "note": "Liftfahrt nach der Geheimtür im Altarraum hinab ins Tunnelsystem; ersetzt die Fassung vom 2026-11-02 (1280x832, Job 2bf83983f2f4) wegen des Bildformats 1344x768",
-   "post": "mp4 nach Ogg Theora/Vorbis gewandelt (ffmpeg, -q:v 7 -q:a 5)"
-  },
   "train_departure": {
    "part": 2,
    "date": "2026-11-03",
