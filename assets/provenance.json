@@ -1524,6 +1524,7 @@
     "martin2_stop_b_scaled",
     "martin2_stop_br_scaled",
     "martin2_stop_fr_scaled",
+    "martin2_talk_fr_scaled",
     "martin2_turn_br_b_scaled",
     "martin2_turn_br_bl_scaled",
     "martin2_turn_fr_b_scaled",
@@ -1552,6 +1553,7 @@
     "martin2_stop_b_video",
     "martin2_stop_br_video",
     "martin2_stop_fr_video",
+    "martin2_talk_fr_video",
     "martin2_turn_br_b_video",
     "martin2_turn_br_bl_video",
     "martin2_turn_fr_b_video",
@@ -1796,6 +1798,80 @@
     "martin2_idle_b_keyed"
    ],
    "output": "work/cache/characters/martin2/idle_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_talk_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, turned three-quarters toward the right of the picture, and talks calmly to someone standing off to the right: his mouth opens and closes naturally as he speaks, his lips and jaw move clearly with the words. His head stays almost still, at most a tiny nod, and keeps looking in the same direction; his body, arms and hands stay still, his feet stay exactly where they are. He does not walk, turn or gesture. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. He says in a calm, friendly voice: \"Das sieht interessant aus. Ich glaube, damit kann ich etwas anfangen.\"",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 4,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 29003,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/talk_fr_29003_frames.zip",
+   "date": "2026-11-08",
+   "note": "Sprechen vorn rechts (Schleife: Start- und Endbild = Standbild), gewählt aus seed 29000 count 4 (job 5bebb20984f5)."
+  },
+  "martin2_talk_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-94",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_talk_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/talk_fr/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_talk_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_talk_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/talk_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_talk_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_talk_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/talk_fr/scaled/",
    "date": "2026-11-08"
   }
  }

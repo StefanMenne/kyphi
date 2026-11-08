@@ -74,6 +74,18 @@ func _ready() -> void:
 	for d in ["back", "left", "right", "back", "right", "left"]:
 		await p.face(d)
 		check(p.facing == {"left": "fl", "right": "fr", "back": "b"}[d], "Blick %s" % d)
+	# Sprechen: vorn Sprech-Schleife, hinten weiter Atmen
+	for d in ["right", "left", "back"]:
+		await p.face(d)
+		p.talking = true
+		await get_tree().create_timer(0.6).timeout
+		var tex: String = p._sprite.texture.resource_path.get_file()
+		p.talking = false
+		await get_tree().create_timer(0.2).timeout
+		var after: String = p._sprite.texture.resource_path.get_file()
+		check(tex.begins_with("talk_") == (d != "back"), "Sprechen Blick %s: %s" % [d, tex])
+		check(after.begins_with("idle_"), "nach dem Sprechen Atmen (%s)" % after)
+		print("Sprechen Blick %s: %s, danach %s" % [d, tex, after])
 	print("\nERGEBNIS: ", "FEHLER" if failed else "OK")
 	get_tree().quit(1 if failed else 0)
 

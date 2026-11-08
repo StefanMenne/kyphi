@@ -8,8 +8,9 @@ extends Node2D
 ## wird geplant als Anlaufen + n Laufzyklen + Anhalten und alles um denselben Faktor gestreckt, damit er genau
 ## ankommt (Bildtempo mit, in Grenzen). Übergänge passen am KEY-Bild des Zyklus: Anlaufen endet davor,
 ## Anhalten beginnt dort.
-## Im Stand atmet er (Schleife). Noch ohne Mundbewegung, Gesten und Kälteanzug (set_suit merkt sich nur den
-## Zustand). Herkunft: assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
+## Im Stand atmet er (Schleife); spricht er (talking) und ist das Gesicht zu sehen, läuft stattdessen die
+## Sprech-Schleife. Noch ohne Gesten und Kälteanzug (set_suit merkt sich nur den Zustand).
+## Herkunft: assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
 
 const DIR := "res://assets/characters/martin2/"
 ## Fußpunkt und Körperhöhe (Scheitel bis Sohle im Standbild) in Sprite-Pixeln, für alle Bilder gleich
@@ -100,12 +101,19 @@ func _process(dt: float) -> void:
 	if _moving or _busy:
 		_idle_t = 0.0
 		return
-	var idle: Array = _tex.get("idle_" + _base(facing), [])
-	if idle.is_empty():
+	# beim Sprechen die Sprech-Schleife (nur wo es eine gibt, also mit sichtbarem Gesicht), sonst Atmen;
+	# jede Schleife beginnt beim Standbild
+	var talk: Array = _tex.get("talk_" + _base(facing), []) if talking else []
+	var loop: Array = talk if not talk.is_empty() else _tex.get("idle_" + _base(facing), [])
+	var is_talking := not talk.is_empty()
+	if is_talking != _was_talking:
+		_was_talking = is_talking
+		_idle_t = 0.0
+	if loop.is_empty():
 		_show_stand()
 		return
 	_idle_t += dt
-	_show(idle[int(_idle_t * IDLE_FPS) % idle.size()], facing.ends_with("l"))
+	_show(loop[int(_idle_t * IDLE_FPS) % loop.size()], facing.ends_with("l"))
 
 
 ## Bildfolge einer Drehung im Stand von a nach b: [Animation, rückwärts, gespiegelt]
@@ -340,3 +348,4 @@ var _target := Vector2.ZERO
 var _halt := false
 ## Zeit in der Atem-Schleife (beginnt nach jeder Bewegung wieder beim Standbild)
 var _idle_t := 0.0
+var _was_talking := false
