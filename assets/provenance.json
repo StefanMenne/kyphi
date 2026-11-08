@@ -285,33 +285,6 @@
    "date": "2026-11-08",
    "note": "Laufen B, Ende für Drehen im Laufen"
   },
-  "martin2_turnwalk_fr_b_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns smoothly toward the right and away from the viewer: starting in mid-stride turned three-quarters toward the right of the picture, after two or three walking steps he is walking straight away from the viewer with his back to us. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_fr_31",
-     "martin2_key_walk_b_44"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 23303,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_fr_31",
-    "martin2_key_walk_b_44"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_fr_b_23303_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen FR→B. Gewählt aus seed 23300 count 4 (job b5cd8503796f). Spiel: Laufen FR bis Frame 31 → dieses Video 0–45 → Laufen B ab Frame 44."
-  },
   "martin2_stand_br_v": {
    "tool": "script",
    "script": "work/scripts/martin2/shift.py",
@@ -351,18 +324,6 @@
    "output": "work/cache/characters/martin2/stand/bl_v.png",
    "date": "2026-11-08"
   },
-  "martin2_key_walk_fl_31": {
-   "tool": "script",
-   "script": "work/scripts/martin2/shift.py",
-   "args": [
-    "--mirror"
-   ],
-   "inputs": [
-    "martin2_key_walk_fr_31"
-   ],
-   "output": "work/cache/characters/martin2/keys/walk_fl_31.png",
-   "date": "2026-11-08"
-  },
   "martin2_key_walk_br_47": {
    "tool": "script",
    "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
@@ -377,18 +338,6 @@
    "output": "work/cache/characters/martin2/keys/walk_br_47.png",
    "date": "2026-11-08",
    "note": "Kontaktframe Laufen BR"
-  },
-  "martin2_key_walk_bl_47": {
-   "tool": "script",
-   "script": "work/scripts/martin2/shift.py",
-   "args": [
-    "--mirror"
-   ],
-   "inputs": [
-    "martin2_key_walk_br_47"
-   ],
-   "output": "work/cache/characters/martin2/keys/walk_bl_47.png",
-   "date": "2026-11-08"
   },
   "martin2_walk_br_video": {
    "tool": "gb10-assets/generate_video",
@@ -713,249 +662,6 @@
    "output": "work/cache/characters/martin2/video/turn_br_b_25600_frames.zip",
    "date": "2026-11-08",
    "note": "Haltepunkt 4, gewählt aus count 4 (seed 25600)."
-  },
-  "martin2_turnwalk_fr_fl_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns smoothly toward the viewer and on to the other side: starting in mid-stride walking three-quarters toward the right of the picture, he briefly walks straight toward the viewer and after two or three walking steps he is walking three-quarters toward the left of the picture. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_fr_31",
-     "martin2_key_walk_fl_31"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 26000,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_fr_31",
-    "martin2_key_walk_fl_31"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_fr_fl_26000_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen, gewählt aus seed 26000 count 4."
-  },
-  "martin2_turnwalk_br_bl_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place away from the viewer with a steady walking cycle, as on a treadmill, and while walking he turns smoothly: starting in mid-stride walking three-quarters away from the viewer toward the right of the picture, he briefly walks straight away from us with his back to the viewer and after two or three walking steps he is walking three-quarters away toward the left of the picture. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_br_47",
-     "martin2_key_walk_bl_47"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 26103,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_br_47",
-    "martin2_key_walk_bl_47"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_br_bl_26103_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen, gewählt aus seed 26100 count 4."
-  },
-  "martin2_turnwalk_fr_br_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns smoothly toward the right and away from the viewer: starting in mid-stride walking three-quarters toward the right of the picture and toward the viewer, he walks in right profile for a moment and after two or three walking steps he is walking three-quarters away from the viewer, still toward the right of the picture. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_fr_31_x",
-     "martin2_key_walk_br_47_x"
-    ],
-    "width": 768,
-    "height": 1088,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 27101,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_fr_31_x",
-    "martin2_key_walk_br_47_x"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_fr_br_27101_frames.zip",
-   "date": "2026-11-08",
-   "note": "768x1088 neu (Sohlen), gewählt aus seed 27100 count 4 (job d2c6baa4eca0)."
-  },
-  "martin2_turnwalk_br_fr_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns smoothly toward the viewer: starting in mid-stride walking three-quarters away from the viewer toward the right of the picture, he walks in right profile for a moment and after two or three walking steps he is walking three-quarters toward the right of the picture and toward the viewer, so that we see his face. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_br_47",
-     "martin2_key_walk_fr_31"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 26300,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_br_47",
-    "martin2_key_walk_fr_31"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_br_fr_26300_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen, gewählt aus seed 26300 count 4."
-  },
-  "martin2_turnwalk_fr_bl_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns around smoothly toward the right and away from the viewer: starting in mid-stride walking three-quarters toward the right of the picture and toward the viewer, he walks in right profile, then straight away from us with his back to the viewer, and after three or four walking steps he is walking three-quarters away from the viewer toward the left of the picture. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_fr_31_x",
-     "martin2_key_walk_bl_47_x"
-    ],
-    "width": 768,
-    "height": 1088,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 27001,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_fr_31_x",
-    "martin2_key_walk_bl_47_x"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_fr_bl_27001_frames.zip",
-   "date": "2026-11-08",
-   "note": "768x1088 neu (Sohlen), gewählt aus seed 27000 count 4 (job 08e7f870cb1f)."
-  },
-  "martin2_turnwalk_bl_fr_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns around smoothly toward the right and toward the viewer: starting in mid-stride walking three-quarters away from the viewer toward the left of the picture, he walks straight away from us with his back to the viewer, then in right profile, and after three or four walking steps he is walking three-quarters toward the right of the picture and toward the viewer, so that we see his face. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_bl_47",
-     "martin2_key_walk_fr_31"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 26500,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_bl_47",
-    "martin2_key_walk_fr_31"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_bl_fr_26500_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen, gewählt aus seed 26500 count 4."
-  },
-  "martin2_turnwalk_b_fr_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns around smoothly toward the right and toward the viewer: starting in mid-stride walking straight away from the viewer with his back to us, he walks three-quarters away toward the right, then in right profile, and after two or three walking steps he is walking three-quarters toward the right of the picture and toward the viewer, so that we see his face. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_b_44",
-     "martin2_key_walk_fr_31"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 26600,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_b_44",
-    "martin2_key_walk_fr_31"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_b_fr_26600_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen, gewählt aus seed 26600 count 4."
-  },
-  "martin2_turnwalk_br_b_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place away from the viewer with a steady walking cycle, as on a treadmill, and while walking he turns a little: starting in mid-stride walking three-quarters away from the viewer toward the right of the picture, after one or two walking steps he is walking straight away from the viewer with his back to us. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_br_47",
-     "martin2_key_walk_b_44"
-    ],
-    "width": 768,
-    "height": 1024,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 26701,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_br_47",
-    "martin2_key_walk_b_44"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_br_b_26701_frames.zip",
-   "date": "2026-11-08",
-   "note": "Drehen im Laufen, gewählt aus seed 26700 count 4."
-  },
-  "martin2_turnwalk_b_br_video": {
-   "tool": "gb10-assets/generate_video",
-   "version": "gb10-assets 1.1.1",
-   "request": {
-    "model": "ltx-2.5",
-    "prompt": "The man in the long brown coat keeps walking in place away from the viewer with a steady walking cycle, as on a treadmill, and while walking he turns a little: starting in mid-stride walking straight away from the viewer with his back to us, after one or two walking steps he is walking three-quarters away from the viewer toward the right of the picture. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
-    "images": [
-     "martin2_key_walk_b_44_x",
-     "martin2_key_walk_br_47_x"
-    ],
-    "width": 768,
-    "height": 1088,
-    "duration_s": 2,
-    "fps": 24,
-    "frames": true,
-    "enhance_prompt": false,
-    "seed": 27201,
-    "count": 1
-   },
-   "inputs": [
-    "martin2_key_walk_b_44_x",
-    "martin2_key_walk_br_47_x"
-   ],
-   "output": "work/cache/characters/martin2/video/turnwalk_b_br_27201_frames.zip",
-   "date": "2026-11-08",
-   "note": "768x1088 neu (Sohlen), gewählt aus seed 27200 count 4 (job 9e81d1e80cb2)."
   },
   "martin2_walk_fr_frames": {
    "tool": "script",
@@ -1677,514 +1383,6 @@
    "date": "2026-11-08",
    "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
   },
-  "martin2_turnwalk_fr_fl_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_fl_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_fl/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_fl_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_fl_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_fl/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_fl_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_fl_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_fl/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_br_bl_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_bl_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_bl/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_br_bl_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_bl_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_bl/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_br_bl_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_bl_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_bl/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_fr_br_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_br_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_br/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_br_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_br_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_br/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_br_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_br_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_br/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_br_fr_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_fr_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_fr/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_br_fr_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_fr_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_fr/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_br_fr_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_fr_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_fr/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_fr_bl_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_bl_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_bl/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_bl_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_bl_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_bl/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_bl_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_bl_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_bl/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_bl_fr_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_bl_fr_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_bl_fr/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_bl_fr_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_bl_fr_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_bl_fr/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_bl_fr_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_bl_fr_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_bl_fr/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_fr_b_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_b_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_b/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_b_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_b_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_b/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_fr_b_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_fr_b_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_fr_b/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_b_fr_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_b_fr_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_b_fr/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_b_fr_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_b_fr_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_b_fr/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_b_fr_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_b_fr_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_b_fr/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_br_b_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_b_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_b/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_br_b_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_b_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_b/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_br_b_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_br_b_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_br_b/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_turnwalk_b_br_frames": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "unpack",
-    "--range",
-    "0-45",
-    "--step",
-    "3"
-   ],
-   "inputs": [
-    "martin2_turnwalk_b_br_video"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_b_br/frames/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_b_br_keyed": {
-   "tool": "script",
-   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
-   "args": [
-    "key",
-    "--color",
-    "00FF00"
-   ],
-   "inputs": [
-    "martin2_turnwalk_b_br_frames"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_b_br/keyed/",
-   "date": "2026-11-08"
-  },
-  "martin2_turnwalk_b_br_scaled": {
-   "tool": "script",
-   "script": "work/scripts/martin2/scale.py",
-   "args": [
-    "--factor",
-    "0.3653",
-    "--box",
-    "0,0,768,1088",
-    "--anchor",
-    "384,969"
-   ],
-   "inputs": [
-    "martin2_turnwalk_b_br_keyed"
-   ],
-   "output": "work/cache/characters/martin2/turnwalk_b_br/scaled/",
-   "date": "2026-11-08",
-   "note": "Feste Box 768x1088 (Videos 768x1024 werden unten transparent aufgefüllt) → 281x397, Anker (140.3, 354.0) für alle Martin-Animationen"
-  },
-  "martin2_key_walk_fr_31_x": {
-   "tool": "script",
-   "script": "work/scripts/martin2/shift.py",
-   "args": [
-    "--extend-bottom",
-    "64"
-   ],
-   "inputs": [
-    "martin2_key_walk_fr_31"
-   ],
-   "output": "work/cache/characters/martin2/keys/walk_fr_31_x.png",
-   "date": "2026-11-08",
-   "note": "64 px mehr Rand unten, damit vordere Füße nicht abgeschnitten werden"
-  },
-  "martin2_key_walk_bl_47_x": {
-   "tool": "script",
-   "script": "work/scripts/martin2/shift.py",
-   "args": [
-    "--extend-bottom",
-    "64"
-   ],
-   "inputs": [
-    "martin2_key_walk_bl_47"
-   ],
-   "output": "work/cache/characters/martin2/keys/walk_bl_47_x.png",
-   "date": "2026-11-08",
-   "note": "64 px mehr Rand unten, damit vordere Füße nicht abgeschnitten werden"
-  },
   "martin2_key_walk_br_47_x": {
    "tool": "script",
    "script": "work/scripts/martin2/shift.py",
@@ -2196,20 +1394,6 @@
     "martin2_key_walk_br_47"
    ],
    "output": "work/cache/characters/martin2/keys/walk_br_47_x.png",
-   "date": "2026-11-08",
-   "note": "64 px mehr Rand unten, damit vordere Füße nicht abgeschnitten werden"
-  },
-  "martin2_key_walk_b_44_x": {
-   "tool": "script",
-   "script": "work/scripts/martin2/shift.py",
-   "args": [
-    "--extend-bottom",
-    "64"
-   ],
-   "inputs": [
-    "martin2_key_walk_b_44"
-   ],
-   "output": "work/cache/characters/martin2/keys/walk_b_44_x.png",
    "date": "2026-11-08",
    "note": "64 px mehr Rand unten, damit vordere Füße nicht abgeschnitten werden"
   },
@@ -2226,6 +1410,155 @@
    "output": "work/cache/characters/martin2/stand/br_vx.png",
    "date": "2026-11-08",
    "note": "64 px mehr Rand unten, damit vordere Füße nicht abgeschnitten werden"
+  },
+  "martin2_stand_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/stand_fr/keyed/",
+   "date": "2026-11-08",
+   "note": "Eingabe als einziges Bild frame_0000.png in work/cache/characters/martin2/stand_fr/frames/"
+  },
+  "martin2_stand_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_stand_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/stand_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_stand_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_stand_br_v"
+   ],
+   "output": "work/cache/characters/martin2/stand_br/keyed/",
+   "date": "2026-11-08",
+   "note": "Eingabe als einziges Bild frame_0000.png in work/cache/characters/martin2/stand_br/frames/"
+  },
+  "martin2_stand_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_stand_br_keyed"
+   ],
+   "output": "work/cache/characters/martin2/stand_br/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_stand_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/stand_b/keyed/",
+   "date": "2026-11-08",
+   "note": "Eingabe als einziges Bild frame_0000.png in work/cache/characters/martin2/stand_b/frames/"
+  },
+  "martin2_stand_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_stand_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/stand_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_export": {
+   "tool": "script",
+   "script": "work/scripts/martin2/export.py",
+   "args": [],
+   "inputs": [
+    "martin2_stand_b_scaled",
+    "martin2_stand_br_scaled",
+    "martin2_stand_fr_scaled",
+    "martin2_start_b_scaled",
+    "martin2_start_br_scaled",
+    "martin2_start_fr_scaled",
+    "martin2_stop_b_scaled",
+    "martin2_stop_br_scaled",
+    "martin2_stop_fr_scaled",
+    "martin2_turn_br_b_scaled",
+    "martin2_turn_br_bl_scaled",
+    "martin2_turn_fr_b_scaled",
+    "martin2_turn_fr_bl_scaled",
+    "martin2_turn_fr_br_scaled",
+    "martin2_turn_fr_fl_scaled",
+    "martin2_walk_b_scaled",
+    "martin2_walk_br_scaled",
+    "martin2_walk_fr_scaled"
+   ],
+   "output": "assets/characters/martin2/",
+   "date": "2026-11-08",
+   "note": "Kopiert alle <anim>/scaled-Bilder fortlaufend nummeriert nach assets/characters/martin2/<anim>_NN.png und schreibt anims.json. Animationstabelle: work/scripts/martin2/anims.txt"
+  },
+  "martin2_rootmotion": {
+   "tool": "script",
+   "script": "work/scripts/martin2/rootmotion.py",
+   "args": [],
+   "inputs": [
+    "martin2_start_b_video",
+    "martin2_start_br_video",
+    "martin2_start_fr_video",
+    "martin2_stop_b_video",
+    "martin2_stop_br_video",
+    "martin2_stop_fr_video",
+    "martin2_turn_br_b_video",
+    "martin2_turn_br_bl_video",
+    "martin2_turn_fr_b_video",
+    "martin2_turn_fr_bl_video",
+    "martin2_turn_fr_br_video",
+    "martin2_turn_fr_fl_video",
+    "martin2_walk_b_video",
+    "martin2_walk_br_video",
+    "martin2_walk_fr_video"
+   ],
+   "output": "assets/characters/martin2/rootmotion.json",
+   "date": "2026-11-08",
+   "note": "Root Motion je gezeigtem Bild aus der Verschiebung des Standfußes im Video (Bildauswahl aus work/scripts/martin2/anims.txt)"
   }
  }
 }

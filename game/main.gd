@@ -28,7 +28,9 @@ const SPEAKER_COLORS := {
 
 var world := Node2D.new()
 var camera := Camera2D.new()
-var player := Player.new()
+## Martin: alter Satz (Player) oder zum Ausprobieren der neue (Martin2, Cheatmenü; gemerkt in MARTIN2_FILE)
+const MARTIN2_FILE := "user://martin2"
+var player: Node2D = Martin2.new() if FileAccess.file_exists(MARTIN2_FILE) else Player.new()
 var voice := AudioStreamPlayer.new()
 var sfx := AudioStreamPlayer.new()
 var ui: GameUI
@@ -115,6 +117,7 @@ func cheat_menu() -> void:
 		["Geheimtür im Altarraum öffnen", cheat_secret_door],
 		["Kälteanzug ausziehen" if player.suit else "Kälteanzug anziehen", cheat_suit],
 		["Gegenstände für die Antarktis geben", cheat_antarctica_items],
+		["Alten Martin verwenden" if player is Martin2 else "Neuen Martin verwenden (Test)", cheat_martin2],
 		["Zurück", ui.hide_menu],
 	])
 
@@ -124,6 +127,30 @@ func cheat_suit() -> void:
 	ui.hide_menu()
 	Game.set_flag("cheat_suit", not player.suit)
 	player.set_suit(not player.suit)
+
+
+## Zwischen altem und neuem Martin umschalten (gilt auch nach Neustart). Der neue hat noch kein Atmen, keine
+## Mundbewegung, keine Gesten und keinen Kälteanzug.
+func cheat_martin2() -> void:
+	ui.hide_menu()
+	player.stop()
+	var on := not (player is Martin2)
+	if on:
+		FileAccess.open(MARTIN2_FILE, FileAccess.WRITE).store_string("1")
+	else:
+		DirAccess.remove_absolute(MARTIN2_FILE)
+	var p: Node2D = Martin2.new() if on else Player.new()
+	p.room = room
+	p.position = player.position
+	p.visible = player.visible
+	p.set_suit(player.suit)
+	var side: String = player.dir
+	room.remove_child(player)
+	player.queue_free()
+	player = p
+	room.add_child(p)
+	p.face(side, true)
+	p.update_scale()
 
 
 ## Gegenstände aus den noch nicht gebauten Orten (ABC GmbH, Innenerde), zum Ausprobieren der Antarktis.
