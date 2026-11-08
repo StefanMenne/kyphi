@@ -8,14 +8,16 @@ extends Node2D
 ## wird geplant als Anlaufen + n Laufzyklen + Anhalten und alles um denselben Faktor gestreckt, damit er genau
 ## ankommt (Bildtempo mit, in Grenzen). Übergänge passen am KEY-Bild des Zyklus: Anlaufen endet davor,
 ## Anhalten beginnt dort.
-## Noch ohne Atmen, Mundbewegung, Gesten und Kälteanzug (set_suit merkt sich nur den Zustand). Herkunft:
-## assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
+## Im Stand atmet er (Schleife). Noch ohne Mundbewegung, Gesten und Kälteanzug (set_suit merkt sich nur den
+## Zustand). Herkunft: assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
 
 const DIR := "res://assets/characters/martin2/"
 ## Fußpunkt und Körperhöhe (Scheitel bis Sohle im Standbild) in Sprite-Pixeln, für alle Bilder gleich
 const ANCHOR := Vector2(140.3, 354.0)
 const BODY_PX := 321.5
 const FPS := 8.0
+## Atmen im Stand: Schleife idle_<Richtung> (Bild 0 = Standbild), falls vorhanden
+const IDLE_FPS := 12.0
 ## Bild des Laufzyklus, an dem Anlaufen endet und Anhalten beginnt
 const KEY := {"fr": 0, "br": 0, "b": 2}
 ## Grenzen für das Bildtempo, wenn ein Weg gestreckt wird
@@ -94,9 +96,16 @@ func _show_stand() -> void:
 	_frame("stand", facing, 0)
 
 
-func _process(_dt: float) -> void:
-	if not _moving and not _busy:
+func _process(dt: float) -> void:
+	if _moving or _busy:
+		_idle_t = 0.0
+		return
+	var idle: Array = _tex.get("idle_" + _base(facing), [])
+	if idle.is_empty():
 		_show_stand()
+		return
+	_idle_t += dt
+	_show(idle[int(_idle_t * IDLE_FPS) % idle.size()], facing.ends_with("l"))
 
 
 ## Bildfolge einer Drehung im Stand von a nach b: [Animation, rückwärts, gespiegelt]
@@ -329,3 +338,5 @@ func _walk_loop() -> void:
 var _target := Vector2.ZERO
 ## stop(): Laufschleife sofort beenden
 var _halt := false
+## Zeit in der Atem-Schleife (beginnt nach jeder Bewegung wieder beim Standbild)
+var _idle_t := 0.0

@@ -1,6 +1,6 @@
 class_name AnimDebug
 extends CanvasLayer
-## Animations-Debug (F11, nur in Debug-Builds) für Martin: links alle Bildfolgen (Stand, Anlaufen, Laufen,
+## Animations-Debug (F11, nur in Debug-Builds) für Martin: links alle Bildfolgen (Stand, Atmen, Anlaufen, Laufen,
 ## Anhalten, Drehen im Stand; FL/BL entstehen durch Spiegeln), rechts die Vorschau. Abspielen als Schleife,
 ## rückwärts, gespiegelt, Bild für Bild (←/→, Leertaste), Standbild einblenden. „Root Motion“ bewegt die Figur
 ## dabei um den gemessenen Weg je Bild (rootmotion.json); die Werte des aktuellen Bildes stehen im Infotext.
@@ -177,7 +177,7 @@ func _ready() -> void:
 
 ## Sortierung: Stand, Anlaufen, Laufen, Anhalten (je FR, BR, B), dann Drehungen
 static func _order(name: String) -> String:
-	var kinds := ["stand", "start", "walk", "stop", "turn"]
+	var kinds := ["stand", "idle", "start", "walk", "stop", "turn"]
 	var p := name.split("_")
 	var views := {"fr": 0, "br": 1, "b": 2}
 	return "%d%d%s" % [kinds.find(p[0]), views.get(p[1], 9), name]
@@ -185,7 +185,7 @@ static func _order(name: String) -> String:
 
 static func _title(name: String) -> String:
 	var p := name.split("_")
-	var kind: String = {"stand": "Stand", "start": "Anlaufen", "walk": "Laufen", "stop": "Anhalten",
+	var kind: String = {"stand": "Stand", "idle": "Atmen", "start": "Anlaufen", "walk": "Laufen", "stop": "Anhalten",
 		"turn": "Drehen"}[p[0]]
 	if p[0] == "turn":
 		return "%s %s → %s" % [kind, p[1].to_upper(), p[2].to_upper()]
@@ -272,7 +272,7 @@ func _process(dt: float) -> void:
 		return
 	var n: int = _tex[_sel].size()
 	_t += dt
-	var step := 1.0 / Player.FPS
+	var step := 1.0 / (Player.IDLE_FPS if _sel.begins_with("idle") else Player.FPS)
 	while _t >= step:
 		_t -= step
 		if _motion.button_pressed:
@@ -314,7 +314,7 @@ func _show_frame() -> void:
 		rm = "\nRoot Motion dieses Bildes: %.3f KH\n(Vektor %.3f, %.3f)\nSumme der Folge: %.3f KH" % [
 			float(r["d"][_frame]), float(r["v"][_frame][0]), float(r["v"][_frame][1]), sum]
 	_info.text = "%s\n\nBild %d / %d\n%d Bilder/s (Tempo %d %%)\n%s%s\n\nKH = Körperhöhen" % [_title(_sel),
-		_frame + 1, _tex[_sel].size(), int(Player.FPS), roundi(_speed.value * 100),
+		_frame + 1, _tex[_sel].size(), int(Player.IDLE_FPS if _sel.begins_with("idle") else Player.FPS), roundi(_speed.value * 100),
 		_tex[_sel][_frame].resource_path.get_file(), rm]
 
 

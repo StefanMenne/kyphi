@@ -21,7 +21,7 @@ func _ready() -> void:
 	p.update_scale()
 	var h: float = main.room.height_at(p.position.y)
 	p.walk_to(p.position + Vector2(1.0, 0) * h)
-	for i in 600:
+	for i in 750:
 		await get_tree().process_frame
 		var s: Sprite2D = p._sprite
 		var tex := s.texture.resource_path.get_file()

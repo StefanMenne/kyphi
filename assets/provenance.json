@@ -1512,6 +1512,9 @@
    "script": "work/scripts/martin2/export.py",
    "args": [],
    "inputs": [
+    "martin2_idle_b_scaled",
+    "martin2_idle_br_scaled",
+    "martin2_idle_fr_scaled",
     "martin2_stand_b_scaled",
     "martin2_stand_br_scaled",
     "martin2_stand_fr_scaled",
@@ -1540,6 +1543,9 @@
    "script": "work/scripts/martin2/rootmotion.py",
    "args": [],
    "inputs": [
+    "martin2_idle_b_video",
+    "martin2_idle_br_video",
+    "martin2_idle_fr_video",
     "martin2_start_b_video",
     "martin2_start_br_video",
     "martin2_start_fr_video",
@@ -1565,6 +1571,231 @@
    "note": "aus dem alten Satz übernommen (Python/Pillow: radialer Verlauf 256x64, Alpha = (1 - r)^0.9, schwarz)",
    "inputs": [],
    "output": "assets/characters/martin2/shadow.png",
+   "date": "2026-11-08"
+  },
+  "martin2_idle_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, turned three-quarters toward the right of the picture. He stands almost completely motionless, like someone waiting patiently: the only movement is a very slight, slow rise and fall of the shoulders and chest from calm breathing. His head stays completely still and keeps looking in the same direction, his arms hang still at his sides without swinging, his hands do not move, his feet stay exactly where they are. He does not walk, turn, nod, look around or gesture. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, very soft breathing.",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 4,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 28301,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/idle_fr_28301_frames.zip",
+   "date": "2026-11-08",
+   "note": "Atmen im Stand (Schleife: Start- und Endbild = Standbild), gewählt aus seed 28300 count 4."
+  },
+  "martin2_idle_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-94",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_idle_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/idle_fr/frames/",
+   "date": "2026-11-08",
+   "note": "48 Bilder für 12 fps; Videobild 96 = Standbild = Bild 0"
+  },
+  "martin2_idle_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_idle_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/idle_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_idle_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_idle_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/idle_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_idle_br_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, seen three-quarters from behind and turned toward the right of the picture. He stands almost completely motionless, like someone waiting patiently: the only movement is a very slight, slow rise and fall of the shoulders and chest from calm breathing. His head stays completely still and keeps looking in the same direction, his arms hang still at his sides without swinging, his hands do not move, his feet stay exactly where they are. He does not walk, turn, nod, look around or gesture. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, very soft breathing.",
+    "images": [
+     "martin2_stand_br_v",
+     "martin2_stand_br_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 4,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 28400,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_br_v",
+    "martin2_stand_br_v"
+   ],
+   "output": "work/cache/characters/martin2/video/idle_br_28400_frames.zip",
+   "date": "2026-11-08",
+   "note": "Atmen im Stand (Schleife: Start- und Endbild = Standbild), gewählt aus seed 28400 count 4."
+  },
+  "martin2_idle_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-94",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_idle_br_video"
+   ],
+   "output": "work/cache/characters/martin2/idle_br/frames/",
+   "date": "2026-11-08",
+   "note": "48 Bilder für 12 fps; Videobild 96 = Standbild = Bild 0"
+  },
+  "martin2_idle_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_idle_br_frames"
+   ],
+   "output": "work/cache/characters/martin2/idle_br/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_idle_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_idle_br_keyed"
+   ],
+   "output": "work/cache/characters/martin2/idle_br/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_idle_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, seen straight from behind, with his heels toward the viewer and the toes of both shoes pointing slightly outward. He stands almost completely motionless, like someone waiting patiently: the only movement is a very slight, slow rise and fall of the shoulders and chest from calm breathing. His head stays completely still and keeps looking in the same direction, his arms hang still at his sides without swinging, his hands do not move, his feet stay exactly where they are. He does not walk, turn, nod, look around or gesture. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, very soft breathing.",
+    "images": [
+     "martin2_stand_b_v",
+     "martin2_stand_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 4,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 28501,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_b_v",
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/idle_b_28501_frames.zip",
+   "date": "2026-11-08",
+   "note": "Atmen im Stand (Schleife: Start- und Endbild = Standbild), gewählt aus seed 28500 count 4."
+  },
+  "martin2_idle_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-94",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_idle_b_video"
+   ],
+   "output": "work/cache/characters/martin2/idle_b/frames/",
+   "date": "2026-11-08",
+   "note": "48 Bilder für 12 fps; Videobild 96 = Standbild = Bild 0"
+  },
+  "martin2_idle_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_idle_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/idle_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_idle_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_idle_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/idle_b/scaled/",
    "date": "2026-11-08"
   }
  }
