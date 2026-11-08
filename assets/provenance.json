@@ -1,3 +1,497 @@
 {
- "steps": {}
+ "steps": {
+  "martin2_concept": {
+   "tool": "gb10-assets/generate_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "flux2-klein",
+    "prompt": "Full body character of a German art restorer in his late thirties, slim, realistic proportions, short tousled black hair, light stubble, thoughtful face, three-quarter view: his whole body, feet, hips, shoulders and head turned 45 degrees toward the right side of the picture, looking toward the right edge of the picture, standing upright and relaxed, arms hanging naturally at his sides, feet slightly apart. Clothing: a long open warm brown-beige wool work coat with two large lower patch pockets and fabric folds, a slate blue-grey button-up shirt with open collar, a brown leather belt, faded blue jeans, brown leather lace-up shoes. No logos, no accessories, nothing in his hands. Camera at chest height looking slightly down, even soft light. Semi-realistic digital painting as in a modern detailed point-and-click adventure game: fine thin dark outlines, soft painterly shading, detailed fabric folds and seams, realistic face, muted natural colors. The whole figure uncropped with margin above the head and below the shoes. Solid flat pure green (#00FF00) background, no gradient, no shadow, no floor, nothing else in the picture.",
+    "width": 768,
+    "height": 1024,
+    "seed": 20101,
+    "count": 1
+   },
+   "inputs": [],
+   "output": "work/cache/characters/martin2/concept.png",
+   "date": "2026-11-08",
+   "note": "Martin neu, Ursprungsbild Dreiviertel vorn rechts. Gewählt aus seed 20100 count 4 (07.11.); einzeln mit count 1 pixelgleich wiederholt (08.11.)."
+  },
+  "martin2_concept_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "mask": false
+   },
+   "inputs": [
+    "martin2_concept"
+   ],
+   "output": "work/cache/characters/martin2/concept_cutout.png",
+   "date": "2026-11-08"
+  },
+  "martin2_stand_fr": {
+   "tool": "script",
+   "script": "work/scripts/martin2/place.py",
+   "args": [
+    "--size",
+    "1024x1024",
+    "--height",
+    "880",
+    "--feet",
+    "970",
+    "--color",
+    "00FF00",
+    "--alpha-min",
+    "128"
+   ],
+   "inputs": [
+    "martin2_concept_cutout"
+   ],
+   "output": "work/cache/characters/martin2/stand/fr.png",
+   "date": "2026-11-08",
+   "note": "Arbeitsformat 1024x1024 (Qwen-Edit nativ ~1 MP, kein Größendrift); für Videos 768x1024 aus der Mitte schneiden. md5 1b4a1bc0c44e92fea788cab3897b4ab8"
+  },
+  "martin2_stand_fl": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--mirror"
+   ],
+   "inputs": [
+    "martin2_stand_fr"
+   ],
+   "output": "work/cache/characters/martin2/stand/fl.png",
+   "date": "2026-11-08"
+  },
+  "martin2_stand_br_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Turn the man from image 1 around so that he is seen three-quarters from behind: his back is toward the viewer and his body, hips, shoulders and head are turned 45 degrees toward the right side of the picture; we see the back of his head and a little of his right cheek, not his face. He stands upright and relaxed, arms hanging naturally at his sides, heels toward the viewer, toes of both shoes pointing slightly outward, feet hip-width apart. Keep exactly the same person, the same clothing (long open brown-beige wool coat, slate blue-grey shirt, brown belt, faded blue jeans, brown lace-up shoes), the same size and position in the picture, the same semi-realistic painted style with fine thin dark outlines, and the same solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin2_stand_fr"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 22000,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr"
+   ],
+   "output": "work/cache/characters/martin2/stand/br_raw.png",
+   "date": "2026-11-08",
+   "note": "Gewählt aus seed 22000 count 4 (job be37fd189a59); count 1 pixelgleich wiederholt."
+  },
+  "martin2_stand_br": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--dy",
+    "1"
+   ],
+   "inputs": [
+    "martin2_stand_br_raw"
+   ],
+   "output": "work/cache/characters/martin2/stand/br.png",
+   "date": "2026-11-08",
+   "note": "Fußpunkt auf y=969 wie FR"
+  },
+  "martin2_stand_bl": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--dy",
+    "1",
+    "--mirror"
+   ],
+   "inputs": [
+    "martin2_stand_br_raw"
+   ],
+   "output": "work/cache/characters/martin2/stand/bl.png",
+   "date": "2026-11-08"
+  },
+  "martin2_stand_b_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Turn the man from image 1 around so that he is seen straight from behind: his back faces the viewer directly, we see the back of his head and the back of his coat, not his face. He stands upright and relaxed, arms hanging naturally at his sides, heels toward the viewer, toes of both shoes pointing slightly outward, feet hip-width apart. Keep exactly the same person, the same clothing (long open brown-beige wool coat, slate blue-grey shirt, brown belt, faded blue jeans, brown lace-up shoes), the same size and position in the picture, the same semi-realistic painted style with fine thin dark outlines, and the same solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin2_stand_fr"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 22102,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr"
+   ],
+   "output": "work/cache/characters/martin2/stand/b_raw.png",
+   "date": "2026-11-08",
+   "note": "Gewählt aus seed 22100 count 4 (job 3789e844c944); count 1 pixelgleich wiederholt."
+  },
+  "martin2_stand_b": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--dy",
+    "1"
+   ],
+   "inputs": [
+    "martin2_stand_b_raw"
+   ],
+   "output": "work/cache/characters/martin2/stand/b.png",
+   "date": "2026-11-08",
+   "note": "Fußpunkt auf y=969 wie FR"
+  },
+  "martin2_stand_fr_v": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--crop",
+    "768x1024"
+   ],
+   "inputs": [
+    "martin2_stand_fr"
+   ],
+   "output": "work/cache/characters/martin2/stand/fr_v.png",
+   "date": "2026-11-08",
+   "note": "Mittelausschnitt für Videos"
+  },
+  "martin2_stand_b_v": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--crop",
+    "768x1024"
+   ],
+   "inputs": [
+    "martin2_stand_b"
+   ],
+   "output": "work/cache/characters/martin2/stand/b_v.png",
+   "date": "2026-11-08",
+   "note": "Mittelausschnitt für Videos"
+  },
+  "martin2_walk_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat walks in place with a steady, calm walking cycle, as on a treadmill, legs and arms swinging alternately in a natural rhythm; he stays in the center of the frame at the same size and keeps facing three-quarters toward the right of the picture the whole time. Static camera, three-quarter view, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 23003,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/walk_fr_23003_frames.zip",
+   "date": "2026-11-08",
+   "note": "Laufen auf der Stelle FR. Gewählt aus seed 23000 count 4 (job 0838c153b01d)."
+  },
+  "martin2_walk_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat, seen straight from behind, walks in place with a steady, calm walking cycle, as on a treadmill, walking away from the viewer, legs and arms swinging alternately in a natural rhythm; he stays in the center of the frame at the same size and keeps his back to the viewer the whole time. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin2_stand_b_v",
+     "martin2_stand_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 23200,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_b_v",
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/walk_b_23200_frames.zip",
+   "date": "2026-11-08",
+   "note": "Laufen auf der Stelle B. Gewählt aus seed 23200 count 4 (job ac8c4883e4f6)."
+  },
+  "martin2_turn_fr_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot and turns around in place with two or three small steps: starting turned three-quarters toward the right of the picture, he turns away from the viewer toward the right until we see his back straight from behind. He ends standing still and relaxed with his heels toward the viewer and the toes of both shoes pointing slightly outward, feet hip-width apart. His arms hang relaxed at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 23101,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/turn_fr_b_23101_frames.zip",
+   "date": "2026-11-08",
+   "note": "Drehen im Stand FR→B. Gewählt aus seed 23100 count 4 (job 2d31fb52d055); count 1 pixelgleich wiederholt (job 78a5b8cccd39)."
+  },
+  "martin2_key_walk_fr_31": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "31-31"
+   ],
+   "inputs": [
+    "martin2_walk_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/keys/walk_fr_31.png",
+   "date": "2026-11-08",
+   "note": "Kontaktframe Laufen FR, Start für Drehen im Laufen"
+  },
+  "martin2_key_walk_b_44": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "44-44"
+   ],
+   "inputs": [
+    "martin2_walk_b_video"
+   ],
+   "output": "work/cache/characters/martin2/keys/walk_b_44.png",
+   "date": "2026-11-08",
+   "note": "Laufen B, Ende für Drehen im Laufen"
+  },
+  "martin2_turnwalk_fr_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat keeps walking in place with a steady walking cycle, as on a treadmill, and while walking he turns smoothly toward the right and away from the viewer: starting in mid-stride turned three-quarters toward the right of the picture, after two or three walking steps he is walking straight away from the viewer with his back to us. He never stops walking, legs and arms keep swinging alternately, he stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin2_key_walk_fr_31",
+     "martin2_key_walk_b_44"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 23303,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_key_walk_fr_31",
+    "martin2_key_walk_b_44"
+   ],
+   "output": "work/cache/characters/martin2/video/turnwalk_fr_b_23303_frames.zip",
+   "date": "2026-11-08",
+   "note": "Drehen im Laufen FR→B. Gewählt aus seed 23300 count 4 (job b5cd8503796f). Spiel: Laufen FR bis Frame 31 → dieses Video 0–45 → Laufen B ab Frame 44."
+  },
+  "martin2_walk_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "31-54",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin2_walk_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/walk_fr/frames/",
+   "date": "2026-11-08",
+   "note": "Zyklus 24 Frames; Raster 31,34,…,52, damit Frame 31 (Start Drehen im Laufen) im Zyklus liegt"
+  },
+  "martin2_walk_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_walk_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/walk_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_walk_fr_scaled": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "scale",
+    "--factor",
+    "0.3653"
+   ],
+   "inputs": [
+    "martin2_walk_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/walk_fr/scaled/",
+   "date": "2026-11-08",
+   "note": "Ankerpunkt noch offen: scale schneidet je Animation eine eigene Box zu; vor dem Einbau feste Box für alle Martin-Animationen."
+  },
+  "martin2_walk_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "38-61",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin2_walk_b_video"
+   ],
+   "output": "work/cache/characters/martin2/walk_b/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_walk_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_walk_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/walk_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_walk_b_scaled": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "scale",
+    "--factor",
+    "0.3653"
+   ],
+   "inputs": [
+    "martin2_walk_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/walk_b/scaled/",
+   "date": "2026-11-08",
+   "note": "Ankerpunkt noch offen: scale schneidet je Animation eine eigene Box zu; vor dem Einbau feste Box für alle Martin-Animationen."
+  },
+  "martin2_turn_fr_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-30",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin2_turn_fr_b_video"
+   ],
+   "output": "work/cache/characters/martin2/turn_fr_b/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_turn_fr_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_turn_fr_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/turn_fr_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_turn_fr_b_scaled": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "scale",
+    "--factor",
+    "0.3653"
+   ],
+   "inputs": [
+    "martin2_turn_fr_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/turn_fr_b/scaled/",
+   "date": "2026-11-08",
+   "note": "Ankerpunkt noch offen: scale schneidet je Animation eine eigene Box zu; vor dem Einbau feste Box für alle Martin-Animationen."
+  },
+  "martin2_turnwalk_fr_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-45",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin2_turnwalk_fr_b_video"
+   ],
+   "output": "work/cache/characters/martin2/turnwalk_fr_b/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_turnwalk_fr_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_turnwalk_fr_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/turnwalk_fr_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_turnwalk_fr_b_scaled": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "scale",
+    "--factor",
+    "0.3653"
+   ],
+   "inputs": [
+    "martin2_turnwalk_fr_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/turnwalk_fr_b/scaled/",
+   "date": "2026-11-08",
+   "note": "Ankerpunkt noch offen: scale schneidet je Animation eine eigene Box zu; vor dem Einbau feste Box für alle Martin-Animationen."
+  }
+ }
 }
