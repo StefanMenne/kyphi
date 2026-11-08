@@ -1531,6 +1531,12 @@
     "martin2_turn_fr_bl_scaled",
     "martin2_turn_fr_br_scaled",
     "martin2_turn_fr_fl_scaled",
+    "martin2_use_high_b_scaled",
+    "martin2_use_high_fr_scaled",
+    "martin2_use_hip_b_scaled",
+    "martin2_use_hip_fr_scaled",
+    "martin2_use_low_b_scaled",
+    "martin2_use_low_fr_scaled",
     "martin2_walk_b_scaled",
     "martin2_walk_br_scaled",
     "martin2_walk_fr_scaled"
@@ -1560,6 +1566,12 @@
     "martin2_turn_fr_bl_video",
     "martin2_turn_fr_br_video",
     "martin2_turn_fr_fl_video",
+    "martin2_use_high_b_video",
+    "martin2_use_high_fr_video",
+    "martin2_use_hip_b_video",
+    "martin2_use_hip_fr_video",
+    "martin2_use_low_b_video",
+    "martin2_use_low_fr_video",
     "martin2_walk_b_video",
     "martin2_walk_br_video",
     "martin2_walk_fr_video"
@@ -1872,6 +1884,456 @@
     "martin2_talk_fr_keyed"
    ],
    "output": "work/cache/characters/martin2/talk_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_high_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, turned three-quarters toward the right of the picture. He calmly reaches forward and up with one open hand to shoulder height or a little higher, as if to touch something on a high shelf in front of him, holds it there for a moment, then lowers his arm again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 30001,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/use_high_fr_30001_frames.zip",
+   "date": "2026-11-08",
+   "note": "Geste Nehmen/Benutzen (leere Hand, Start und Ende = Standbild), gewählt aus seed 30000 count 4."
+  },
+  "martin2_use_high_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_use_high_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/use_high_fr/frames/",
+   "date": "2026-11-08",
+   "note": "37 Bilder für 12 fps"
+  },
+  "martin2_use_high_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_use_high_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/use_high_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_high_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_use_high_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/use_high_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_hip_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, turned three-quarters toward the right of the picture. He calmly reaches forward with one open hand to hip height, as if to touch something on a table in front of him, holds it there for a moment, then lowers his arm again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 30100,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/use_hip_fr_30100_frames.zip",
+   "date": "2026-11-08",
+   "note": "Geste Nehmen/Benutzen (leere Hand, Start und Ende = Standbild), gewählt aus seed 30100 count 4."
+  },
+  "martin2_use_hip_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_use_hip_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/use_hip_fr/frames/",
+   "date": "2026-11-08",
+   "note": "37 Bilder für 12 fps"
+  },
+  "martin2_use_hip_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_use_hip_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/use_hip_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_hip_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_use_hip_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/use_hip_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_low_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, turned three-quarters toward the right of the picture. He calmly bends down at the hips and knees and reaches down with one open hand toward the floor in front of him, as if to touch something lying on the ground, then straightens up again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_stand_fr_v",
+     "martin2_stand_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 30202,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr_v",
+    "martin2_stand_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/use_low_fr_30202_frames.zip",
+   "date": "2026-11-08",
+   "note": "Geste Nehmen/Benutzen (leere Hand, Start und Ende = Standbild), gewählt aus seed 30200 count 4."
+  },
+  "martin2_use_low_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_use_low_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/use_low_fr/frames/",
+   "date": "2026-11-08",
+   "note": "37 Bilder für 12 fps"
+  },
+  "martin2_use_low_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_use_low_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/use_low_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_low_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_use_low_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/use_low_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_high_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, seen straight from behind, with his heels toward the viewer. He calmly reaches forward and up with one open hand to shoulder height or a little higher, as if to touch something on a high shelf in front of him, away from the viewer, holds it there for a moment, then lowers his arm again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_stand_b_v",
+     "martin2_stand_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 30301,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_b_v",
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/use_high_b_30301_frames.zip",
+   "date": "2026-11-08",
+   "note": "Geste Nehmen/Benutzen (leere Hand, Start und Ende = Standbild), gewählt aus seed 30300 count 4."
+  },
+  "martin2_use_high_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_use_high_b_video"
+   ],
+   "output": "work/cache/characters/martin2/use_high_b/frames/",
+   "date": "2026-11-08",
+   "note": "37 Bilder für 12 fps"
+  },
+  "martin2_use_high_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_use_high_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/use_high_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_high_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_use_high_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/use_high_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_hip_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, seen straight from behind, with his heels toward the viewer. He calmly reaches forward with one open hand to hip height, as if to touch something on a table in front of him, away from the viewer, holds it there for a moment, then lowers his arm again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_stand_b_v",
+     "martin2_stand_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 30403,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_b_v",
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/use_hip_b_30403_frames.zip",
+   "date": "2026-11-08",
+   "note": "Geste Nehmen/Benutzen (leere Hand, Start und Ende = Standbild), gewählt aus seed 30400 count 4."
+  },
+  "martin2_use_hip_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_use_hip_b_video"
+   ],
+   "output": "work/cache/characters/martin2/use_hip_b/frames/",
+   "date": "2026-11-08",
+   "note": "37 Bilder für 12 fps"
+  },
+  "martin2_use_hip_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_use_hip_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/use_hip_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_hip_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_use_hip_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/use_hip_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_low_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot, seen straight from behind, with his heels toward the viewer. He calmly bends down at the hips and knees and reaches down with one open hand toward the floor in front of him, away from the viewer, as if to touch something lying on the ground, then straightens up again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_stand_b_v",
+     "martin2_stand_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 30501,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_b_v",
+    "martin2_stand_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/use_low_b_30501_frames.zip",
+   "date": "2026-11-08",
+   "note": "Geste Nehmen/Benutzen (leere Hand, Start und Ende = Standbild), gewählt aus seed 30500 count 4."
+  },
+  "martin2_use_low_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_use_low_b_video"
+   ],
+   "output": "work/cache/characters/martin2/use_low_b/frames/",
+   "date": "2026-11-08",
+   "note": "37 Bilder für 12 fps"
+  },
+  "martin2_use_low_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_use_low_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/use_low_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_use_low_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_use_low_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/use_low_b/scaled/",
    "date": "2026-11-08"
   }
  }

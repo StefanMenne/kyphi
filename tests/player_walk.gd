@@ -86,6 +86,22 @@ func _ready() -> void:
 		check(tex.begins_with("talk_") == (d != "back"), "Sprechen Blick %s: %s" % [d, tex])
 		check(after.begins_with("idle_"), "nach dem Sprechen Atmen (%s)" % after)
 		print("Sprechen Blick %s: %s, danach %s" % [d, tex, after])
+	# Gesten in drei Höhen, vorn links (gespiegelt) und hinten
+	for d in ["left", "back"]:
+		await p.face(d)
+		for kind in ["high", "hip", "low"]:
+			var seen := {}
+			var watch := func() -> void:
+				while p._busy:
+					seen[p._sprite.texture.resource_path.get_file().left(-7)] = p._sprite.flip_h
+					await get_tree().process_frame
+			p.gesture(kind)
+			await get_tree().process_frame
+			await watch.call()
+			var want := "use_%s_%s" % [kind, "b" if d == "back" else "fr"]
+			check(seen.has(want), "Geste %s Blick %s: %s" % [kind, d, seen.keys()])
+			check(not seen.has(want) or seen[want] == (d == "left"), "Geste %s gespiegelt" % kind)
+			print("Geste %s, Blick %s: %s" % [kind, d, seen.keys()])
 	print("\nERGEBNIS: ", "FEHLER" if failed else "OK")
 	get_tree().quit(1 if failed else 0)
 

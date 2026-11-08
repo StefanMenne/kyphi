@@ -74,8 +74,9 @@ func movable(sid: String, s: Sprite2D) -> void:
 
 
 ## Blickrichtung beim Benutzen ("left", "right", "back") steht mit dem Laufpunkt in game/rooms/<id>.json.
-## gesture: "auto" (nach Höhe: "pickup" am Boden, sonst "use") oder "none" (ohne Gegenstand keine Geste,
-## z. B. Personen und offene Durchgänge)
+## gesture: "auto" (nach der Höhe der Hotspot-Mitte über den Füßen: "low" am Boden, "hip" bis Brusthöhe,
+## "high" darüber), fest "low"/"hip"/"high" oder "none" (ohne Gegenstand keine Geste, z. B. Personen und
+## offene Durchgänge)
 func hotspot(hid: String, name: String, gesture := "auto") -> void:
 	hotspots.append({"id": hid, "name": name, "area": Rect2(), "walk": Vector2.ZERO, "face": "back",
 		"gesture": gesture, "verb": "use"})
@@ -89,12 +90,19 @@ func set_verbs(verbs: Dictionary) -> void:
 
 
 ## Geste beim Benutzen des Hotspots ("" = keine).
+## Grenzen für die Höhe der Geste (Körperhöhen über den Füßen): darunter "low", darüber "high", dazwischen "hip"
+const GESTURE_LOW := 0.25
+const GESTURE_HIGH := 0.7
+
+
 func gesture_for(hs: Dictionary, with_item: bool, feet: Vector2) -> String:
 	if hs["gesture"] == "none" and not with_item:
 		return ""
-	var r: Rect2 = hs["area"]
-	# Mitte tiefer als ein Fünftel der Körperhöhe über den Füßen: am Boden
-	return "pickup" if r.get_center().y > feet.y - 0.2 * height_at(feet.y) else "use"
+	if hs["gesture"] in ["low", "hip", "high"]:
+		return hs["gesture"]
+	# Höhe der Hotspot-Mitte über den Füßen in Körperhöhen
+	var up := (feet.y - (hs["area"] as Rect2).get_center().y) / height_at(feet.y)
+	return "low" if up < GESTURE_LOW else ("hip" if up < GESTURE_HIGH else "high")
 
 
 func layout_path() -> String:

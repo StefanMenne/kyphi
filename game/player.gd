@@ -9,7 +9,8 @@ extends Node2D
 ## ankommt (Bildtempo mit, in Grenzen). Übergänge passen am KEY-Bild des Zyklus: Anlaufen endet davor,
 ## Anhalten beginnt dort.
 ## Im Stand atmet er (Schleife); spricht er (talking) und ist das Gesicht zu sehen, läuft stattdessen die
-## Sprech-Schleife. Noch ohne Gesten und Kälteanzug (set_suit merkt sich nur den Zustand).
+## Sprech-Schleife. Gesten Nehmen/Benutzen in drei Höhen (gesture). Noch ohne Kälteanzug (set_suit merkt sich
+## nur den Zustand).
 ## Herkunft: assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
 
 const DIR := "res://assets/characters/martin2/"
@@ -196,8 +197,31 @@ func set_suit(on: bool) -> void:
 
 
 ## Noch keine Gesten für den neuen Martin.
-func gesture(_kind: String) -> void:
-	pass
+## Geste Nehmen/Benutzen in der Höhe kind ("low", "hip", "high"; alt: "pickup" = low, "use" = hip) und endet
+## im Standbild. Vorn rechts/links (gespiegelt) oder von hinten; aus Schräg hinten dreht er sich dafür nach hinten.
+func gesture(kind: String) -> void:
+	kind = {"pickup": "low", "use": "hip"}.get(kind, kind)
+	if Game.fast:
+		return
+	while (_busy or _moving) and is_inside_tree():
+		await get_tree().process_frame
+	if facing in ["br", "bl"]:
+		if not await turn_to("b"):
+			return
+	var anim := "use_%s_%s" % [kind, "b" if facing == "b" else "fr"]
+	if not _tex.has(anim):
+		return
+	_busy = true
+	var my := _token
+	var flip := facing.ends_with("l")
+	for tex in _tex[anim]:
+		_show(tex, flip)
+		await get_tree().create_timer(1.0 / IDLE_FPS).timeout
+		if my != _token:
+			break
+	_busy = false
+	_idle_t = 0.0
+	_show_stand()
 
 
 func update_scale() -> void:
