@@ -46,10 +46,10 @@ func _ready() -> void:
 	_info.add_theme_font_size_override("font_size", 15)
 	_info.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_layer.add_child(_info)
-	var side: Texture2D = load("res://assets/characters/martin/right_idle.png")
-	var back: Texture2D = load("res://assets/characters/martin/back_idle.png")
+	var side: Texture2D = load(Player.DIR + "stand_fr_00.png")
+	var back: Texture2D = load(Player.DIR + "stand_b_00.png")
 	_ghosts = {"right": [side, Player.ANCHOR, false], "left": [side, Player.ANCHOR, true],
-		"back": [back, Player.VIEWS[2]["anchor"], false]}
+		"back": [back, Player.ANCHOR, false]}
 
 
 func toggle() -> void:

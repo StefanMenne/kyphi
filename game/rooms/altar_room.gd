@@ -64,10 +64,8 @@ func refresh() -> void:
 
 func _process(_dt: float) -> void:
 	smoke.emitting = Game.has("cone_saucer")
-	var p: Node2D = Game.main.player
-	# Versatz in Pixeln des alten Martin; der neue hat eine andere Sprite-Auflösung
-	var k: float = Player.BODY_PX / (Martin2.BODY_PX if p is Martin2 else Player.BODY_PX)
-	smoke.position = p.position + Vector2(55, -250) * p.scale * k
+	var p: Player = Game.main.player
+	smoke.position = p.position + Vector2(28, -127) * p.scale
 
 
 func is_active(hid: String) -> bool:

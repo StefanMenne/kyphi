@@ -1,55 +1,44 @@
 class_name AnimDebug
 extends CanvasLayer
-## Animations-Debug (F11, nur in Debug-Builds): Matrix Ausgangszustand × Zielzustand mit den Drehabläufen aus
-## game/turns.json. Jedes Feld ist direkt editierbar (Kürzel, Leerzeichen als Trenner) und gilt sofort im Spiel;
-## „Speichern“ schreibt die Datei. ▶ bzw. Enter spielt den Ablauf an der Vorschaufigur ab; ein Klick auf eine
-## Animation in der Liste hängt ihr Kürzel an das gewählte Feld an. Rot = Sprung oder unbekanntes Kürzel.
+## Animations-Debug (F11, nur in Debug-Builds) für Martin: links alle Bildfolgen (Stand, Anlaufen, Laufen,
+## Anhalten, Drehen im Stand; FL/BL entstehen durch Spiegeln), rechts die Vorschau. Abspielen als Schleife,
+## rückwärts, gespiegelt, Bild für Bild (←/→, Leertaste), Standbild einblenden. „Root Motion“ bewegt die Figur
+## dabei um den gemessenen Weg je Bild (rootmotion.json); die Werte des aktuellen Bildes stehen im Infotext.
+## Unten: Abläufe wie im Spiel (Anlaufen → Laufen → Anhalten, Drehen im Stand) an der Vorschaufigur.
 ## Der Tempo-Regler verlangsamt alles (Engine.time_scale), solange der Dialog offen ist.
-## Zweite Seite „Alle Animationen“: jede Bildfolge einzeln (Atmen, Sprechen, Anlauf, Laufen, Drehungen, Gesten),
-## abspielen, als Schleife, rückwärts, gespiegelt, Bild für Bild (←/→, Leertaste), mit eingeblendetem Standbild.
 
 const W := 1344.0
 const H := 864.0
-const CELL_W := 152.0
-const HEAD_W := 120.0
-const COL_OK := Color(0.9, 0.86, 0.78)
-const COL_BAD := Color(1.0, 0.45, 0.4)
+const COL := Color(0.9, 0.86, 0.78)
+## Vorschau: Fußpunkt und Größe (Körperhöhe in Pixeln) der Figur auf der Bühne
+const STAGE := Rect2(640, 76, 660, 600)
+const FOOT_Y := 600.0
+const BODY := 420.0
 
 var main: Node
 var active := false
-var _cells := {}
-var _sel := ["SR", "DR"]
-var _status: Label
-var _playing: Label
-var _dirty_label: Label
-var _preview: Player
-var _suit: CheckBox
-var _dirty := false
-var _speed: HSlider
-var _speed_label: Label
-var _page1 := Control.new()
-var _page2 := Control.new()
-var _bar1 := HBoxContainer.new()
-var _bar2 := HBoxContainer.new()
-var _tabs := []
-var _page := 1
-# Seite 2
-var _seqs := []
-var _seq_list: VBoxContainer
-var _seq_buttons := []
-var _seq := -1
+var _tex := {}
+var _rm := {}
+var _names := []
+var _buttons := []
+var _sel := ""
 var _frame := 0
 var _t := 0.0
 var _running := false
-var _view_root := Node2D.new()
-var _view_sprite := Sprite2D.new()
-var _ref_sprite := Sprite2D.new()
+var _offset := Vector2.ZERO
+var _root := Node2D.new()
+var _sprite := Sprite2D.new()
+var _ref := Sprite2D.new()
+var _preview: Player
 var _info: Label
 var _play_btn: Button
 var _loop: CheckBox
 var _mirror: CheckBox
 var _reverse: CheckBox
 var _show_ref: CheckBox
+var _motion: CheckBox
+var _speed: HSlider
+var _speed_label: Label
 
 
 func _init(owner_main: Node) -> void:
@@ -59,6 +48,16 @@ func _init(owner_main: Node) -> void:
 
 
 func _ready() -> void:
+	var meta = JSON.parse_string(FileAccess.get_file_as_string(Player.DIR + "anims.json"))
+	_rm = JSON.parse_string(FileAccess.get_file_as_string(Player.DIR + "rootmotion.json"))
+	for anim in meta:
+		var frames := []
+		for i in int(meta[anim]["frames"]):
+			frames.append(load(Player.DIR + "%s_%02d.png" % [anim, i]))
+		_tex[anim] = frames
+	_names = _tex.keys()
+	_names.sort_custom(func(a, b): return _order(a) < _order(b))
+
 	var bg := Panel.new()
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(0.07, 0.065, 0.06, 0.97)
@@ -68,119 +67,99 @@ func _ready() -> void:
 	bg.position = Vector2(16, 16)
 	bg.size = Vector2(W - 32, H - 32)
 	add_child(bg)
-
 	var title := _label("Animations-Debug (F11 schließt)", 22)
 	title.position = Vector2(36, 28)
 	add_child(title)
-	var tabs := HBoxContainer.new()
-	tabs.position = Vector2(420, 26)
-	tabs.add_theme_constant_override("separation", 8)
-	add_child(tabs)
-	for spec in [["Drehungen aus dem Stand", 1], ["Alle Animationen", 2]]:
+
+	var scroll := ScrollContainer.new()
+	scroll.position = Vector2(36, 76)
+	scroll.size = Vector2(330, 600)
+	add_child(scroll)
+	var list := VBoxContainer.new()
+	list.add_theme_constant_override("separation", 3)
+	list.custom_minimum_size = Vector2(310, 0)
+	scroll.add_child(list)
+	for name in _names:
 		var b := Button.new()
-		b.text = spec[0]
-		b.toggle_mode = true
-		b.add_theme_font_size_override("font_size", 16)
-		b.pressed.connect(func(): _show_page(spec[1]))
-		tabs.add_child(b)
-		_tabs.append(b)
-	for pg in [_page1, _page2]:
-		pg.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		add_child(pg)
-
-	# Matrix
-	var grid := GridContainer.new()
-	grid.columns = 6
-	grid.position = Vector2(36, 76)
-	grid.add_theme_constant_override("h_separation", 6)
-	grid.add_theme_constant_override("v_separation", 8)
-	_page1.add_child(grid)
-	var corner := _label("von ↓  nach →", 14)
-	corner.custom_minimum_size = Vector2(HEAD_W, 0)
-	grid.add_child(corner)
-	for to in Player.STATES:
-		var l := _label("%s\n%s" % [to, Player.STATE_NAMES[to]], 13)
-		l.custom_minimum_size = Vector2(CELL_W, 40)
-		grid.add_child(l)
-	for from in Player.STATES:
-		var l := _label("%s  %s" % [from, Player.STATE_NAMES[from]], 13)
-		l.autowrap_mode = TextServer.AUTOWRAP_WORD
-		l.custom_minimum_size = Vector2(HEAD_W, 0)
-		grid.add_child(l)
-		for to in Player.STATES:
-			if from == to:
-				var dash := _label("—", 14)
-				dash.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-				dash.custom_minimum_size = Vector2(CELL_W, 0)
-				grid.add_child(dash)
-				continue
-			var box := HBoxContainer.new()
-			box.custom_minimum_size = Vector2(CELL_W, 0)
-			var e := LineEdit.new()
-			e.custom_minimum_size = Vector2(CELL_W - 34, 0)
-			e.add_theme_font_size_override("font_size", 14)
-			e.text_changed.connect(func(_t): _on_edit(from, to))
-			e.text_submitted.connect(func(_t): _play(from, to))
-			e.focus_entered.connect(func(): _select(from, to))
-			box.add_child(e)
-			var b := Button.new()
-			b.text = "▶"
-			b.tooltip_text = "Abspielen"
-			b.pressed.connect(func(): _play(from, to))
-			box.add_child(b)
-			grid.add_child(box)
-			_cells[from + ">" + to] = e
-
-	# Status zum gewählten Feld
-	_status = _label("", 15)
-	_status.position = Vector2(36, 342)
-	_status.size = Vector2(900, 50)
-	_status.autowrap_mode = TextServer.AUTOWRAP_WORD
-	_page1.add_child(_status)
-
-	# Liste der Animationen
-	var list_title := _label("Animationen (Klick hängt das Kürzel an das gewählte Feld an)", 15)
-	list_title.position = Vector2(36, 412)
-	_page1.add_child(list_title)
-	var list := GridContainer.new()
-	list.columns = 2
-	list.position = Vector2(36, 440)
-	list.add_theme_constant_override("h_separation", 10)
-	list.add_theme_constant_override("v_separation", 4)
-	_page1.add_child(list)
-	for code in Player.ANIMS:
-		var b := Button.new()
-		b.text = "%-5s  %s" % [code, Player.anim_name(code)]
+		b.text = "%s   (%d)" % [_title(name), _tex[name].size()]
 		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		b.custom_minimum_size = Vector2(440, 0)
+		b.toggle_mode = true
 		b.add_theme_font_size_override("font_size", 14)
-		b.pressed.connect(func(): _append(code))
+		b.pressed.connect(func(): _select(name, true))
 		list.add_child(b)
+		_buttons.append(b)
 
-	# Knöpfe
+	var opts := VBoxContainer.new()
+	opts.position = Vector2(390, 76)
+	opts.add_theme_constant_override("separation", 8)
+	add_child(opts)
+	_loop = _check("Schleife", true, opts)
+	_reverse = _check("Rückwärts", false, opts)
+	_mirror = _check("Gespiegelt (links)", false, opts)
+	_show_ref = _check("Standbild einblenden", false, opts)
+	_motion = _check("Root Motion", false, opts)
+	for c in [_mirror, _show_ref, _motion]:
+		c.toggled.connect(func(_on): _offset = Vector2.ZERO; _show_frame())
+	_info = _label("", 14)
+	_info.position = Vector2(390, 300)
+	_info.size = Vector2(240, 380)
+	_info.autowrap_mode = TextServer.AUTOWRAP_WORD
+	add_child(_info)
+
+	var stage := ColorRect.new()
+	stage.color = Color(0.55, 0.53, 0.5)
+	stage.position = STAGE.position
+	stage.size = STAGE.size
+	add_child(stage)
+	var floor_rect := ColorRect.new()
+	floor_rect.color = Color(0.4, 0.38, 0.35)
+	floor_rect.position = Vector2(STAGE.position.x, STAGE.position.y + FOOT_Y - 30)
+	floor_rect.size = Vector2(STAGE.size.x, STAGE.size.y - FOOT_Y + 30)
+	add_child(floor_rect)
+	var clip := Control.new()
+	clip.clip_contents = true
+	clip.position = STAGE.position
+	clip.size = STAGE.size
+	add_child(clip)
+	_root.position = Vector2(STAGE.size.x / 2, FOOT_Y)
+	_root.scale = Vector2.ONE * BODY / Player.BODY_PX
+	clip.add_child(_root)
+	for sp in [_ref, _sprite]:
+		sp.centered = false
+		_root.add_child(sp)
+	# hinter dem Bild: sichtbar nur, wo die Pose vom Standbild abweicht
+	_ref.modulate = Color(0.55, 0.8, 1.0, 0.55)
+	# Figur für die Abläufe (gleicher Code wie im Spiel), auf einem gedachten Boden mit fester Körperhöhe
+	_preview = Player.new()
+	_preview.room = _Floor.new()
+	_preview.show_shadow = false
+	_preview.visible = false
+	clip.add_child(_preview)
+	_preview.position = Vector2(STAGE.size.x / 2, FOOT_Y)
+	_preview.update_scale()
+
+	# Abläufe an einer echten Figur (gleicher Code wie im Spiel)
+	var flows := HBoxContainer.new()
+	flows.position = Vector2(36, 700)
+	flows.add_theme_constant_override("separation", 8)
+	add_child(flows)
+	flows.add_child(_label("Abläufe:", 15))
+	for spec in [["Laufen →", Vector2(1.6, 0)], ["← Laufen", Vector2(-1.6, 0)], ["schräg hinten ↗", Vector2(1.2, -0.7)],
+			["hinten ↑", Vector2(0, -0.9)], ["vorn ↙", Vector2(-1.0, 0.6)]]:
+		flows.add_child(_button(spec[0], func(): _walk(spec[1])))
+	for spec in [["Blick links", "left"], ["Blick rechts", "right"], ["Blick hinten", "back"]]:
+		flows.add_child(_button(spec[0], func(): _face(spec[1])))
+
 	var bar := HBoxContainer.new()
 	bar.position = Vector2(36, 770)
 	bar.add_theme_constant_override("separation", 12)
 	add_child(bar)
-	for b1 in [_bar1, _bar2]:
-		b1.add_theme_constant_override("separation", 12)
-		bar.add_child(b1)
-	for spec in [["Start", func(): _play(_sel[0], _sel[1])], ["Alle abspielen", _play_all],
-			["Speichern", _save], ["Neu laden", _reload]]:
-		_bar1.add_child(_button(spec[0], spec[1]))
-	_bar2.add_child(_button("◀", func(): _step(-1), "Bild zurück (←)"))
+	bar.add_child(_button("◀", func(): _step(-1), "Bild zurück (←)"))
 	_play_btn = _button("▶ Abspielen", _toggle_run, "Abspielen / Anhalten (Leertaste)")
 	_play_btn.custom_minimum_size = Vector2(130, 0)
-	_bar2.add_child(_play_btn)
-	_bar2.add_child(_button("▶", func(): _step(1), "Bild vor (→)"))
+	bar.add_child(_play_btn)
+	bar.add_child(_button("▶", func(): _step(1), "Bild vor (→)"))
 	bar.add_child(_button("Schließen", toggle))
-	_suit = CheckBox.new()
-	_suit.text = "Kälteanzug"
-	_suit.toggled.connect(_on_suit)
-	bar.add_child(_suit)
-	var gap := Control.new()
-	gap.custom_minimum_size = Vector2(16, 0)
-	bar.add_child(gap)
 	bar.add_child(_label("Tempo", 15))
 	_speed = HSlider.new()
 	_speed.min_value = 0.05
@@ -192,87 +171,42 @@ func _ready() -> void:
 	_speed.value_changed.connect(_on_speed)
 	bar.add_child(_speed)
 	_speed_label = _label("100 %", 15)
-	_speed_label.custom_minimum_size = Vector2(56, 0)
 	bar.add_child(_speed_label)
-	_dirty_label = _label("", 14)
-	bar.add_child(_dirty_label)
+	_select(_names[0], false)
 
-	# Vorschau
-	var stage := ColorRect.new()
-	stage.color = Color(0.55, 0.53, 0.5)
-	stage.position = Vector2(970, 76)
-	stage.size = Vector2(330, 660)
-	_page1.add_child(stage)
-	var floor_line := ColorRect.new()
-	floor_line.color = Color(0.4, 0.38, 0.35)
-	floor_line.position = Vector2(970, 640)
-	floor_line.size = Vector2(330, 96)
-	_page1.add_child(floor_line)
-	_preview = Player.new()
-	_preview.position = Vector2(1135, 660)
-	_preview.scale = Vector2(0.85, 0.85)
-	_page1.add_child(_preview)
-	_playing = _label("", 18)
-	_playing.position = Vector2(980, 700)
-	_page1.add_child(_playing)
-	_build_page2()
-	_show_page(1)
+
+## Sortierung: Stand, Anlaufen, Laufen, Anhalten (je FR, BR, B), dann Drehungen
+static func _order(name: String) -> String:
+	var kinds := ["stand", "start", "walk", "stop", "turn"]
+	var p := name.split("_")
+	var views := {"fr": 0, "br": 1, "b": 2}
+	return "%d%d%s" % [kinds.find(p[0]), views.get(p[1], 9), name]
+
+
+static func _title(name: String) -> String:
+	var p := name.split("_")
+	var kind: String = {"stand": "Stand", "start": "Anlaufen", "walk": "Laufen", "stop": "Anhalten",
+		"turn": "Drehen"}[p[0]]
+	if p[0] == "turn":
+		return "%s %s → %s" % [kind, p[1].to_upper(), p[2].to_upper()]
+	return "%s %s" % [kind, p[1].to_upper()]
+
+
+func _label(text: String, size: int) -> Label:
+	var l := Label.new()
+	l.text = text
+	l.add_theme_font_size_override("font_size", size)
+	l.add_theme_color_override("font_color", COL)
+	return l
 
 
 func _button(text: String, cb: Callable, tip := "") -> Button:
 	var b := Button.new()
 	b.text = text
 	b.tooltip_text = tip
-	b.add_theme_font_size_override("font_size", 16)
+	b.add_theme_font_size_override("font_size", 15)
 	b.pressed.connect(cb)
 	return b
-
-
-func _build_page2() -> void:
-	var t := _label("Bildfolgen (Klick wählt und spielt ab)", 15)
-	t.position = Vector2(36, 76)
-	_page2.add_child(t)
-	var scroll := ScrollContainer.new()
-	scroll.position = Vector2(36, 104)
-	scroll.size = Vector2(600, 600)
-	_page2.add_child(scroll)
-	_seq_list = VBoxContainer.new()
-	_seq_list.add_theme_constant_override("separation", 4)
-	_seq_list.custom_minimum_size = Vector2(580, 0)
-	scroll.add_child(_seq_list)
-	var opts := VBoxContainer.new()
-	opts.position = Vector2(670, 104)
-	opts.add_theme_constant_override("separation", 10)
-	_page2.add_child(opts)
-	_loop = _check("Schleife", true, opts)
-	_reverse = _check("Rückwärts", false, opts)
-	_mirror = _check("Gespiegelt (nach links)", false, opts)
-	_show_ref = _check("Standbild einblenden", false, opts)
-	_mirror.toggled.connect(func(_on): _show_frame())
-	_show_ref.toggled.connect(func(_on): _show_frame())
-	_info = _label("", 15)
-	_info.position = Vector2(670, 300)
-	_info.size = Vector2(280, 200)
-	_info.autowrap_mode = TextServer.AUTOWRAP_WORD
-	_page2.add_child(_info)
-	var stage := ColorRect.new()
-	stage.color = Color(0.55, 0.53, 0.5)
-	stage.position = Vector2(970, 76)
-	stage.size = Vector2(330, 660)
-	_page2.add_child(stage)
-	var floor_line := ColorRect.new()
-	floor_line.color = Color(0.4, 0.38, 0.35)
-	floor_line.position = Vector2(970, 640)
-	floor_line.size = Vector2(330, 96)
-	_page2.add_child(floor_line)
-	_view_root.position = Vector2(1135, 660)
-	_view_root.scale = Vector2(0.85, 0.85)
-	_page2.add_child(_view_root)
-	for sp in [_ref_sprite, _view_sprite]:
-		sp.centered = false
-		_view_root.add_child(sp)
-	# hinter dem Bild: sichtbar nur, wo die Pose vom Standbild abweicht
-	_ref_sprite.modulate = Color(0.55, 0.8, 1.0, 0.55)
 
 
 func _check(text: String, on: bool, parent: Control) -> CheckBox:
@@ -284,56 +218,14 @@ func _check(text: String, on: bool, parent: Control) -> CheckBox:
 	return c
 
 
-func _show_page(n: int) -> void:
-	_page = n
-	_page1.visible = n == 1
-	_page2.visible = n == 2
-	_bar1.visible = n == 1
-	_bar2.visible = n == 2
-	for i in _tabs.size():
-		_tabs[i].set_pressed_no_signal(i + 1 == n)
-	if n == 1:
-		_running = false
-	else:
-		_preview.stop()
-		_fill_sequences()
-
-
-func _on_suit(on: bool) -> void:
-	_preview.set_suit(on)
-	if _page == 2:
-		_fill_sequences()
-
-
-## Liste neu aufbauen (mit oder ohne Kälteanzug); die gewählte Folge bleibt, wenn es sie noch gibt.
-func _fill_sequences() -> void:
-	var old: String = _seqs[_seq]["name"] if _seq >= 0 and _seq < _seqs.size() else ""
-	_seqs = _preview.debug_sequences()
-	for b in _seq_buttons:
-		b.queue_free()
-	_seq_buttons = []
-	var keep := 0
-	for i in _seqs.size():
-		var q: Dictionary = _seqs[i]
-		var b := Button.new()
-		b.text = "%s   (%d Bilder, %.1f s)" % [q["name"], q["frames"].size(), q["frames"].size() / q["fps"]]
-		b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-		b.toggle_mode = true
-		b.add_theme_font_size_override("font_size", 14)
-		b.pressed.connect(func(): _select_seq(i, true))
-		_seq_list.add_child(b)
-		_seq_buttons.append(b)
-		if q["name"] == old:
-			keep = i
-	_select_seq(keep, false)
-
-
-func _select_seq(i: int, run: bool) -> void:
-	_seq = i
-	for k in _seq_buttons.size():
-		_seq_buttons[k].set_pressed_no_signal(k == i)
-	_frame = _seqs[i]["frames"].size() - 1 if _reverse.button_pressed else 0
+func _select(name: String, run: bool) -> void:
+	_stop_preview()
+	_sel = name
+	for k in _buttons.size():
+		_buttons[k].set_pressed_no_signal(_names[k] == name)
+	_frame = _tex[name].size() - 1 if _reverse.button_pressed else 0
 	_t = 0.0
+	_offset = Vector2.ZERO
 	_set_running(run)
 	_show_frame()
 
@@ -344,34 +236,47 @@ func _set_running(on: bool) -> void:
 
 
 func _toggle_run() -> void:
-	if _seq < 0:
-		return
-	var n: int = _seqs[_seq]["frames"].size()
-	# am Ende ohne Schleife: von vorn
+	_stop_preview()
+	var n: int = _tex[_sel].size()
 	if not _running and not _loop.button_pressed and _frame == (0 if _reverse.button_pressed else n - 1):
 		_frame = n - 1 if _reverse.button_pressed else 0
+		_offset = Vector2.ZERO
 	_t = 0.0
 	_set_running(not _running)
 
 
 func _step(d: int) -> void:
-	if _seq < 0:
-		return
+	_stop_preview()
 	_set_running(false)
-	var n: int = _seqs[_seq]["frames"].size()
-	_frame = posmod(_frame + d, n)
+	_frame = posmod(_frame + d, _tex[_sel].size())
 	_show_frame()
 
 
+## Root Motion des Bildes i als Bildschirmvektor (Körperhöhen); Laufen/Anlaufen/Anhalten nach rechts bzw. in
+## die gemessene Laufrichtung, Drehungen mit den gemessenen 2D-Vektoren
+func _motion_of(i: int) -> Vector2:
+	if not _rm.has(_sel):
+		return Vector2.ZERO
+	var r: Dictionary = _rm[_sel]
+	var v := Vector2(r["v"][i][0], r["v"][i][1])
+	if _sel.begins_with("turn"):
+		v *= -1.0 if _reverse.button_pressed else 1.0
+	else:
+		var d: Array = _rm["dir"][_sel.split("_")[1]]
+		v = Vector2(d[0], d[1]) * float(r["d"][i]) * (-1.0 if _reverse.button_pressed else 1.0)
+	return Vector2(-v.x, v.y) if _mirror.button_pressed else v
+
+
 func _process(dt: float) -> void:
-	if not active or _page != 2 or not _running or _seq < 0:
+	if not active or not _running:
 		return
-	var q: Dictionary = _seqs[_seq]
-	var n: int = q["frames"].size()
+	var n: int = _tex[_sel].size()
 	_t += dt
-	var step: float = 1.0 / q["fps"]
+	var step := 1.0 / Player.FPS
 	while _t >= step:
 		_t -= step
+		if _motion.button_pressed:
+			_offset += _motion_of(_frame) * BODY
 		var nxt: int = _frame + (-1 if _reverse.button_pressed else 1)
 		if nxt < 0 or nxt >= n:
 			if not _loop.button_pressed:
@@ -379,30 +284,85 @@ func _process(dt: float) -> void:
 				break
 			nxt = posmod(nxt, n)
 		_frame = nxt
+	# Figur auf der Bühne halten
+	if absf(_offset.x) > STAGE.size.x / 2 - 60 or absf(_offset.y) > 200:
+		_offset = Vector2.ZERO
 	_show_frame()
 
 
-func _place(sp: Sprite2D, tex: Texture2D, anchor: Vector2) -> void:
+func _place(sp: Sprite2D, tex: Texture2D) -> void:
 	var flip := _mirror.button_pressed
 	sp.texture = tex
 	sp.flip_h = flip
-	sp.offset = -Vector2(tex.get_width() - anchor.x if flip else anchor.x, anchor.y)
+	sp.offset = -Vector2(tex.get_width() - Player.ANCHOR.x if flip else Player.ANCHOR.x, Player.ANCHOR.y)
 
 
 func _show_frame() -> void:
-	if _seq < 0 or _seq >= _seqs.size():
+	if _sel == "" or (_preview and _preview.visible):
 		return
-	var q: Dictionary = _seqs[_seq]
-	_place(_view_sprite, q["frames"][_frame], q["anchors"][_frame])
-	_ref_sprite.visible = _show_ref.button_pressed
-	_place(_ref_sprite, q["ref"][0], q["ref"][1])
-	var tex: Texture2D = q["frames"][_frame]
-	_info.text = "%s\n\nBild %d / %d\n%.1f Bilder/s (Tempo %d %%)\n%s\nFußpunkt %s" % [q["name"], _frame + 1,
-		q["frames"].size(), q["fps"], roundi(_speed.value * 100), tex.resource_path.get_file(), q["anchors"][_frame]]
+	_root.position = Vector2(STAGE.size.x / 2, FOOT_Y) + (_offset if _motion.button_pressed else Vector2.ZERO)
+	_place(_sprite, _tex[_sel][_frame])
+	_ref.visible = _show_ref.button_pressed
+	var view: String = _sel.split("_")[1] if not _sel.begins_with("turn") else _sel.split("_")[1]
+	_place(_ref, _tex["stand_" + Player._base(view)][0])
+	var rm := ""
+	if _rm.has(_sel):
+		var r: Dictionary = _rm[_sel]
+		var sum := 0.0
+		for x in r["d"]:
+			sum += float(x)
+		rm = "\nRoot Motion dieses Bildes: %.3f KH\n(Vektor %.3f, %.3f)\nSumme der Folge: %.3f KH" % [
+			float(r["d"][_frame]), float(r["v"][_frame][0]), float(r["v"][_frame][1]), sum]
+	_info.text = "%s\n\nBild %d / %d\n%d Bilder/s (Tempo %d %%)\n%s%s\n\nKH = Körperhöhen" % [_title(_sel),
+		_frame + 1, _tex[_sel].size(), int(Player.FPS), roundi(_speed.value * 100),
+		_tex[_sel][_frame].resource_path.get_file(), rm]
+
+
+## Vorschau eines Ablaufs mit einer echten Figur auf einem gedachten Boden (Körperhöhe BODY überall gleich)
+class _Floor:
+	extends Room
+	func _init() -> void:
+		depth = [Vector2(0, AnimDebug.BODY), Vector2(1000, AnimDebug.BODY)]
+
+
+func _make_preview() -> void:
+	_set_running(false)
+	_sprite.visible = false
+	_ref.visible = false
+	_preview.visible = true
+
+
+func _stop_preview() -> void:
+	if not _preview or not _preview.visible:
+		return
+	_preview.stop()
+	_preview.visible = false
+	_sprite.visible = true
+
+
+func _walk(v: Vector2) -> void:
+	_make_preview()
+	var p := _preview
+	p.stop()
+	await get_tree().process_frame
+	# vom Rand her starten, damit der Weg auf die Bühne passt
+	p.position = Vector2(STAGE.size.x / 2, FOOT_Y) - v * BODY / 2
+	p.update_scale()
+	p.face("left" if v.x < 0 else "right", true)
+	_info.text = "Ablauf: Laufen um %s Körperhöhen" % v
+	await p.walk_to(p.position + v * BODY)
+	if p == _preview:
+		_info.text += "\nangekommen, Blick %s" % p.facing.to_upper()
+
+
+func _face(d: String) -> void:
+	_make_preview()
+	_info.text = "Ablauf: Drehen im Stand von %s nach %s" % [_preview.facing.to_upper(), d]
+	await _preview.face(d)
 
 
 func _input(event: InputEvent) -> void:
-	if not active or _page != 2 or not (event is InputEventKey and event.pressed):
+	if not active or not (event is InputEventKey and event.pressed):
 		return
 	match event.keycode:
 		KEY_LEFT:
@@ -416,26 +376,14 @@ func _input(event: InputEvent) -> void:
 	get_viewport().set_input_as_handled()
 
 
-func _label(text: String, size: int) -> Label:
-	var l := Label.new()
-	l.text = text
-	l.add_theme_font_size_override("font_size", size)
-	l.add_theme_color_override("font_color", COL_OK)
-	return l
-
-
 func toggle() -> void:
 	active = not active
 	visible = active
 	if active:
-		_suit.set_pressed_no_signal(main.player.suit)
-		_preview.set_suit(main.player.suit)
-		_fill()
-		_select(_sel[0], _sel[1])
-		_show_page(_page)
 		Engine.time_scale = _speed.value
+		_show_frame()
 	else:
-		_preview.stop()
+		_stop_preview()
 		_set_running(false)
 		Engine.time_scale = 1.0
 
@@ -444,91 +392,9 @@ func _on_speed(v: float) -> void:
 	_speed_label.text = "%d %%" % roundi(v * 100)
 	if active:
 		Engine.time_scale = v
-		_show_frame()
 
 
-func _fill() -> void:
-	for key in _cells:
-		var p: PackedStringArray = key.split(">")
-		_cells[key].text = str(Player.turns.get(p[0], {}).get(p[1], ""))
-		_color(p[0], p[1])
-
-
-func _codes(from: String, to: String) -> Array:
-	return Array(_cells[from + ">" + to].text.strip_edges().split(" ", false))
-
-
-func _color(from: String, to: String) -> void:
-	var bad := not Player.check_sequence(from, to, _codes(from, to)).is_empty()
-	_cells[from + ">" + to].add_theme_color_override("font_color", COL_BAD if bad else COL_OK)
-
-
-func _on_edit(from: String, to: String) -> void:
-	if not Player.turns.has(from):
-		Player.turns[from] = {}
-	Player.turns[from][to] = " ".join(_codes(from, to))
-	_dirty = true
-	_dirty_label.text = "ungespeichert"
-	_color(from, to)
-	_select(from, to)
-
-
-func _select(from: String, to: String) -> void:
-	_cells[_sel[0] + ">" + _sel[1]].remove_theme_stylebox_override("normal")
-	_sel = [from, to]
-	var hi := StyleBoxFlat.new()
-	hi.bg_color = Color(0.16, 0.14, 0.11)
-	hi.border_color = Color(0.95, 0.75, 0.35)
-	hi.set_border_width_all(2)
-	hi.content_margin_left = 6
-	_cells[from + ">" + to].add_theme_stylebox_override("normal", hi)
-	var codes := _codes(from, to)
-	var notes := Player.check_sequence(from, to, codes)
-	var names := []
-	for c in codes:
-		names.append(Player.anim_name(c) if Player.ANIMS.has(c) else c + "?")
-	_status.text = "%s → %s:  %s%s" % [Player.STATE_NAMES[from], Player.STATE_NAMES[to],
-		"  |  ".join(names) if names else "(keine Animation)",
-		("\n" + ", ".join(notes)) if notes else ""]
-	_status.add_theme_color_override("font_color", COL_BAD if notes else COL_OK)
-
-
-func _append(code: String) -> void:
-	var e: LineEdit = _cells[_sel[0] + ">" + _sel[1]]
-	e.text = (e.text.strip_edges() + " " + code).strip_edges()
-	_on_edit(_sel[0], _sel[1])
-	e.grab_focus()
-	e.caret_column = e.text.length()
-
-
-func _play(from: String, to: String) -> void:
-	_select(from, to)
-	_preview.preview(from, _codes(from, to), to, func(c): _playing.text = c)
-
-
-func _play_all() -> void:
-	for from in Player.STATES:
-		for to in Player.STATES:
-			if from == to:
-				continue
-			if not active:
-				return
-			_select(from, to)
-			var t := _preview._token
-			await _preview.preview(from, _codes(from, to), to, func(c): _playing.text = c)
-			if _preview._token != t + 1:
-				return   # abgebrochen (anderer Start)
-
-
-func _save() -> void:
-	Player.save_turns()
-	_dirty = false
-	_dirty_label.text = "gespeichert"
-
-
-func _reload() -> void:
-	Player.load_turns()
-	_dirty = false
-	_dirty_label.text = ""
-	_fill()
-	_select(_sel[0], _sel[1])
+func _exit_tree() -> void:
+	# der gedachte Boden der Vorschaufigur hängt nicht im Baum
+	if _preview and is_instance_valid(_preview.room):
+		_preview.room.free()
