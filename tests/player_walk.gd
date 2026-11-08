@@ -7,7 +7,7 @@ var failed := false
 
 
 func _ready() -> void:
-	get_tree().create_timer(120.0).timeout.connect(func():
+	get_tree().create_timer(400.0).timeout.connect(func():
 		print("!! FEHLER: hängt")
 		get_tree().quit(1))
 	var main: Node = load("res://game/main.tscn").instantiate()
@@ -102,6 +102,39 @@ func _ready() -> void:
 			check(seen.has(want), "Geste %s Blick %s: %s" % [kind, d, seen.keys()])
 			check(not seen.has(want) or seen[want] == (d == "left"), "Geste %s gespiegelt" % kind)
 			print("Geste %s, Blick %s: %s" % [kind, d, seen.keys()])
+	# Kälteanzug: Laufen ohne Anlaufen/Anhalten, Drehen sofort, Gesten oben hinten und unten vorn
+	p.set_suit(true)
+	for v in [Vector2(1.0, 0), Vector2(-1.0, 0.3), Vector2(0.3, -0.5)]:
+		var goal: Vector2 = main.room.clamp_to_floor(p.position + v * h)
+		var names := {}
+		var track := func() -> void:
+			while p._moving:
+				names[p._sprite.texture.resource_path.get_file().left(-7)] = true
+				await get_tree().process_frame
+		var res := {}
+		var walk := func() -> void: res["ok"] = await p.walk_to(goal)
+		walk.call()
+		await get_tree().process_frame
+		await track.call()
+		while not res.has("ok"):
+			await get_tree().process_frame
+		var okw: bool = res["ok"]
+		var bad := names.keys().filter(func(n): return not n.begins_with("suit_walk_"))
+		check(okw and p.position.distance_to(goal) < 1.0 and bad.is_empty(), "Anzug Weg %s: %s" % [v, names.keys()])
+		print("Anzug Weg %s: %s, Richtung %s" % [v, names.keys(), p.facing])
+	for spec in [["back", "high", "suit_use_high_b"], ["right", "low", "suit_use_low_fr"]]:
+		await p.face(spec[0])
+		var seen := {}
+		var watch := func() -> void:
+			while p._busy:
+				seen[p._sprite.texture.resource_path.get_file().left(-7)] = true
+				await get_tree().process_frame
+		p.gesture(spec[1])
+		await get_tree().process_frame
+		await watch.call()
+		check(seen.has(spec[2]), "Anzug Geste %s: %s" % [spec[1], seen.keys()])
+		print("Anzug Geste %s: %s" % [spec[1], seen.keys()])
+	p.set_suit(false)
 	print("\nERGEBNIS: ", "FEHLER" if failed else "OK")
 	get_tree().quit(1 if failed else 0)
 

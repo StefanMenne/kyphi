@@ -9,8 +9,8 @@ extends Node2D
 ## ankommt (Bildtempo mit, in Grenzen). Übergänge passen am KEY-Bild des Zyklus: Anlaufen endet davor,
 ## Anhalten beginnt dort.
 ## Im Stand atmet er (Schleife); spricht er (talking) und ist das Gesicht zu sehen, läuft stattdessen die
-## Sprech-Schleife. Gesten Nehmen/Benutzen in drei Höhen (gesture). Noch ohne Kälteanzug (set_suit merkt sich
-## nur den Zustand).
+## Sprech-Schleife. Gesten Nehmen/Benutzen in drei Höhen (gesture). Im Kälteanzug (set_suit) ein kleiner
+## eigener Satz: Stand, Laufen und die Gesten, die der Antennenraum braucht.
 ## Herkunft: assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
 
 const DIR := "res://assets/characters/martin2/"
@@ -94,13 +94,21 @@ func _frame(anim: String, d: String, i: int) -> void:
 	_show(frames[i], d.ends_with("l"))
 
 
+## Namensvorsatz der Bildfolgen: im Kälteanzug "suit_" (nur Stand, Laufen und die nötigen Gesten)
+func _pre() -> String:
+	return "suit_" if suit else ""
+
+
 func _show_stand() -> void:
-	_frame("stand", facing, 0)
+	_frame(_pre() + "stand", facing, 0)
 
 
 func _process(dt: float) -> void:
 	if _moving or _busy:
 		_idle_t = 0.0
+		return
+	if suit:
+		_show_stand()
 		return
 	# beim Sprechen die Sprech-Schleife (nur wo es eine gibt, also mit sichtbarem Gesicht), sonst Atmen;
 	# jede Schleife beginnt beim Standbild
@@ -167,7 +175,8 @@ func _play(anim: String, flip: bool, reverse := false, heading := Vector2.ZERO, 
 func turn_to(d: String, abortable := true) -> bool:
 	if d == facing:
 		return true
-	if Game.fast:
+	if Game.fast or suit:
+		# im Anzug ohne Drehanimation
 		facing = d
 		_show_stand()
 		return true
@@ -192,11 +201,13 @@ func face(d: String, instant := false) -> void:
 	await turn_to(want)
 
 
+## Kälteanzug an/aus: eigener Satz (suit_*), ohne Anlaufen, Anhalten, Drehen, Atmen und Sprechen.
 func set_suit(on: bool) -> void:
 	suit = on
+	if not _moving and not _busy:
+		_show_stand()
 
 
-## Noch keine Gesten für den neuen Martin.
 ## Geste Nehmen/Benutzen in der Höhe kind ("low", "hip", "high"; alt: "pickup" = low, "use" = hip) und endet
 ## im Standbild. Vorn rechts/links (gespiegelt) oder von hinten; aus Schräg hinten dreht er sich dafür nach hinten.
 func gesture(kind: String) -> void:
@@ -208,7 +219,7 @@ func gesture(kind: String) -> void:
 	if facing in ["br", "bl"]:
 		if not await turn_to("b"):
 			return
-	var anim := "use_%s_%s" % [kind, "b" if facing == "b" else "fr"]
+	var anim := _pre() + "use_%s_%s" % [kind, "b" if facing == "b" else "fr"]
 	if not _tex.has(anim):
 		return
 	_busy = true
@@ -293,9 +304,10 @@ func walk_to(target: Vector2) -> bool:
 
 ## Anzahl Laufzyklen n und Streckfaktor k für den Restweg: base + n * cycle = rest / k, k möglichst nahe 1
 static func _plan(rest: float, base: float, cycle: float) -> Array:
-	var best := [0, rest / base]
+	# ohne Anlaufen/Anhalten (base 0) mindestens ein Zyklus
+	var best := [0, rest / base] if base > 0.0 else [1, rest / cycle]
 	for n in [floori((rest - base) / cycle), ceili((rest - base) / cycle)]:
-		if n >= 0:
+		if n >= (0 if base > 0.0 else 1):
 			var k: float = rest / (base + n * cycle)
 			if absf(log(k)) < absf(log(best[1])):
 				best = [n, k]
@@ -327,19 +339,23 @@ func _walk_loop() -> void:
 		var flip := facing.ends_with("l")
 		var goal := _target
 		var heading := (goal - position).normalized()
-		var s_len := _sum("start_" + view)
-		var c_len := _sum("walk_" + view)
-		var p_len := _sum("stop_" + view)
+		# im Anzug ohne Anlaufen und Anhalten
+		var pre := _pre()
+		var s_len := 0.0 if suit else _sum("start_" + view)
+		var c_len := _sum(pre + "walk_" + view)
+		var p_len := 0.0 if suit else _sum("stop_" + view)
 		var rest := _rest()
 		var plan := _plan(rest, s_len + p_len, c_len)
 		var n: int = plan[0]
 		var k: float = plan[1]
-		await _play("start_" + view, flip, false, heading, k, false)
+		if not suit:
+			await _play("start_" + view, flip, false, heading, k, false)
 		# Laufzyklen von KEY bis vor KEY; an jeder Grenze neu planen
-		var key: int = KEY[view]
+		var key: int = 0 if suit else KEY[view]
 		var cycle := []
-		for f in 8:
-			cycle.append((key + f) % 8)
+		var n_cycle: int = _tex[pre + "walk_" + view].size()
+		for f in n_cycle:
+			cycle.append((key + f) % n_cycle)
 		var turn_needed := false
 		while not _halt:
 			rest = _rest()
@@ -349,18 +365,23 @@ func _walk_loop() -> void:
 					turn_needed = true
 					break
 				goal = _target
-				heading = (goal - position).normalized()
+			# Richtung an jeder Zyklusgrenze neu: mit der Tiefe ändert sich die Schrittlänge, sonst liefe er vorbei
+			heading = (goal - position).normalized()
+			# im Anzug (ohne Anhalten): unter einem Zehntel Zyklus Rest am Ziel
+			if suit and rest < 0.1 * c_len:
+				break
 			plan = _plan(rest, p_len, c_len)
 			n = plan[0]
 			k = plan[1]
 			if n == 0:
 				break
-			await _play("walk_" + view, flip, false, heading, k, false, cycle)
+			await _play(pre + "walk_" + view, flip, false, heading, k, false, cycle)
 		if _halt:
 			break
-		if not turn_needed:
-			k = _rest() / p_len if p_len > 0.0 else 1.0
-		await _play("stop_" + view, flip, false, heading, k, false)
+		if not suit:
+			if not turn_needed:
+				k = _rest() / p_len if p_len > 0.0 else 1.0
+			await _play("stop_" + view, flip, false, heading, k, false)
 		if not turn_needed and _target == goal:
 			position = goal
 			update_scale()

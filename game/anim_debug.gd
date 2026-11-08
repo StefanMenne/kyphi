@@ -180,25 +180,35 @@ func _ready() -> void:
 ## Sortierung: Stand, Atmen, Sprechen, Anlaufen, Laufen, Anhalten (je FR, BR, B), Gesten, Drehungen
 static func _order(name: String) -> String:
 	var kinds := ["stand", "idle", "talk", "start", "walk", "stop", "use", "turn"]
-	var p := name.split("_")
+	var p := _bare(name).split("_")
 	var views := {"fr": 0, "br": 1, "b": 2}
 	var heights := {"high": 0, "hip": 1, "low": 2}
-	return "%d%d%d%s" % [kinds.find(p[0]), views.get(_view_of(name), 9), heights.get(p[1], 0), name]
+	return "%d%d%d%d%s" % [1 if name.begins_with("suit_") else 0, kinds.find(p[0]), views.get(_view_of(name), 9),
+		heights.get(p[1], 0), name]
+
+
+## Name ohne Vorsatz "suit_" (Kälteanzug)
+static func _bare(name: String) -> String:
+	return name.trim_prefix("suit_")
 
 
 ## Richtung, deren Standbild zur Folge gehört (bei Drehungen die Ausgangsrichtung)
 static func _view_of(name: String) -> String:
-	var p := name.split("_")
+	var p := _bare(name).split("_")
 	return p[1] if p[0] == "turn" else p[-1]
 
 
 ## Bildrate einer Folge: Schleifen und Gesten 12, Laufen und Drehen 8 Bilder/s
 static func _fps(name: String) -> float:
-	return Player.IDLE_FPS if name.split("_")[0] in ["idle", "talk", "use"] else Player.FPS
+	return Player.IDLE_FPS if _bare(name).split("_")[0] in ["idle", "talk", "use"] else Player.FPS
 
 
 static func _title(name: String) -> String:
-	var p := name.split("_")
+	return _title_bare(name) + (" (Anzug)" if name.begins_with("suit_") else "")
+
+
+static func _title_bare(name: String) -> String:
+	var p := _bare(name).split("_")
 	var kind: String = {"stand": "Stand", "idle": "Atmen", "talk": "Sprechen", "start": "Anlaufen", "walk": "Laufen",
 		"stop": "Anhalten", "use": "Geste", "turn": "Drehen"}[p[0]]
 	if p[0] == "turn":
@@ -275,10 +285,10 @@ func _motion_of(i: int) -> Vector2:
 		return Vector2.ZERO
 	var r: Dictionary = _rm[_sel]
 	var v := Vector2(r["v"][i][0], r["v"][i][1])
-	if not _sel.split("_")[0] in ["walk", "start", "stop"]:
+	if not _bare(_sel).split("_")[0] in ["walk", "start", "stop"]:
 		v *= -1.0 if _reverse.button_pressed else 1.0
 	else:
-		var d: Array = _rm["dir"][_sel.split("_")[1]]
+		var d: Array = _rm["dir"][("suit_" if _sel.begins_with("suit_") else "") + _view_of(_sel)]
 		v = Vector2(d[0], d[1]) * float(r["d"][i]) * (-1.0 if _reverse.button_pressed else 1.0)
 	return Vector2(-v.x, v.y) if _mirror.button_pressed else v
 
@@ -320,7 +330,7 @@ func _show_frame() -> void:
 	_place(_sprite, _tex[_sel][_frame])
 	_ref.visible = _show_ref.button_pressed
 	var view := _view_of(_sel)
-	_place(_ref, _tex["stand_" + Player._base(view)][0])
+	_place(_ref, _tex[("suit_" if _sel.begins_with("suit_") else "") + "stand_" + Player._base(view)][0])
 	var rm := ""
 	if _rm.has(_sel):
 		var r: Dictionary = _rm[_sel]

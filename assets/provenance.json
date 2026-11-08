@@ -1524,6 +1524,14 @@
     "martin2_stop_b_scaled",
     "martin2_stop_br_scaled",
     "martin2_stop_fr_scaled",
+    "martin2_suit_stand_b_scaled",
+    "martin2_suit_stand_br_scaled",
+    "martin2_suit_stand_fr_scaled",
+    "martin2_suit_use_high_b_scaled",
+    "martin2_suit_use_low_fr_scaled",
+    "martin2_suit_walk_b_scaled",
+    "martin2_suit_walk_br_scaled",
+    "martin2_suit_walk_fr_scaled",
     "martin2_talk_fr_scaled",
     "martin2_turn_br_b_scaled",
     "martin2_turn_br_bl_scaled",
@@ -1559,6 +1567,11 @@
     "martin2_stop_b_video",
     "martin2_stop_br_video",
     "martin2_stop_fr_video",
+    "martin2_suit_use_high_b_video",
+    "martin2_suit_use_low_fr_video",
+    "martin2_suit_walk_b_video",
+    "martin2_suit_walk_br_video",
+    "martin2_suit_walk_fr_video",
     "martin2_talk_fr_video",
     "martin2_turn_br_b_video",
     "martin2_turn_br_bl_video",
@@ -2334,6 +2347,622 @@
     "martin2_use_low_b_keyed"
    ],
    "output": "work/cache/characters/martin2/use_low_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_fr_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "The same man from image 1 now wears a bulky red-orange polar expedition suit that is clearly a few sizes too big for him: a puffy one-piece overall with reflective silver stripes on the arms and legs, the sleeves cover half of his hands which wear thick black gloves, the legs bunch up in folds over heavy white snow boots, the fur-trimmed hood is down on his shoulders, a black climbing harness with a metal ring around his waist and thighs. His long brown coat is gone, the suit replaces all his clothes. Same face, same black hair, same relaxed standing pose with arms at his sides, same size and same position in the picture, three-quarter view toward the right, full body from head to boots. Keep the same semi-realistic painted style with fine thin dark outlines and the same solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin2_stand_fr"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 31001,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_fr"
+   ],
+   "output": "work/cache/characters/martin2/suit/fr_raw.png",
+   "date": "2026-11-08",
+   "note": "Anzug-Design, gewählt aus seed 31000 count 4 (job bb664310f090)."
+  },
+  "martin2_suit_br_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "The man from image 1, in exactly the same pose, view, size and position, seen three-quarters from behind and turned toward the right, now wears exactly the red-orange polar expedition suit from image 2 instead of his coat: the puffy one-piece overall with reflective silver stripes, thick black gloves, white snow boots, the fur-trimmed hood down on his shoulders and the black climbing harness. Same black hair. Full body from head to boots. Keep the semi-realistic painted style with fine thin dark outlines and the solid flat pure green (#00FF00) background of image 1.",
+    "images": [
+     "martin2_stand_br",
+     "martin2_suit_fr_raw"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 31101,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_br",
+    "martin2_suit_fr_raw"
+   ],
+   "output": "work/cache/characters/martin2/suit/br_raw.png",
+   "date": "2026-11-08",
+   "note": "gewählt aus seed 31100 count 4 (job 068063328305)."
+  },
+  "martin2_suit_b_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Change only the clothing of the man in image 1. Keep image 1 exactly as it is: the man is seen straight from behind, his back faces the viewer directly and symmetrically, we see only the back of his head and no face, no profile, no ear-to-nose line; his heels point toward the viewer; same size, same position, same pose with the arms at his sides. Dress him in the red-orange polar expedition suit worn by the man in image 2 (use image 2 only as a reference for the clothes, not for the pose or view): puffy one-piece overall with reflective silver stripes around the arms and legs, a black climbing harness whose straps cross in an X on his back and run around his waist and thighs, thick black gloves, white snow boots, and the fur-trimmed hood lying down behind his neck. Keep the semi-realistic painted style with fine thin dark outlines and the solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin2_stand_b",
+     "martin2_suit_br_raw"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 31401,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_stand_b",
+    "martin2_suit_br_raw"
+   ],
+   "output": "work/cache/characters/martin2/suit/b_raw.png",
+   "date": "2026-11-08",
+   "note": "gewählt aus seed 31400 count 4 (job df057028f1d4)."
+  },
+  "martin2_suit_fr": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--dy",
+    "-1"
+   ],
+   "inputs": [
+    "martin2_suit_fr_raw"
+   ],
+   "output": "work/cache/characters/martin2/suit/fr.png",
+   "date": "2026-11-08",
+   "note": "Füße auf y=969 und Fußmitte wie beim normalen Standbild"
+  },
+  "martin2_suit_fr_v": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--crop",
+    "768x1024"
+   ],
+   "inputs": [
+    "martin2_suit_fr"
+   ],
+   "output": "work/cache/characters/martin2/suit/fr_v.png",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_stand_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/suit_stand_fr/keyed/",
+   "date": "2026-11-08",
+   "note": "Eingabe als einziges Bild frame_0000.png in work/cache/characters/martin2/suit_stand_fr/frames/"
+  },
+  "martin2_suit_stand_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_stand_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_stand_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_br": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--dy",
+    "-5"
+   ],
+   "inputs": [
+    "martin2_suit_br_raw"
+   ],
+   "output": "work/cache/characters/martin2/suit/br.png",
+   "date": "2026-11-08",
+   "note": "Füße auf y=969 und Fußmitte wie beim normalen Standbild"
+  },
+  "martin2_suit_br_v": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--crop",
+    "768x1024"
+   ],
+   "inputs": [
+    "martin2_suit_br"
+   ],
+   "output": "work/cache/characters/martin2/suit/br_v.png",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_stand_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_br_v"
+   ],
+   "output": "work/cache/characters/martin2/suit_stand_br/keyed/",
+   "date": "2026-11-08",
+   "note": "Eingabe als einziges Bild frame_0000.png in work/cache/characters/martin2/suit_stand_br/frames/"
+  },
+  "martin2_suit_stand_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_stand_br_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_stand_br/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_b": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--dx",
+    "5",
+    "--dy",
+    "-2"
+   ],
+   "inputs": [
+    "martin2_suit_b_raw"
+   ],
+   "output": "work/cache/characters/martin2/suit/b.png",
+   "date": "2026-11-08",
+   "note": "Füße auf y=969 und Fußmitte wie beim normalen Standbild"
+  },
+  "martin2_suit_b_v": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--crop",
+    "768x1024"
+   ],
+   "inputs": [
+    "martin2_suit_b"
+   ],
+   "output": "work/cache/characters/martin2/suit/b_v.png",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_stand_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_b_v"
+   ],
+   "output": "work/cache/characters/martin2/suit_stand_b/keyed/",
+   "date": "2026-11-08",
+   "note": "Eingabe als einziges Bild frame_0000.png in work/cache/characters/martin2/suit_stand_b/frames/"
+  },
+  "martin2_suit_stand_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_stand_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_stand_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the bulky red-orange polar expedition suit walks in place with a steady, calm walking cycle, as on a treadmill, slightly stiff because of the thick suit and heavy boots, legs and arms swinging alternately in a natural rhythm; he stays in the center of the frame at the same size and keeps facing three-quarters toward the right of the picture the whole time. Static camera, three-quarter view, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin2_suit_fr_v",
+     "martin2_suit_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 32000,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_suit_fr_v",
+    "martin2_suit_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/suit_walk_fr_32000_frames.zip",
+   "date": "2026-11-08",
+   "note": "Kälteanzug, gewählt aus seed 32000 count 4."
+  },
+  "martin2_suit_walk_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "21-47",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin2_suit_walk_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_fr/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_walk_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_walk_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_fr/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_br_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the bulky red-orange polar expedition suit, seen three-quarters from behind, walks in place with a steady, calm walking cycle, as on a treadmill, slightly stiff because of the thick suit and heavy boots, walking away from the viewer toward the upper right, legs and arms swinging alternately in a natural rhythm; he stays in the center of the frame at the same size and keeps facing three-quarters away toward the right of the picture the whole time. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin2_suit_br_v",
+     "martin2_suit_br_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 32100,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_suit_br_v",
+    "martin2_suit_br_v"
+   ],
+   "output": "work/cache/characters/martin2/video/suit_walk_br_32100_frames.zip",
+   "date": "2026-11-08",
+   "note": "Kälteanzug, gewählt aus seed 32100 count 4."
+  },
+  "martin2_suit_walk_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "42-65",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin2_suit_walk_br_video"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_br/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_walk_br_frames"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_br/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_walk_br_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_br/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the bulky red-orange polar expedition suit, seen straight from behind, walks in place with a steady, calm walking cycle, as on a treadmill, slightly stiff because of the thick suit and heavy boots, walking away from the viewer, legs and arms swinging alternately in a natural rhythm; he stays in the center of the frame at the same size and keeps his back to the viewer the whole time. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin2_suit_b_v",
+     "martin2_suit_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 32202,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_suit_b_v",
+    "martin2_suit_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/suit_walk_b_32202_frames.zip",
+   "date": "2026-11-08",
+   "note": "Kälteanzug, gewählt aus seed 32200 count 4."
+  },
+  "martin2_suit_walk_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "13-60",
+    "--step",
+    "4"
+   ],
+   "inputs": [
+    "martin2_suit_walk_b_video"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_b/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_walk_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_walk_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_walk_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_walk_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_use_high_b_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the bulky red-orange polar expedition suit stands on the spot, seen straight from behind, with his heels toward the viewer. He calmly reaches forward and up with one gloved open hand to shoulder height or a little higher, as if to touch something on a high shelf in front of him, away from the viewer, holds it there for a moment, then lowers his arm again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_suit_b_v",
+     "martin2_suit_b_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 32300,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_suit_b_v",
+    "martin2_suit_b_v"
+   ],
+   "output": "work/cache/characters/martin2/video/suit_use_high_b_32300_frames.zip",
+   "date": "2026-11-08",
+   "note": "Kälteanzug, gewählt aus seed 32300 count 4."
+  },
+  "martin2_suit_use_high_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_suit_use_high_b_video"
+   ],
+   "output": "work/cache/characters/martin2/suit_use_high_b/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_use_high_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_use_high_b_frames"
+   ],
+   "output": "work/cache/characters/martin2/suit_use_high_b/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_use_high_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_use_high_b_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_use_high_b/scaled/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_use_low_fr_video": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.1.1",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the bulky red-orange polar expedition suit stands on the spot, turned three-quarters toward the right of the picture. He calmly bends down at the hips and knees and reaches down with one gloved open hand toward the floor in front of him, as if to touch something lying in the snow, then straightens up again and stands relaxed as at the beginning. His hand is empty, he holds nothing and takes nothing. His feet stay on the same spot, he does not walk or turn. He stays in the center of the frame at the same size. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room.",
+    "images": [
+     "martin2_suit_fr_v",
+     "martin2_suit_fr_v"
+    ],
+    "width": 768,
+    "height": 1024,
+    "duration_s": 3,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 32401,
+    "count": 1
+   },
+   "inputs": [
+    "martin2_suit_fr_v",
+    "martin2_suit_fr_v"
+   ],
+   "output": "work/cache/characters/martin2/video/suit_use_low_fr_32401_frames.zip",
+   "date": "2026-11-08",
+   "note": "Kälteanzug, gewählt aus seed 32400 count 4."
+  },
+  "martin2_suit_use_low_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-72",
+    "--step",
+    "2"
+   ],
+   "inputs": [
+    "martin2_suit_use_low_fr_video"
+   ],
+   "output": "work/cache/characters/martin2/suit_use_low_fr/frames/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_use_low_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.1.1 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin2_suit_use_low_fr_frames"
+   ],
+   "output": "work/cache/characters/martin2/suit_use_low_fr/keyed/",
+   "date": "2026-11-08"
+  },
+  "martin2_suit_use_low_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.3653",
+    "--box",
+    "0,0,768,1088",
+    "--anchor",
+    "384,969"
+   ],
+   "inputs": [
+    "martin2_suit_use_low_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin2/suit_use_low_fr/scaled/",
    "date": "2026-11-08"
   }
  }
