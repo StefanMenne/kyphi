@@ -1293,7 +1293,7 @@
    "args": [
     "unpack",
     "--range",
-    "0-30",
+    "0-42",
     "--step",
     "3"
    ],
@@ -1301,7 +1301,8 @@
     "martin2_turn_fr_b_video"
    ],
    "output": "work/cache/characters/martin2/turn_fr_b/frames/",
-   "date": "2026-11-08"
+   "date": "2026-11-09",
+   "note": "Bereich bis zum Ende der Drehung (vorher 0-30: endete mitten im Schwung, Versatz zum Standbild B)"
   },
   "martin2_turn_fr_b_keyed": {
    "tool": "script",
@@ -1341,7 +1342,7 @@
    "args": [
     "unpack",
     "--range",
-    "0-27",
+    "0-39",
     "--step",
     "3"
    ],
@@ -1349,7 +1350,8 @@
     "martin2_turn_br_b_video"
    ],
    "output": "work/cache/characters/martin2/turn_br_b/frames/",
-   "date": "2026-11-08"
+   "date": "2026-11-09",
+   "note": "Bereich bis zum Ende der Drehung (vorher 0-27: endete mitten im Schwung, Versatz zum Standbild B)"
   },
   "martin2_turn_br_b_keyed": {
    "tool": "script",
