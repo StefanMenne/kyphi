@@ -1593,12 +1593,23 @@
    "date": "2026-11-08",
    "note": "Root Motion je gezeigtem Bild aus der Verschiebung des Standfußes im Video (Bildauswahl aus work/scripts/martin2/anims.txt)"
   },
-  "martin2_shadow": {
+  "martin2_shadow_fix": {
    "tool": "manual",
    "note": "aus dem alten Satz übernommen (Python/Pillow: radialer Verlauf 256x64, Alpha = (1 - r)^0.9, schwarz)",
    "inputs": [],
-   "output": "assets/characters/martin2/shadow.png",
+   "output": "work/assets/characters/martin2/shadow.png",
    "date": "2026-11-08"
+  },
+  "martin2_shadow": {
+   "tool": "script",
+   "script": "cp",
+   "args": [],
+   "inputs": [
+    "martin2_shadow_fix"
+   ],
+   "output": "assets/characters/martin2/shadow.png",
+   "date": "2026-11-09",
+   "note": "Fixpunkt unverändert kopiert"
   },
   "martin2_idle_fr_video": {
    "tool": "gb10-assets/generate_video",
