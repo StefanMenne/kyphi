@@ -114,8 +114,20 @@ func cheat_menu() -> void:
 	ui.show_menu([
 		["Geheimtür im Altarraum öffnen", cheat_secret_door],
 		["Gegenstände für die Antarktis geben", cheat_antarctica_items],
+		["Figur: %s (umschalten auf %s)" % [Player.SET, _other_set()], cheat_player_set],
 		["Zurück", ui.hide_menu],
 	])
+
+
+func _other_set() -> String:
+	return "martin2" if Player.SET == "martin3" else "martin3"
+
+
+## Figurensatz wechseln (martin3: Test, nur Stand, Laufen, Drehen); wird gemerkt
+func cheat_player_set() -> void:
+	ui.hide_menu()
+	Player.use_set(_other_set())
+	player.reload()
 
 
 ## Gegenstände aus den noch nicht gebauten Orten (ABC GmbH, Innenerde), zum Ausprobieren der Antarktis.

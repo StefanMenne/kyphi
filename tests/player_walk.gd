@@ -1,7 +1,7 @@
 extends Node
 ## Neuer Martin (Player) in Echtzeit: Laufen in alle Richtungen, Zielwechsel unterwegs (Drehen im Laufen),
 ## stop() mitten im Weg, Drehen im Stand zu allen Blickrichtungen. Prüft, dass er ankommt und nichts hängt.
-## godot --headless --path . res://tests/player_walk.tscn [-- raum]
+## godot --headless --path . res://tests/player_walk.tscn [-- raum [figurensatz]]
 
 var failed := false
 
@@ -16,6 +16,8 @@ func _ready() -> void:
 	main.ui.hide_menu()
 	var args := OS.get_cmdline_user_args()
 	main._load_room(args[0] if args.size() > 0 else "lobby", "")
+	if args.size() > 1:
+		Player.use_set(args[1], false)
 	var old: Node2D = main.player
 	var p := Player.new()
 	p.room = main.room

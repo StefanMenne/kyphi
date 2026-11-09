@@ -3040,6 +3040,1958 @@
    ],
    "output": "assets/videos/lift_down.ogv",
    "date": "2026-11-08"
+  },
+  "martin3_concept": {
+   "tool": "gb10-assets/generate_image_qwen",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "qwen-image-2512",
+    "prompt": "Full body character of a German art restorer in his late thirties, slim, realistic proportions, short tousled black hair, light stubble, thoughtful face, three-quarter view: his whole body, feet, hips, shoulders and head turned 45 degrees toward the right side of the picture, looking toward the right edge of the picture, standing upright and relaxed, arms hanging naturally at his sides, feet slightly apart. Clothing: a long open warm brown-beige wool work coat with two large lower patch pockets and fabric folds, a slate blue-grey button-up shirt with open collar, a brown leather belt, faded blue jeans, brown leather lace-up shoes. No logos, no accessories, nothing in his hands. Camera at chest height looking slightly down, even soft light. Semi-realistic digital painting as in a modern detailed point-and-click adventure game: fine thin dark outlines, soft painterly shading, detailed fabric folds and seams, realistic face, muted natural colors. The whole figure is small enough to leave clear empty margin above the head and a wide empty margin below the shoes; the figure fills about three quarters of the picture height. Solid flat pure green (#00FF00) background, no gradient, no shadow, no floor, nothing else in the picture.",
+    "width": 1104,
+    "height": 1472,
+    "seed": 50001,
+    "count": 1
+   },
+   "inputs": [],
+   "output": "work/cache/characters/martin3/src/concept_50001.png",
+   "note": "Ursprungsbild FR. Gewählt aus seed 50000 count 4 (job 5db20e1537ec).",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_fr_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "mask": true
+   },
+   "inputs": [
+    "martin3_concept"
+   ],
+   "output": "work/cache/characters/martin3/src/concept_cutout.png",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_fr": {
+   "tool": "script",
+   "script": "work/scripts/martin2/place.py",
+   "args": [
+    "--size",
+    "1152x1536",
+    "--height",
+    "1150",
+    "--feet",
+    "1390",
+    "--color",
+    "00FF00",
+    "--alpha-min",
+    "128"
+   ],
+   "inputs": [
+    "martin3_stand_fr_cutout"
+   ],
+   "output": "work/cache/characters/martin3/stand/fr.png",
+   "note": "Arbeitsformat 1152x1536, Figur 1150 px, Füße y=1390 (Qwen hält Rand und Grün nicht ein; Edit driftet 3-4 % in der Größe)",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_br_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Turn the man from image 1 around so that he is seen three-quarters from behind: his back is toward the viewer and his body, hips, shoulders and head are turned 45 degrees toward the right side of the picture; we see the back of his head and a little of his right cheek, not his face. He stands upright and relaxed, arms hanging naturally at his sides, heels toward the viewer, toes of both shoes pointing slightly outward, feet hip-width apart. Keep exactly the same person, the same clothing (long open brown-beige wool coat, slate blue-grey shirt, brown belt, faded blue jeans, brown lace-up shoes), the same size and position in the picture, the same painted style, and the same solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin3_stand_fr"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "seed": 51000,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr"
+   ],
+   "output": "work/cache/characters/martin3/src/br_raw.png",
+   "note": "Gewählt aus seed 51000 count 4 (job 514b89092915).",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_br_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "mask": true
+   },
+   "inputs": [
+    "martin3_stand_br_raw"
+   ],
+   "output": "work/cache/characters/martin3/src/br_cutout.png",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_br": {
+   "tool": "script",
+   "script": "work/scripts/martin2/place.py",
+   "args": [
+    "--size",
+    "1152x1536",
+    "--height",
+    "1150",
+    "--feet",
+    "1390",
+    "--color",
+    "00FF00",
+    "--alpha-min",
+    "128"
+   ],
+   "inputs": [
+    "martin3_stand_br_cutout"
+   ],
+   "output": "work/cache/characters/martin3/stand/br.png",
+   "note": "Arbeitsformat 1152x1536, Figur 1150 px, Füße y=1390 (Qwen hält Rand und Grün nicht ein; Edit driftet 3-4 % in der Größe)",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_b_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Turn the man from image 1 a little further so that he is seen straight from behind: his back faces the viewer directly and squarely, shoulders level and parallel to the picture, head straight, we see only the back of his head and the back of his coat, not his face or ears in profile. The pose is perfectly symmetrical: he stands upright and relaxed, both arms hanging the same way at his sides, heels toward the viewer, the toes of both shoes pointing equally slightly outward, feet hip-width apart, centered in the picture. Keep exactly the same person, the same hair, the same clothing (long brown-beige wool coat with the center back vent, brown lace-up shoes, faded blue jeans), the same size and position in the picture, the same painted style, and the same solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin3_stand_br"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "seed": 52001,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_br"
+   ],
+   "output": "work/cache/characters/martin3/src/b_raw.png",
+   "note": "Gewählt aus seed 52000 count 4 (job b5dacaf14e4c).",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_b_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "mask": true
+   },
+   "inputs": [
+    "martin3_stand_b_raw"
+   ],
+   "output": "work/cache/characters/martin3/src/b_cutout.png",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_b": {
+   "tool": "script",
+   "script": "work/scripts/martin2/place.py",
+   "args": [
+    "--size",
+    "1152x1536",
+    "--height",
+    "1150",
+    "--feet",
+    "1390",
+    "--color",
+    "00FF00",
+    "--alpha-min",
+    "128"
+   ],
+   "inputs": [
+    "martin3_stand_b_cutout"
+   ],
+   "output": "work/cache/characters/martin3/stand/b.png",
+   "note": "Arbeitsformat 1152x1536, Figur 1150 px, Füße y=1390 (Qwen hält Rand und Grün nicht ein; Edit driftet 3-4 % in der Größe)",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_f_raw": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Turn the man from image 1 so that he faces the viewer straight on: his body, hips, shoulders, feet and face point directly toward the camera, shoulders level and parallel to the picture, looking straight ahead at the viewer. The pose is symmetrical: he stands upright and relaxed, both arms hanging the same way at his sides, the toes of both shoes pointing slightly outward, feet hip-width apart, centered in the picture. Keep exactly the same person, the same face and hair, the same clothing (long open brown-beige wool coat with two large lower patch pockets, slate blue-grey button-up shirt with open collar, brown leather belt, faded blue jeans, brown leather lace-up shoes), the same size and position in the picture, the same painted style, and the same solid flat pure green (#00FF00) background.",
+    "images": [
+     "martin3_stand_fr"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "seed": 55001,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr"
+   ],
+   "output": "work/cache/characters/martin3/src/f_raw.png",
+   "note": "Gewählt aus seed 55000 count 4 (job 3d24fd1e7c86). Nur Zwischenbild für Drehen FR→FL über vorn.",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_f_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "mask": true
+   },
+   "inputs": [
+    "martin3_stand_f_raw"
+   ],
+   "output": "work/cache/characters/martin3/src/f_cutout.png",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_f": {
+   "tool": "script",
+   "script": "work/scripts/martin2/place.py",
+   "args": [
+    "--size",
+    "1152x1536",
+    "--height",
+    "1150",
+    "--feet",
+    "1390",
+    "--color",
+    "00FF00",
+    "--alpha-min",
+    "128"
+   ],
+   "inputs": [
+    "martin3_stand_f_cutout"
+   ],
+   "output": "work/cache/characters/martin3/stand/f.png",
+   "note": "Arbeitsformat 1152x1536, Figur 1150 px, Füße y=1390 (Qwen hält Rand und Grün nicht ein; Edit driftet 3-4 % in der Größe)",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_fl": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--mirror"
+   ],
+   "inputs": [
+    "martin3_stand_fr"
+   ],
+   "output": "work/cache/characters/martin3/stand/fl.png",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_bl": {
+   "tool": "script",
+   "script": "work/scripts/martin2/shift.py",
+   "args": [
+    "--mirror"
+   ],
+   "inputs": [
+    "martin3_stand_br"
+   ],
+   "output": "work/cache/characters/martin3/stand/bl.png",
+   "date": "2026-11-09"
+  },
+  "martin3_video_walk_fr_53000": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat first stands still and relaxed for a moment, then starts walking in place, as on a treadmill, with a steady calm walking cycle, legs and arms swinging alternately in a natural rhythm. After several steps he slows down and comes to a stop, ending standing still and relaxed exactly as at the beginning. He stays in the center of the frame at the same size and keeps facing three-quarters toward the right of the picture the whole time. Static camera, three-quarter view, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin3_stand_fr",
+     "martin3_stand_fr"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 5,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 53000,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr",
+    "martin3_stand_fr"
+   ],
+   "output": "work/cache/characters/martin3/video/walk_fr_53000_frames.zip",
+   "note": "Gewählt aus seed 53000 count 2 (job a912739a23be).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_walk_br_53100": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat first stands still and relaxed for a moment, then starts walking in place, as on a treadmill, with a steady calm walking cycle, legs and arms swinging alternately in a natural rhythm. After several steps he slows down and comes to a stop, ending standing still and relaxed exactly as at the beginning. He stays in the center of the frame at the same size and keeps facing three-quarters away from the viewer toward the right of the picture the whole time, we see his back and the back of his head. Static camera, three-quarter rear view, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin3_stand_br",
+     "martin3_stand_br"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 5,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 53100,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_br",
+    "martin3_stand_br"
+   ],
+   "output": "work/cache/characters/martin3/video/walk_br_53100_frames.zip",
+   "note": "Gewählt aus seed 53100 count 2 (job e6a854a22d3b).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_walk_b_53200": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat first stands still and relaxed for a moment, then starts walking in place, as on a treadmill, with a steady calm walking cycle, legs and arms swinging alternately in a natural rhythm. After several steps he slows down and comes to a stop, ending standing still and relaxed exactly as at the beginning, heels toward the viewer and toes pointing slightly outward. He stays in the center of the frame at the same size and keeps his back straight toward the viewer the whole time, walking straight away from us. Static camera, rear view, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft regular footsteps.",
+    "images": [
+     "martin3_stand_b",
+     "martin3_stand_b"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 5,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 53200,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_b",
+    "martin3_stand_b"
+   ],
+   "output": "work/cache/characters/martin3/video/walk_b_53200_frames.zip",
+   "note": "Gewählt aus seed 53200 count 2 (job a717c6e3cef1).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_turn_fr_br_54001": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot and turns in place with one or two small steps: starting turned three-quarters toward the right of the picture and toward the viewer, he turns further toward the right, past his right profile, until he is seen three-quarters from behind, still turned toward the right of the picture. He ends standing still and relaxed, arms hanging at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin3_stand_fr",
+     "martin3_stand_br"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 54001,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr",
+    "martin3_stand_br"
+   ],
+   "output": "work/cache/characters/martin3/video/turn_fr_br_54001_frames.zip",
+   "note": "Gewählt aus seed 54000 count 2 (job f920dfceab81).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_turn_fr_b_54100": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot and turns around in place with two or three small steps: starting turned three-quarters toward the right of the picture, he turns away from the viewer toward the right until we see his back straight from behind. He ends standing still and relaxed with his heels toward the viewer and the toes of both shoes pointing slightly outward, feet hip-width apart. His arms hang relaxed at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin3_stand_fr",
+     "martin3_stand_b"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 54100,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr",
+    "martin3_stand_b"
+   ],
+   "output": "work/cache/characters/martin3/video/turn_fr_b_54100_frames.zip",
+   "note": "Gewählt aus seed 54100 count 2 (job 2761bc83b539).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_turn_fr_fl_54220": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot and turns in place toward the camera with one or two small steps: starting turned three-quarters toward the right of the picture, he turns to face the viewer directly, and keeps turning the same way until he is turned three-quarters toward the left of the picture. He never shows us his back. He ends standing still and relaxed, arms hanging at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin3_stand_fr",
+     "martin3_stand_f",
+     "martin3_stand_fl"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 54220,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr",
+    "martin3_stand_f",
+    "martin3_stand_fl"
+   ],
+   "output": "work/cache/characters/martin3/video/turn_fr_fl_54220_frames.zip",
+   "note": "Gewählt aus seed 54220 count 2; ohne Zwischenbild F drehten 6 Varianten (54200, 54201, 54210-54213) über hinten (job 04a6d29fab7a).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_turn_fr_bl_54301": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat stands on the spot and turns around in place with two or three small steps: starting turned three-quarters toward the right of the picture, he turns away from the viewer toward the right, past his right profile and past showing us his back straight on, until he is seen three-quarters from behind turned toward the left of the picture. He ends standing still and relaxed, heels toward the viewer, arms hanging at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin3_stand_fr",
+     "martin3_stand_bl"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 54301,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_fr",
+    "martin3_stand_bl"
+   ],
+   "output": "work/cache/characters/martin3/video/turn_fr_bl_54301_frames.zip",
+   "note": "Gewählt aus seed 54300 count 2 (job 8b899e469f58).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_turn_br_b_54400": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat, seen three-quarters from behind and turned toward the right of the picture, stands on the spot and turns a little in place with one small step, away from the viewer, until we see his back straight from behind. He ends standing still and relaxed with his heels toward the viewer and the toes of both shoes pointing slightly outward, arms hanging at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin3_stand_br",
+     "martin3_stand_b"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 54400,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_br",
+    "martin3_stand_b"
+   ],
+   "output": "work/cache/characters/martin3/video/turn_br_b_54400_frames.zip",
+   "note": "Gewählt aus seed 54400 count 2 (job f5ac58b7661c).",
+   "date": "2026-11-09"
+  },
+  "martin3_video_turn_br_bl_54500": {
+   "tool": "gb10-assets/generate_video",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "model": "ltx-2.5",
+    "prompt": "The man in the long brown coat, seen three-quarters from behind and turned toward the right of the picture, stands on the spot and turns in place with one or two small steps, away from the viewer: past showing us his back straight on, until he is seen three-quarters from behind turned toward the left of the picture. He ends standing still and relaxed, heels toward the viewer, arms hanging at his sides, he stays in the center of the frame at the same size, his feet stay on the same spot. Static camera, solid flat pure green (#00FF00) background, no shadow, no floor, no other objects. Quiet room, soft footsteps.",
+    "images": [
+     "martin3_stand_br",
+     "martin3_stand_bl"
+    ],
+    "width": 1152,
+    "height": 1536,
+    "duration_s": 2,
+    "fps": 24,
+    "frames": true,
+    "enhance_prompt": false,
+    "seed": 54500,
+    "count": 1
+   },
+   "inputs": [
+    "martin3_stand_br",
+    "martin3_stand_bl"
+   ],
+   "output": "work/cache/characters/martin3/video/turn_br_bl_54500_frames.zip",
+   "note": "Gewählt aus seed 54500 count 2 (job e9334fdbfe5f).",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "26-49",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_fr_53000"
+   ],
+   "output": "work/cache/characters/martin3/walk_fr/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_walk_fr_frames"
+   ],
+   "output": "work/cache/characters/martin3/walk_fr/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_start_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "8-23",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_fr_53000"
+   ],
+   "output": "work/cache/characters/martin3/start_fr/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_start_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_start_fr_frames"
+   ],
+   "output": "work/cache/characters/martin3/start_fr/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "50-92",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_fr_53000"
+   ],
+   "output": "work/cache/characters/martin3/stop_fr/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_stop_fr_frames"
+   ],
+   "output": "work/cache/characters/martin3/stop_fr/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "17-52",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_br_53100"
+   ],
+   "output": "work/cache/characters/martin3/walk_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_walk_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/walk_br/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_start_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "5-14",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_br_53100"
+   ],
+   "output": "work/cache/characters/martin3/start_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_start_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_start_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/start_br/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "53-89",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_br_53100"
+   ],
+   "output": "work/cache/characters/martin3/stop_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_stop_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/stop_br/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "40-63",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_b_53200"
+   ],
+   "output": "work/cache/characters/martin3/walk_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_walk_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/walk_b/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_start_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "10-37",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_b_53200"
+   ],
+   "output": "work/cache/characters/martin3/start_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_start_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_start_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/start_b/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "64-97",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_walk_b_53200"
+   ],
+   "output": "work/cache/characters/martin3/stop_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_stop_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/stop_b/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "1-43",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_turn_fr_br_54001"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_turn_fr_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_br/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-39",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_turn_fr_b_54100"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_turn_fr_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_b/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_fl_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "14-38",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_turn_fr_fl_54220"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_fl/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_fl_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_turn_fr_fl_frames"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_fl/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_bl_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-45",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_turn_fr_bl_54301"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_bl/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_bl_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_turn_fr_bl_frames"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_bl/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_br_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "3-33",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_turn_br_b_54400"
+   ],
+   "output": "work/cache/characters/martin3/turn_br_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_br_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_turn_br_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/turn_br_b/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_br_bl_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "6-36",
+    "--step",
+    "3"
+   ],
+   "inputs": [
+    "martin3_video_turn_br_bl_54500"
+   ],
+   "output": "work/cache/characters/martin3/turn_br_bl/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_br_bl_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_turn_br_bl_frames"
+   ],
+   "output": "work/cache/characters/martin3/turn_br_bl/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_fr_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_stand_fr"
+   ],
+   "output": "work/cache/characters/martin3/stand_fr/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_br_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_stand_br"
+   ],
+   "output": "work/cache/characters/martin3/stand_br/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_b_keyed": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "key",
+    "--color",
+    "00FF00"
+   ],
+   "inputs": [
+    "martin3_stand_b"
+   ],
+   "output": "work/cache/characters/martin3/stand_b/keyed/",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_walk_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin3/walk_fr/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_start_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_start_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin3/start_fr/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_stop_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin3/stop_fr/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_walk_br_keyed"
+   ],
+   "output": "work/cache/characters/martin3/walk_br/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_start_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_start_br_keyed"
+   ],
+   "output": "work/cache/characters/martin3/start_br/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_stop_br_keyed"
+   ],
+   "output": "work/cache/characters/martin3/stop_br/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_walk_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_walk_b_keyed"
+   ],
+   "output": "work/cache/characters/martin3/walk_b/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_start_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_start_b_keyed"
+   ],
+   "output": "work/cache/characters/martin3/start_b/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_stop_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_stop_b_keyed"
+   ],
+   "output": "work/cache/characters/martin3/stop_b/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_turn_fr_br_keyed"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_br/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_turn_fr_b_keyed"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_b/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_fl_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_turn_fr_fl_keyed"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_fl/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_fr_bl_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_turn_fr_bl_keyed"
+   ],
+   "output": "work/cache/characters/martin3/turn_fr_bl/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_br_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_turn_br_b_keyed"
+   ],
+   "output": "work/cache/characters/martin3/turn_br_b/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_turn_br_bl_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_turn_br_bl_keyed"
+   ],
+   "output": "work/cache/characters/martin3/turn_br_bl/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_fr_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_stand_fr_keyed"
+   ],
+   "output": "work/cache/characters/martin3/stand_fr/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_br_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_stand_br_keyed"
+   ],
+   "output": "work/cache/characters/martin3/stand_br/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_stand_b_scaled": {
+   "tool": "script",
+   "script": "work/scripts/martin2/scale.py",
+   "args": [
+    "--factor",
+    "0.2791",
+    "--anchor",
+    "576,1390"
+   ],
+   "inputs": [
+    "martin3_stand_b_keyed"
+   ],
+   "output": "work/cache/characters/martin3/stand_b/scaled/",
+   "note": "Ganzes Bild 1152x1536 → 322x429, Anker (160.8, 387.9), Figur ≈ 321 px wie Martin2",
+   "date": "2026-11-09"
+  },
+  "martin3_export": {
+   "tool": "script",
+   "script": "work/scripts/martin2/export.py",
+   "args": [
+    "--src",
+    "work/cache/characters/martin3",
+    "--dst",
+    "assets/characters/martin3"
+   ],
+   "inputs": [
+    "martin3_stand_b_scaled",
+    "martin3_stand_br_scaled",
+    "martin3_stand_fr_scaled",
+    "martin3_start_b_scaled",
+    "martin3_start_br_scaled",
+    "martin3_start_fr_scaled",
+    "martin3_stop_b_scaled",
+    "martin3_stop_br_scaled",
+    "martin3_stop_fr_scaled",
+    "martin3_turn_br_b_scaled",
+    "martin3_turn_br_bl_scaled",
+    "martin3_turn_fr_b_scaled",
+    "martin3_turn_fr_bl_scaled",
+    "martin3_turn_fr_br_scaled",
+    "martin3_turn_fr_fl_scaled",
+    "martin3_walk_b_scaled",
+    "martin3_walk_br_scaled",
+    "martin3_walk_fr_scaled"
+   ],
+   "output": "assets/characters/martin3/",
+   "note": "Bildauswahl: work/scripts/martin3/anims.txt (Ablauf: work/scripts/martin3/build.py)",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "26-49"
+   ],
+   "inputs": [
+    "martin3_video_walk_fr_53000"
+   ],
+   "output": "work/cache/characters/martin3/root/c_fr/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_fr_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_c_fr_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/c_fr/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_fr_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_c_fr_frames",
+    "martin3_root_c_fr_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/c_fr/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_fr_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "15.64212033827576,6.233680490955325"
+   ],
+   "inputs": [
+    "martin3_root_c_fr_tracks",
+    "martin3_root_c_fr_queries",
+    "martin3_root_c_fr_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/c_fr/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_fr_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-32"
+   ],
+   "inputs": [
+    "martin3_video_walk_fr_53000"
+   ],
+   "output": "work/cache/characters/martin3/root/start_fr/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_fr_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_start_fr_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/start_fr/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_fr_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_start_fr_frames",
+    "martin3_root_start_fr_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/start_fr/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_fr_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "15.64212033827576,6.233680490955325"
+   ],
+   "inputs": [
+    "martin3_root_start_fr_tracks",
+    "martin3_root_start_fr_queries",
+    "martin3_root_c_fr_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/start_fr/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_fr_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_fr_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "44-120"
+   ],
+   "inputs": [
+    "martin3_video_walk_fr_53000"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_fr/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_fr_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_stop_fr_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_fr/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_fr_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_stop_fr_frames",
+    "martin3_root_stop_fr_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_fr/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_fr_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "15.64212033827576,6.233680490955325"
+   ],
+   "inputs": [
+    "martin3_root_stop_fr_tracks",
+    "martin3_root_stop_fr_queries",
+    "martin3_root_c_fr_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_fr/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_fr_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_fr_sprites": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "root",
+    "--fps",
+    "24"
+   ],
+   "inputs": [
+    "martin3_root_c_fr_tracks",
+    "martin3_root_c_fr_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/c_fr/sprites_root.json",
+   "note": "Prüfung des Zyklus (keine Warnungen) und Laufrichtung",
+   "date": "2026-11-09"
+  },
+  "martin3_root_walk_fr": {
+   "tool": "script",
+   "script": "work/scripts/martin3/rootmerge.py",
+   "args": [
+    "--a",
+    "26",
+    "--b",
+    "49",
+    "--stop-from",
+    "44",
+    "--n",
+    "121"
+   ],
+   "inputs": [
+    "martin3_root_start_fr_footroot",
+    "martin3_root_c_fr_footroot",
+    "martin3_root_stop_fr_footroot"
+   ],
+   "output": "work/cache/characters/martin3/root/walk_fr.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "17-52"
+   ],
+   "inputs": [
+    "martin3_video_walk_br_53100"
+   ],
+   "output": "work/cache/characters/martin3/root/c_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_br_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_c_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/c_br/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_br_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_c_br_frames",
+    "martin3_root_c_br_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/c_br/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_br_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "13.742909895789385,-4.487231933927846"
+   ],
+   "inputs": [
+    "martin3_root_c_br_tracks",
+    "martin3_root_c_br_queries",
+    "martin3_root_c_br_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/c_br/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_br_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-23"
+   ],
+   "inputs": [
+    "martin3_video_walk_br_53100"
+   ],
+   "output": "work/cache/characters/martin3/root/start_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_br_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_start_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/start_br/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_br_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_start_br_frames",
+    "martin3_root_start_br_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/start_br/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_br_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "13.742909895789385,-4.487231933927846"
+   ],
+   "inputs": [
+    "martin3_root_start_br_tracks",
+    "martin3_root_start_br_queries",
+    "martin3_root_c_br_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/start_br/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_br_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_br_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "47-120"
+   ],
+   "inputs": [
+    "martin3_video_walk_br_53100"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_br/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_br_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_stop_br_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_br/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_br_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_stop_br_frames",
+    "martin3_root_stop_br_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_br/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_br_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "13.742909895789385,-4.487231933927846"
+   ],
+   "inputs": [
+    "martin3_root_stop_br_tracks",
+    "martin3_root_stop_br_queries",
+    "martin3_root_c_br_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_br/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_br_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_br_sprites": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "root",
+    "--fps",
+    "24"
+   ],
+   "inputs": [
+    "martin3_root_c_br_tracks",
+    "martin3_root_c_br_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/c_br/sprites_root.json",
+   "note": "Prüfung des Zyklus (keine Warnungen) und Laufrichtung",
+   "date": "2026-11-09"
+  },
+  "martin3_root_walk_br": {
+   "tool": "script",
+   "script": "work/scripts/martin3/rootmerge.py",
+   "args": [
+    "--a",
+    "17",
+    "--b",
+    "52",
+    "--stop-from",
+    "47",
+    "--n",
+    "121"
+   ],
+   "inputs": [
+    "martin3_root_start_br_footroot",
+    "martin3_root_c_br_footroot",
+    "martin3_root_stop_br_footroot"
+   ],
+   "output": "work/cache/characters/martin3/root/walk_br.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "40-63"
+   ],
+   "inputs": [
+    "martin3_video_walk_b_53200"
+   ],
+   "output": "work/cache/characters/martin3/root/c_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_b_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_c_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/c_b/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_b_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_c_b_frames",
+    "martin3_root_c_b_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/c_b/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_b_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "1.1645790679087287,-10.113738271238304"
+   ],
+   "inputs": [
+    "martin3_root_c_b_tracks",
+    "martin3_root_c_b_queries",
+    "martin3_root_c_b_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/c_b/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_b_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "0-46"
+   ],
+   "inputs": [
+    "martin3_video_walk_b_53200"
+   ],
+   "output": "work/cache/characters/martin3/root/start_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_b_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_start_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/start_b/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_b_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_start_b_frames",
+    "martin3_root_start_b_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/start_b/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_start_b_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "1.1645790679087287,-10.113738271238304"
+   ],
+   "inputs": [
+    "martin3_root_start_b_tracks",
+    "martin3_root_start_b_queries",
+    "martin3_root_c_b_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/start_b/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_b_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_b_frames": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "unpack",
+    "--range",
+    "58-120"
+   ],
+   "inputs": [
+    "martin3_video_walk_b_53200"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_b/frames/",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_b_queries": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "queries",
+    "--color",
+    "00FF00",
+    "--every",
+    "2"
+   ],
+   "inputs": [
+    "martin3_root_stop_b_frames"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_b/queries.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_b_tracks": {
+   "tool": "gb10-assets/track_points",
+   "version": "gb10-assets 1.2.0",
+   "request": {
+    "resolution": 512
+   },
+   "inputs": [
+    "martin3_root_stop_b_frames",
+    "martin3_root_stop_b_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_b/tracks.json",
+   "date": "2026-11-09"
+  },
+  "martin3_root_stop_b_footroot": {
+   "tool": "script",
+   "script": "work/scripts/martin3/footroot.py",
+   "args": [
+    "--dir",
+    "1.1645790679087287,-10.113738271238304"
+   ],
+   "inputs": [
+    "martin3_root_stop_b_tracks",
+    "martin3_root_stop_b_queries",
+    "martin3_root_c_b_sprites"
+   ],
+   "output": "work/cache/characters/martin3/root/stop_b/footroot.json",
+   "note": "Laufrichtung = velocity aus martin3_root_c_b_sprites",
+   "date": "2026-11-09"
+  },
+  "martin3_root_c_b_sprites": {
+   "tool": "script",
+   "script": "gb10-assets 1.2.0 skills/sprite-animation/scripts/sprites.py",
+   "args": [
+    "root",
+    "--fps",
+    "24"
+   ],
+   "inputs": [
+    "martin3_root_c_b_tracks",
+    "martin3_root_c_b_queries"
+   ],
+   "output": "work/cache/characters/martin3/root/c_b/sprites_root.json",
+   "note": "Prüfung des Zyklus (keine Warnungen) und Laufrichtung",
+   "date": "2026-11-09"
+  },
+  "martin3_root_walk_b": {
+   "tool": "script",
+   "script": "work/scripts/martin3/rootmerge.py",
+   "args": [
+    "--a",
+    "40",
+    "--b",
+    "63",
+    "--stop-from",
+    "58",
+    "--n",
+    "121"
+   ],
+   "inputs": [
+    "martin3_root_start_b_footroot",
+    "martin3_root_c_b_footroot",
+    "martin3_root_stop_b_footroot"
+   ],
+   "output": "work/cache/characters/martin3/root/walk_b.json",
+   "date": "2026-11-09"
+  },
+  "martin3_rootmotion": {
+   "tool": "script",
+   "script": "work/scripts/martin3/rootexport.py",
+   "args": [],
+   "inputs": [
+    "martin3_root_walk_fr",
+    "martin3_root_walk_br",
+    "martin3_root_walk_b"
+   ],
+   "output": "assets/characters/martin3/rootmotion.json",
+   "note": "Je gezeigtem Bild (anims.txt) Summe der Root Motion, in Körperhöhen (Figur 1150 Videopixel)",
+   "date": "2026-11-09"
   }
  }
 }

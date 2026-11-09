@@ -11,17 +11,28 @@ extends Node2D
 ## Im Stand atmet er (Schleife); spricht er (talking) und ist das Gesicht zu sehen, läuft stattdessen die
 ## Sprech-Schleife. Gesten Nehmen/Benutzen in drei Höhen (gesture). Im Kälteanzug (set_suit) ein kleiner
 ## eigener Satz: Stand, Laufen und die Gesten, die der Antennenraum braucht.
-## Herkunft: assets/provenance.json, Schritte martin2_*; der alte Martin liegt im Git-Tag martin1.
+## Herkunft: assets/provenance.json, Schritte martin2_* bzw. martin3_*; der alte Martin liegt im Git-Tag martin1.
+## Zwei Figurensätze: martin2 (vollständig) und martin3 (Test, nur Stand, Laufen und Drehen; ohne Atmen,
+## Sprechen, Gesten und Kälteanzug). Umschalten im Cheatmenü (F10), gemerkt in user://player_set.
 
-const DIR := "res://assets/characters/martin2/"
-## Fußpunkt und Körperhöhe (Scheitel bis Sohle im Standbild) in Sprite-Pixeln, für alle Bilder gleich
-const ANCHOR := Vector2(140.3, 354.0)
-const BODY_PX := 321.5
+## je Satz: Verzeichnis, Fußpunkt und Körperhöhe (Scheitel bis Sohle im Standbild) in Sprite-Pixeln (für alle
+## Bilder eines Satzes gleich), Bild des Laufzyklus, an dem Anlaufen endet und Anhalten beginnt
+const SETS := {
+	"martin2": {"dir": "res://assets/characters/martin2/", "anchor": Vector2(140.3, 354.0), "body": 321.5,
+		"key": {"fr": 0, "br": 0, "b": 2}},
+	"martin3": {"dir": "res://assets/characters/martin3/", "anchor": Vector2(160.8, 387.9), "body": 323.5,
+		"key": {"fr": 0, "br": 0, "b": 0}},
+}
+const SET_FILE := "user://player_set"
+const SHADOW := "res://assets/characters/martin2/shadow.png"
+static var SET := "martin2"
+static var DIR: String
+static var ANCHOR: Vector2
+static var BODY_PX: float
+static var KEY: Dictionary
 const FPS := 8.0
 ## Atmen im Stand: Schleife idle_<Richtung> (Bild 0 = Standbild), falls vorhanden
 const IDLE_FPS := 12.0
-## Bild des Laufzyklus, an dem Anlaufen endet und Anhalten beginnt
-const KEY := {"fr": 0, "br": 0, "b": 2}
 ## Grenzen für das Bildtempo, wenn ein Weg gestreckt wird
 const TEMPO_MIN := 0.75
 const TEMPO_MAX := 1.33
@@ -55,7 +66,37 @@ var _busy := false
 var _moving := false
 
 
+static func _static_init() -> void:
+	var saved := FileAccess.get_file_as_string(SET_FILE).strip_edges() if FileAccess.file_exists(SET_FILE) else ""
+	use_set(saved if saved in SETS else "martin2", false)
+
+
+## Figurensatz wählen (wirkt für neue Player; ein bestehender lädt mit reload() neu); save: merken
+static func use_set(name: String, save := true) -> void:
+	SET = name
+	DIR = SETS[name]["dir"]
+	ANCHOR = SETS[name]["anchor"]
+	BODY_PX = SETS[name]["body"]
+	KEY = SETS[name]["key"]
+	if save:
+		var f := FileAccess.open(SET_FILE, FileAccess.WRITE)
+		if f:
+			f.store_string(name)
+
+
 func _init() -> void:
+	_load_set()
+	_shadow.texture = load(SHADOW)
+	_shadow.scale = SHADOW_SIZE / _shadow.texture.get_size()
+	_shadow.position = Vector2(0, -12)
+	add_child(_shadow)
+	_sprite.centered = false
+	add_child(_sprite)
+	_show_stand()
+
+
+func _load_set() -> void:
+	_tex.clear()
 	var meta = JSON.parse_string(FileAccess.get_file_as_string(DIR + "anims.json"))
 	for anim in meta:
 		var frames := []
@@ -63,12 +104,14 @@ func _init() -> void:
 			frames.append(load(DIR + "%s_%02d.png" % [anim, i]))
 		_tex[anim] = frames
 	_rm = JSON.parse_string(FileAccess.get_file_as_string(DIR + "rootmotion.json"))
-	_shadow.texture = load(DIR + "shadow.png")
-	_shadow.scale = SHADOW_SIZE / _shadow.texture.get_size()
-	_shadow.position = Vector2(0, -12)
-	add_child(_shadow)
-	_sprite.centered = false
-	add_child(_sprite)
+
+
+## nach use_set(): Bilder und Root Motion des aktuellen Satzes neu laden
+func reload() -> void:
+	stop()
+	_load_set()
+	if room:
+		update_scale()
 	_show_stand()
 
 
@@ -96,7 +139,12 @@ func _frame(anim: String, d: String, i: int) -> void:
 
 ## Namensvorsatz der Bildfolgen: im Kälteanzug "suit_" (nur Stand, Laufen und die nötigen Gesten)
 func _pre() -> String:
-	return "suit_" if suit else ""
+	return "suit_" if _in_suit() else ""
+
+
+## im Kälteanzug und der Satz hat einen (sonst normal)
+func _in_suit() -> bool:
+	return suit and _tex.has("suit_stand_fr")
 
 
 func _show_stand() -> void:
@@ -107,7 +155,7 @@ func _process(dt: float) -> void:
 	if _moving or _busy:
 		_idle_t = 0.0
 		return
-	if suit:
+	if _in_suit():
 		_show_stand()
 		return
 	# beim Sprechen die Sprech-Schleife (nur wo es eine gibt, also mit sichtbarem Gesicht), sonst Atmen;
@@ -175,7 +223,7 @@ func _play(anim: String, flip: bool, reverse := false, heading := Vector2.ZERO, 
 func turn_to(d: String, abortable := true) -> bool:
 	if d == facing:
 		return true
-	if Game.fast or suit:
+	if Game.fast or _in_suit():
 		# im Anzug ohne Drehanimation
 		facing = d
 		_show_stand()
@@ -341,17 +389,17 @@ func _walk_loop() -> void:
 		var heading := (goal - position).normalized()
 		# im Anzug ohne Anlaufen und Anhalten
 		var pre := _pre()
-		var s_len := 0.0 if suit else _sum("start_" + view)
+		var s_len := 0.0 if _in_suit() else _sum("start_" + view)
 		var c_len := _sum(pre + "walk_" + view)
-		var p_len := 0.0 if suit else _sum("stop_" + view)
+		var p_len := 0.0 if _in_suit() else _sum("stop_" + view)
 		var rest := _rest()
 		var plan := _plan(rest, s_len + p_len, c_len)
 		var n: int = plan[0]
 		var k: float = plan[1]
-		if not suit:
+		if not _in_suit():
 			await _play("start_" + view, flip, false, heading, k, false)
 		# Laufzyklen von KEY bis vor KEY; an jeder Grenze neu planen
-		var key: int = 0 if suit else KEY[view]
+		var key: int = 0 if _in_suit() else KEY[view]
 		var cycle := []
 		var n_cycle: int = _tex[pre + "walk_" + view].size()
 		for f in n_cycle:
@@ -368,7 +416,7 @@ func _walk_loop() -> void:
 			# Richtung an jeder Zyklusgrenze neu: mit der Tiefe ändert sich die Schrittlänge, sonst liefe er vorbei
 			heading = (goal - position).normalized()
 			# im Anzug (ohne Anhalten): unter einem Zehntel Zyklus Rest am Ziel
-			if suit and rest < 0.1 * c_len:
+			if _in_suit() and rest < 0.1 * c_len:
 				break
 			plan = _plan(rest, p_len, c_len)
 			n = plan[0]
@@ -378,7 +426,7 @@ func _walk_loop() -> void:
 			await _play(pre + "walk_" + view, flip, false, heading, k, false, cycle)
 		if _halt:
 			break
-		if not suit:
+		if not _in_suit():
 			if not turn_needed:
 				k = _rest() / p_len if p_len > 0.0 else 1.0
 			await _play("stop_" + view, flip, false, heading, k, false)
