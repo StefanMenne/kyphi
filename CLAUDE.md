@@ -20,9 +20,9 @@ jederzeit betretbar.
 
 Alles Weitere zur Geschichte und zu den Rätseln steht in den Konzeptdateien, eine je Ort. Einstieg und Überblick:
 `work/concept/story.md`. Gebaute Orte liegen im Spiel-Repo (`concept/museum.md`, `concept/antarctica.md`),
-die übrigen sind grobe Ideen in `work/concept/` (`abc_gmbh.md`, `inner_earth.md`, `area_52.md`;
-`dependencies.md` ist nur eine Hilfsdatei). Bei Bedarf lesen und anpassen, sobald sich der Spielablauf ändert.
-Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
+die übrigen sind grobe Ideen in `work/concept/` (`abc_gmbh.md`, `inner_earth.md`, `area_52.md`, `part_3.md`;
+`items.md` beschreibt die Gegenstände über alle Orte hinweg). Bei Bedarf lesen und anpassen, sobald sich der
+Spielablauf ändert. Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
 
 ## Technische Regeln
 
