@@ -59,7 +59,7 @@ Spielablauf ändert. Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
     Referenzaufnahmen. Die Gliederung spiegelt `assets/` (z. B. `work/assets/items/ladder/`).
   - `work/scripts/`: Skripte für die deterministischen lokalen Schritte (Freistellen, Zuschneiden, Sprite-Sheets).
   - `work/tmp/`, `work/old/` und `work/cache/` werden nicht committet.
-- `work/characters/<figur>/` (martin2, martin2_suit, martin3): je Figurensatz `gen.json` (alle Schritte, Schema
+- `work/characters/<figur>/` (martin, martin_suit): je Figurensatz `gen.json` (alle Schritte, Schema
   wie `provenance.json`), `src/` (Bildauswahl, Arbeitsstand, eigene Skripte; committet) und `gen/`
   (Zwischenergebnisse, nicht committet). Diese Figuren stehen nicht in `provenance.json`. Ansehen und Quellen
   ändern mit `work/run.sh anim` (Werkzeuge in `work/tools/`, nicht Teil des Spiels).

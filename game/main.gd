@@ -108,12 +108,14 @@ func _free_old_rooms() -> void:
 func cheat_menu() -> void:
 	if ui.actions_open():
 		ui.hide_actions()
-	ui.show_menu([
+	var entries := [
 		["Geheimtür im Altarraum öffnen", cheat_secret_door],
 		["Gegenstände für die Antarktis geben", cheat_antarctica_items],
-		["Figur: %s (umschalten auf %s)" % [Player.SET, _other_set()], cheat_player_set],
-		["Zurück", ui.hide_menu],
-	])
+	]
+	if Player.SETS.size() > 1:
+		entries.append(["Figur: %s (umschalten auf %s)" % [Player.SET, _other_set()], cheat_player_set])
+	entries.append(["Zurück", ui.hide_menu])
+	ui.show_menu(entries)
 
 
 ## nächster Figurensatz in Player.SETS
@@ -121,7 +123,7 @@ func _other_set() -> String:
 	return Player.SETS[(Player.SETS.find(Player.SET) + 1) % Player.SETS.size()]
 
 
-## Figurensatz wechseln (martin3: Test, nur Stand, Laufen, Drehen); wird gemerkt
+## Figurensatz wechseln (nur bei mehreren Sätzen in Player.SETS); wird gemerkt
 func cheat_player_set() -> void:
 	ui.hide_menu()
 	Player.use_set(_other_set())

@@ -121,7 +121,7 @@ func _ready() -> void:
 		while not res.has("ok"):
 			await get_tree().process_frame
 		var okw: bool = res["ok"]
-		var bad := names.keys().filter(func(n): return not n.begins_with("suit_walk_"))
+		var bad := names.keys().filter(func(n): return not n.begins_with("suit_"))
 		check(okw and p.position.distance_to(goal) < 1.0 and bad.is_empty(), "Anzug Weg %s: %s" % [v, names.keys()])
 		print("Anzug Weg %s: %s, Richtung %s" % [v, names.keys(), p.facing])
 	for spec in [["back", "high", "suit_use_high_b"], ["right", "low", "suit_use_low_fr"]]:

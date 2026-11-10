@@ -3,3 +3,6 @@ work/
 
 # Godot
 .godot/
+
+# API-Schlüssel
+.env

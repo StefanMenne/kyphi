@@ -740,16 +740,16 @@
   },
   "martin": {
    "name": "Martin Kessler",
-   "note": "Fünf Richtungen FR, FL, BR, BL, B (vorn/hinten dreiviertel rechts/links, hinten), links gespiegelt. Je Richtung (FR, BR, B) Stand, Anlaufen, Laufzyklus (8 Bilder, 8 fps) und Anhalten; Drehen im Stand zwischen allen Richtungen (6 Videos, vorwärts/rückwärts/gespiegelt). Bewegung nach gemessener Root Motion (rootmotion.json). Alle Bilder 281x397, Anker = Mitte zwischen den Füßen. Noch ohne Atmen, Sprechen, Gesten und Kälteanzug. Der alte Martin liegt im Git-Tag martin1.",
-   "dir": "characters/martin2/",
-   "anims": "characters/martin2/anims.json",
-   "rootmotion": "characters/martin2/rootmotion.json",
+   "note": "Fünf Richtungen FR, FL, BR, BL, B (links gespiegelt). Je Richtung (FR, BR, B) Stand, Anlaufen, Laufzyklus (10 fps) und Anhalten; Drehen im Stand zwischen allen Richtungen (6 Videos, vorwärts/rückwärts/gespiegelt); Atmen und Sprechen FR (15 fps); Nehmen/Benutzen oben, Hüfte, unten in FR und B. Videos mit WAN 3.0 aus den martin3-Standbildern. Bewegung nach gemessener Root Motion (rootmotion.json). Alle Bilder 322x428, Anker = Mitte zwischen den Füßen. Kälteanzug: characters/martin_suit/ (nur Laufen). Frühere Sätze: Git-Tags martin1, martin2-3.",
+   "dir": "characters/martin/",
+   "anims": "characters/martin/anims.json",
+   "rootmotion": "characters/martin/rootmotion.json",
    "anchor": [
-    140.3,
-    354.0
+    160.9,
+    387.9
    ],
-   "height_px": 321.5,
-   "shadow": "characters/martin2/shadow.png",
+   "height_px": 323.5,
+   "shadow": "characters/shadow.png",
    "tint": "Tönung pro Raum: Room.tint"
   },
   "pjotr": {

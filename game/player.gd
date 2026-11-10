@@ -17,15 +17,15 @@ extends Node2D
 ##   anims.json: Animationen und ihre Bildzahl (<anim>_NN.png); rootmotion.json: Weg je Bild, "dir" je Ansicht.
 ## Pflicht sind nur stand_<v> und walk_<v> für fr, br, b. Was fehlt, entfällt: ohne Anlaufen/Anhalten läuft er
 ## direkt los und bleibt stehen, ohne Drehvideo dreht er sich sofort, ohne Atmen/Sprechen/Geste das Standbild.
-## Wählbare Sätze: SETS (martin2 vollständig, martin3 Test ohne Atmen, Sprechen, Gesten und Anzug); Umschalten im
-## Cheatmenü (F10), gemerkt in user://player_set.
+## Wählbare Sätze: SETS (martin; Anzug martin_suit; Atmen nur FR, Anzug nur Laufen); bei mehreren Umschalten im
+## Cheatmenü (F10), gemerkt in user://player_set. Frühere Sätze martin2, martin3: Git-Tag martin2-3.
 
-const SETS := ["martin2", "martin3"]
+const SETS := ["martin"]
 const ROOT := "res://assets/characters/"
 const SET_FILE := "user://player_set"
 const SHADOW := "res://assets/characters/shadow.png"
 ## gewählter Satz (normale Kleidung); DIR, ANCHOR, BODY_PX gelten für ihn (Layout-Editor)
-static var SET := "martin2"
+static var SET := "martin"
 static var DIR: String
 static var ANCHOR: Vector2
 static var BODY_PX: float
@@ -68,7 +68,7 @@ var _moving: bool:
 
 static func _static_init() -> void:
 	var saved := FileAccess.get_file_as_string(SET_FILE).strip_edges() if FileAccess.file_exists(SET_FILE) else ""
-	use_set(saved if saved in SETS else "martin2", false)
+	use_set(saved if saved in SETS else SETS[0], false)
 
 
 ## Figurensatz wählen (wirkt für neue Player; ein bestehender lädt mit reload() neu); save: merken

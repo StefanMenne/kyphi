@@ -22,7 +22,7 @@
     "prompt": "In image 1, replace only the man standing inside the lit elevator cabin with the man from image 2: same face with light stubble, short tousled black hair, the long open warm brown-beige wool coat with large lower patch pockets, slate blue-grey button-up shirt, brown leather belt, faded blue jeans and brown leather lace-up shoes. He stands in the cabin in the same place, at the same size and in the same pose as the man in image 1, facing the viewer, seen from above, arms hanging at his sides, looking slightly down. Keep everything else in image 1 exactly as it is: the octagonal steel cabin, the warm orange light, the dark rocky shaft, the camera angle and the drawing style.",
     "images": [
      "work/assets/videos/lift_down/start_old.png",
-     "martin2:stand_fr"
+     "work/assets/videos/lift_down/martin2_stand_fr.png"
     ],
     "width": 1344,
     "height": 768,
@@ -31,11 +31,11 @@
    },
    "inputs": [
     "work/assets/videos/lift_down/start_old.png",
-    "martin2:stand_fr"
+    "work/assets/videos/lift_down/martin2_stand_fr.png"
    ],
    "output": "work/cache/videos/lift_down/start_33002.png",
    "date": "2026-11-08",
-   "note": "Startbild der alten Fahrt (Bild 0 von work/videos_1344/lift/video_9102.mp4, Fixpunkt) mit dem neuen Martin; gewählt aus seed 33000 count 4 (job c5aab08d57f9)."
+   "note": "Startbild der alten Fahrt (Bild 0 von work/videos_1344/lift/video_9102.mp4, Fixpunkt) mit dem neuen Martin; gewählt aus seed 33000 count 4 (job c5aab08d57f9). martin2:stand_fr als Fixpunkt (Satz martin2 gelöscht, Git-Tag martin2-3)."
   },
   "lift_down_video": {
    "tool": "gb10-assets/generate_video",
