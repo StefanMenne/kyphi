@@ -11,7 +11,7 @@ extends Node2D
 ## Im Stand atmet er (Schleife); spricht er (talking) und ist das Gesicht zu sehen, läuft stattdessen die
 ## Sprech-Schleife. Gesten Nehmen/Benutzen in drei Höhen (gesture). Im Kälteanzug (set_suit) der Anzug-Satz
 ## des Figurensatzes, falls er einen hat.
-## Herkunft: assets/provenance.json, Schritte martin2_* bzw. martin3_*; der alte Martin liegt im Git-Tag martin1.
+## Herkunft: work/characters/<satz>/gen.json; der alte Martin liegt im Git-Tag martin1.
 ##
 ## Figurensatz = Verzeichnis assets/characters/<satz>/ und beschreibt sich selbst:
 ##   set.json: "anchor" Fußpunkt [x, y] und "body" Körperhöhe (Scheitel bis Sohle im Standbild) in Sprite-Pixeln,

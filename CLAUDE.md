@@ -59,6 +59,9 @@ Spielablauf ändert. Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
     Referenzaufnahmen. Die Gliederung spiegelt `assets/` (z. B. `work/assets/items/ladder/`).
   - `work/scripts/`: Skripte für die deterministischen lokalen Schritte (Freistellen, Zuschneiden, Sprite-Sheets).
   - `work/tmp/`, `work/old/` und `work/cache/` werden nicht committet.
+- `work/characters/<figur>/` (martin2, martin2_suit, martin3): je Figurensatz `gen.json` (alle Schritte, Schema
+  wie `provenance.json`), `src/` (Bildauswahl, Arbeitsstand, eigene Skripte; committet) und `gen/`
+  (Zwischenergebnisse, nicht committet). Diese Figuren stehen nicht in `provenance.json`.
 - `assets/provenance.json` beschreibt für jedes fertige Asset, wie es entsteht: im Idealfall eine Kette
   deterministischer Schritte (gb10-assets-Jobs mit vollständiger Anfrage und Seed, lokale Skripte mit Parametern),
   deren Eingaben andere Schritte oder Dateien in `work/assets/` sind. Ziel: Alle Assets lassen sich rekonstruieren,
