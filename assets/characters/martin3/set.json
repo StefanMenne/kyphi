@@ -1,4 +1,5 @@
 {
  "anchor": [160.8, 387.9],
- "body": 323.5
+ "body": 323.5,
+ "walk": {"fps": 8, "idle_fps": 12, "tempo": [0.75, 1.33], "view_angles": [22, 66], "hysteresis": 6, "min_len": 0.15}
 }

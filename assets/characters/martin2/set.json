@@ -2,5 +2,6 @@
  "anchor": [140.3, 354.0],
  "body": 321.5,
  "key": {"fr": 0, "br": 0, "b": 2},
- "suit": "martin2_suit"
+ "suit": "martin2_suit",
+ "walk": {"fps": 8, "idle_fps": 12, "tempo": [0.75, 1.33], "view_angles": [22, 66], "hysteresis": 6, "min_len": 0.15}
 }
