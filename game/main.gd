@@ -119,8 +119,9 @@ func cheat_menu() -> void:
 	])
 
 
+## nächster Figurensatz in Player.SETS
 func _other_set() -> String:
-	return "martin2" if Player.SET == "martin3" else "martin3"
+	return Player.SETS[(Player.SETS.find(Player.SET) + 1) % Player.SETS.size()]
 
 
 ## Figurensatz wechseln (martin3: Test, nur Stand, Laufen, Drehen); wird gemerkt

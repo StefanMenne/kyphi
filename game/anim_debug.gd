@@ -19,6 +19,7 @@ var main: Node
 var active := false
 var _tex := {}
 var _rm := {}
+var _anchor := {}
 var _names := []
 var _buttons := []
 var _sel := ""
@@ -48,13 +49,11 @@ func _init(owner_main: Node) -> void:
 
 
 func _ready() -> void:
-	var meta = JSON.parse_string(FileAccess.get_file_as_string(Player.DIR + "anims.json"))
-	_rm = JSON.parse_string(FileAccess.get_file_as_string(Player.DIR + "rootmotion.json"))
-	for anim in meta:
-		var frames := []
-		for i in int(meta[anim]["frames"]):
-			frames.append(load(Player.DIR + "%s_%02d.png" % [anim, i]))
-		_tex[anim] = frames
+	# gewählter Satz und sein Anzug-Satz (hier mit Vorsatz "suit_")
+	var base := Player.bundle(Player.SET)
+	_add(base, "")
+	if base["suit"] != "":
+		_add(Player.bundle(base["suit"]), "suit_")
 	_names = _tex.keys()
 	_names.sort_custom(func(a, b): return _order(a) < _order(b))
 
@@ -175,6 +174,19 @@ func _ready() -> void:
 	_speed_label = _label("100 %", 15)
 	bar.add_child(_speed_label)
 	_select(_names[0], false)
+
+
+## Bilder und Root Motion eines Satzes unter Namen mit Vorsatz pre aufnehmen; Fußpunkt je Name
+func _add(b: Dictionary, pre: String) -> void:
+	var dirs: Dictionary = _rm.get("dir", {})
+	for v in b["rm"].get("dir", {}):
+		dirs[pre + v] = b["rm"]["dir"][v]
+	_rm["dir"] = dirs
+	for anim in b["tex"]:
+		_tex[pre + anim] = b["tex"][anim]
+		_anchor[pre + anim] = b["anchor"]
+		if b["rm"].has(anim):
+			_rm[pre + anim] = b["rm"][anim]
 
 
 ## Sortierung: Stand, Atmen, Sprechen, Anlaufen, Laufen, Anhalten (je FR, BR, B), Gesten, Drehungen
@@ -318,9 +330,10 @@ func _process(dt: float) -> void:
 
 func _place(sp: Sprite2D, tex: Texture2D) -> void:
 	var flip := _mirror.button_pressed
+	var a: Vector2 = _anchor[_sel]
 	sp.texture = tex
 	sp.flip_h = flip
-	sp.offset = -Vector2(tex.get_width() - Player.ANCHOR.x if flip else Player.ANCHOR.x, Player.ANCHOR.y)
+	sp.offset = -Vector2(tex.get_width() - a.x if flip else a.x, a.y)
 
 
 func _show_frame() -> void:

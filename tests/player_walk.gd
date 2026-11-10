@@ -111,7 +111,7 @@ func _ready() -> void:
 		var names := {}
 		var track := func() -> void:
 			while p._moving:
-				names[p._sprite.texture.resource_path.get_file().left(-7)] = true
+				names[_tag(p._sprite.texture.resource_path)] = true
 				await get_tree().process_frame
 		var res := {}
 		var walk := func() -> void: res["ok"] = await p.walk_to(goal)
@@ -129,7 +129,7 @@ func _ready() -> void:
 		var seen := {}
 		var watch := func() -> void:
 			while p._busy:
-				seen[p._sprite.texture.resource_path.get_file().left(-7)] = true
+				seen[_tag(p._sprite.texture.resource_path)] = true
 				await get_tree().process_frame
 		p.gesture(spec[1])
 		await get_tree().process_frame
@@ -139,6 +139,11 @@ func _ready() -> void:
 	p.set_suit(false)
 	print("\nERGEBNIS: ", "FEHLER" if failed else "OK")
 	get_tree().quit(1 if failed else 0)
+
+
+## Animationsname eines Bildes; Bilder aus einem Anzug-Satz (Verzeichnis *_suit) mit Vorsatz "suit_"
+func _tag(path: String) -> String:
+	return ("suit_" if path.get_base_dir().ends_with("_suit") else "") + path.get_file().left(-7)
 
 
 func check(cond: bool, what: String) -> void:

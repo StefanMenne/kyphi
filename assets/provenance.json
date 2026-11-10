@@ -1512,7 +1512,10 @@
   "martin2_export": {
    "tool": "script",
    "script": "work/scripts/martin2/export.py",
-   "args": [],
+   "args": [
+    "--skip",
+    "suit_"
+   ],
    "inputs": [
     "martin2_idle_b_scaled",
     "martin2_idle_br_scaled",
@@ -1526,14 +1529,6 @@
     "martin2_stop_b_scaled",
     "martin2_stop_br_scaled",
     "martin2_stop_fr_scaled",
-    "martin2_suit_stand_b_scaled",
-    "martin2_suit_stand_br_scaled",
-    "martin2_suit_stand_fr_scaled",
-    "martin2_suit_use_high_b_scaled",
-    "martin2_suit_use_low_fr_scaled",
-    "martin2_suit_walk_b_scaled",
-    "martin2_suit_walk_br_scaled",
-    "martin2_suit_walk_fr_scaled",
     "martin2_talk_fr_scaled",
     "martin2_turn_br_b_scaled",
     "martin2_turn_br_bl_scaled",
@@ -1553,12 +1548,38 @@
    ],
    "output": "assets/characters/martin2/",
    "date": "2026-11-08",
-   "note": "Kopiert alle <anim>/scaled-Bilder fortlaufend nummeriert nach assets/characters/martin2/<anim>_NN.png und schreibt anims.json. Animationstabelle: work/scripts/martin2/anims.txt"
+   "note": "Kopiert alle <anim>/scaled-Bilder außer dem Kälteanzug (suit_*) fortlaufend nummeriert nach assets/characters/martin2/<anim>_NN.png und schreibt anims.json. Animationstabelle: work/scripts/martin2/anims.txt; set.json (Fußpunkt, Körperhöhe, key, Anzug-Satz) von Hand"
+  },
+  "martin2_suit_export": {
+   "tool": "script",
+   "script": "work/scripts/martin2/export.py",
+   "args": [
+    "--prefix",
+    "suit_",
+    "--dst",
+    "assets/characters/martin2_suit"
+   ],
+   "inputs": [
+    "martin2_suit_stand_b_scaled",
+    "martin2_suit_stand_br_scaled",
+    "martin2_suit_stand_fr_scaled",
+    "martin2_suit_use_high_b_scaled",
+    "martin2_suit_use_low_fr_scaled",
+    "martin2_suit_walk_b_scaled",
+    "martin2_suit_walk_br_scaled",
+    "martin2_suit_walk_fr_scaled"
+   ],
+   "output": "assets/characters/martin2_suit/",
+   "date": "2026-11-10",
+   "note": "Kälteanzug als eigener Figurensatz: suit_<anim>/scaled -> <anim>_NN.png ohne Vorsatz, anims.json. set.json von Hand (Fußpunkt und Körperhöhe wie martin2, da gleich skaliert)"
   },
   "martin2_rootmotion": {
    "tool": "script",
    "script": "work/scripts/martin2/rootmotion.py",
-   "args": [],
+   "args": [
+    "--skip",
+    "suit_"
+   ],
    "inputs": [
     "martin2_idle_b_video",
     "martin2_idle_br_video",
@@ -1569,11 +1590,6 @@
     "martin2_stop_b_video",
     "martin2_stop_br_video",
     "martin2_stop_fr_video",
-    "martin2_suit_use_high_b_video",
-    "martin2_suit_use_low_fr_video",
-    "martin2_suit_walk_b_video",
-    "martin2_suit_walk_br_video",
-    "martin2_suit_walk_fr_video",
     "martin2_talk_fr_video",
     "martin2_turn_br_b_video",
     "martin2_turn_br_bl_video",
@@ -1595,7 +1611,27 @@
    "date": "2026-11-08",
    "note": "Root Motion je gezeigtem Bild aus der Verschiebung des Standfußes im Video (Bildauswahl aus work/scripts/martin2/anims.txt)"
   },
-  "martin2_shadow": {
+  "martin2_suit_rootmotion": {
+   "tool": "script",
+   "script": "work/scripts/martin2/rootmotion.py",
+   "args": [
+    "--prefix",
+    "suit_",
+    "--out",
+    "assets/characters/martin2_suit/rootmotion.json"
+   ],
+   "inputs": [
+    "martin2_suit_use_high_b_video",
+    "martin2_suit_use_low_fr_video",
+    "martin2_suit_walk_b_video",
+    "martin2_suit_walk_br_video",
+    "martin2_suit_walk_fr_video"
+   ],
+   "output": "assets/characters/martin2_suit/rootmotion.json",
+   "date": "2026-11-10",
+   "note": "Root Motion des Kälteanzugs (Zeilen suit_* in work/scripts/martin2/anims.txt), Namen ohne Vorsatz"
+  },
+  "shadow": {
    "tool": "script",
    "script": "work/scripts/shadow.py",
    "args": [
@@ -1605,9 +1641,9 @@
     "0.9"
    ],
    "inputs": [],
-   "output": "assets/characters/martin2/shadow.png",
+   "output": "assets/characters/shadow.png",
    "date": "2026-11-09",
-   "note": "Radialer Verlauf, schwarz; pixelgleich mit dem Schatten aus dem alten Satz (geprüft 09.11.2026)"
+   "note": "Radialer Verlauf, schwarz; pixelgleich mit dem Schatten aus dem alten Satz (geprüft 09.11.2026); gemeinsamer Schatten aller Figurensätze"
   },
   "martin2_idle_fr_video": {
    "tool": "gb10-assets/generate_video",
