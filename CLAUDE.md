@@ -61,7 +61,8 @@ Spielablauf ändert. Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
   - `work/tmp/`, `work/old/` und `work/cache/` werden nicht committet.
 - `work/characters/<figur>/` (martin2, martin2_suit, martin3): je Figurensatz `gen.json` (alle Schritte, Schema
   wie `provenance.json`), `src/` (Bildauswahl, Arbeitsstand, eigene Skripte; committet) und `gen/`
-  (Zwischenergebnisse, nicht committet). Diese Figuren stehen nicht in `provenance.json`.
+  (Zwischenergebnisse, nicht committet). Diese Figuren stehen nicht in `provenance.json`. Ansehen und Quellen
+  ändern mit `work/run.sh anim` (Werkzeuge in `work/tools/`, nicht Teil des Spiels).
 - `assets/provenance.json` beschreibt für jedes fertige Asset, wie es entsteht: im Idealfall eine Kette
   deterministischer Schritte (gb10-assets-Jobs mit vollständiger Anfrage und Seed, lokale Skripte mit Parametern),
   deren Eingaben andere Schritte oder Dateien in `work/assets/` sind. Ziel: Alle Assets lassen sich rekonstruieren,

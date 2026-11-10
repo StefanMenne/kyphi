@@ -27,7 +27,7 @@ const SETS := ["martin2", "martin3"]
 const ROOT := "res://assets/characters/"
 const SET_FILE := "user://player_set"
 const SHADOW := "res://assets/characters/shadow.png"
-## gewählter Satz (normale Kleidung); DIR, ANCHOR, BODY_PX gelten für ihn (Layout-Editor, Animations-Debug)
+## gewählter Satz (normale Kleidung); DIR, ANCHOR, BODY_PX gelten für ihn (Layout-Editor)
 static var SET := "martin2"
 static var DIR: String
 static var ANCHOR: Vector2
