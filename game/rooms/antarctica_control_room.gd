@@ -5,14 +5,10 @@ extends Room
 ## kein Wind = Aus, normaler Wind = Low, Sturm = High. Die Sicherung trägt genau die Last der richtigen
 ## Einstellung (Low = 1, High = 2); mehr, und sie fliegt raus und alle Schalter springen auf Aus.
 
-const PJOTR_SIZE := Vector2(100, 300)
 const LEVELS := 6
 const STATES := ["Aus", "Low", "High"]
 
-var pjotr: Sprite2D
-var _pj_tex := {}
-var _talking := false
-var _talk_t := 0.0
+var pjotr: Npc
 
 
 func _init() -> void:
@@ -56,12 +52,8 @@ static func first_frozen() -> int:
 
 func build() -> void:
 	tint = Color(0.85, 0.9, 0.9)
-	for state in ["idle", "talk_small", "talk_open"]:
-		_pj_tex[state] = load("res://assets/characters/pjotr/%s.png" % state)
-	pjotr = add_sprite(_pj_tex["idle"], Vector2.ZERO)
+	pjotr = add_npc("pjotr")
 	pjotr.modulate = Color(0.92, 0.95, 0.95)
-	movable("pjotr", pjotr)
-	move_child(pjotr, 1)
 
 	hotspot("monitors", "Bildschirme")
 	hotspot("coffee", "Kaffeeautomat")
@@ -70,27 +62,6 @@ func build() -> void:
 	hotspot("fuse_box", "Sicherungskasten")
 	hotspot("door", "Tür zum Bahnsteig", "none")
 	set_verbs({"pjotr": "talk", "door": "go"})
-
-
-func _process(dt: float) -> void:
-	if _talking:
-		_talk_t -= dt
-		if _talk_t <= 0:
-			_talk_t = randf_range(0.08, 0.16)
-			pjotr.texture = _pj_tex[["talk_small", "talk_open", "idle"].pick_random()]
-	else:
-		pjotr.texture = _pj_tex["idle"]
-
-
-func speaker_anchor(speaker: String):
-	if speaker == "pjotr":
-		return pjotr.get_global_transform_with_canvas() * Vector2(PJOTR_SIZE.x / 2, -10)
-	return null
-
-
-func set_talking(speaker: String, on: bool) -> void:
-	if speaker == "pjotr":
-		_talking = on
 
 
 func pj(text: String, voice := "") -> void:

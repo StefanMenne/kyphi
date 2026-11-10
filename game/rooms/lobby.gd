@@ -2,12 +2,7 @@ extends Room
 ## Lobby: Frau Ackermann, Archivkartei, Depotschlüssel, Feuerzeug.
 
 ## Frau Ackermann hinter dem Tresen (Sprite oben links; unten an der Tresenkante abgeschnitten)
-const ACK_SIZE := Vector2(55, 87)
-
-var ackermann: Sprite2D
-var _ack_tex := {}
-var _talking := false
-var _talk_t := 0.0
+var ackermann: Npc
 
 
 func _init() -> void:
@@ -15,11 +10,7 @@ func _init() -> void:
 
 
 func build() -> void:
-	for state in ["idle", "talk_small", "talk_open", "incense_cone"]:
-		_ack_tex[state] = load("res://assets/characters/ackermann/%s.png" % state)
-	ackermann = add_sprite(_ack_tex["idle"], Vector2.ZERO)
-	movable("ackermann", ackermann)
-	move_child(ackermann, 1)
+	ackermann = add_npc("ackermann", ["incense_cone"])
 
 	hotspot("covers", "Abdeckplanen")
 	hotspot("roster", "Dienstplan")
@@ -35,27 +26,9 @@ func build() -> void:
 	set_verbs({"ackermann": "talk", "workshop_door": "go", "portal": "go", "stairs_door": "go", "glass_door": "go"})
 
 
-func _process(dt: float) -> void:
-	if _talking:
-		_talk_t -= dt
-		if _talk_t <= 0:
-			_talk_t = randf_range(0.08, 0.16)
-			ackermann.texture = _ack_tex[["talk_small", "talk_open", "idle"].pick_random()]
-	elif not Game.flag("ack_holds_cone"):
-		ackermann.texture = _ack_tex["idle"]
-	else:
-		ackermann.texture = _ack_tex["incense_cone"]
-
-
-func speaker_anchor(speaker: String):
-	if speaker == "ackermann":
-		return ackermann.get_global_transform_with_canvas() * Vector2(ACK_SIZE.x / 2, -10)
-	return null
-
-
-func set_talking(speaker: String, on: bool) -> void:
-	if speaker == "ackermann" and not Game.flag("ack_holds_cone"):
-		_talking = on
+## mit dem Räucherkegel in der Hand spricht sie ohne Mundbewegung (Npc.rest)
+func _process(_dt: float) -> void:
+	ackermann.rest = "incense_cone" if Game.flag("ack_holds_cone") else "idle"
 
 
 func ack(text: String, voice := "") -> void:
@@ -230,7 +203,7 @@ func give_cone() -> void:
 	if Game.has("lighter"):
 		await ack("Den hatten Sie mir schon gezeigt, Herr Kessler.")
 		return
-	_talking = false
+	ackermann.talking = false
 	Game.set_flag("ack_holds_cone")
 	await Game.wait(0.6)
 	await ack("Ein Räucherkegel … So einen hatte meine Mutter immer im Räuchermännchen. Weihnachten, die ganze Wohnung hat danach gerochen.", "ackermann/incense_memory")

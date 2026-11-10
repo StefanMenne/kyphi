@@ -30,6 +30,8 @@ var hotspots: Array = []
 var layers := {}
 ## verschiebbare Sprites: id -> Sprite2D (Position aus dem Layout; ein Hotspot gleicher id zieht im Editor mit)
 var movables := {}
+## einfache Figuren dieses Raums (add_npc): Name -> Npc
+var npcs := {}
 
 
 func setup() -> void:
@@ -71,6 +73,17 @@ func on_enter(_from: String) -> void:
 
 func movable(sid: String, s: Sprite2D) -> void:
 	movables[sid] = s
+
+
+## Einfache Figur npc_id (Npc) hinter alle Ebenen außer dem Hintergrund legen, im Layout-Editor verschiebbar;
+## Untertitel-Punkt und Sprechen übernimmt der Raum (speaker_anchor, set_talking).
+func add_npc(npc_id: String, extra: Array = []) -> Npc:
+	var n := Npc.new(npc_id, extra)
+	add_child(n)
+	movable(npc_id, n)
+	move_child(n, 1)
+	npcs[npc_id] = n
+	return n
 
 
 ## Blickrichtung beim Benutzen ("left", "right", "back") steht mit dem Laufpunkt in game/rooms/<id>.json.
@@ -220,12 +233,13 @@ func clamp_to_floor(p: Vector2) -> Vector2:
 
 
 ## Bildschirmpunkt für Untertitel einer Figur dieses Raums, sonst null.
-func speaker_anchor(_speaker: String):
-	return null
+func speaker_anchor(speaker: String):
+	return npcs[speaker].speech_anchor() if npcs.has(speaker) else null
 
 
-func set_talking(_speaker: String, _on: bool) -> void:
-	pass
+func set_talking(speaker: String, on: bool) -> void:
+	if npcs.has(speaker):
+		npcs[speaker].talking = on
 
 
 # Interaktionen; die Räume überschreiben sie mit match und rufen für den Rest super() auf.
