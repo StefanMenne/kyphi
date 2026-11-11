@@ -49,7 +49,8 @@ Martin ist Restaurator, Mitte 30, gründlich und trocken-ironisch. Seit drei Woc
 ### Sonstiges
 
 - Das Spiel ist deutsch (Texte, Dialoge, Sprachausgabe); Verzeichnisse, Dateinamen und Code sind englisch.
-- Jede Konzeptdatei beginnt mit einer Überschrift `# Kyphi – <Ort>`.
+- Jede Konzeptdatei beginnt in Zeile 1 mit einer Überschrift `# Kyphi – <Ort>`; Dokumente, die keinen Ort
+  beschreiben, entsprechend `# Kyphi – <Thema>` (`story.md`, `items.md`, `part_3.md`).
 - `AGENTS.md` ist die einzige Instruktionsdatei, `CLAUDE.md` nur ein Symlink darauf — Inhalte immer hier editieren.
   Auf Windows-Checkouts braucht der Symlink `core.symlinks=true`; sonst liegt dort eine Textdatei mit dem
   Inhalt `AGENTS.md`.
