@@ -1,11 +1,11 @@
 # Kyphi
 
 Ein klassisches **2D-Point-and-Click-Adventure**. Der Spieler steuert den Restaurator Martin Kessler, untersucht
-Schauplätze, sammelt Gegenstände, kombiniert sie und führt Gespräche.
+Schauplätze, sammelt Gegenstände, kombiniert sie und führt Gespräche. 
 
 ## Story und Entwicklungsstand
 
-Das Spiel besteht aus 5 Arealen (Änderungen möglich), verbunden über die Museum-Bahn (Hochgeschwindigkeitsbahn):
+Das Spiel besteht aus 5 Arealen (Änderungen möglich), verbunden durch einen Hochgeschwindigkeitszug:
 
 - **Museum** (Teil 1, „Der Zugang“): fertig und spielbar; Änderungen sind möglich, um andere Orte anzubinden.
 - **Antarktis:** weitgehend fertig, aber mit offenen Fäden, z. B. Gegenständen, die noch nicht platziert sind.
@@ -14,15 +14,21 @@ Das Spiel besteht aus 5 Arealen (Änderungen möglich), verbunden über die Muse
 - **Area 52:** bisher nur Ideen; enthält einen abgegrenzten Bereich, der nur mit der purpurnen Karte betreten
   werden kann.
 
-Antarktis, ABC GmbH, Innenerde und ein Teil von Area 52 bilden Teil 2 („Der Weg zur purpurnen Karte“), der
-abgegrenzte Bereich von Area 52 bildet Teil 3. Harte Grenzen zwischen den Teilen gibt es nicht; das Museum bleibt
-jederzeit betretbar.
+Das Areal Museum bildet den ersten Teil. Am Ende von Teil 1 hat der Spieler den verborgenen Zugang zu einem unterirdischen Tunnelsystem gefunden. Eine mächtige **Sekte** hat es gebaut und nutzt es im Verborgenen. Alle Areale sind dann zugänglich bis auf den unterirdischen
+Teil von Area 52, der den dritten abschließenden Teil bildet.
+Die Geschichte darf lustig sein, soll aber vor allem spannend bleiben und überraschende Wendungen bieten.
+Harte Grenzen zwischen den Teilen gibt es nicht. Das Museum bleibt jederzeit betretbar.
 
-Alles Weitere zur Geschichte und zu den Rätseln steht in den Konzeptdateien, eine je Ort. Einstieg und Überblick:
-`work/concept/story.md`. Gebaute Orte liegen im Spiel-Repo (`concept/museum.md`, `concept/antarctica.md`),
+Alles Weitere zur Geschichte und zu den Rätseln steht in den Konzeptdateien, eine je Ort. Einen etwas genaueren 
+Überblick und Ideen für den Fortgang der Story befindet sich in `work/concept/story.md`. 
+Gebaute Orte liegen im Spiel-Repo (`concept/museum.md`, `concept/antarctica.md`),
 die übrigen sind grobe Ideen in `work/concept/` (`abc_gmbh.md`, `inner_earth.md`, `area_52.md`, `part_3.md`;
 `items.md` beschreibt die Gegenstände über alle Orte hinweg). Bei Bedarf lesen und anpassen, sobald sich der
 Spielablauf ändert. Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
+
+## Martin Kessler (Spielfigur)
+
+Martin ist Restaurator, Mitte 30, gründlich und trocken-ironisch. Seit drei Wochen restauriert er einen altägyptischen Opferaltar im für die Öffentlichkeit gesperrten Flügel des Museums.
 
 ## Technische Regeln
 

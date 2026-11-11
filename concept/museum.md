@@ -1,43 +1,7 @@
-# Kyphi – Teil 1: Der Zugang
 
-Stand: 22.10.2026 (Nachtrag Lift und Bahn: 07.11.2026)
+# Spielfiguren
 
-Dieses Dokument beschreibt die Geschichte, die Schauplätze und die Rätsel des **ersten Teils** des Point-and-Click-Adventures **Kyphi**. Am Ende von Teil 1 hat der Spieler den verborgenen Zugang zu einem unterirdischen Tunnelsystem gefunden.
-
-## Überblick
-
-### Das Spiel
-
-Das Spiel ist ein klassisches **Point-and-Click-Adventure**. Der Spieler steuert den Restaurator Martin Kessler, untersucht Schauplätze, sammelt Gegenstände, kombiniert sie und führt Gespräche.
-
-Die Geschichte darf lustig sein, soll aber vor allem spannend bleiben und überraschende Wendungen bieten. Dafür gelten zwei feste Regeln:
-
-- **Alles bleibt plausibel.** Jedes Rätsel und jede Wendung muss sich in der realen Welt so zutragen können.
-- **Keine Esoterik, nichts physikalisch Unmögliches.** Was übernatürlich wirkt, hat immer eine nachvollziehbare Erklärung.
-
-### Die Prämisse
-
-Unter der Stadt liegt ein **unterirdisches Tunnelsystem**. Eine mächtige **Sekte** hat es gebaut und nutzt es im Verborgenen. Ein **Hochgeschwindigkeitszug** verbindet darin die verschiedenen Schauplätze des Spiels.
-
-Einer der Ausgänge dieses Tunnelsystems endet im **Altarraum eines Museums**, hinter der Holzverkleidung der Westwand. Genau dort arbeitet Martin.
-
-### Aufbau in Teilen
-
-Das Spiel ist in mehrere Teile gegliedert. Dieses Dokument behandelt ausschließlich **Teil 1: Der Zugang**.
-
-- **Ziel von Teil 1:** Martin entdeckt, dass im Museum nachts heimlich Rituale stattfinden, folgt der Spur seines verschwundenen Vorgängers und findet die verborgene Tür ins Tunnelsystem.
-- **Umfang:** fünf Schauplätze mit je einem Bildschirm und rund ein Dutzend Rätsel.
-- **Ende:** Martin öffnet die Tür und blickt eine Treppe hinab, aus der Tiefe ist ein vorbeifahrender Zug zu hören.
-
-## Figuren
-
-### Martin Kessler (Spielfigur)
-
-Martin ist Restaurator, Mitte 30, gründlich und trocken-ironisch. Seit drei Wochen restauriert er einen altägyptischen Opferaltar im für die Öffentlichkeit gesperrten Flügel des Museums.
-
-An Übersinnliches glaubt er nicht, wohl aber an Fakten: an Spuren, Messwerte und Chemie. Diese Haltung prägt seine Art, Rätsel zu lösen, und hält die Geschichte auf dem Boden des Plausiblen.
-
-### Frau Ackermann (Rezeptionistin)
+## Frau Ackermann (Rezeptionistin)
 
 Frau Ackermann sitzt am Empfangstresen in der Lobby. Sie ist Anfang 60, streng, korrekt und heimlich herzlich. Ihr Lieblingssatz lautet: *„Ordnung muss sein.“*
 
