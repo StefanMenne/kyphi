@@ -14,7 +14,7 @@ Frau Ackermann sitzt am Empfangstresen in der Lobby. Sie ist Anfang 60, streng, 
 
 Dr. Hollmann war Martins Vorgänger als Restaurator und ist vor zwei Jahren spurlos verschwunden. Offiziell gilt er als *vermisst*, nicht als *gekündigt*.
 
-In Teil 1 tritt er nur indirekt auf: durch seine Werkzeugkiste, seine Notizen und die schwarze Karte, die er der Sekte abgenommen hat.
+In Teil 1 tritt er nur indirekt auf: durch seine Werkzeugkiste, seine Notizen und die graue Karte, die er der Sekte abgenommen hat.
 
 ## Schauplätze
 
@@ -70,7 +70,7 @@ Eigentlich ist der Altarraum ein Ausstellungsraum des öffentlichen Bereichs. W�
 - **Holzverkleidung an der Westwand**: Eichenpaneele, angeblich aus den 1920er-Jahren
 - **Türen** (sichtbar und benutzbar):
   - Tür zur Werkstatt, links; von Anfang an benutzbar
-  - Stahltür hinter Paneel 4 der Westwand, in den Untergrund; erst sichtbar, wenn das Paneel abgenommen ist (Kapitel 7), und erst mit der schwarzen Karte aus Hollmanns Kiste zu öffnen (Kapitel 8)
+  - Stahltür hinter Paneel 4 der Westwand, in den Untergrund; erst sichtbar, wenn das Paneel abgenommen ist (Kapitel 7), und erst mit der grauen Karte aus Hollmanns Kiste zu öffnen (Kapitel 8)
 - Einen direkten Zugang zur Lobby gibt es nicht; der Besucherzugang ist verschlossen und nicht zu sehen
 
 ### Werkstatt
@@ -201,7 +201,7 @@ In der Kiste liegt nur altes Werkzeug. Martin: *„Nichts. … Aber die Kiste is
 
 Im Versteck liegen:
 
-- **Schwarze Karte**: eine Chipkarte, ganz schwarz, ohne Namen und Foto, nur mit einer roten 666. Hollmann hat sie der Sekte abgenommen und dafür mit dem Leben bezahlt
+- **Graue Karte**: eine Chipkarte, ganz grau, ohne Namen und Foto, nur mit einer roten 666. Hollmann hat sie der Sekte abgenommen und dafür mit dem Leben bezahlt
 - **Notizbuch** mit einer Skizze der Westwand: fünf Paneele, von hinten nach vorn nummeriert, eines davon schraffiert, aber welche Nummer, ist verwischt. Im Spiel heißen die Paneele entsprechend „Paneel 1“ bis „Paneel 5“
 - **Räucherkegel** aus dunklem Harz
 - ein **merkwürdiger Schrauberbit** mit Dreikantkopf, mit dem Martin noch nichts anfangen kann
@@ -284,7 +284,7 @@ Das Paneel lässt sich abnehmen.
 
 Hinter der Verkleidung verbirgt sich eine schlichte, neue **Stahltür** mit einem **Kartenleser**. Kein Logo, keine Nummer: Die hat nicht das Museum eingebaut.
 
-Martin steckt die schwarze Karte ein. Eine kurze Pause, dann leuchtet die Anzeige **grün**. Die Karte gehört der Sekte; Hollmann hatte sie ihnen abgenommen.
+Martin steckt die graue Karte ein. Eine kurze Pause, dann leuchtet die Anzeige **grün**. Die Karte gehört der Sekte; Hollmann hatte sie ihnen abgenommen.
 
 > Martin: „Hollmann hat ihnen die Karte abgenommen. Und dafür bezahlt.“
 
@@ -308,7 +308,7 @@ Alle Gegenstände von Teil 1 mit Fundort und Verwendung, in der Reihenfolge, in 
 | Messschieber | Werkstatt | Kiste ausmessen |
 | UV-Lampe | Werkstatt | neue Zapfen erkennen |
 | Depotschlüssel | Frau Ackermann | Depot öffnen, danach zurückgeben |
-| Schwarze Karte | Hollmanns Kiste | Stahltür öffnen |
+| Graue Karte | Hollmanns Kiste | Stahltür öffnen |
 | Notizbuch | Hollmanns Kiste | Hinweis auf die Westwand |
 | Räucherkegel | Hollmanns Kiste | Frau Ackermann geben, danach Rauchprobe |
 | Schrauberbit (Dreikant) | Hollmanns Kiste | Mit Akkuschrauber die Schrauben lösen |
@@ -318,7 +318,7 @@ Alle Gegenstände von Teil 1 mit Fundort und Verwendung, in der Reihenfolge, in 
 
 ## Rätsel-Abhängigkeiten
 
-Hollmanns Kiste ist der Wendepunkt: Sie liefert Kegel, Bit und die schwarze Karte.
+Hollmanns Kiste ist der Wendepunkt: Sie liefert Kegel, Bit und die graue Karte.
 
 ```mermaid
 flowchart TD
@@ -327,12 +327,12 @@ flowchart TD
     K3["Kapitel 3 · Aufnahme abhören<br/>Story-Moment: Hollmanns Kiste steht im Depot"]
     K4["Kapitel 4 · Karteikarte „Holtz“<br/>Ruß (Leiter + Spatel) mit Pinsel auf die Karte: D-0912"]
     K5a["Kapitel 5a · Licht im Depot<br/>Kreppband hält den Lichttaster gedrückt"]
-    K5b["Kapitel 5b · Doppelter Boden<br/>Messschieber 18 / 14 cm, Spatel: schwarze Karte, Notizbuch, Kegel, Bit"]
+    K5b["Kapitel 5b · Doppelter Boden<br/>Messschieber 18 / 14 cm, Spatel: graue Karte, Notizbuch, Kegel, Bit"]
     K6a["Kapitel 6a · Feuer<br/>Räucherkegel an Frau Ackermann geben: Feuerzeug"]
     K6b["Kapitel 6b · Rauchmelder abkleben<br/>Leiter + Kreppband, erst dann den Kegel anzünden"]
     K6c["Kapitel 6c · Luftzug finden<br/>Kegel auf der Untertasse an der Westwand: Paneel 4"]
     K7["Kapitel 7 · Paneel öffnen<br/>UV-Lampe zeigt neue Zapfen, Spatel, Bit + Akkuschrauber"]
-    K8["Kapitel 8 · Tür öffnen<br/>Schwarze Karte am Kartenleser: grün"]
+    K8["Kapitel 8 · Tür öffnen<br/>Graue Karte am Kartenleser: grün"]
 
     K1 --> K2 --> K3 --> K4 --> K5a --> K5b --> K6a --> K6b --> K6c --> K7 --> K8
     K1 -. Melder frei .-> K6b
