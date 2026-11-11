@@ -1,7 +1,8 @@
+# Kyphi – Museum
 
-# Spielfiguren
+## Spielfiguren
 
-## Frau Ackermann (Rezeptionistin)
+### Frau Ackermann (Rezeptionistin)
 
 Frau Ackermann sitzt am Empfangstresen in der Lobby. Sie ist Anfang 60, streng, korrekt und heimlich herzlich. Ihr Lieblingssatz lautet: *„Ordnung muss sein.“*
 
