@@ -22,94 +22,228 @@ Waage), nicht an Kartenlesern.
 **Belohnung:** Das bessere Menü der schwarzen Karte enthält eine **Thermoskanne mit Tee** (Antarktis, Fernrohr).
 Das **Salz** (Antarktis, falsche Fährte; ABC GmbH, Tonversuch) steht auf den Tischen der Kantine.
 
+## Lage der Räume
+
+Kantine, Hydroponik und Küche liegen als **Versorgungsblock** übereinander hinter der Rückwand des Bahnhofs. Der
+Maschinenraum schließt auf Bahnsteigebene rechts an die Küche an, dahinter liegt die Scheibenhalle. Schnitt durch
+den Block (links der Bahnhof):
+
+```
+ Bahnhof          Versorgungsblock                           Maschinenraum
+               ┌──────────────────────────────┐
+ Galerie ─Tür─▶│ Kantine      [Automat]       │
+ Gitter ▒══════╪═════════════════╤═══════╗    │   oberer Lauf, unter der Decke der Hydroponik
+               │               Klappe    ║    │
+ Zwischen-─Tür▶│ Hydroponik   [Luke]     ║    │   Steigschacht in der hinteren rechten Ecke
+ geschoss      ├─────────────────────────╫────┴──────────────┬──────────────────────┐
+               │                         ╚═▒▒▒ Haube ▒▒▒═════╪════▒ Endgitter       │
+ Bahnsteig─Tür▶│ Küche        [Luke]         Herd, Koch      │       Werkbank       │
+               └─────────────────────────────────────────────┴──────────────────────┘
+                              ▲ Liftschacht                    unterer Lauf, unter der Decke der Küche
+```
+
+Der Schnitt zeigt die Höhen und die Reihenfolge am Schacht. Auch der Maschinenraum hat seine Tür zum Bahnhof, sie
+ist im Schnitt nicht eingezeichnet.
+
+Feste Regeln, damit die Bilder zueinander passen:
+
+- **Tür zum Bahnhof:** in allen vier Räumen in der **linken Seitenwand**.
+- **Essenslift:** in Kantine, Hydroponik und Küche an derselben Stelle, **links an der Rückwand** nahe der Tür.
+  Breitere Räume wachsen nur nach rechts.
+- **Luftschacht:** überall derselbe **blassgelbe Blechkanal** (im Bergbau sind Lutten gelb), in den Räumen offen
+  unter der Decke verlegt. So sieht der Spieler in jedem Raum, wo der Schacht verläuft.
+- **Türleuchten:** über jeder Tür am Bahnhof eine kleine runde Leuchte, grün oder rot (Wetteralarm).
+
 ## Räume
+
+| Raum | Code | Größe | Bildschirme | Martin (Rückwand / vorn) |
+|---|---|---|---|---|
+| Bahnhof | `inner_earth_station` | 2688×768 | 2, scrollt | klein, etwa 150 / 190 px |
+| Kantine | `inner_earth_canteen` | 1344×768 | 1 | normal, etwa 300 / 500 px |
+| Hydroponik | `inner_earth_hydroponics` | 1344×768 | 1 | normal |
+| Küche | `inner_earth_kitchen` | 2048×768 | 1,5, scrollt | normal |
+| Maschinenraum | `inner_earth_machine_room` | 2048×768 | 1,5, scrollt | normal |
+| Luftschacht | `inner_earth_air_shaft` | 1344×768 | 1, Schnittbild | kriechend, etwa 200 px lang |
+| Liftluke (Nahansicht) | `inner_earth_lift_hatch` | 1344×768 | Vollbild | nicht zu sehen |
+| Schleifring (Nahansicht) | `inner_earth_slip_ring` | 1344×768 | Vollbild | nicht zu sehen |
+| Endschalter (Nahansicht) | `inner_earth_limit_switch` | 1344×768 | Vollbild | nicht zu sehen |
+| Scheibenhalle (noch nicht eingeordnet) | `inner_earth_disc_hall` | 4032×768 | 3, scrollt | sehr klein, etwa 70 px |
+| Zeitkammer (noch nicht eingeordnet) | `inner_earth_time_chamber` | 1344×768 | 1 | normal |
+
+Alle Räume sind 768 px hoch, auch der Bahnhof: Seine drei Ebenen sollen zugleich zu sehen sein, weil der Spieler
+daran versteht, dass Küche, Hydroponik und Kantine übereinanderliegen. Bahnhof und Scheibenhalle sind breiter als
+die 2048 px, die Qwen-Image-2512 in einem Bild erzeugt; wie sie entstehen, steht bei den Bildprompts. Die
+englischen Bildprompts mit allen Zuständen stehen in `work/concept/inner_earth_prompts.md`.
 
 ### Bahnhof
 
-Langgezogener, hoher Raum wie in der Antarktis. Hier kommt der Zug an.
+Langgezogener, hoher Raum wie in der Antarktis, zwei Bildschirme breit. Hier kommt der Zug an. Die Rückwand ist
+frontal zu sehen, davor über die ganze Breite der Bahnsteig. Weil drei Ebenen ins Bild müssen, ist Martin hier
+klein. Von links nach rechts:
 
-- Auf Bahnsteigebene die Tür zur **Küche** und die Tür zum **Maschinenraum**.
-- Auf halber Höhe (Zwischengeschoss) die Tür zur **Hydroponik**.
-- Oben an einer **Galerie** die Tür zur **Kantine**.
-- Zugang zum **Luftschacht**. Das Gitter lässt sich ohne Hilfsmittel öffnen.
-- Die **Wetterschleuse** zur Anlage: zwei riesige Tore hintereinander.
+- **Vakuumröhre:** ein riesiges Stahlrohr aus Ringsegmenten, das links aus dem Fels kommt und an der Rückwand
+  entlangläuft. In seiner Seite sitzt die Schleuse mit genietetem Rahmen und roten Warnleuchten wie in „Museum
+  Bahn“; dahinter steht der Zug in der Röhre, eine Tür offen.
+- **Versorgungsblock:** eine dreistöckige Fassade im Fels mit drei gleichen Türen genau übereinander:
+  **Küche** (Bahnsteig), **Hydroponik** (Zwischengeschoss, Stahlbalkon), **Kantine** (Galerie).
+- **Treppe:** am linken Ende der Fassade, im Zickzack wie eine Feuertreppe und von der Seite zu sehen. Je
+  Stockwerk zwei Läufe mit einem Zwischenpodest auf halber Höhe: Der erste Lauf steigt vom Bahnsteig nach rechts
+  zum Podest, der zweite zurück nach links zum linken Ende des Balkons; vom Balkon geht es ebenso über ein zweites
+  Podest zum linken Ende der Galerie. Die Galerie läuft über die ganze Breite der Fassade, der Balkon nur rechts
+  der Treppe.
+- **Luftschachtgitter:** auf der Galerie links neben der Kantinentür, in Bodenhöhe, mit gelbem Rahmen. Es lässt
+  sich ohne Hilfsmittel öffnen (zwei Flügelmuttern).
+- **Tür zum Maschinenraum:** auf Bahnsteigebene rechts vom Block, mit Hochspannungszeichen.
+- **Wetterschleuse:** ganz rechts in der Rückwand, siehe unten.
 
-So liegen Kantine, Hydroponik und Küche übereinander, und der Essenslift fährt senkrecht.
+**Laufflächen:** Martin läuft auf allen drei Ebenen und sichtbar die Treppe hinauf. Dafür braucht die Engine
+mehrere Laufflächen je Raum, jede mit eigener Figurgröße, und Verbindungsstrecken dazwischen (bisher: eine
+Lauffläche, Figurgröße linear nach der Fußhöhe, `game/room.gd`).
+
+| Lauffläche | Form | Fußhöhe (Richtwert) | Martin |
+|---|---|---|---|
+| Bahnsteig | Fläche über die ganze Breite | y 610 hinten bis 768 vorn | 150 bis 190 px |
+| Treppe unten | zwei Strecken mit Podest, erst nach rechts, dann nach links oben | y 610 → 510 → 410 | 150 px |
+| Balkon | Streifen | y 410 | 150 px |
+| Treppe oben | zwei Strecken mit Podest, erst nach rechts, dann nach links oben | y 410 → 310 → 210 | 150 px |
+| Galerie | Streifen | y 210 | 150 px |
+
+Ein Stockwerk ist damit 200 px hoch, eine Tür etwa 165 px. Klickt der Spieler auf eine andere Ebene, sucht die
+Engine den Weg über die Treppenläufe. Die Geländer von Treppe, Balkon und Galerie liegen als Vordergrund-Ebenen
+vor Martin.
 
 ### Wetterschleuse
 
-Die beiden Tore trennen den Bahnhof von der Anlage. Eines muss immer geschlossen sein, sonst entsteht ein
-**Wetterkurzschluss** (so heißt das im Bergbau wirklich): Die Luft nimmt den kurzen Weg durch die offenen Tore
-und zieht nicht mehr durch die Räume ab.
+Zwei große **Schiebetore** hintereinander in der Rückwand des Bahnhofs, dazwischen eine Schleusenkammer, so tief
+wie ein Transportwagen. Tor 1 liegt am Bahnhof, Tor 2 an der Anlage. Beide Tore fahren nach rechts in die Wand.
+Eines muss immer geschlossen sein, sonst entsteht ein **Wetterkurzschluss** (so heißt das im Bergbau wirklich): Die
+Luft nimmt den kurzen Weg durch die offenen Tore und zieht nicht mehr durch die Räume ab.
 
-- **Manipulation:** Die Steuerung gibt das zweite Tor erst frei, wenn der Endschalter des ersten „geschlossen“
-  meldet. Martin klebt den Endschalter mit **Kreppband** gedrückt fest (wie den Taster im Museum).
+Der Bahnhof steht unter leichtem Überdruck, die Anlage unter Unterdruck. Dieser Druckunterschied zieht die Luft
+vom Bahnhof durch die Räume und den Luftschacht in den Maschinenraum und von dort in die Anlage. Stehen beide Tore
+offen, bricht er zusammen.
+
+- **Steuerkasten** links neben Tor 1: Taster „Tor 1“ und „Tor 2“, je eine Meldeleuchte „geschlossen“.
+- **Endschalter von Tor 1:** ein Rollenhebelschalter am linken Torpfosten in Hüfthöhe. Das geschlossene Tor drückt
+  den Hebel ein und verdeckt ihn. Erst bei offenem Tor steht der Hebel frei im Durchgang, und nur dann kommt
+  Martin heran (Nahansicht).
+- **Manipulation:** Tor 1 öffnen (erlaubt, Tor 2 ist zu). Den Hebel eindrücken und mit **Kreppband** festkleben
+  (wie den Taster im Museum): Die Leuchte „Tor 1 geschlossen“ geht an, obwohl das Tor offen steht. Taster „Tor 2“:
+  Das zweite Tor fährt auf.
 - **Folge 1:** Der Abzug in der Küche zieht nicht mehr, der Dunst sammelt sich.
-- **Folge 2:** Solange beide Tore offen stehen, sind alle Türen am Bahnhof gesperrt. Es bleibt nur der
-  Luftschacht, der keine Tür braucht. So ist die Schleuse immer nur kurz ganz offen, der Spieler öffnet sie nicht
-  wahllos, und es gibt keine Abkürzungen (z. B. das Öl im Dunst einfach zur Küchentür hinaustragen).
-- Martin macht die Manipulation rückgängig, indem er das Kreppband wieder abzieht. Dann zieht der Dunst ab und
-  die Türen gehen wieder.
+- **Folge 2:** Die Türsteuerung misst den Druckunterschied selbst und löst **Wetteralarm** aus: Alle Türleuchten
+  werden rot, alle Türen am Bahnhof sind gesperrt, auch von innen. Es bleibt nur der Luftschacht, der keine Tür
+  braucht. So ist die Schleuse immer nur kurz ganz offen, der Spieler öffnet sie nicht wahllos, und es gibt keine
+  Abkürzungen (z. B. das Öl im Dunst einfach zur Küchentür hinaustragen).
+- **Rückgängig:** Martin zieht das Kreppband wieder ab. Die Steuerung sieht Tor 1 offen und schließt Tor 2 von
+  selbst. Dann zieht der Dunst ab, die Leuchten werden grün, und die Türen gehen wieder.
 
 ### Kantine
 
-- **Essensautomat** mit Kartenschlitz, intern an den Essenslift angebunden. Die Menüanzeige ist defekt.
-- Essbereich mit Tischen, darauf Salzstreuer.
-- Ein **Gast mit schwarzer Karte** sitzt dort und wartet.
+Ein Bildschirm, heller Raum. Von links nach rechts:
+
+- Tür zur Galerie (linke Wand).
+- **Essensautomat:** kein Verkaufsautomat mit Fächern, sondern eine **Ausgabe aus Edelstahl**, in die Rückwand
+  eingebaut. Sie ist die oberste Station des Essenslifts: eine Ausgabeöffnung in Thekenhöhe mit Rollladen, davor
+  eine kurze Tablettablage, daneben eine Säule mit Kartenschlitz und der defekten Menüanzeige (dunkel, Sprung im
+  Glas). Den Rollladen bewegt nur der Automat; er ist die „Lifttür“ der Kantine.
+- Direkt daneben ein kleiner Tisch: Hier sitzt der **Gast mit schwarzer Karte** und wartet. Er muss nur aufstehen
+  und einen Schritt machen, um seine Karte einzustecken (zwei Einzelbilder genügen).
+- Rechts zwei lange Tische, auf jedem ein Salzstreuer.
 
 ### Hydroponik
 
-- Die Tür zum Bahnhof ist verschlossen, lässt sich aber **von innen entriegeln**. Beim ersten Mal kommt Martin
-  von oben durch den Luftschacht (Lüftungsgitter lässt sich öffnen), danach durch die Tür.
-- Tür zum Essenslift mit Glasfenster, dazu die drei Lift-Knöpfe. Hier stört niemand: Das ist Martins Platz, um
-  den Lift zu bedienen und Dinge in der Kabine zu wiegen.
+Ein Bildschirm, rosaviolettes Pflanzenlicht. Von links nach rechts:
+
+- Tür zum Bahnhof (linke Wand) mit Drehknauf innen. Sie ist verschlossen, lässt sich aber **von innen
+  entriegeln**. Beim ersten Mal kommt Martin von oben durch den Luftschacht, danach durch die Tür.
+- **Liftluke** mit Glasfenster links an der Rückwand, daneben die drei Lift-Knöpfe. Hier stört niemand: Das ist
+  Martins Platz, um den Lift zu bedienen und Dinge in der Kabine zu wiegen (Nahansicht).
+- **Pikiertisch** in der Mitte der Rückwand: Hier mischt Martin die Farbe, streicht die Karte und lässt sie unter
+  der Pflanzenlampe trocknen (Licht und Wärme lassen Öl wirklich schneller trocknen).
+- Pflanzregale an Rückwand und rechter Wand.
+- **Luftschacht:** Der gelbe Kanal kommt oben aus der linken Wand, läuft unter der Decke die Rückwand entlang und
+  führt in der hinteren rechten Ecke senkrecht durch den Boden. An seiner Unterseite hängt eine Gitterklappe
+  offen herab, direkt über dem ersten Pflanzregal. Dessen Seitenteil hat Sprossen: Martin klettert darüber hinab
+  und wieder hinauf.
 
 ### Küche
 
-- Ein **Koch** arbeitet hier. An der Wand eine Tafel mit dem, was er gerade kocht.
-- Tür zum Essenslift. Martin kann sie nur öffnen und schließen; die Knöpfe bedient er nur in der Hydroponik.
-- Mehrere **Ölflaschen**. Nur trocknende Öle binden Farbe: Martin braucht das **Walnussöl**, Olivenöl trocknet
-  nie. Er kann die Flasche nehmen, aber der Koch lässt ihn damit nicht aus der Küche.
+Anderthalb Bildschirme. Die Liftluke links und der Herd rechts sind nie zugleich im Bild. Von links nach rechts:
+
+- Tür zum Bahnhof (linke Wand).
+- **Liftluke** links an der Rückwand, daneben dieselben drei Lift-Knöpfe wie in der Hydroponik, darüber die
+  Anzeige „Nicht betriebsbereit“. Von hier lässt sich das Öl nicht wegschicken: Ist irgendwo eine andere Luke
+  offen, öffnet Martin die Küchenluke zwar ohne Warnton, aber die Knöpfe tun nichts. Sind alle anderen Luken
+  zu, ertönt beim Öffnen das Warnsignal, der Koch wird aufmerksam, und Martin kommt nicht weiter.
+- **Kühlschrank**, raumhoch, rechts neben der Luke. Die Luke liegt am anderen Ende des Raums, anderthalb
+  Bildschirme vom Herd entfernt; der Koch hat dort nur seine Töpfe im Blick und merkt nichts, solange kein
+  Warnsignal ertönt. Die Tür sieht er.
+- **Tafel** mit dem, was gerade gekocht wird.
+- Arbeitsfläche, darüber ein Bord mit mehreren **Ölflaschen**. Nur trocknende Öle binden Farbe: Martin braucht das
+  **Walnussöl**, Olivenöl trocknet nie. Leinöl steht nicht dabei. Er kann die Flasche nehmen, aber der Koch
+  lässt ihn damit nicht aus der Küche.
+- **Herd** mit Abzugshaube, davor der **Koch**. Der gelbe Kanal kommt links von der Haube aus der Decke (der
+  Steigschacht aus der Hydroponik), läuft unter der Decke nach rechts in die Haube und weiter durch die rechte
+  Wand zum Maschinenraum. Über dem Herd ist der Boden des Kanals ein offener Gitterrost.
 - Zeigt der Lift „Nicht betriebsbereit“, schimpft der Koch („Das Ding spinnt, sobald irgendwo eine Klappe
   offen ist“). So lernt der Spieler die Liftregel.
 
 ### Maschinenraum
 
-Raum bei den Drehlagern und Antrieben der Scheiben. Die Tür zum Bahnhof ist verschlossen und lässt sich wie in der
-Hydroponik **von innen entriegeln**. Beim ersten Mal kommt Martin nur durch den Luftschacht hinein, also nur bei
-Dunst. Danach kann er die Wetterschleuse wieder in Ordnung bringen.
+Anderthalb Bildschirme. Raum bei den Drehlagern und Antrieben der Scheiben; die Scheibenhalle liegt hinter der
+Rückwand. Der Raum gehört zur Unterdruckseite, seine Tür zum Bahnhof ist deshalb verschlossen und lässt sich wie in
+der Hydroponik **von innen entriegeln**. Beim ersten Mal kommt Martin nur durch den Luftschacht hinein, also nur
+bei Dunst. Danach kann er die Wetterschleuse wieder in Ordnung bringen. Von links nach rechts:
 
-- Mehrere Scheibenantriebe mit Schleifringen und **Kohlebürsten** (Kupfergraphit). Ihr Abrieb ist ein echtes
-  schwarzes Pigment. Die Antriebe laufen, ihre Abdeckungen sind verriegelt.
-- Ein Antrieb steht: „Scheibe 3 – Revision“. Seine Abdeckung geht auf, die Bürstenhalter sind leer. Er hat eine
-  **Drehvorrichtung** mit Taster, die die Welle langsam dreht.
-- Schublade mit **Ersatzbürsten**, eine Rolle **Schleifleinen**, ein Abfalleimer mit gebrauchten Streifen.
-- Unter dem Ring ein Gitterrost, darunter eine Wanne mit altem Staub, verklebt mit Lagerfett.
+- Tür zum Bahnhof (linke Wand) mit Drehknauf innen.
+- **Luftschacht:** Der gelbe Kanal kommt oben aus der linken Wand und endet nach kurzem Stück an der Rückwand mit
+  einem Gitter, direkt über der Werkbank. Martin steigt über die Werkbank hinab und wieder hinauf.
+- **Werkbank** mit Schublade (**Ersatzbürsten**) und einer Rolle **Schleifleinen**, daneben ein Abfalleimer mit
+  gebrauchten Streifen.
+- Drei **Scheibenantriebe** nebeneinander an der Rückwand: Aus der Wand kommt je ein Wellenende mit einem
+  radgroßen kupfernen Schleifring, davor **Kohlebürsten** (Kupfergraphit), darum ein Blechgehäuse mit Tür und
+  Sichtfenster. Der Abrieb der Bürsten ist ein echtes schwarzes Pigment. Der linke und der rechte Antrieb laufen,
+  ihre Türen sind verriegelt.
+- Der mittlere Antrieb steht: „Scheibe 3 – Revision“. Seine Tür geht auf, die Bürstenhalter sind leer. Er hat eine
+  **Drehvorrichtung** mit Taster, die die Welle langsam dreht (Nahansicht).
+- Vor und unter den Antrieben Gitterrost, unter jedem Ring eine Wanne mit altem Staub, verklebt mit Lagerfett.
 
 ### Noch nicht eingeordnet
 
-- **Scheibenhalle (Galerie):** der große Raum hinter der Wetterschleuse, gern mehrere Bildschirme breit, Galerie
-  rechts oben über den Scheiben, Martin sehr klein. Evtl. Zugang zur Zeitkammer.
+- **Scheibenhalle (Galerie):** der große Raum hinter der Wetterschleuse, drei Bildschirme breit, Galerie rechts
+  oben über den Scheiben, Martin sehr klein. Die Scheiben stehen aufrecht auf waagerechten Wellen in einer Reihe;
+  ihre Wellenenden sind die Antriebe im Maschinenraum. Evtl. Zugang zur Zeitkammer. Ob Martin regulär durch die
+  Schleuse hierher kommt (Tor 1 auf, hinein, Tor 1 zu, Tor 2 auf), ist offen.
 - **Zeitkammer:** Foucault-Pendel, das die Erdrotation misst, und eine Anzeige, um wie viel der Tag schon
   verlängert wurde. Nur mit purpurner Karte zu öffnen, aber durch eine Glasscheibe einsehbar. Platz für eine
   spätere Geschichte mit der purpurnen Karte.
 
 ## Essenslift
 
-Verbindet **Kantine (oben) ↔ Hydroponik (Mitte) ↔ Küche (unten)**. Auf dem Weg zwischen Kantine und Küche fährt
-die Kabine am Glasfenster der Hydroponik vorbei. In der Kabine ist eine Waage eingebaut; ihre Anzeige (auf
-Zehntelgramm) sitzt an der Kabine und ist durch das Fenster und bei offener Tür zu lesen.
+Ein **Speiseaufzug**, kein Personenaufzug: Die Kabine ist ein Edelstahlkasten von etwa 60 × 60 × 70 cm, die Luke
+sitzt in Brusthöhe und ist nicht größer als eine Backofentür. Martin passt nicht hinein. Der Lift verbindet
+**Kantine (oben) ↔ Hydroponik (Mitte) ↔ Küche (unten)**. Auf dem Weg zwischen Kantine und Küche fährt die Kabine am
+Glasfenster der Hydroponik vorbei. Der Kabinenboden ist eine Waage; ihre Anzeige (auf Zehntelgramm) sitzt als
+Leiste unter der Kabinenöffnung und ist durch das Fenster und bei offener Luke zu lesen.
+
+| Station | Luke | Bedienung |
+|---|---|---|
+| Kantine | Ausgabeöffnung des Automaten mit Rollladen | nur der Automat |
+| Hydroponik | Klapptür mit Glasfenster | drei Knöpfe (Symbole: Besteck, Blatt, Topf), Martin |
+| Küche | Klapptür mit Glasfenster, links neben dem Kühlschrank | drei Knöpfe wie in der Hydroponik; der Koch, für Martin nutzlos (siehe Küche) |
 
 Regeln:
 
-- Der Lift fährt nur, wenn alle drei Türen geschlossen sind. Dann funktionieren die drei Knöpfe (Kantine,
+- Der Lift fährt nur, wenn alle drei Luken geschlossen sind. Dann funktionieren die drei Knöpfe (Kantine,
   Hydroponik, Küche).
-- Wird eine Tür geöffnet, während der Lift betriebsbereit ist, ertönt an dieser Tür ein dezentes, anhaltendes
+- Wird eine Luke geöffnet, während der Lift betriebsbereit ist, ertönt an dieser Luke ein dezentes, anhaltendes
   Warnsignal, und der ganze Lift ist gesperrt.
-- An den anderen Stationen zeigt der Lift dann „Nicht betriebsbereit“. Öffnet man dort eine Tür, ertönt **kein**
+- An den anderen Stationen zeigt der Lift dann „Nicht betriebsbereit“. Öffnet man dort eine Luke, ertönt **kein**
   Warnton.
-- Während der Fahrt sind alle Türen verriegelt. Eine vorbeifahrende Kabine lässt sich nicht anhalten; Martin
+- Während der Fahrt sind alle Luken verriegelt. Eine vorbeifahrende Kabine lässt sich nicht anhalten; Martin
   kommt also nicht an die Karte eines anderen.
+- Steht die Kabine an einer anderen Station, blickt man durch Fenster oder offene Luke in den leeren Schacht.
 
 Ablauf einer Bestellung am Automaten in der Kantine:
 
@@ -126,27 +260,41 @@ Mit der grauen Karte gibt es das Standardmenü, mit der schwarzen das bessere (m
 
 ## Luftschacht
 
-Verbindet **Bahnhof ↔ Hydroponik ↔ Küche ↔ Maschinenraum**. Man kommt nur kriechend voran.
+Verbindet **Bahnhof ↔ Hydroponik ↔ Küche ↔ Maschinenraum**. Man kommt nur kriechend voran. Der Raum ist ein
+**Schnittbild** von der Seite (ein Bildschirm): Der Fels ist eine dunkle Fläche, der Schacht darin ein gelber
+Kanal in Form einer Stufe. Aus jeder Öffnung fällt das Licht des Raums dahinter, so erkennt der Spieler die
+Ausgänge. Oberer Lauf, Steigschacht und unterer Lauf sind drei Verbindungsstrecken wie die Treppenläufe im
+Bahnhof; Martin kriecht darin sichtbar. Von links nach rechts:
 
-An der Küche geht es nicht weiter zum Maschinenraum, weil der Koch Martin sehen würde. Es sei denn, in der Küche
-steht eine **Dunstwolke** (Wetterschleuse manipuliert).
+| Stelle | Im Schnittbild | Licht | Führt nach |
+|---|---|---|---|
+| Gitter Bahnhof | senkrechtes Gitter am linken Ende des oberen Laufs | kaltweiß | Bahnhof, Galerie |
+| Klappe Hydroponik | Öffnung im Boden des oberen Laufs | rosaviolett | Hydroponik, über das Regal hinab |
+| Steigschacht | senkrecht mit Sprossen, ein Stockwerk tief | – | verbindet oberen und unteren Lauf |
+| Haubenrost | langer Gitterrost im Boden des unteren Laufs, gleich hinter dem Steigschacht | warmgelb, Dampf | kein Ausgang (fest, darunter der heiße Herd) |
+| Endgitter | senkrechtes Gitter am rechten Ende des unteren Laufs | blauweißes Flackern | Maschinenraum, über die Werkbank hinab |
+
+Am Haubenrost geht es nicht weiter zum Maschinenraum: Martin müsste über den offenen Rost kriechen, direkt über
+dem Herd, an dem der Koch steht, und der würde ihn sehen. Es sei denn, in der Küche steht eine **Dunstwolke**
+(Wetterschleuse manipuliert): Dann quillt Dampf durch den Rost, und Martin kriecht ungesehen hinüber.
 
 ## Rätsel
 
 ### Öl hinausschmuggeln
 
-1. Hydroponik: Lift in die Küche schicken, dann die Lifttür öffnen (Warnton, den hier niemand hört). Der Lift ist
+1. Hydroponik: Lift in die Küche schicken, dann die Liftluke öffnen (Warnton, den hier niemand hört). Der Lift ist
    gesperrt.
-2. Küche: Lifttür öffnen. Kein Warnton, der Koch merkt nichts.
-3. Walnussöl in die Kabine stellen, Tür schließen. Mehr tut Martin in der Küche nicht.
-4. Hydroponik: Tür schließen, „Lift nach Hydroponik“ wählen, Tür öffnen, Öl herausnehmen.
+2. Küche: Walnussöl vom Bord nehmen. An der Tür hält der Koch Martin auf.
+3. Küche: Liftluke öffnen. Kein Warnton, der Koch am Herd merkt nichts.
+4. Walnussöl in die Kabine stellen, Luke schließen. Mehr tut Martin in der Küche nicht.
+5. Hydroponik: Luke schließen, „Lift nach Hydroponik“ wählen, Luke öffnen, Öl herausnehmen.
 
 ### Gewicht der schwarzen Karte
 
-1. Hydroponik: Lifttür öffnen, der Lift ist blockiert.
+1. Hydroponik: Liftluke öffnen, der Lift ist blockiert.
 2. Kantine: den Gast dazu bringen, Essen zu bestellen (siehe unten). Der Automat nimmt seine Karte und wartet auf
    den Lift.
-3. Hydroponik: Tür schließen. Der Lift fährt in die Kantine, wird beladen und fährt zur Küche.
+3. Hydroponik: Luke schließen. Der Lift fährt in die Kantine, wird beladen und fährt zur Küche.
 4. Im Vorbeifahren durch das Glasfenster ablesen: **Tablett + schwarze Karte**.
 5. Dasselbe noch einmal mit der eigenen grauen Karte: **Tablett + graue Karte**. Die Differenz (etwa 1 g) ist das,
    was der grauen Karte fehlt. Auf die zweite Messung muss der Spieler selbst kommen.
@@ -162,16 +310,23 @@ Martin liest in der Küche an der Tafel, was gekocht wird, und sagt es ihm. Das 
 
 ### Dunst in der Küche
 
-1. Bahnhof: Endschalter des ersten Schleusentors mit Kreppband festkleben, beide Tore öffnen. Alle Türen sind
-   gesperrt, in der Küche sammelt sich Dunst.
-2. Durch den Luftschacht an der Küche vorbei in den Maschinenraum.
-3. Kohlestaub holen (siehe „Pigment abschleifen“), Tür von innen entriegeln.
-4. Bahnhof: Kreppband abziehen. Dunst zieht ab, Türen gehen wieder.
+1. Bahnhof: Tor 1 der Wetterschleuse öffnen, seinen Endschalter mit Kreppband festkleben, Tor 2 öffnen. Alle
+   Türen sind gesperrt, in der Küche sammelt sich Dunst.
+2. Galerie: durch das Gitter in den Luftschacht, den Steigschacht hinab und über den Haubenrost an der Küche
+   vorbei in den Maschinenraum.
+3. Kohlestaub holen (siehe „Pigment abschleifen“), Tür von innen entriegeln. Sie bleibt gesperrt, solange der
+   Wetteralarm anhält.
+4. Durch den Schacht zurück zum Bahnhof, Kreppband abziehen. Tor 2 schließt, der Dunst zieht ab, die Türen gehen
+   wieder, auch die zum Maschinenraum.
 
 ### Pigment abschleifen
 
 Die Maschine schleift selbst. So werden neue Kohlebürsten wirklich „eingeschliffen“: Schleifleinen um den
 Schleifring kleben und den Ring drehen, bis die Bürste dessen Rundung hat.
+
+Geometrie in der Nahansicht: Der Ring ist von schräg vorn zu sehen, sodass seine breite Lauffläche sichtbar ist.
+Der Bürstenhalter sitzt unten rechts am Ring („5 Uhr“), eine Handbreit über dem Gitterrost; was abfällt, fällt
+gerade nach unten. Unter dem Rost steht die Wanne.
 
 1. **Von Hand geht es nicht.** Mit dem Spatel bekommt Martin von einer Ersatzbürste nur Krümel, mit Schleifleinen
    kaum mehr: „So schleife ich bis morgen.“
@@ -182,7 +337,7 @@ Schleifring kleben und den Ring drehen, bis die Bürste dessen Rundung hat.
 4. **Lösung** am stehenden Antrieb:
    - Schleifleinen mit **Kreppband** um den Schleifring kleben, Körnung nach außen.
    - Eine Ersatzbürste in den Halter stecken; die Feder drückt sie auf den Ring.
-   - Ein **Fundtütchen** unter den Halter legen.
+   - Ein **Fundtütchen** unter den Halter auf den Rost legen.
    - Drehvorrichtung einschalten: Der Ring dreht sich, der Staub rieselt ins Tütchen.
 5. **Ohne Tütchen** fällt der Staub durch den Rost in die fettige Wanne. Martin benennt das Problem, der Spieler
    wiederholt es. Ersatzbürsten gibt es genug (keine Sackgasse).
@@ -191,12 +346,15 @@ Die Einsicht für den Spieler: nicht selbst schleifen, sondern den Ring arbeiten
 
 ### Karte umarbeiten
 
+Martins Arbeitsplatz ist der Pikiertisch in der Hydroponik.
+
 1. Die rote **666** mit **Kreppband** abkleben. Ohne Nummer weist der Koch die Karte ab.
 2. Kohlestaub und Walnussöl zu Farbe mischen und die Karte streichen.
 3. **Gewicht:** Die fehlenden etwa 1 g kommen allein aus der Farbschicht (rund 50 µm auf beiden Seiten, das ist
    realistisch). Martin trägt Schicht um Schicht auf und wiegt in der Hydroponik in der Liftkabine nach, bis die
    Differenz stimmt.
-4. **Trocknen:** dauert. Karte liegen lassen, anderswo weitermachen, später abholen (wie beim Akku).
+4. **Trocknen:** dauert. Karte unter der Pflanzenlampe liegen lassen, anderswo weitermachen, später abholen (wie
+   beim Akku).
 5. In der Kantine mit der Karte bestellen: besseres Menü mit Thermoskanne.
 
 ### Falsche Fährte: Ruß
@@ -210,6 +368,15 @@ echten Grund:
 - Der Kohlestaub ist aus einem echten Grund richtig: Kohlebürsten für hohe Ströme enthalten Kupfer, und Metalle
   beschleunigen das Trocknen von Öl. Schwerer ist er auch, was zum Gewicht passt.
 - Martin benennt nach dem Fehlversuch nur das Problem (die Farbe trocknet nicht), nicht die Lösung.
+
+## Offen
+
+- **Engine:** mehrere Laufflächen je Raum mit eigener Figurgröße, Verbindungsstrecken (Treppe, Schacht) und
+  Wegsuche darüber. Gebraucht im Bahnhof und im Luftschacht.
+- **Kriechen im Luftschacht:** Martin hat noch keine Kriech-Animation (Kriechzyklus, dazu Klettern im
+  Steigschacht oder dort eine Blende).
+- **Gericht des Tages:** noch nicht festgelegt. Die Tafel bleibt im Hintergrundbild leer, die Schrift kommt als
+  eigene Ebene.
 
 ## Ideen
 
@@ -231,3 +398,5 @@ echten Grund:
 - Küche und Kantine nur durch den Luftschacht sichtbar, nie betretbar.
 - Koch mit drei zurückgeschickten Tabletts ablenken.
 - Wetterschleuse als eigener Gang: jetzt die beiden Tore im Bahnhof.
+- Essensautomat als Verkaufsautomat mit Fächern, Essenslift als Personenaufzug, Zug auf offenem Gleis ohne
+  Vakuumröhre, Luftschacht als Innenansicht mit Rohren (erste Bildentwürfe).
