@@ -56,11 +56,11 @@ Lizenzen; keine Cloud-Dienste und keine Modelle, deren Lizenz die Nutzung der Er
 
 ### Verwendete Werkzeuge und Lizenzen
 
-Stand: gb10-assets 0.1.4 (Commit `4867dc4`, 05.11.2026)
+Stand: gb10-assets 1.3.1 (13.11.2026)
 
 | Tool | Modell | Wofür | Lizenz |
 |---|---|---|---|
-| `flux2-klein` | [FLUX.2 \[klein\] 4B](https://huggingface.co/black-forest-labs/FLUX.2-klein-4B) (Black Forest Labs) | Bilder aus Text, optional mit Referenzbildern | Apache-2.0 |
+| `qwen-image` | [Qwen-Image-2512](https://huggingface.co/Qwen/Qwen-Image-2512) (Alibaba), 4-Schritt-Lightning-Fassung | Bilder aus Text (`generate_image`), auch lesbare Schrift | Apache-2.0 |
 | `qwen-image-edit` | [Qwen-Image-Edit-2511](https://huggingface.co/Qwen/Qwen-Image-Edit-2511) (Alibaba) mit [Lightning-LoRA](https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning) | Bilder bearbeiten und kombinieren | Apache-2.0 |
 | `birefnet` | [BiRefNet-matting](https://huggingface.co/ZhengPeng7/BiRefNet-matting), ausgeführt von ComfyUI | Freistellen (Maske mit weichem Alpha), z. B. für Martins Sprites | MIT; ComfyUI: GPL-3.0 |
 | `qwen-tts` | [Qwen3-TTS 1.7B VoiceDesign](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign) und [Base](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-Base) (Alibaba) | Stimmen entwerfen, Sprachausgabe | Apache-2.0 |
@@ -87,10 +87,11 @@ Fremdmaterial (Fotos, Fonts, Musik, Geräusche aus anderen Quellen) kommt nur mi
 Für die Assets in `assets/` stehen diese Angaben in `assets/provenance.json` (rekonstruierbare Kette von
 Erzeugungsschritten, Schema in `work/assets.md`), für den Altbestand in `assets/provenance_old.json`.
 
-Bilder entstehen in der Regel in zwei Schritten: ein Entwurf mit `flux2-klein`, danach Bearbeitung und
-Angleichung mit `qwen-image-edit`. So sind auch die bisherigen Entwürfe in `work/` entstanden (Figuren Martin,
-Ackermann, Hollmann; Schauplätze Lobby, Altarraum, Depot, Werkstatt, Wohnung); ihre Prompts sind nicht einzeln
-festgehalten.
+Bilder entstehen in der Regel in zwei Schritten: ein Entwurf mit `generate_image` (Qwen-Image-2512), danach
+Bearbeitung und Angleichung mit `edit_image` (`qwen-image-edit`). Der Altbestand (Figuren Ackermann, Hollmann;
+Schauplätze Lobby, Altarraum, Depot, Werkstatt, Wohnung; viele Inventar-Icons) entstand mit `flux2-klein`
+(FLUX.2 \[klein\] 4B, Apache-2.0); das Modell ist seit gb10-assets 1.3 nicht mehr auf dem Server, diese
+Entwürfe lassen sich also nicht neu erzeugen und werden bei Bedarf mit Qwen-Image neu aufgebaut.
 
 ### Urheberrecht an KI-Ergebnissen
 
