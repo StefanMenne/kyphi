@@ -9,10 +9,10 @@ Das Spiel besteht aus 5 Arealen (Änderungen möglich), verbunden durch einen Ho
 
 - **Museum** (Teil 1, „Der Zugang“): fertig und spielbar; Änderungen sind möglich, um andere Orte anzubinden.
 - **Antarktis:** weitgehend fertig, aber mit offenen Fäden, z. B. Gegenständen, die noch nicht platziert sind.
-- **ABC GmbH:** bisher nur Ideen.
-- **Innenerde:** bisher nur Ideen.
-- **Area 52:** bisher nur Ideen; enthält einen abgegrenzten Bereich, der nur mit der purpurnen Karte betreten
-  werden kann.
+- **ABC GmbH:** Konzept fertig, noch nicht gebaut.
+- **Innenerde:** Konzept fertig, noch nicht gebaut.
+- **Area 52:** Konzept fertig, noch nicht gebaut; enthält einen abgegrenzten Bereich, der nur mit der purpurnen
+  Karte betreten werden kann (Teil 3, Konzept fertig, noch nicht gebaut).
 
 Das Areal Museum bildet den ersten Teil. Am Ende von Teil 1 hat der Spieler den verborgenen Zugang zu einem unterirdischen Tunnelsystem gefunden. Eine mächtige **Sekte** hat es gebaut und nutzt es im Verborgenen. Alle Areale sind dann zugänglich bis auf den unterirdischen
 Teil von Area 52, der den dritten abschließenden Teil bildet.
@@ -21,10 +21,10 @@ Harte Grenzen zwischen den Teilen gibt es nicht. Das Museum bleibt jederzeit bet
 
 Alles Weitere zur Geschichte und zu den Rätseln steht in den Konzeptdateien, eine je Ort. Einen etwas genaueren 
 Überblick und Ideen für den Fortgang der Story befindet sich in `work/concept/story.md`. 
-Gebaute Orte liegen im Spiel-Repo (`concept/museum.md`, `concept/antarctica.md`),
-die übrigen sind grobe Ideen in `work/concept/` (`abc_gmbh.md`, `inner_earth.md`, `area_52.md`, `part_3.md`;
-`items.md` beschreibt die Gegenstände über alle Orte hinweg). Bei Bedarf lesen und anpassen, sobald sich der
-Spielablauf ändert. Wird ein Ort gebaut, wandert seine Datei nach `concept/`.
+Gebaute Orte und fertige Konzepte liegen im Spiel-Repo (`concept/museum.md`, `concept/antarctica.md`,
+`concept/abc_gmbh.md`, `concept/inner_earth.md`, `concept/area_52.md`, `concept/part_3.md`); Entwürfe und Ideen
+entstehen in `work/concept/`. Bei Bedarf lesen und anpassen, sobald sich der Spielablauf ändert. Ist ein Konzept
+fertig, wandert seine Datei nach `concept/`.
 
 ## Martin Kessler (Spielfigur)
 
@@ -50,7 +50,7 @@ Martin ist Restaurator, Mitte 30, gründlich und trocken-ironisch. Seit drei Woc
 
 - Das Spiel ist deutsch (Texte, Dialoge, Sprachausgabe); Verzeichnisse, Dateinamen und Code sind englisch.
 - Jede Konzeptdatei beginnt in Zeile 1 mit einer Überschrift `# Kyphi – <Ort>`; Dokumente, die keinen Ort
-  beschreiben, entsprechend `# Kyphi – <Thema>` (`story.md`, `items.md`, `part_3.md`).
+  beschreiben, entsprechend `# Kyphi – <Thema>` (`story.md`, `part_3.md`).
 - `AGENTS.md` ist die einzige Instruktionsdatei, `CLAUDE.md` nur ein Symlink darauf — Inhalte immer hier editieren.
   Auf Windows-Checkouts braucht der Symlink `core.symlinks=true`; sonst liegt dort eine Textdatei mit dem
   Inhalt `AGENTS.md`.

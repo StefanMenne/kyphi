@@ -3,8 +3,9 @@
 Stand: 07.11.2026. Weitgehend gebaut und spielbar (Räume in `game/rooms/antarctica_*.gd`). Gegenstände aus den
 noch nicht gebauten Orten gibt es bisher nur über das Cheatmenü (F10 → „Gegenstände für die Antarktis geben“).
 
-Rolle in Teil 2: Hier holt Martin die Medaille des erfrorenen Novizen 412, das **Pfand** für Prüfung 2 (siehe
-`work/concept/story.md`). Nebenbei findet er den Glykol-Kanister für Prüfung 3 und Hinweis 1 auf die Sabotage.
+Rolle in Teil 2: Hier holt Martin die Medaille des erfrorenen Novizen 412, die er in Area 52 braucht (siehe
+`concept/area_52.md`). Nebenbei findet er den Glykol-Kanister für Stollen 7 der ABC GmbH und Hinweis 1 auf die
+Sabotage.
 
 ## Räume
 
@@ -20,7 +21,7 @@ Rolle in Teil 2: Hier holt Martin die Medaille des erfrorenen Novizen 412, das *
 
 **Pjotr**, Techniker: „Technik, Heizung, Kaffee. Das Letzte ist das Wichtigste.“ Erklärt, dass 412 noch oben
 liegt, weil seit dem Unfall die Leiterheizung aus ist und niemand weiß, wie man sie einstellt. Bürgt sofort für
-Martin („Klar bürge ich!“), hat aber nur eine schwarze Karte; beim Notar in Area 52 zählt das nicht.
+Martin („Klar bürge ich!“), hat aber nur eine schwarze Karte; in Area 52 zählt das nicht.
 
 ## Rätsel
 
@@ -37,7 +38,7 @@ Martin („Klar bürge ich!“), hat aber nur eine schwarze Karte; beim Notar in
    Materiallager der ABC GmbH liegen Dutzende unbeschriftete Sicherungen; erst mit dem Maß nimmt Martin die richtige.
    Vorbild für die Rätsel im Spiel.
 5. **Nebenbei:** Glykol-Kanister („Frostschutz (Glykol) – Pistenraupe“) aus dem Wartungsschrank, gebraucht erst in
-   Stollen 7 der ABC GmbH (Prüfung 3).
+   Stollen 7 der ABC GmbH (Hydraulikflüssigkeit für den Bohrwagen in der Kammer).
 
 ### Außenbeobachtung: Wind ablesen
 
@@ -75,19 +76,16 @@ Martin („Klar bürge ich!“), hat aber nur eine schwarze Karte; beim Notar in
 | Sicherung F7 | Materiallager ABC GmbH | Sicherungskasten → Torheizung | Materiallager fehlt |
 | Thermoskanne mit Tee | Innenerde | Fernrohr auftauen | Innenerde fehlt |
 | Salz | Kantine Innenerde | falsche Fährte am Tor | Fundort fehlt |
-| Gewebeband | offen | Anzug abbinden | Fundort fehlt |
+| Gewebeband | Werkbank, Werkstatt ABC GmbH | Anzug abbinden | Werkstatt fehlt |
 | Steigschutzläufer, kaputt | Fuß der Antenne | Tausch in der ABC-Werkstatt | eingebaut |
 | Steigschutzläufer, neu | Werkstatt ABC GmbH | Aufstieg | Werkstatt fehlt |
 | Glykol-Kanister | Wartungsschrank Schleuse | Stollen 7, ABC GmbH | eingebaut |
-| Medaille von 412 (gesprungen) | Aufstieg | Reparatur in Innenerde, dann Pfand in Area 52 | eingebaut |
+| Medaille von 412 (gesprungen) | Aufstieg | Area 52 (siehe `concept/area_52.md`) | eingebaut |
 | Malerleiter, Messschieber | Teil 1 | Antenne, Sicherung | eingebaut |
 
 ## Offen
 
-- **Gewebeband:** Fundort fehlt (Teil 1 oder Werkstatt der ABC GmbH).
 - **Akku:** Dass er geladen werden muss, bleibt; als Rätsel ist er noch zu einfach.
-- **Kondenswasser:** Die eiskalte Medaille beschlägt im Warmen, dann hält das Komposit nicht. Martin lässt sie in
-  der **Fundtüte** (Teil 1) angleichen. Wann und wo das passiert, ist noch nicht festgelegt und nicht eingebaut.
 - **Bergung von 412:** übernimmt die Station, nachdem Martin oben war; im Spiel nur erwähnt.
 
 ## Ideen für später
