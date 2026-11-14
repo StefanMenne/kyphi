@@ -400,6 +400,158 @@
    "output": "assets/scenes/inner_earth_slip_ring/",
    "date": "2026-11-14",
    "note": "Fixpunkt-Drafts in work/assets/scenes/; ihre Entstehung (Prompts, Seeds, Ausschnitte, patch.py) steht in work/concept/inner_earth_images.md, Runden 1-18."
+  },
+  "spare_brush_draft": {
+   "tool": "gb10-assets/generate_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-2512",
+    "prompt": "a single small rectangular dark grey carbon brush block for an electric motor, a solid graphite block with a short braided copper wire coming out of its top ending in a small flat copper terminal, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+    "width": 1024,
+    "height": 1024,
+    "seed": 18002,
+    "count": 1
+   },
+   "inputs": [],
+   "output": "work/cache/items/spare_brush/draft.png",
+   "date": "2026-11-14",
+   "note": "Ersatzbürste (Kohlebürste) für den Maschinenraum der Innenerde; gewählt aus Seed 18000 count 3"
+  },
+  "emery_cloth_draft": {
+   "tool": "gb10-assets/generate_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-2512",
+    "prompt": "a small roll of brown emery cloth abrasive strip, the end of the strip partly unrolled showing its rough gritty brown abrasive side, single object, centered, the whole object fully visible with margin, three-quarter view from slightly above, isolated on a plain flat solid magenta background, no shadow, no text, game inventory icon, hand-drawn 2D point-and-click adventure game art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+    "width": 1024,
+    "height": 1024,
+    "seed": 18000,
+    "count": 1
+   },
+   "inputs": [],
+   "output": "work/cache/items/emery_cloth/draft.png",
+   "date": "2026-11-14",
+   "note": "Rolle Schleifleinen für den Maschinenraum der Innenerde; gewählt aus Seed 18000 count 3"
+  },
+  "evidence_bag_coal_draft": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Fill the lower third of the clear plastic zip lock bag with a small heap of fine matt black powder with a faint coppery glint, like carbon dust. Keep the bag, its white label, the outlines, the drawing style and the plain light grey background exactly unchanged.",
+    "images": [
+     "work/assets/items/evidence_bag_coal/evidence_bag_grey.png"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 18001,
+    "count": 1
+   },
+   "inputs": [
+    "work/assets/items/evidence_bag_coal/evidence_bag_grey.png"
+   ],
+   "output": "work/cache/items/evidence_bag_coal/draft.png",
+   "date": "2026-11-14",
+   "note": "Fundtütchen mit Kohlestaub; Eingabe = assets/items/evidence_bag.png auf Hellgrau (214), 1024 px (Fixpunkt); gewählt aus Seed 18000 count 3"
+  },
+  "spare_brush_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "images": [
+     "spare_brush_draft"
+    ],
+    "mask": false
+   },
+   "inputs": [
+    "spare_brush_draft"
+   ],
+   "output": "work/cache/items/spare_brush/cutout.png",
+   "date": "2026-11-14"
+  },
+  "spare_brush": {
+   "tool": "script",
+   "script": "work/scripts/item_icon.py",
+   "args": [
+    "--size",
+    "512",
+    "--margin",
+    "10",
+    "--small",
+    "128"
+   ],
+   "inputs": [
+    "spare_brush_cutout"
+   ],
+   "output": "assets/items/spare_brush.png",
+   "date": "2026-11-14",
+   "note": "schreibt auch assets/items/spare_brush_128.png"
+  },
+  "emery_cloth_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "images": [
+     "emery_cloth_draft"
+    ],
+    "mask": false
+   },
+   "inputs": [
+    "emery_cloth_draft"
+   ],
+   "output": "work/cache/items/emery_cloth/cutout.png",
+   "date": "2026-11-14"
+  },
+  "emery_cloth": {
+   "tool": "script",
+   "script": "work/scripts/item_icon.py",
+   "args": [
+    "--size",
+    "512",
+    "--margin",
+    "10",
+    "--small",
+    "128"
+   ],
+   "inputs": [
+    "emery_cloth_cutout"
+   ],
+   "output": "assets/items/emery_cloth.png",
+   "date": "2026-11-14",
+   "note": "schreibt auch assets/items/emery_cloth_128.png"
+  },
+  "evidence_bag_coal_cutout": {
+   "tool": "script",
+   "script": "work/scripts/alpha_from.py",
+   "args": [
+    "--dark",
+    "70"
+   ],
+   "inputs": [
+    "evidence_bag_coal_draft",
+    "work/assets/items/evidence_bag_coal/evidence_bag.png"
+   ],
+   "output": "work/cache/items/evidence_bag_coal/cutout.png",
+   "date": "2026-11-14",
+   "note": "Transparenz vom Fundtütchen-Icon (Fixpunkt-Kopie von assets/items/evidence_bag.png), dazu der dunkle Staub deckend; remove_background hält die Folie für Hintergrund"
+  },
+  "evidence_bag_coal": {
+   "tool": "script",
+   "script": "work/scripts/item_icon.py",
+   "args": [
+    "--size",
+    "512",
+    "--margin",
+    "10",
+    "--small",
+    "128"
+   ],
+   "inputs": [
+    "evidence_bag_coal_cutout"
+   ],
+   "output": "assets/items/evidence_bag_coal.png",
+   "date": "2026-11-14",
+   "note": "schreibt auch assets/items/evidence_bag_coal_128.png"
   }
  }
 }

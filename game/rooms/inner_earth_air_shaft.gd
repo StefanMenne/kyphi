@@ -6,8 +6,7 @@ extends Room
 ## Martin kriecht hier; eine Kriech-Animation gibt es noch nicht. Er ist deshalb nicht zu sehen, eine Marke zeigt,
 ## wo er ist (shaft_pos: "station", "flap", "bottom", "end"), und jede Strecke ist eine Blende mit kurzem Text.
 ## Über den Haubenrost kommt er nur bei Dunst in der Küche (Wetteralarm), sonst sieht ihn der Koch.
-##
-## Übergang, solange der Maschinenraum fehlt: Am Endgitter kehrt Martin um.
+
 
 const STATION := preload("res://game/rooms/inner_earth_station.gd")
 ## Marke je Stelle (Bildpixel)
@@ -66,6 +65,8 @@ func on_enter(from: String) -> void:
 		Game.set_flag("shaft_pos", "station")
 	elif from == "inner_earth_hydroponics":
 		Game.set_flag("shaft_pos", "flap")
+	elif from == "inner_earth_machine_room":
+		Game.set_flag("shaft_pos", "end")
 	refresh()
 	if not Game.flag("air_shaft_seen"):
 		Game.set_flag("air_shaft_seen")
@@ -113,7 +114,8 @@ func use(hid: String) -> void:
 				await crawl_to("end")
 				if spot() != "end":
 					return
-			await refuse("Durch das Gitter sehe ich Maschinen und blaue Funken. Da gehe ich später hin.")
+			await narrate("[Durch das Gitter, über die Werkbank hinunter.]")
+			await go("inner_earth_machine_room")
 		_:
 			await super(hid)
 

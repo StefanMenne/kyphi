@@ -254,7 +254,8 @@ func take_hair() -> void:
 		await say("Und wohin damit? Ich brauche ein Fundtütchen.")
 	else:
 		Game.set_flag("hair_secured")
-		Game.swap_item("evidence_bag", "evidence_bag_hair")
+		# Fundtütchen sind ein ganzer Stapel: die leeren bleiben (Kohlestaub in der Innenerde)
+		Game.add_item("evidence_bag_hair")
 		await say("Pinzette, Fundtütchen. Gesichert.")
 
 

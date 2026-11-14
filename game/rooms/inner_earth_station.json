@@ -12,7 +12,8 @@
   "": {"pos": [700, 720], "face": "right", "door": ""},
   "train_cabin": {"pos": [920, 715], "face": "front", "door": ""},
   "inner_earth_hydroponics": {"pos": [1925, 432], "face": "front", "door": ""},
-  "inner_earth_air_shaft": {"pos": [1830, 152], "face": "front", "door": ""}
+  "inner_earth_air_shaft": {"pos": [1830, 152], "face": "front", "door": ""},
+  "inner_earth_machine_room": {"pos": [2172, 712], "face": "front", "door": ""}
  },
  "hotspots": {
   "tube": {"area": [55, 430, 360, 260], "walk": [300, 715], "face": "back"},

@@ -33,6 +33,9 @@ const LOOK := {
 	"runner": "Ein neuer Steigschutzläufer.",
 	"duct_tape": "Gewebeband. Hält alles, was nicht halten will.",
 	"medal": "Die Medaille von 412. Quer durch läuft ein Sprung.",
+	"spare_brush": "Eine Kohlebürste mit Kupferlitze. Graphit mit Kupfer, schwer für ihre Größe.",
+	"emery_cloth": "Ein Streifen Schleifleinen, so lang wie mein Arm.",
+	"evidence_bag_coal": "Feiner schwarzer Staub mit einem Kupferschimmer. Ein echtes Pigment.",
 }
 
 const FIRE := ["incense_cone", "saucer", "lighter"]
@@ -102,6 +105,8 @@ func combine(a: String, b: String) -> void:
 			Game.remove_item("screw_bit")
 			Game.swap_item("drill", "drill_bit")
 			await say("Passt.")
+		["emery_cloth", "spare_brush"], ["spare_brush", "spatula"]:
+			await say("Ein paar Krümel. So schleife ich bis morgen.")
 		["cone_saucer", "lighter"]:
 			await say("Brennt schon.")
 		_:

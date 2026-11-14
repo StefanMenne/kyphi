@@ -273,6 +273,27 @@
    "icon": "items/medal.png",
    "icon_small": "items/medal_128.png",
    "part": 2
+  },
+  "spare_brush": {
+   "name": "Ersatzbürste",
+   "found": "Schublade der Werkbank (Maschinenraum)",
+   "use": "in den Bürstenhalter am Schleifring",
+   "icon": "items/spare_brush.png",
+   "icon_small": "items/spare_brush_128.png"
+  },
+  "emery_cloth": {
+   "name": "Schleifleinen",
+   "found": "Rolle auf der Werkbank (Maschinenraum)",
+   "use": "mit Kreppband um den Schleifring",
+   "icon": "items/emery_cloth.png",
+   "icon_small": "items/emery_cloth_128.png"
+  },
+  "evidence_bag_coal": {
+   "name": "Fundtütchen mit Kohlestaub",
+   "found": "Schleifring, unter dem Bürstenhalter",
+   "use": "Pigment für die Karte",
+   "icon": "items/evidence_bag_coal.png",
+   "icon_small": "items/evidence_bag_coal_128.png"
   }
  },
  "scenes": {

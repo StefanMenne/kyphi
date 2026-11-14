@@ -1,0 +1,24 @@
+{
+ "floor": [[240, 768], [262, 748], [830, 748], [845, 640], [1100, 628], [1150, 662], [2048, 742], [2048, 768]],
+ "depth": [[630, 330], [768, 480]],
+ "entries": {
+  "": {"pos": [320, 740], "face": "right", "door": ""},
+  "inner_earth_station": {"pos": [320, 740], "face": "right", "door": ""},
+  "inner_earth_air_shaft": {"pos": [990, 650], "face": "front", "door": ""},
+  "inner_earth_slip_ring": {"pos": [1515, 722], "face": "back", "door": ""}
+ },
+ "hotspots": {
+  "door": {"area": [27, 180, 218, 575], "walk": [320, 745], "face": "left"},
+  "duct": {"area": [295, 130, 610, 225], "walk": [700, 745], "face": "back"},
+  "grille": {"area": [905, 225, 160, 140], "walk": [990, 650], "face": "back"},
+  "bench": {"area": [355, 505, 470, 230], "walk": [590, 748], "face": "back"},
+  "drawer": {"area": [490, 548, 170, 40], "walk": [575, 748], "face": "back"},
+  "emery_roll": {"area": [640, 478, 130, 42], "walk": [700, 748], "face": "back"},
+  "bin": {"area": [810, 540, 155, 150], "walk": [880, 700], "face": "back"},
+  "left_drive": {"area": [1145, 290, 240, 370], "walk": [1265, 690], "face": "back"},
+  "middle_drive": {"area": [1395, 270, 255, 420], "walk": [1515, 722], "face": "back"},
+  "cover": {"area": [1333, 295, 62, 265], "walk": [1385, 705], "face": "back"},
+  "tag": {"area": [1598, 483, 38, 65], "walk": [1580, 726], "face": "back"},
+  "right_drive": {"area": [1700, 260, 300, 470], "walk": [1850, 745], "face": "back"}
+ }
+}

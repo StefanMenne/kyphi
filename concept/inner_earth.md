@@ -382,8 +382,14 @@ echten Grund:
   für Kantine und Küche. Gegenstände lassen sich in die Kabine legen und wiegen.
 - **Luftschacht** (`inner_earth_air_shaft.gd`): Schnittbild ohne sichtbaren Martin (noch keine Kriech-Animation);
   eine Marke zeigt, wo er ist, jede Strecke ist eine Blende mit kurzem Text. Über den Haubenrost nur bei Dunst
-  (Wetteralarm); zurück geht es immer. Am Endgitter kehrt Martin um, solange der Maschinenraum fehlt.
-- **Übergang:** Küche, Kantine und Maschinenraum bleiben zu (Martin nennt einen Grund).
+  (Wetteralarm); zurück geht es immer. Am Endgitter geht es über die Werkbank in den Maschinenraum.
+- **Maschinenraum** (`inner_earth_machine_room.gd`) mit der Nahansicht des stehenden Antriebs
+  (`inner_earth_slip_ring.gd`): Pigment abschleifen wie oben, mit Fehlversuch ohne Tütchen. Neue Gegenstände
+  Ersatzbürste, Schleifleinen, Fundtütchen mit Kohlestaub. Die Tür zum Bahnhof entriegelt Martin von innen; im
+  Wetteralarm bleibt sie zu.
+- **Fundtütchen:** Martin hat aus der Werkstatt einen ganzen Stapel. Das Haar im Altarraum kommt in ein eigenes
+  Tütchen, die leeren bleiben im Inventar (für den Kohlestaub).
+- **Übergang:** Küche und Kantine bleiben zu (Martin nennt einen Grund).
 - **Bahnhof, Geländer:** Vordergrund-Ebene `railings`, liegt vor Martin, solange er nicht auf dem Bahnsteig ist.
 - **Fehlt:** Dunst in der Küche selbst (kommt mit der Küche).
 - **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die

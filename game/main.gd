@@ -19,6 +19,8 @@ const ROOMS := {
 	"inner_earth_hydroponics": preload("res://game/rooms/inner_earth_hydroponics.gd"),
 	"inner_earth_lift_hatch": preload("res://game/rooms/inner_earth_lift_hatch.gd"),
 	"inner_earth_air_shaft": preload("res://game/rooms/inner_earth_air_shaft.gd"),
+	"inner_earth_machine_room": preload("res://game/rooms/inner_earth_machine_room.gd"),
+	"inner_earth_slip_ring": preload("res://game/rooms/inner_earth_slip_ring.gd"),
 }
 const SPEAKER_COLORS := {
 	"martin": Color("f4e8c8"),
