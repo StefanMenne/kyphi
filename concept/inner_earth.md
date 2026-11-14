@@ -66,7 +66,6 @@ Feste Regeln, damit die Bilder zueinander passen:
 | Luftschacht | `inner_earth_air_shaft` | 1344×768 | 1, Schnittbild | kriechend, etwa 200 px lang |
 | Liftluke (Nahansicht) | `inner_earth_lift_hatch` | 1344×768 | Vollbild | nicht zu sehen |
 | Schleifring (Nahansicht) | `inner_earth_slip_ring` | 1344×768 | Vollbild | nicht zu sehen |
-| Endschalter (Nahansicht) | `inner_earth_limit_switch` | 1344×768 | Vollbild | nicht zu sehen |
 | Scheibenhalle (noch nicht eingeordnet) | `inner_earth_disc_hall` | 4032×768 | 3, scrollt | sehr klein, etwa 70 px |
 | Zeitkammer (noch nicht eingeordnet) | `inner_earth_time_chamber` | 1344×768 | 1 | normal |
 
@@ -86,6 +85,8 @@ klein. Von links nach rechts:
   Bahn“; dahinter steht der Zug in der Röhre, eine Tür offen.
 - **Versorgungsblock:** eine dreistöckige Fassade im Fels mit drei gleichen Türen genau übereinander:
   **Küche** (Bahnsteig), **Hydroponik** (Zwischengeschoss, Stahlbalkon), **Kantine** (Galerie).
+- **Zweite Galerietür:** auf der Galerie links hinter der Treppe, wie die anderen mit grüner Leuchte. Sie ist
+  verschlossen („Abgeschlossen.“) und vorerst ohne Funktion; Platz für später.
 - **Treppe:** am linken Ende der Fassade, im Zickzack wie eine Feuertreppe und von der Seite zu sehen. Je
   Stockwerk zwei Läufe mit einem Zwischenpodest auf halber Höhe: Der erste Lauf steigt vom Bahnsteig nach rechts
   zum Podest, der zweite zurück nach links zum linken Ende des Balkons; vom Balkon geht es ebenso über ein zweites
@@ -114,8 +115,9 @@ vor Martin.
 
 ### Wetterschleuse
 
-Zwei große **Schiebetore** hintereinander in der Rückwand des Bahnhofs, dazwischen eine Schleusenkammer, so tief
-wie ein Transportwagen. Tor 1 liegt am Bahnhof, Tor 2 an der Anlage. Beide Tore fahren nach rechts in die Wand.
+Zwei große **Rolltore** hintereinander in der Rückwand des Bahnhofs, dazwischen eine Schleusenkammer, so tief wie
+ein Transportwagen. Tor 1 liegt am Bahnhof, Tor 2 an der Anlage. Beide Tore rollen sich nach oben in einen Kasten
+über der Öffnung auf.
 Eines muss immer geschlossen sein, sonst entsteht ein **Wetterkurzschluss** (so heißt das im Bergbau wirklich): Die
 Luft nimmt den kurzen Weg durch die offenen Tore und zieht nicht mehr durch die Räume ab.
 
@@ -124,19 +126,20 @@ vom Bahnhof durch die Räume und den Luftschacht in den Maschinenraum und von do
 offen, bricht er zusammen.
 
 - **Steuerkasten** links neben Tor 1: Taster „Tor 1“ und „Tor 2“, je eine Meldeleuchte „geschlossen“.
-- **Endschalter von Tor 1:** ein Rollenhebelschalter am linken Torpfosten in Hüfthöhe. Das geschlossene Tor drückt
-  den Hebel ein und verdeckt ihn. Erst bei offenem Tor steht der Hebel frei im Durchgang, und nur dann kommt
-  Martin heran (Nahansicht).
-- **Manipulation:** Tor 1 öffnen (erlaubt, Tor 2 ist zu). Den Hebel eindrücken und mit **Kreppband** festkleben
-  (wie den Taster im Museum): Die Leuchte „Tor 1 geschlossen“ geht an, obwohl das Tor offen steht. Taster „Tor 2“:
-  Das zweite Tor fährt auf.
+- **Endlage unten:** Die alte Steuerung hat unten keinen Endschalter. Sie hält ein Tor für geschlossen, sobald
+  sein Antrieb beim Herunterfahren auf Widerstand stößt (Kraftabschaltung). Normalerweise ist das der Boden.
+- **Manipulation:** Tor 1 öffnen (erlaubt, Tor 2 ist zu). Die **Malerleiter** (Teil 1) aufgeklappt in die
+  Toröffnung stellen und Taster „Tor 1“ drücken: Das Tor fährt herunter, setzt auf der Leiter auf und bleibt
+  stehen. Die Leuchte „Tor 1 geschlossen“ geht an, obwohl unter dem Tor ein mannshoher Spalt bleibt. Taster
+  „Tor 2“: Das zweite Tor fährt auf. Martin: *„Die Leiter hält mehr aus als die Steuerung denkt.“*
 - **Folge 1:** Der Abzug in der Küche zieht nicht mehr, der Dunst sammelt sich.
 - **Folge 2:** Die Türsteuerung misst den Druckunterschied selbst und löst **Wetteralarm** aus: Alle Türleuchten
   werden rot, alle Türen am Bahnhof sind gesperrt, auch von innen. Es bleibt nur der Luftschacht, der keine Tür
   braucht. So ist die Schleuse immer nur kurz ganz offen, der Spieler öffnet sie nicht wahllos, und es gibt keine
   Abkürzungen (z. B. das Öl im Dunst einfach zur Küchentür hinaustragen).
-- **Rückgängig:** Martin zieht das Kreppband wieder ab. Die Steuerung sieht Tor 1 offen und schließt Tor 2 von
-  selbst. Dann zieht der Dunst ab, die Leuchten werden grün, und die Türen gehen wieder.
+- **Rückgängig:** Taster „Tor 2“: Tor 2 schließt. Dann zieht der Dunst ab, die Leuchten werden grün, und die
+  Türen gehen wieder. Taster „Tor 1“: Tor 1 fährt hoch, Martin nimmt die Leiter wieder mit und schließt das Tor.
+  Solange die Leiter unter Tor 1 steht, hat Martin sie nicht im Inventar.
 
 ### Kantine
 
@@ -144,9 +147,9 @@ Ein Bildschirm, heller Raum. Von links nach rechts:
 
 - Tür zur Galerie (linke Wand).
 - **Essensautomat:** kein Verkaufsautomat mit Fächern, sondern eine **Ausgabe aus Edelstahl**, in die Rückwand
-  eingebaut. Sie ist die oberste Station des Essenslifts: eine Ausgabeöffnung in Thekenhöhe mit Rollladen, davor
-  eine kurze Tablettablage, daneben eine Säule mit Kartenschlitz und der defekten Menüanzeige (dunkel, Sprung im
-  Glas). Den Rollladen bewegt nur der Automat; er ist die „Lifttür“ der Kantine.
+  eingebaut. Sie ist die oberste Station des Essenslifts: dieselbe **Liftluke** mit Glasfenster wie in Hydroponik
+  und Küche, aber **ohne Knöpfe**, davor eine kurze Tablettablage, daneben eine Säule mit Kartenschlitz und der
+  defekten Menüanzeige (dunkel, Sprung im Glas). Die Luke öffnet nur der Automat; von Hand geht sie nicht auf.
 - Direkt daneben ein kleiner Tisch: Hier sitzt der **Gast mit schwarzer Karte** und wartet. Er muss nur aufstehen
   und einen Schritt machen, um seine Karte einzustecken (zwei Einzelbilder genügen).
 - Rechts zwei lange Tische, auf jedem ein Salzstreuer.
@@ -229,7 +232,7 @@ Leiste unter der Kabinenöffnung und ist durch das Fenster und bei offener Luke 
 
 | Station | Luke | Bedienung |
 |---|---|---|
-| Kantine | Ausgabeöffnung des Automaten mit Rollladen | nur der Automat |
+| Kantine | Klapptür mit Glasfenster in der Ausgabe, ohne Knöpfe | nur der Automat |
 | Hydroponik | Klapptür mit Glasfenster | drei Knöpfe (Symbole: Besteck, Blatt, Topf), Martin |
 | Küche | Klapptür mit Glasfenster, links neben dem Kühlschrank | drei Knöpfe wie in der Hydroponik; der Koch, für Martin nutzlos (siehe Küche) |
 
@@ -310,14 +313,14 @@ Martin liest in der Küche an der Tafel, was gekocht wird, und sagt es ihm. Das 
 
 ### Dunst in der Küche
 
-1. Bahnhof: Tor 1 der Wetterschleuse öffnen, seinen Endschalter mit Kreppband festkleben, Tor 2 öffnen. Alle
-   Türen sind gesperrt, in der Küche sammelt sich Dunst.
+1. Bahnhof: Tor 1 der Wetterschleuse öffnen, die Leiter in die Öffnung stellen, Tor 1 auf die Leiter herunterfahren,
+   Tor 2 öffnen. Alle Türen sind gesperrt, in der Küche sammelt sich Dunst.
 2. Galerie: durch das Gitter in den Luftschacht, den Steigschacht hinab und über den Haubenrost an der Küche
    vorbei in den Maschinenraum.
 3. Kohlestaub holen (siehe „Pigment abschleifen“), Tür von innen entriegeln. Sie bleibt gesperrt, solange der
    Wetteralarm anhält.
-4. Durch den Schacht zurück zum Bahnhof, Kreppband abziehen. Tor 2 schließt, der Dunst zieht ab, die Türen gehen
-   wieder, auch die zum Maschinenraum.
+4. Durch den Schacht zurück zum Bahnhof, Tor 2 schließen. Der Dunst zieht ab, die Türen gehen wieder, auch die
+   zum Maschinenraum. Tor 1 hochfahren und die Leiter wieder einpacken.
 
 ### Pigment abschleifen
 
@@ -390,7 +393,8 @@ echten Grund:
 
 - Thermoskanne mit heißem Tee (Antarktis, Fernrohr auftauen): besseres Menü.
 - Salz (Antarktis, falsche Fährte am Tor; ABC GmbH, Tonversuch): Tische der Kantine.
-- Kreppband aus Teil 1: Endschalter der Wetterschleuse, 666 abkleben, Schleifleinen am Schleifring.
+- Kreppband aus Teil 1: 666 abkleben, Schleifleinen am Schleifring.
+- Malerleiter aus Teil 1: Tor 1 der Wetterschleuse blockieren.
 - Fundtütchen aus Teil 1: Kohlestaub auffangen.
 
 ## Verworfen
@@ -398,5 +402,6 @@ echten Grund:
 - Küche und Kantine nur durch den Luftschacht sichtbar, nie betretbar.
 - Koch mit drei zurückgeschickten Tabletts ablenken.
 - Wetterschleuse als eigener Gang: jetzt die beiden Tore im Bahnhof.
+- Schiebetore mit Endschalter, den Martin mit Kreppband festklebt (mit Nahansicht): jetzt Rolltore und die Leiter.
 - Essensautomat als Verkaufsautomat mit Fächern, Essenslift als Personenaufzug, Zug auf offenem Gleis ohne
   Vakuumröhre, Luftschacht als Innenansicht mit Rohren (erste Bildentwürfe).

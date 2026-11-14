@@ -743,7 +743,7 @@ nicht gegen den Spieler.
    aufgepasst.“
 4. **Hangar.** Tilda: „Sie kommen aus dem Keller? Ungeduscht?“ Die Kapsel meldet „Deckel offen“: Die Bake ist drei
    Zentimeter zu hoch, der Deckel erreicht den Endschalter nicht.
-5. **Kreppband** auf den Endschalter, wie an der Wetterschleuse der Innenerde. „VORSICHT – FRISCH RESTAURIERT.“
+5. **Kreppband** auf den Endschalter, wie am Lichttaster im Museum. „VORSICHT – FRISCH RESTAURIERT.“
 6. **Purpurne Karte** ins Startpult. Start.
 
 Sequenz: Die Kapsel schießt aus der Steilwand über dem Meer. Die Seeschwalben fliegen auf. Feddersen sieht auf
