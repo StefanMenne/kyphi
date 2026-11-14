@@ -132,11 +132,70 @@ Sie steht auf einer Steintafel im Saal und ist die Spielregel des Ortes:
 Area 52 ist also erst lösbar, wenn Antarktis, Innenerde und ABC GmbH abgeschlossen sind. Betreten und erkunden
 kann Martin die Insel schon mit der schwarzen Karte allein.
 
+## Lage der Räume
+
+```
+ Felswand über dem Meer            Plateau                                          Klippe
+ ┌──────────┐
+ │ Bahnhof  │─ Treppe ─▶ Klippenweg ═══════════════════════════════════════════▶ Treppe ─▶ Purpurbucht
+ └──────────┘             │           │            │              │          │
+                      Hangartor    Mauer mit    Vogelwarte    Lichtöffnung   Gästehaus ─▶ Zimmer 6
+                      (Teil 3)     Nistkästen                 Treppe hinab   Leuchtturm ─▶ Leitstand
+                                                                  ▼
+                                                           Saal des Lichts
+```
+
+Feste Regeln, damit die Bilder zueinander passen:
+
+- **Klippenweg als Drehscheibe:** Martin läuft nur auf dem Weg im Vordergrund. Bahnhof (linker Bildrand) und
+  Purpurbucht (rechter Bildrand) sind die Enden; Vogelwarte, Gästehaus und Leuchtturm stehen im Hintergrund und
+  sind über Abzweige zu erreichen, der Saal über eine Treppe neben der Lichtöffnung.
+- **Türen in Innenräumen:** Eingang in der linken Seitenwand, Tür weiter (Zimmer 6) in der rechten Seitenwand.
+  Außenräume betritt Martin vom linken Bildrand.
+- **Wetter und Licht:** überall derselbe klare Tag: blassblauer Himmel mit wenigen Wolken, dunkel blaugrünes Meer,
+  graubrauner Basalt, kurzes gelbgrünes Gras, Sonne von links oben. Der Horizont liegt in allen Außenbildern im
+  oberen Drittel.
+- **Leuchtturm:** weiß mit einem roten Band und schwarzer Laterne, auf dem Klippenweg und in den Fenstern von
+  Gästehaus und Zimmer 6 derselbe.
+- **Lichtöffnung:** auf dem Klippenweg eine runde gemauerte Brüstung, im Saal dieselbe runde Öffnung in der Decke.
+- **Schrift:** Alle Vollbilder mit Text (Fahrtenanzeige, Beobachtungsbuch, Vorladung, Saalordnung,
+  Leinenstreifen) sind leere Flächen; die Schrift setzt das Spiel. Im Bild stehen nur die „12“ am Nistkasten und
+  die Tafel im Leitstand.
+
+## Räume
+
+| Raum | Code | Größe | Bildschirme | Martin (Rückwand / vorn) |
+|---|---|---|---|---|
+| Bahnhof im Fels | `area_52_station` | 2688×768 | 2, scrollt | klein, etwa 150 / 190 px |
+| Klippenweg | `area_52_cliff_path` | 2688×768 | 2, scrollt | mittel, etwa 230 / 320 px |
+| Purpurbucht | `area_52_bay` | 2048×768 | 1,5, scrollt | mittel |
+| Vogelwarte | `area_52_bird_station` | 2048×768 | 1,5, scrollt | normal, etwa 300 / 500 px |
+| Gästehaus | `area_52_guest_house` | 2048×768 | 1,5, scrollt | normal |
+| Zimmer 6 | `area_52_room_6` | 1344×768 | 1 | normal |
+| Saal des Lichts | `area_52_hall` | 1344×768 | 1 | mittel |
+| Leitstand | `area_52_control_room` | 2048×768 | 1,5, scrollt | normal |
+| Fahrtenanzeige (Vollbild) | `area_52_trip_board` | 1344×768 | Vollbild | nicht zu sehen |
+| Nistkasten 12 (Nahansicht) | `area_52_nest_box` | 1344×768 | Vollbild | nicht zu sehen |
+| Gezeitentümpel (Nahansicht) | `area_52_tide_pool` | 1344×768 | Vollbild | nicht zu sehen |
+| Beobachtungsbuch (Vollbild) | `area_52_logbook` | 1344×768 | Vollbild | nicht zu sehen |
+| Leinenstreifen (Vollbild) | `area_52_linen_strip` | 1344×768 | Vollbild | nicht zu sehen |
+| Vorladung (Vollbild) | `area_52_summons` | 1344×768 | Vollbild | nicht zu sehen |
+| Saalordnung (Vollbild) | `area_52_hall_rules` | 1344×768 | Vollbild | nicht zu sehen |
+| Tafel „Kessler-Ereignis“ (Nahansicht) | `area_52_kessler_board` | 1344×768 | Vollbild | nicht zu sehen |
+
+Die englischen Raumbeschreibungen und Bildprompts mit allen Zuständen stehen in
+`work/concept/area_52_prompts.md`, die Prüfliste für die Bilder in `work/concept/area_52_image_check.md`.
+
 ## Räume: was dort ist und was dort geschieht
 
 ### 1. Bahnhof im Fels
 
 Die Bahn hält in einer Felswand über dem Meer. Zum ersten Mal seit dem Museum fällt Tageslicht herein.
+
+Zwei Bildschirme, Martin ist klein. Von links nach rechts: die Vakuumröhre mit Schleuse und Zug wie an den
+anderen Bahnhöfen; der Glaskasten des Postens, darüber an der Felswand die Fahrtenanzeige; dann öffnet sich die
+Rückwand in einem breiten Felsbogen ins Freie, mit Geländer, Himmel, Meer und Vögeln; ganz rechts die Felstreppe
+hinauf zum Klippenweg. Das Tageslicht fällt durch den Bogen auf den Bahnsteig und verliert sich nach links.
 
 | Objekt | Aktion |
 |---|---|
@@ -149,27 +208,49 @@ Die Bahn hält in einer Felswand über dem Meer. Zum ersten Mal seit dem Museum 
 
 Der Weg über das Plateau, von dem alle anderen Orte abgehen.
 
+Zwei Bildschirme, Martin ist mittelgroß. Der Weg läuft im Vordergrund von Bildrand zu Bildrand. Von links nach
+rechts:
+
+- **Felsrücken** (linkes Drittel), seine Wand frontal: ganz links der Stollenmund mit der Treppe vom Bahnhof,
+  daneben das Hangartor, felsgrau gestrichen, mit Personentür und Kartenleser.
+- **Mauer mit den Nistkästen** (Mitte): eine hüfthohe Trockenmauer am Weg, auf ihrer Krone eine Reihe von
+  zwanzig Kästen mit Klappdeckel. Hinter der Mauer öffnet sich der Blick aufs Meer; auf einer Kuppe steht die
+  Vogelwarte, am Hang daneben sitzt die Kolonie. Ein Pfad führt durch eine Lücke in der Mauer hinauf.
+- **Lichtöffnung** (rechtes Drittel): eine kniehohe, runde gemauerte Brüstung im Gras neben dem Weg, daneben die
+  Treppe hinab in den Saal. Im Hintergrund auf der Landzunge das Gästehaus und der Leuchtturm.
+- **Klippenkante** ganz rechts mit der Holztreppe hinab in die Purpurbucht.
+
 | Objekt | Aktion |
 |---|---|
 | Seeschwalbenkolonie am Hang | Ansehen. |
-| Mauer mit Nistkästen 1–20 (Sturmschwalben) | Ansehen. Kasten 12: erst zugänglich, wenn Feddersen ihn geöffnet hat. |
+| Mauer mit Nistkästen 1–20 (Sturmschwalben) | Ansehen. Kasten 12 (Nahansicht): erst zugänglich, wenn Feddersen ihn geöffnet hat. Darin das Nest mit einem Ei und, halb unter dem Nistmaterial, die Ringdose. |
 | Lichtöffnung des Saals | Eine runde, gemauerte Brüstung im Boden. Ansehen: „Unten steht ein Stein im Halbdunkel.“ Zielbake benutzen. |
 | Hangartor im Fels, Personentür mit Kartenleser | Ohne purpurne Karte: „Hier besteht meine Karte nicht einmal die Sichtprüfung.“ Mit purpurner Karte: Teil 3. |
 | Wege | Bahnhof, Purpurbucht (Treppe), Vogelwarte, Gästehaus, Saal (Treppe hinab), Leuchtturm |
 
 ### 3. Purpurbucht
 
+Anderthalb Bildschirme, Martin ist mittelgroß. Eine flache Felsplatte am Fuß der Klippe, dahinter rechts das
+Meer. Von links nach rechts: die Holztreppe vom Klippenweg; am Fuß der Klippe der Scherbenhügel, daneben drei
+Becken im Fels; in der Mitte der Felsplatte das Übungsfeld, ein Kreis aus schwarzem, glasigem Fels, genau in
+seiner Mitte die Zielbake auf dem Dreibein; rechts am Wasser der Gezeitentümpel.
+
 | Objekt | Aktion |
 |---|---|
 | Scherbenhügel | Ansehen: „Tausende Schalen. Alle von einer Sorte, alle an derselben Stelle aufgeschlagen.“ Schalenscherbe nehmen. |
 | Becken im Fels | Ansehen: flache, in den Stein gehauene Wannen, am Rand dunkel verfärbt. |
-| Gezeitentümpel | Ansehen: „Dutzende Schnecken und Muscheln. Ich weiß nicht, welche.“ Siehe Rätsel „Die richtige Schnecke“. |
+| Gezeitentümpel | Nahansicht von oben: „Dutzende Schnecken und Muscheln. Ich weiß nicht, welche.“ Siehe Rätsel „Die richtige Schnecke“. |
 | Übungsfeld | Ein Kreis aus glasigem Fels, zehn Meter breit. Martin: „Verglast. Dafür braucht man weit über tausend Grad.“ |
 | Zielbake auf Dreibein | Ansehen: ein Kasten mit Tragegriff, Schild „Ziel Probe“. Nehmen (erst sinnvoll nach dem Leitstand). |
 
 ### 4. Vogelwarte
 
 Außen: Hütte, Bank, Wäscheleine in der Sonne.
+
+Anderthalb Bildschirme, Martin ist normal groß; die Hütte bleibt zu. Von links nach rechts: der Pfad vom
+Klippenweg (linker Bildrand); die Hütte, ihre Front frontal, links der Tür der Eimer, rechts der Tür die Bank mit
+dem aufgeschlagenen Buch (Feddersens Platz); die Wäscheleine von der Hüttenecke zu einem Pfosten, fünf Stücke in
+der Sonne, das erste noch nass; ganz rechts das Spektiv auf dem Stativ, auf den Hang mit der Kolonie gerichtet.
 
 | Objekt | Aktion |
 |---|---|
@@ -182,6 +263,12 @@ Außen: Hütte, Bank, Wäscheleine in der Sonne.
 ### 5. Gästehaus
 
 Das alte Haus des Leuchtturmwärters.
+
+Anderthalb Bildschirme: die Stube, weiß gekalkt über blaugrauer Holzvertäfelung, Dielenboden. Von links nach
+rechts: Haustür (linke Wand); Schwarzes Brett mit dem Aushang, daneben das Schlüsselbrett; der Frühstückstisch
+mit zwei Stühlen, von der Seite gesehen (die Anwärter), darüber die Hausordnung, an der Decke ein Rauchmelder;
+unter dem Fenster mit Blick auf den Leuchtturm der lange Tisch der Revisorin, dem Betrachter zugewandt; Tür zu
+Zimmer 6 (rechte Wand).
 
 | Objekt | Aktion |
 |---|---|
@@ -199,6 +286,10 @@ Die Vorladung:
 
 ### 6. Zimmer 6
 
+Ein Bildschirm, dieselben Wände wie die Stube. Tür in der linken Wand, Bett links an der Rückwand, in der Mitte
+das Fenster mit dem Leuchtturm, darunter Tisch und Stuhl, rechts ein Schrank. Der Rauchmelder sitzt gut sichtbar
+mitten an der Decke.
+
 | Objekt | Aktion |
 |---|---|
 | Bett | Benutzen: die Nacht beginnt, sobald alles vorbereitet ist (siehe „Die Nacht“). |
@@ -208,6 +299,12 @@ Die Vorladung:
 ### 7. Saal des Lichts
 
 Eine antike Zisterne, rund, tief im Fels. Licht kommt nur durch die Öffnung in der Decke.
+
+Ein Bildschirm, symmetrisch, Martin ist mittelgroß, damit die Kuppel mit der Öffnung ins Bild passt. Die
+gekrümmte Wand läuft um den Hintergrund. Genau in der Mitte des runden Bodens, im Lichtkegel, steht der
+hüfthohe Lichtstein. Links und rechts an der Wand zwei Reihen Steinbänke. In der Mitte der Rückwand, hinter dem
+Stein, das runde Sprechgitter aus Bronze, rechts daneben die Steintafel. Ganz links der Torbogen mit der Treppe
+hinauf zum Klippenweg. Bei der Anhörung stehen Voss links und Martin rechts am Stein.
 
 | Objekt | Aktion |
 |---|---|
@@ -220,11 +317,17 @@ Eine antike Zisterne, rund, tief im Fels. Licht kommt nur durch die Öffnung in 
 
 Oben im Leuchtturm, wo früher die Lampe stand.
 
+Anderthalb Bildschirme: ein runder Raum mit einem Band hoher Fenster rundum, dahinter Himmel und Meer. Von links
+nach rechts: die Öffnung im Boden mit Geländer, durch die die Wendeltreppe heraufkommt; die große Anzeige vor
+den Fenstern; das lange Steuerpult mit Malins Stuhl, darüber zwischen zwei Fenstern die Tafel und daneben das
+Klemmbrett mit dem Lichtplan; rechts die alte Leuchtfeuerlinse auf ihrem Sockel, der schwere Vorhang zwischen
+Linse und Fenstern zugezogen.
+
 | Objekt | Aktion |
 |---|---|
 | Malin | Reden. |
 | Wandanzeige | Ansehen: die Erde und 50.000 Punkte. |
-| Tafel „Tage ohne Kessler-Ereignis: 1.204“ | Ansehen, Malin fragen (siehe unten). |
+| Tafel „Tage ohne Kessler-Ereignis: 1.204“ | Ansehen (Nahansicht), Malin fragen (siehe unten). |
 | Lichtplan | Ansehen: „Heute: Probe bei erstem Licht. 200 Spiegel. Ziel: Bake.“ |
 | Alte Leuchtfeuerlinse, Vorhang davor | Ansehen. Malin: „Tagsüber bleibt der Vorhang zu. Sonst brennt uns die Sonne durch die Linse die Bude ab.“ Kulisse. |
 

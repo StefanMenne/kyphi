@@ -180,12 +180,66 @@ Sie steht im Ratssaal im Glas der Wand. Die Saalordnung von oben gilt weiter.
 Teil 3 beginnt mit der purpurnen Karte am Hangartor. Alle anderen Orte bleiben erreichbar und werden gebraucht:
 die Insel (Malin, Feddersen) und die ABC GmbH (Brenner, Siebert).
 
+## Lage der Räume
+
+```
+ Klippenweg ─ Personentür ─▶ Hangargalerie ─▶ Schleuse ─▶ Spiegelhalle ─▶ Hangar
+                                  │ gläserner Lift                          │ Leiter im Startschacht
+                                  ▼                                         ▼
+  Ratssaal ┐                                                          hinter Schott T2
+  Archiv   ├◀── Tageslichthalle ── Treppe ──▶ Tiefsohle ══ Pumpensumpf ══ Schott T2
+  Atelier  │         │ Lift mit Handfläche                    ▲
+  Arrest   ┘         ▼                                     Stollen 7 (Finale)
+                  Leitkern
+```
+
+Feste Regeln, damit die Bilder zueinander passen:
+
+- **Türen:** Der Eingang liegt in jedem Raum in der linken Seitenwand, der Weg weiter in der rechten Seitenwand
+  oder am rechten Ende der Rückwand. Die Tageslichthalle hat ihre sieben Türen in der gekrümmten Rückwand.
+- **Aussehen** wie oben unter „Aussehen“: fugenlos mattweiße Wände und Böden, schwarzes Glas, Purpur nur als
+  Licht. Jede Tür ist eine bündige weiße Schiebetür mit einer dünnen purpurnen Lichtlinie um den Rahmen; im
+  Boden führen purpurne Leitlinien. Die Räume sind fast leer.
+- **Alt und rau** sind nur die Stücke im Archiv, der Kanon, Hollmanns Gläser und die ganze Tiefsohle.
+- **Schrift:** Keine im Bild. Anzeigen (Partikelzähler, erkannte Karten, letzter Start, Lagewand im Finale),
+  die Ordnung der Sieben, die Sitzungsmappe und Hollmanns Schrift im Kanon setzt das Spiel.
+- **Dunkelheit:** Tiefsohle und Ratssaal werden im Spiel abgedunkelt; die Leitstreifen und der Kanon liegen als
+  eigene, leuchtende Ebenen darüber.
+
+## Räume
+
+| Raum | Code | Größe | Bildschirme | Martin (Rückwand / vorn) |
+|---|---|---|---|---|
+| Hangargalerie | `part_3_gallery` | 2048×768 | 1,5, scrollt | normal, etwa 300 / 500 px |
+| Schleuse | `part_3_airlock` | 1344×768 | 1 | normal |
+| Spiegelhalle | `part_3_mirror_hall` | 2688×768 | 2, scrollt | mittel, etwa 230 / 320 px |
+| Hangar | `part_3_hangar` | 2048×768 | 1,5, scrollt | mittel |
+| Tageslichthalle | `part_3_daylight_hall` | 2688×768 | 2, scrollt | mittel |
+| Ratssaal | `part_3_council` | 1344×768 | 1 | mittel |
+| Archiv | `part_3_archive` | 2048×768 | 1,5, scrollt | normal |
+| Atelier | `part_3_studio` | 2048×768 | 1,5, scrollt | normal |
+| Arrest | `part_3_detention` | 1344×768 | 1 | normal |
+| Tiefsohle | `part_3_deep_level` | 2048×768 | 1,5, scrollt | normal |
+| Leitkern (Blick durch die Glastür) | `part_3_core` | 1344×768 | Vollbild | nicht zu sehen |
+| Kanon (Vollbild, vier Zustände) | `part_3_canon` | 1344×768 | Vollbild | nicht zu sehen |
+| Sitzungsmappe (Vollbild) | `part_3_folder` | 1344×768 | Vollbild | nicht zu sehen |
+| Ordnung der Sieben (Vollbild) | `part_3_order` | 1344×768 | Vollbild | nicht zu sehen |
+| Startkapsel (Nahansicht) | `part_3_capsule` | 1344×768 | Vollbild | nicht zu sehen |
+
+Die englischen Raumbeschreibungen und Bildprompts mit allen Zuständen stehen in
+`work/concept/part_3_prompts.md`, die Prüfliste für die Bilder in `work/concept/part_3_image_check.md`.
+
 ## Räume: was dort ist und was dort geschieht
 
 ### 1. Hangargalerie (scrollend)
 
 Hinter der Personentür des Hangartors läuft eine gläserne Galerie über den Hangar. Unten, hinter Glas, liegt der
 Reinraum: der Verschluss der Startröhre, ein Spiegel auf seinem Gestell, Roboter.
+
+Anderthalb Bildschirme. Fast die ganze Rückwand ist eine rahmenlose Glasfront, durch die man tief hinab in den
+Hangar sieht; alles dort unten ist klein und fern. Von links nach rechts: die Personentür aus grauem Stahl (linke
+Wand), das einzig Rohe im Raum; die Glasfront, unten links im Glas die Anzeige; am rechten Ende der Rückwand die
+Tür zur Schleuse; in der rechten Wand der gläserne Lift.
 
 | Objekt | Aktion |
 |---|---|
@@ -200,6 +254,12 @@ Reinraum: der Verschluss der Startröhre, ein Spiegel auf seinem Gestell, Robote
 
 Ein weißer Vorraum mit Spinden und die Luftdusche, eine Glaskabine mit Düsen.
 
+Ein Bildschirm. Von links nach rechts: Tür zur Galerie (linke Wand); der Overallspender an der Rückwand, daneben
+die Anzeige „Erkannte Karten“; die Luftdusche, eine Kabine aus klarem Glas, die die rechte Hälfte des Raums
+füllt, an der Rückwand steht und bis an die rechte Wand reicht. Sie fasst zwei Personen und ist von vorn ganz
+einzusehen: Martin und Hollmann stehen darin, Kastner wartet vor dem Glas. Die Innentür zur Spiegelhalle liegt
+in der rechten Wand, in der Kabine, darüber der Partikelzähler. Vor der Kabine liegt die Klebematte am Boden.
+
 | Objekt | Aktion |
 |---|---|
 | Overallspender | Reinraumoverall anziehen (über den Staubkittel). |
@@ -213,6 +273,11 @@ Ein weißer Vorraum mit Spinden und die Luftdusche, eine Glaskabine mit Düsen.
 
 Hier werden die Spiegel gefaltet und geprüft. Alles ist weiß, Tilda auch.
 
+Zwei Bildschirme, Martin ist mittelgroß; die Halle ist höher als das Bild. Von links nach rechts: Tür zur
+Schleuse (linke Wand); der Lochprüftisch, ein sehr langer, hüfthoher Tisch, dessen ganze Platte leuchtet (Tildas
+Platz); zwei Faltroboter; in der rechten Hälfte der Ersatzspiegel, halb entfaltet wie ein riesiger Fächer aus
+Silberfolie an einem weißen Gestell, oben vom Bildrand angeschnitten; das Tor zum Hangar (rechte Wand).
+
 | Objekt | Aktion |
 |---|---|
 | Tilda | Reden, Gegenstände geben. |
@@ -225,6 +290,15 @@ Hier werden die Spiegel gefaltet und geprüft. Alles ist weiß, Tilda auch.
 
 Der Boden des Hangars, den Martin von der Galerie gesehen hat.
 
+Anderthalb Bildschirme, Martin ist mittelgroß. Von links nach rechts: Tor zur Spiegelhalle (linke Wand); das
+Startpult, ein schmales weißes Pult mit Platte aus schwarzem Glas und Kartenleser; in der Mitte der Rückwand der
+Verschluss der Startröhre, eine runde Stahlklappe, doppelt so hoch wie ein Mensch; von ihr läuft die Ladeschiene
+kniehoch an der Rückwand nach links, darauf vor dem Verschluss die Startkapsel, ein glatter weißer Zylinder mit
+Klappdeckel; rechts im Boden der Startschacht mit Geländer und Leiter.
+
+Die Startkapsel hat eine Nahansicht: Öffnung, Deckel und am Rand der Öffnung der Endschalter mit Rollenhebel.
+Steht die Zielbake darin, ragt ihr Tragegriff über den Rand, und der Deckel bleibt einen Fingerbreit offen.
+
 | Objekt | Aktion |
 |---|---|
 | Startröhre, Verschluss | Ansehen. Tilda: „Im Rohr ist alles abgeschirmt. Stahl und dreißig Meter Fels.“ |
@@ -236,6 +310,20 @@ Der Boden des Hangars, den Martin von der Galerie gesehen hat.
 
 Der Knoten des Kerns: eine runde Halle unter einer Decke, die ein Vormittagshimmel ist. In der Mitte ein
 Feigenbaum und eine Sonnenuhr.
+
+Zwei Bildschirme, Martin ist mittelgroß, damit die Himmelsdecke im Bild ist. Die gekrümmte weiße Wand läuft um
+den Hintergrund. In der Mitte der Halle, auf halber Tiefe, der Feigenbaum in einem Kiesbeet und daneben die
+Sonnenuhr (Platz des Ältesten); Martin läuft davor vorbei. Die sieben Türen in der Wand, von links nach rechts:
+
+1. gläserner Lift zur Hangargalerie
+2. Ratssaal: breite Doppeltür aus schwarzem Glas
+3. Archiv: weiße Schiebetür
+4. Atelier: weiße Schiebetür (rechts vom Baum)
+5. Arrest: weiße Schiebetür
+6. Treppe zur Tiefsohle: weiße Tür, darüber die grüne Hinweistafel „Fluchtweg“
+7. Lift zum Leitkern: schmale Tür aus schwarzem Glas, daneben die leuchtende Handfläche
+
+Über jeder Tür setzt das Spiel ein Zeichen, damit der Spieler die drei weißen Türen unterscheidet.
 
 | Objekt | Aktion |
 |---|---|
@@ -250,6 +338,13 @@ Feigenbaum und eine Sonnenuhr.
 
 Ein Ring aus schwarzem Glas mit sieben Sitzen. In der Mitte, unter einem Lichtkegel, die Vitrine des Kanons.
 Genau darüber liegt der Saal des Lichts; das Sprechgitter führt hinauf.
+
+Ein Bildschirm, symmetrisch wie der Saal des Lichts darüber, Martin ist mittelgroß. Die ganze gekrümmte
+Rückwand ist die Lagewand aus schwarzem Glas. Davor stehen die sieben Sitze im Halbkreis, zur Mitte gewandt;
+Sitz sieben ist der ganz rechts, auf ihm liegt die Sitzungsmappe. Genau in der Mitte, im Lichtkegel, die flache
+Vitrine mit dem Kanon, links daneben die Räucherschale auf einem schlanken Ständer. Ganz links die Tür und
+daneben in der Wand das Feld aus schwarzem Glas mit der Ordnung der Sieben. In der Sitzung wird das Bild
+abgedunkelt, und der Kanon leuchtet als eigene Ebene.
 
 | Objekt | Aktion |
 |---|---|
@@ -269,6 +364,10 @@ Die Tagesordnung:
 
 Ein Schaudepot aus Glas. Jedes Stück steht in Argon, jede Vitrine hat ein Schild mit Alter und Fundort.
 
+Anderthalb Bildschirme. Tür in der linken Wand. An der Rückwand stehen vier gleiche, hohe Vitrinen
+nebeneinander: Schrein, Relief, Abguss der Saalordnung, die leere Vitrine. Im rechten Drittel Regale aus
+schwarzem Glas und davor der Regalroboter auf seiner Schiene.
+
 | Objekt | Aktion |
 |---|---|
 | Schrein des Abendrauchs („Zedernholz, um 1250 v. Chr.“) | Ansehen, UV-Lampe benutzen: siehe Rätsel 2. |
@@ -280,6 +379,11 @@ Ein Schaudepot aus Glas. Jedes Stück steht in Argon, jede Vitrine hat ein Schil
 ### 8. Atelier
 
 Die beste Restaurierungswerkstatt, die Martin je gesehen hat, und eine Pritsche in der Ecke.
+
+Anderthalb Bildschirme. Von links nach rechts: Tür (linke Wand); die Pritsche in der hinteren linken Ecke; das
+Bord mit den Gläsern und dem Muschelgold; der lange weiße Arbeitstisch mit dem Stereomikroskop (hier liegt
+später der Kanon); der Leuchttisch mit dunkler Glasplatte. Der Partikelzähler sitzt gut sichtbar an der Decke.
+Hollmann steht am Arbeitstisch, Kastner zwischen Tisch und Tür.
 
 | Objekt | Aktion |
 |---|---|
@@ -295,6 +399,9 @@ Die beste Restaurierungswerkstatt, die Martin je gesehen hat, und eine Pritsche 
 
 Drei Zellen aus Glas, eine belegt.
 
+Ein Bildschirm. Tür in der linken Wand. Die Rückwand besteht aus den drei Zellen nebeneinander, jede mit
+Glasfront, Glastür und einer weißen Bank; Voss sitzt in der mittleren. Rechts neben den Zellen die Sprechanlage.
+
 | Objekt | Aktion |
 |---|---|
 | Dr. Voss | Reden. Diktiergerät benutzen: siehe Rätsel 5. |
@@ -303,6 +410,15 @@ Drei Zellen aus Glas, eine belegt.
 ### 10. Tiefsohle (scrollend)
 
 Roher Fels unter dem Kern. Die Lampen sind seit Jahren kaputt, hier unten sitzt kein Sitz.
+
+Anderthalb Bildschirme, von der Seite gesehen wie die Kammer in Stollen 7, deren Gegenstück sie im Finale ist.
+Von links nach rechts: die Tür zur Treppe (linke Wand), durch die das einzige Licht fällt; der Schrank
+„Leitmarkierung“ an der Rückwand; in der Mitte der Pumpensumpf, eine Grube im Boden mit Geländer, Pumpen und
+Rohren, dahinter die nackte Felswand, durch die Stollen 7 durchschlägt; rechts in der Rückwand Schott T2, eine
+schwere Stahlplatte im Rahmen, frontal zu sehen. Die Leitstreifen laufen am Boden von der Tür bis zum Schott.
+
+Das Schott hebt sich im Spiel als eigene Ebene in drei Stufen; unterbaut wird unter seiner Unterkante. Die
+Dunkelheit entsteht im Spiel: Das Bild wird abgedunkelt, die Leitstreifen leuchten als eigene Ebene grün.
 
 | Objekt | Aktion |
 |---|---|
@@ -316,6 +432,9 @@ Roher Fels unter dem Kern. Die Lampen sind seit Jahren kaputt, hier unten sitzt 
 ### 11. Leitkern
 
 Ein Raum, eine Wand, 50.000 Punkte, ein Stuhl. Martin sieht ihn nur am Schluss, durch die Glastür.
+
+Ein Vollbild ohne Lauffläche: der Blick durch die Glastür in den dunklen Raum, der Stuhl mit dem Rücken zum
+Betrachter vor der Wand.
 
 ## Rätsel
 
