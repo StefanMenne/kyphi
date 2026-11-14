@@ -385,8 +385,11 @@ echten Grund:
 
 ## Offen
 
-- **Engine:** mehrere Laufflächen je Raum mit eigener Figurgröße, Verbindungsstrecken (Treppe, Schacht) und
-  Wegsuche darüber. Gebraucht im Bahnhof und im Luftschacht.
+- **Engine:** Mehrere Laufflächen je Raum mit eigener Figurgröße, Verbindungsstrecken und Wegsuche sind gebaut
+  (`areas`/`links` in `game/rooms/<id>.json`, `Room.route`, Test `tests/walk_areas.tscn`). Offen: Martin läuft
+  Treppen mit dem normalen Laufzyklus (keine Treppen- oder Kletteranimation), hält an jedem Podest kurz an;
+  Geländer als Vordergrund-Ebenen vor Martin; im Layout-Editor lassen sich Strecken noch nicht bearbeiten
+  (nur Flächen, Tab wechselt die Fläche).
 - **Kriechen im Luftschacht:** Martin hat noch keine Kriech-Animation (Kriechzyklus, dazu Klettern im
   Steigschacht oder dort eine Blende).
 - **Gericht des Tages:** noch nicht festgelegt. Die Tafel bleibt im Hintergrundbild leer, die Schrift kommt als

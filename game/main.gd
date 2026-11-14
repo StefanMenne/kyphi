@@ -195,6 +195,7 @@ func _load_room(room_id: String, from: String, pos = null) -> void:
 	player.room = room
 	var e: Array = room.entries.get(from, room.entries[""])
 	player.position = pos if pos != null else e[0]
+	room.set_location(player.position)
 	player.face(e[1], true)
 	player.update_scale()
 	if e.size() > 2 and e[2] != "":
@@ -280,6 +281,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.double_click and hs and hs["verb"] == "go" and selected == "":
 			player.stop()
 			player.position = room.clamp_to_floor(hs["walk"])
+			room.set_location(player.position)
 			player.update_scale()
 			act(hs, "use")
 		# Türen und Durchgänge ohne Menü: direkt gehen

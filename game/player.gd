@@ -183,12 +183,43 @@ func turn_to(d: String, abortable := true) -> bool:
 	return await walker.turn_to(d, abortable)
 
 
-## Läuft zum Punkt (Walker.walk_to); false, wenn ein neuer Befehl (neues Ziel, stop) diesen Weg ablöst.
+## Läuft zum Punkt; false, wenn ein neuer Befehl (neues Ziel, stop) diesen Weg ablöst. In Räumen mit mehreren
+## Laufflächen über den Weg aus Room.route: Abschnitt für Abschnitt (Walker.walk_to je Punkt), dabei zeigt
+## room.cur_area/cur_link, wo er ist (für seine Größe).
 func walk_to(target: Vector2) -> bool:
-	return await walker.walk_to(target)
+	if room.links.is_empty():
+		return await walker.walk_to(target)
+	_route_token += 1
+	var my := _route_token
+	var legs := room.route(position, target)
+	for leg in legs:
+		if leg["link"] >= 0:
+			room.cur_link = leg["link"]
+		else:
+			room.cur_link = -1
+			room.cur_area = leg["area"]
+		for pt in leg["points"]:
+			# Zwischenpunkte, die praktisch erreicht sind (Treppenende = Rand der Fläche), nicht eigens anlaufen
+			if pt != legs[-1]["points"][-1] and position.distance_to(pt) < 0.2 * room.height_for(position):
+				continue
+			_routing = true
+			var ok: bool = await walker.walk_to(pt)
+			if my != _route_token:
+				return false
+			_routing = false
+			if not ok:
+				return false
+	return true
+
+
+## Weg über mehrere Abschnitte läuft (walk_clamp lässt Punkte auf Strecken stehen); neuer Weg erhöht den Zähler
+var _routing := false
+var _route_token := 0
 
 
 func stop() -> void:
+	_route_token += 1
+	_routing = false
 	walker.stop()
 
 
@@ -206,12 +237,12 @@ func walk_moved() -> void:
 	update_scale()
 
 
-func walk_height(y: float) -> float:
-	return room.height_at(y)
+func walk_height(_y: float) -> float:
+	return room.height_for(position)
 
 
 func walk_clamp(p: Vector2) -> Vector2:
-	return room.clamp_to_floor(p)
+	return p if _routing else room.clamp_to_floor(p)
 
 
 func walk_frame() -> float:
@@ -273,7 +304,7 @@ func gesture(kind: String) -> void:
 
 
 func update_scale() -> void:
-	var k := room.height_at(position.y) / _body
+	var k := room.height_for(position) / _body
 	scale = Vector2(k, k)
 	_shadow.visible = show_shadow
 	_shadow.modulate.a = room.shadow_alpha

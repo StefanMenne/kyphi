@@ -8,7 +8,7 @@ const HANDLE := 7.0
 const HELP := "Entwicklermodus (F9 beendet)   Strg+S speichern   Strg+R neu laden   A/D oder ←/→ Kamera\n" + \
 	"Ecken, Laufpunkte (blau), Eingänge (violett), Tiefe (links) ziehen   Hotspot anklicken: verschieben, " + \
 	"Ecken ändern   F: Blickrichtung drehen\nSprites (rosa Marke oben links) ziehen   Doppelklick auf Kante: Ecke einfügen   Rechtsklick auf Ecke: löschen   " + \
-	"Mausrad an Tiefenmarke: Figurhöhe"
+	"Mausrad an Tiefenmarke: Figurhöhe   Tab: nächste Lauffläche (mehrere Flächen)"
 
 var main: Node
 var room: Room
@@ -77,7 +77,9 @@ func _process(dt: float) -> void:
 	cam.position.x = clampf(cam.position.x + scroll * 900.0 * dt, 0, maxf(0, cam.limit_right - w))
 	var m := _mouse()
 	var hs: Variant = room.hotspot_at(m)
-	_info.text = HELP + "\n%s  x %d  y %d  Figurhöhe %d%s%s" % [room.id, m.x, m.y, room.height_at(m.y),
+	var area_info := ("   Fläche: " + room.edit_area) if room.areas.size() > 1 else ""
+	_info.text = HELP + "\n%s%s  x %d  y %d  Figurhöhe %d%s%s" % [room.id, area_info, m.x, m.y,
+		room.area_height(room.edit_area, m.y),
 		("   Hotspot: " + hs["id"]) if hs else "", "   * ungespeichert" if _dirty else ""]
 	queue_redraw()
 
@@ -95,6 +97,19 @@ func _draw() -> void:
 	if not active or room == null:
 		return
 	var k := 1.0 / room.scale.x
+	# weitere Laufflächen (nur Umriss) und Verbindungsstrecken mit Figurhöhe je Punkt
+	for aid in room.areas:
+		if aid != room.edit_area:
+			var other: PackedVector2Array = room.areas[aid]["poly"].duplicate()
+			if other.size() >= 2:
+				other.append(other[0])
+				draw_polyline(other, Color(0.2, 1, 0.3, 0.45), 1.5 * k)
+				_text(other[0] + Vector2(4, -6) * k, aid, Color(0.2, 1, 0.3, 0.7), k)
+	for l in room.links:
+		draw_polyline(l["points"], Color(0.3, 0.9, 1), 2.5 * k)
+		for i in l["points"].size():
+			_handle(l["points"][i], Color(0.3, 0.9, 1), k)
+			_text(l["points"][i] + Vector2(6, -6) * k, str(roundi(l["heights"][i])), Color(0.3, 0.9, 1), k)
 	# Lauffläche
 	# beim Ziehen kann die Fläche kurzzeitig ungültig sein (Punkte übereinander, Kanten überkreuzt): dann nur
 	# die rote Umrandung, ohne Füllung (die Füllung würde "triangulation failed" melden)
@@ -151,7 +166,7 @@ func _draw() -> void:
 
 
 func _draw_ghost(p: Vector2, face: String, alpha: float) -> void:
-	var h := room.height_at(p.y)
+	var h := room.area_height(room.area_of(p), p.y)
 	if h < 20.0:
 		return
 	var g: Array = _ghosts.get(face, _ghosts["right"])
@@ -207,6 +222,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			room.load_layout()
 			_selected = null
 			_dirty = false
+		get_viewport().set_input_as_handled()
+		return
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_TAB:
+		var ids: Array = room.areas.keys()
+		room.edit_area = ids[(ids.find(room.edit_area) + 1) % ids.size()]
 		get_viewport().set_input_as_handled()
 		return
 	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F:
