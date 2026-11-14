@@ -1,0 +1,15 @@
+{
+ "floor": [[660, 740], [700, 740], [700, 768], [660, 768]],
+ "depth": [[740, 300], [768, 320]],
+ "entries": {
+  "": {"pos": [680, 760], "face": "back", "door": ""}
+ },
+ "hotspots": {
+  "upper_duct": {"area": [205, 145, 235, 150], "walk": [680, 760], "face": "back"},
+  "station_grille": {"area": [55, 145, 150, 150], "walk": [680, 760], "face": "back"},
+  "flap": {"area": [440, 175, 100, 105], "walk": [680, 760], "face": "back"},
+  "riser": {"area": [540, 300, 125, 300], "walk": [680, 760], "face": "back"},
+  "hood_grating": {"area": [715, 500, 340, 135], "walk": [680, 760], "face": "back"},
+  "end_grille": {"area": [1050, 500, 255, 135], "walk": [680, 760], "face": "back"}
+ }
+}

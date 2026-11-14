@@ -8,8 +8,7 @@ extends Room
 ## (hinten) zu oder offen. Die Steuerung hält Tor 1 auch auf der Leiter für geschlossen (Kraftabschaltung) und
 ## öffnet dann Tor 2: Wetterkurzschluss, Wetteralarm (alle Türleuchten rot, alle Türen gesperrt).
 ##
-## Übergänge, solange Luftschacht, Küche, Kantine und Maschinenraum fehlen: Das Gitter führt direkt in die
-## Hydroponik; Küche, Kantine und Maschinenraum bleiben zu.
+## Übergänge, solange Küche, Kantine und Maschinenraum fehlen: diese drei Türen bleiben zu.
 
 ## Türleuchten über den Türen (Bildpixel), im Wetteralarm rot
 const DOOR_LAMPS := [Vector2(1930, 238), Vector2(1930, 498), Vector2(1930, 2), Vector2(1480, 2), Vector2(2178, 426)]
@@ -211,9 +210,7 @@ func use_grille() -> void:
 		refresh()
 		await say("Zwei Flügelmuttern. Fester angezogen als nötig, aber es geht.")
 		return
-	# Übergang: Der Luftschacht ist noch nicht gebaut; Martin kriecht direkt zur Klappe der Hydroponik.
-	await narrate("[Martin kriecht in den Luftschacht. Nach einer Biegung fällt rosaviolettes Licht durch eine Klappe.]")
-	await Game.main.change_room("inner_earth_hydroponics", "air_shaft")
+	await go("inner_earth_air_shaft")
 
 
 func use_control_box() -> void:

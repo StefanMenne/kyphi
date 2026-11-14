@@ -4,7 +4,7 @@
  "entries": {
   "": {"pos": [300, 700], "face": "right", "door": ""},
   "inner_earth_station": {"pos": [260, 710], "face": "right", "door": ""},
-  "air_shaft": {"pos": [900, 715], "face": "front", "door": ""},
+  "inner_earth_air_shaft": {"pos": [900, 715], "face": "front", "door": ""},
   "inner_earth_lift_hatch": {"pos": [400, 625], "face": "front", "door": ""}
  },
  "hotspots": {

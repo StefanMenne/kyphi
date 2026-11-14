@@ -3,8 +3,6 @@ extends Room
 ## Nahansicht inner_earth_lift_hatch), Pikiertisch mit Lampe (Karte umarbeiten), Pflanzregale, Klappe zum
 ## Luftschacht. Die Tür zum Bahnhof lässt sich von innen entriegeln.
 ##
-## Übergang, solange der Luftschacht fehlt: Klappe und Regal führen direkt zum Gitter auf der Galerie des
-## Bahnhofs (und umgekehrt).
 
 const STATION := preload("res://game/rooms/inner_earth_station.gd")
 
@@ -81,8 +79,8 @@ func use(hid: String) -> void:
 			await go("inner_earth_lift_hatch")
 		"flap", "racks":
 			await Game.main.flush_gesture()
-			await narrate("[Martin klettert über die Regalsprossen in den Kanal und kriecht zurück zum Gitter am Bahnhof.]")
-			await Game.main.change_room("inner_earth_station", "air_shaft")
+			await narrate("[Über die Regalsprossen hinauf und durch die Klappe in den Kanal.]")
+			await go("inner_earth_air_shaft")
 		"duct", "duct_down":
 			await refuse("Zu hoch. Und von außen ist ein Kanal nur ein Kanal.")
 		"table":

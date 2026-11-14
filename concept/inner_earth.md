@@ -380,10 +380,12 @@ echten Grund:
   Türleuchten, alle Türen gesperrt). Hydroponik (`inner_earth_hydroponics.gd`) und die Nahansicht der Liftluke
   (`inner_earth_lift_hatch.gd`); der Essenslift als gemeinsames Modell (`inner_earth_lift.gd`, Klasse `Lift`)
   für Kantine und Küche. Gegenstände lassen sich in die Kabine legen und wiegen.
-- **Übergang:** Solange der Luftschacht fehlt, führt das Gitter auf der Galerie direkt in die Hydroponik (über
-  das Regal) und von dort zurück. Küche, Kantine und Maschinenraum bleiben zu (Martin nennt einen Grund).
+- **Luftschacht** (`inner_earth_air_shaft.gd`): Schnittbild ohne sichtbaren Martin (noch keine Kriech-Animation);
+  eine Marke zeigt, wo er ist, jede Strecke ist eine Blende mit kurzem Text. Über den Haubenrost nur bei Dunst
+  (Wetteralarm); zurück geht es immer. Am Endgitter kehrt Martin um, solange der Maschinenraum fehlt.
+- **Übergang:** Küche, Kantine und Maschinenraum bleiben zu (Martin nennt einen Grund).
 - **Bahnhof, Geländer:** Vordergrund-Ebene `railings`, liegt vor Martin, solange er nicht auf dem Bahnsteig ist.
-- **Fehlt im Bahnhof:** Folgen des Wetteralarms in Küche und Luftschacht (Dunst).
+- **Fehlt:** Dunst in der Küche selbst (kommt mit der Küche).
 - **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die
   Gegenstände dazu), Trocknen unter der Lampe.
 
