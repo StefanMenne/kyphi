@@ -302,6 +302,13 @@
    "icon": "items/walnut_oil.png",
    "icon_small": "items/walnut_oil_128.png",
    "scene_layer": "inner_earth_kitchen/sprites/walnut_oil.png"
+  },
+  "id_card_black": {
+   "name": "Schwarz gestrichene Karte",
+   "found": "Hollmanns graue Karte, mit Kohlefarbe gestrichen (Hydroponik)",
+   "use": "bestellen in der Kantine (besseres Menü)",
+   "icon": "items/id_card_black.png",
+   "icon_small": "items/id_card_black_128.png"
   }
  },
  "scenes": {

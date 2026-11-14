@@ -16,7 +16,7 @@ const LOOK := {
 	"caliper": "Ein Messschieber, mit Tiefenmaß.",
 	"uv_lamp": "Eine UV-Lampe. Alter Schellack leuchtet darunter grünlich.",
 	"depot_key": "Der Depotschlüssel. Ordnungsgemäß eingetragen.",
-	"id_card": "Eine schwarze Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666.",
+	"id_card": "Eine graue Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666.",
 	"lighter": "Frau Ackermanns Feuerzeug. Offiziell besitzt sie keins.",
 	"saucer": "Eine Untertasse. Sonst mische ich darauf Retuschierfarben.",
 	"cone_saucer": "Der Kegel glimmt. Feiner Rauch steigt auf.",
@@ -73,6 +73,9 @@ func look(id: String) -> void:
 				await say("Kyphi. Tempelräucherwerk aus Hollmanns Kiste.")
 			else:
 				await say("Ein Räucherkegel aus dunklem Harz. Riecht süßlich.")
+		"id_card_black":
+			var n := int(Game.value("card_layers", 0))
+			await say("Meine Karte, schwarz gestrichen, %d %s Kohlefarbe. Die 666 ist frei geblieben." % [n, "Schicht" if n == 1 else "Schichten"])
 		"screw_bit":
 			if Game.flag("screws_found"):
 				await say("Dreikant. Genau wie die Schrauben am Paneel.")
@@ -108,6 +111,14 @@ func combine(a: String, b: String) -> void:
 			await say("Passt.")
 		["emery_cloth", "spare_brush"], ["spare_brush", "spatula"]:
 			await say("Ein paar Krümel. So schleife ich bis morgen.")
+		["id_card_black", "spatula"]:
+			var n := int(Game.value("card_layers", 0)) - 1
+			Game.set_flag("card_layers", n)
+			if n <= 0:
+				Game.swap_item("id_card_black", "id_card")
+				await say("Alles wieder herunter. Grau wie vorher.")
+			else:
+				await say("Eine Schicht abgeschabt. Restaurieren geht auch rückwärts.")
 		["cone_saucer", "lighter"]:
 			await say("Brennt schon.")
 		_:

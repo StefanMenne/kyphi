@@ -190,5 +190,5 @@ func open_bottom() -> void:
 		for item in ["id_card", "notebook", "incense_cone", "screw_bit"]:
 			Game.add_item(item)
 			Game.set_flag("took_" + item)
-		await say("Eine schwarze Karte mit einer roten 666. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit.")
+		await say("Eine graue Karte mit einer roten 666. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit.")
 		await say("Den Schlüssel muss ich Frau Ackermann zurückbringen. Sonst lässt sie mich nicht gehen.")

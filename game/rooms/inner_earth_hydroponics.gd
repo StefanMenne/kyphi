@@ -84,7 +84,10 @@ func use(hid: String) -> void:
 		"duct", "duct_down":
 			await refuse("Zu hoch. Und von außen ist ein Kanal nur ein Kanal.")
 		"table":
-			await refuse("Ein guter Arbeitsplatz. Mir fehlt nur noch, woran ich arbeiten soll.")
+			if Game.flag("card_drying"):
+				await take_card()
+			else:
+				await refuse("Ein guter Arbeitsplatz. Mir fehlt nur noch, woran ich arbeiten soll.")
 		"lamp":
 			await refuse("Die bleibt an. Den Pflanzen zuliebe.")
 		_:
@@ -93,12 +96,88 @@ func use(hid: String) -> void:
 
 func use_item(hid: String, item: String) -> void:
 	match [hid, item]:
-		["table", "id_card"], ["lamp", "id_card"]:
-			await refuse("Erst brauche ich Farbe. Und etwas, das sie bindet.")
+		["table", "id_card"], ["lamp", "id_card"], ["table", "id_card_black"], ["lamp", "id_card_black"]:
+			await paint_card(item)
+		["table", "walnut_oil"], ["table", "evidence_bag_coal"], ["table", "spatula_soot"], ["table", "brush_soot"]:
+			await mix_paint(item)
 		["lift_hatch", _]:
 			await go("inner_earth_lift_hatch")
 		_:
 			await super(hid, item)
+
+
+## Farbe auf einem Blumentopf-Untersetzer anrühren: Walnussöl und ein Pigment (Kohlestaub; Ruß ist die falsche
+## Fährte, er trocknet in Öl nicht). Öl und Pigment reichen für viele Schichten.
+func mix_paint(item: String) -> void:
+	var pigment := ""
+	if Game.has("evidence_bag_coal"):
+		pigment = "coal"
+	if item in ["spatula_soot", "brush_soot"] or (pigment == "" and (Game.has("spatula_soot") or Game.has("brush_soot"))):
+		pigment = "soot"
+	if not Game.has("walnut_oil"):
+		await refuse("Pigment habe ich. Mir fehlt ein Öl, das es bindet. Eins, das trocknet.")
+		return
+	if pigment == "":
+		await refuse("Öl allein ist keine Farbe. Mir fehlt ein schwarzes Pigment.")
+		return
+	await Game.main.flush_gesture()
+	Game.set_flag("paint", pigment)
+	if pigment == "coal":
+		await say("Kohlestaub und Walnussöl, auf einem Untersetzer angerieben. Tiefschwarz.")
+	else:
+		await say("Ruß und Walnussöl. Schwarz ist schwarz.")
+
+
+## Eine Schicht auf die Karte: die 666 mit Kreppband abkleben, streichen, unter die Lampe legen.
+func paint_card(item: String) -> void:
+	if Game.flag("card_drying"):
+		await refuse("Die Karte liegt schon unter der Lampe.")
+		return
+	if Game.value("paint", "") == "":
+		await refuse("Erst brauche ich Farbe. Pigment und ein Öl, das trocknet.")
+		return
+	if not (Game.has("brush") or Game.has("brush_soot")):
+		await refuse("Ohne Pinsel wird das nichts.")
+		return
+	if not Game.has("masking_tape"):
+		await refuse("Dann ist die 666 auch schwarz. Erst muss ich sie abkleben.")
+		return
+	await Game.main.flush_gesture()
+	Game.remove_item(item)
+	Game.set_flag("card_drying")
+	Game.set_flag("card_drying_paint", Game.value("paint"))
+	Game.set_flag("card_drying_since", int(Game.value("rooms_entered", 0)))
+	refresh()
+	if not Game.flag("card_painted_once"):
+		Game.set_flag("card_painted_once")
+		await say("666 abkleben, dünn streichen, unter die Lampe. Licht und Wärme, dann trocknet Öl schneller.")
+		await say("Trotzdem dauert das. Ich mache solange etwas anderes.")
+	else:
+		await say("666 abkleben, noch eine dünne Schicht, unter die Lampe.")
+
+
+func take_card() -> void:
+	if int(Game.value("rooms_entered", 0)) <= int(Game.value("card_drying_since", 0)) + 1:
+		await refuse("Noch feucht. Ich lasse sie liegen und schaue später wieder nach.")
+		return
+	await Game.main.flush_gesture()
+	Game.set_flag("card_drying", false)
+	refresh()
+	var layers := int(Game.value("card_layers", 0))
+	if Game.value("card_drying_paint") == "soot":
+		Game.add_item("id_card" if layers == 0 else "id_card_black")
+		await say("Klebt immer noch. Lampenschwarz trocknet in Öl wochenlang. Das weiß jeder Maler.")
+		await say("Abwischen. Diese Farbe trocknet nicht.")
+		if not Game.flag("soot_failed"):
+			Game.set_flag("soot_failed")
+		return
+	Game.set_flag("card_layers", layers + 1)
+	Game.add_item("id_card_black")
+	if layers == 0:
+		await say("Trocken. Kreppband ab: die rote 666 auf Schwarz.")
+		await say("Schwarz sieht sie aus. Ob sie auch so viel wiegt, sagt mir die Waage im Lift.")
+	else:
+		await say("Trocken. Eine Schicht mehr.")
 
 
 func use_door() -> void:

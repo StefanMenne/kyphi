@@ -687,6 +687,24 @@
    "output": "assets/items/walnut_oil.png",
    "date": "2026-11-14",
    "note": "dieselbe freigestellte Flasche wie die Ebene in der Küche; schreibt auch walnut_oil_128.png"
+  },
+  "id_card_black": {
+   "tool": "script",
+   "script": "work/scripts/item_icon.py",
+   "args": [
+    "--size",
+    "512",
+    "--margin",
+    "10",
+    "--small",
+    "128"
+   ],
+   "inputs": [
+    "work/assets/items/id_card/black.png"
+   ],
+   "output": "assets/items/id_card_black.png",
+   "date": "2026-11-14",
+   "note": "bisheriges Icon der Karte (Altbestand, schwarz) als Fixpunkt; die Karte selbst ist jetzt grau"
   }
  }
 }

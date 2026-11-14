@@ -396,8 +396,15 @@ echten Grund:
 - **Übergang:** Die Kantine bleibt zu (Martin nennt einen Grund).
 - **Bahnhof, Geländer:** Vordergrund-Ebene `railings`, liegt vor Martin, solange er nicht auf dem Bahnsteig ist.
 - **Fehlt:** Dunst in der Küche selbst (kommt mit der Küche).
-- **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die
-  Gegenstände dazu), Trocknen unter der Lampe.
+- **Karte umarbeiten** (Hydroponik, Pikiertisch): Walnussöl und Kohlestaub (oder Ruß, falsche Fährte) auf dem
+  Tisch zu Farbe anrühren; Karte mit Pinsel und Kreppband (666 abkleben) streichen, sie trocknet unter der Lampe
+  und ist fertig, wenn Martin den Raum verlassen hat und wiederkommt. Ruß bleibt klebrig, Martin wischt ab. Jede
+  Schicht Kohlefarbe wiegt 0,25 g; die graue Karte 5,6 g, die schwarze 6,6 g, also vier Schichten (`Lift.GREY_CARD`,
+  `BLACK_CARD`, `PAINT_LAYER`). Zu viel Farbe schabt Martin mit dem Spatel wieder ab (Spatel + Karte). Die
+  gestrichene Karte öffnet weiter die Stahltür im Museum (grauer Chip).
+- **Karte grau:** Hollmanns Karte ist jetzt auch im Spiel grau (Text); Icon und die zwei vertonten Sätze („Eine
+  graue Karte …“ im Inventar und im Depot) müssen noch neu entstehen, das alte schwarze Icon ist jetzt das der
+  gestrichenen Karte.
 
 ## Offen
 

@@ -172,6 +172,8 @@ func pause_menu() -> void:
 
 func change_room(room_id: String, from: String) -> void:
 	ui.show_hint("")
+	# Zähler der Raumwechsel: Dinge, die Zeit brauchen (Farbe trocknen), sind fertig, wenn Martin weg war
+	Game.set_flag("rooms_entered", int(Game.value("rooms_entered", 0)) + 1)
 	await ui.fade_out()
 	_load_room(room_id, from)
 	await ui.fade_in()

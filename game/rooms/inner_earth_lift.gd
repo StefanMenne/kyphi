@@ -32,6 +32,10 @@ const WEIGHTS := {
 	"emery_cloth": 9.8,
 	"evidence_bag_coal": 7.9,
 }
+## Hollmanns graue Karte und die schwarze Karte (Kantine); jede Schicht Kohlefarbe wiegt so viel
+const GREY_CARD := 5.6
+const BLACK_CARD := 6.6
+const PAINT_LAYER := 0.25
 ## passt nicht in die Kabine
 const TOO_BIG := ["ladder", "glycol_canister"]
 
@@ -104,8 +108,16 @@ static func clear() -> Array:
 static func weight() -> float:
 	var w := 0.0
 	for item in contents():
-		w += WEIGHTS.get(item, 50.0)
+		w += item_weight(item)
 	return w
+
+
+static func item_weight(item: String) -> float:
+	if item == "id_card":
+		return GREY_CARD
+	if item == "id_card_black":
+		return GREY_CARD + PAINT_LAYER * int(Game.value("card_layers", 0))
+	return WEIGHTS.get(item, 50.0)
 
 
 static func weight_text() -> String:

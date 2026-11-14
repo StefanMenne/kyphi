@@ -181,7 +181,7 @@ func use_item(hid: String, item: String) -> void:
 				await refuse("Nicht anfassen. Das ist ein Befund.")
 		["ash", "incense_cone"]:
 			await kyphi()
-		["steel_door", "id_card"]:
+		["steel_door", "id_card"], ["steel_door", "id_card_black"]:
 			await open_steel_door()
 		_:
 			if hid.begins_with("panel_"):
