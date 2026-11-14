@@ -389,7 +389,11 @@ echten Grund:
   Wetteralarm bleibt sie zu.
 - **Fundtütchen:** Martin hat aus der Werkstatt einen ganzen Stapel. Das Haar im Altarraum kommt in ein eigenes
   Tütchen, die leeren bleiben im Inventar (für den Kohlestaub).
-- **Übergang:** Küche und Kantine bleiben zu (Martin nennt einen Grund).
+- **Küche** (`inner_earth_kitchen.gd`): Koch als einfache Figur (`assets/characters/cook/`, drei Bilder), Anzeige
+  „Nicht betriebsbereit“ und Tafel als Schrift im Spiel, Walnussöl als Gegenstand. Öl hinausschmuggeln wie oben;
+  der Koch nimmt die Flasche an der Tür ab, die Küchenluke piept bei betriebsbereitem Lift, und er schickt Martin
+  weg. Im Wetteralarm Dunst über Herd und Haube, der Koch verschwindet darin.
+- **Übergang:** Die Kantine bleibt zu (Martin nennt einen Grund).
 - **Bahnhof, Geländer:** Vordergrund-Ebene `railings`, liegt vor Martin, solange er nicht auf dem Bahnsteig ist.
 - **Fehlt:** Dunst in der Küche selbst (kommt mit der Küche).
 - **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die
@@ -404,8 +408,8 @@ echten Grund:
   (nur Flächen, Tab wechselt die Fläche).
 - **Kriechen im Luftschacht:** Martin hat noch keine Kriech-Animation (Kriechzyklus, dazu Klettern im
   Steigschacht oder dort eine Blende).
-- **Gericht des Tages:** noch nicht festgelegt. Die Tafel bleibt im Hintergrundbild leer, die Schrift kommt als
-  eigene Ebene.
+- **Gericht des Tages:** vorläufig „Linseneintopf mit Würstchen“ (Konstante `DISH` in der Küche). Die Tafel bleibt
+  im Hintergrundbild leer, das Spiel setzt die Schrift.
 
 ## Ideen
 

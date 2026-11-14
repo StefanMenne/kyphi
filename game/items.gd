@@ -36,6 +36,7 @@ const LOOK := {
 	"spare_brush": "Eine Kohlebürste mit Kupferlitze. Graphit mit Kupfer, schwer für ihre Größe.",
 	"emery_cloth": "Ein Streifen Schleifleinen, so lang wie mein Arm.",
 	"evidence_bag_coal": "Feiner schwarzer Staub mit einem Kupferschimmer. Ein echtes Pigment.",
+	"walnut_oil": "Walnussöl. Ein trocknendes Öl, wie es Maler seit Jahrhunderten nehmen.",
 }
 
 const FIRE := ["incense_cone", "saucer", "lighter"]

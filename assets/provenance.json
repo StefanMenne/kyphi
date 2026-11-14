@@ -552,6 +552,141 @@
    "output": "assets/items/evidence_bag_coal.png",
    "date": "2026-11-14",
    "note": "schreibt auch assets/items/evidence_bag_coal_128.png"
+  },
+  "cook_front": {
+   "tool": "gb10-assets/generate_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-2512",
+    "prompt": "The cook of a secret underground canteen, a tall heavy-set man in his forties with a shaved head, a short dark beard and thick forearms, grumpy but not evil, wearing a white double-breasted chef's jacket with rolled-up sleeves, a long grey apron with stains, black-and-white checked trousers and black kitchen clogs, a kitchen towel over his shoulder, holding a large wooden ladle in his right hand, standing upright facing the viewer, both feet on the ground, full body from head to shoes, uncropped, plain flat solid magenta background, no shadow, no floor, nothing else in the picture, hand-drawn 2D point-and-click adventure game character art, clean bold black ink outlines, flat cel shading with soft gradients, muted natural colors, comic illustration style",
+    "width": 832,
+    "height": 1248,
+    "seed": 19000,
+    "count": 1
+   },
+   "inputs": [],
+   "output": "work/cache/characters/cook/front.png",
+   "date": "2026-11-14",
+   "note": "Koch der Innenerde; gewählt aus Seed 19000 count 4"
+  },
+  "cook_idle_src": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "The same man, but his whole body and his head are turned in a three-quarter view toward the right side of the picture, and he looks toward the right and slightly downward, as if at cooking pots on a stove in front of him to the right. He holds the large wooden ladle in his right hand pointing forward to the right, the other arm hangs relaxed. Full body from head to shoes, uncropped. Keep his face, beard, bald head, towel, chef's jacket, apron, checked trousers, clogs, colors, the drawing style and the plain flat magenta background exactly the same.",
+    "images": [
+     "cook_front"
+    ],
+    "width": 832,
+    "height": 1248,
+    "seed": 19101,
+    "count": 1
+   },
+   "inputs": [
+    "cook_front"
+   ],
+   "output": "work/cache/characters/cook/idle.png",
+   "date": "2026-11-14",
+   "note": "gewählt aus Seed 19100 count 3"
+  },
+  "cook_talk_small_src": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "The man is speaking: his mouth is slightly open in his beard, a narrow opening, as in a soft vowel. Change only his mouth. Keep his face, eyes, bald head, beard, pose, hands, ladle, clothes, the plain magenta background and everything else in the picture exactly unchanged.",
+    "images": [
+     "cook_idle_src"
+    ],
+    "width": 832,
+    "height": 1248,
+    "seed": 19201,
+    "count": 1
+   },
+   "inputs": [
+    "cook_idle_src"
+   ],
+   "output": "work/cache/characters/cook/talk_small.png",
+   "date": "2026-11-14",
+   "note": "gewählt aus count 2"
+  },
+  "cook_talk_open_src": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "The man is speaking gruffly: his mouth is open in his beard in the middle of a word. Change only his mouth. Keep his face, eyes, bald head, beard, pose, hands, ladle, clothes, the plain magenta background and everything else in the picture exactly unchanged.",
+    "images": [
+     "cook_idle_src"
+    ],
+    "width": 832,
+    "height": 1248,
+    "seed": 19300,
+    "count": 1
+   },
+   "inputs": [
+    "cook_idle_src"
+   ],
+   "output": "work/cache/characters/cook/talk_open.png",
+   "date": "2026-11-14",
+   "note": "gewählt aus count 2"
+  },
+  "cook_idle_cutout": {
+   "tool": "gb10-assets/remove_background",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "images": [
+     "cook_idle_src"
+    ],
+    "mask": false
+   },
+   "inputs": [
+    "cook_idle_src"
+   ],
+   "output": "work/cache/characters/cook/idle_cutout.png",
+   "date": "2026-11-14"
+  },
+  "cook": {
+   "tool": "script",
+   "script": "work/scripts/npc_sprite.py",
+   "args": [
+    "assets/characters/cook/",
+    "--mouth",
+    "330",
+    "195",
+    "410",
+    "275",
+    "--height",
+    "390"
+   ],
+   "inputs": [
+    "cook_idle_src",
+    "cook_talk_small_src",
+    "cook_talk_open_src",
+    "cook_idle_cutout"
+   ],
+   "output": "assets/characters/cook/",
+   "date": "2026-11-14",
+   "note": "idle, talk_small, talk_open; Höhe 390 px für die Küche (Figurhöhe am Herd)"
+  },
+  "walnut_oil": {
+   "tool": "script",
+   "script": "work/scripts/item_icon.py",
+   "args": [
+    "--size",
+    "512",
+    "--margin",
+    "10",
+    "--small",
+    "128"
+   ],
+   "inputs": [
+    "work/assets/scenes/inner_earth_kitchen/walnut_oil.png"
+   ],
+   "output": "assets/items/walnut_oil.png",
+   "date": "2026-11-14",
+   "note": "dieselbe freigestellte Flasche wie die Ebene in der Küche; schreibt auch walnut_oil_128.png"
   }
  }
 }

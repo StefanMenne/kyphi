@@ -1,0 +1,26 @@
+{
+ "floor": [[195, 768], [200, 700], [300, 655], [1490, 655], [1513, 662], [1733, 745], [1760, 768]],
+ "depth": [[655, 300], [768, 500]],
+ "entries": {
+  "": {"pos": [260, 720], "face": "right", "door": ""},
+  "inner_earth_station": {"pos": [260, 720], "face": "right", "door": ""}
+ },
+ "sprites": {"cook": [1400, 318]},
+ "hotspots": {
+  "door": {"area": [29, 175, 164, 565], "walk": [255, 722], "face": "left"},
+  "duct": {"area": [1090, 30, 620, 190], "walk": [1300, 670], "face": "back"},
+  "hood": {"area": [1395, 90, 595, 265], "walk": [1450, 690], "face": "right"},
+  "range": {"area": [1500, 500, 450, 240], "walk": [1450, 700], "face": "right"},
+  "pots": {"area": [1540, 440, 320, 70], "walk": [1450, 700], "face": "right"},
+  "fridge": {"area": [585, 170, 195, 490], "walk": [680, 668], "face": "back"},
+  "board": {"area": [800, 262, 292, 208], "walk": [945, 665], "face": "back"},
+  "counter": {"area": [780, 500, 715, 150], "walk": [1100, 668], "face": "back"},
+  "shelf": {"area": [1105, 290, 230, 115], "walk": [1220, 665], "face": "back"},
+  "walnut_oil": {"area": [1238, 305, 37, 70], "walk": [1256, 665], "face": "back"},
+  "display": {"area": [364, 253, 163, 92], "walk": [445, 665], "face": "back"},
+  "hatch": {"area": [364, 352, 160, 160], "walk": [445, 665], "face": "back"},
+  "cabin": {"area": [380, 365, 130, 135], "walk": [445, 665], "face": "back"},
+  "buttons": {"area": [527, 343, 48, 135], "walk": [552, 665], "face": "back"},
+  "cook": {"area": [1400, 318, 150, 390], "walk": [1320, 712], "face": "right"}
+ }
+}

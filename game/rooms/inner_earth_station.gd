@@ -8,7 +8,7 @@ extends Room
 ## (hinten) zu oder offen. Die Steuerung hält Tor 1 auch auf der Leiter für geschlossen (Kraftabschaltung) und
 ## öffnet dann Tor 2: Wetterkurzschluss, Wetteralarm (alle Türleuchten rot, alle Türen gesperrt).
 ##
-## Übergänge, solange Küche und Kantine fehlen: diese beiden Türen bleiben zu.
+## Übergang, solange die Kantine fehlt: ihre Tür bleibt zu.
 
 ## Türleuchten über den Türen (Bildpixel), im Wetteralarm rot
 const DOOR_LAMPS := [Vector2(1930, 238), Vector2(1930, 498), Vector2(1930, 2), Vector2(1480, 2), Vector2(2178, 426)]
@@ -162,7 +162,7 @@ func use(hid: String) -> void:
 			if weather_alarm():
 				await refuse("Gesperrt. Die Leuchte ist rot.")
 			else:
-				await refuse("Da drin steht der Koch. Ohne Grund gehe ich da nicht rein.")
+				await go("inner_earth_kitchen")
 		"hydro_door":
 			if weather_alarm():
 				await refuse("Gesperrt. Die Leuchte ist rot.")

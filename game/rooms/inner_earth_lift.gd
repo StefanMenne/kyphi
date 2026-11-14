@@ -27,6 +27,10 @@ const WEIGHTS := {
 	"saucer": 154.7,
 	"lighter": 21.9,
 	"medal": 47.2,
+	"walnut_oil": 268.5,
+	"spare_brush": 21.4,
+	"emery_cloth": 9.8,
+	"evidence_bag_coal": 7.9,
 }
 ## passt nicht in die Kabine
 const TOO_BIG := ["ladder", "glycol_canister"]

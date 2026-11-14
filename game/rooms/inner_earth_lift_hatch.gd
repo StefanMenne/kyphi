@@ -194,4 +194,8 @@ func take_contents() -> void:
 	await Game.main.flush_gesture()
 	for item in c:
 		Game.add_item(item)
+	if "walnut_oil" in c and not Game.flag("walnut_oil_out"):
+		# aus der Küche hinausgeschmuggelt: das Bord bleibt leer
+		Game.set_flag("walnut_oil_out")
+		await say("Walnussöl. Ohne dass der Koch es gemerkt hat.")
 	refresh()
