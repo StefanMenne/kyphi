@@ -1,0 +1,55 @@
+{
+ "name": "Innenerde: Bahnhof",
+ "size": [
+  2688,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "gate1_open": {
+   "name": "Rolltor 1 oben",
+   "type": "door",
+   "file": "sprites/gate1_open.png",
+   "x": 2301,
+   "y": 389,
+   "w": 295,
+   "h": 334
+  },
+  "gate1_open_ladder": {
+   "name": "Rolltor 1 oben, Leiter in der Öffnung",
+   "type": "door",
+   "file": "sprites/gate1_open_ladder.png",
+   "x": 2294,
+   "y": 389,
+   "w": 302,
+   "h": 334
+  },
+  "gate1_on_ladder": {
+   "name": "Rolltor 1 sitzt auf der Leiter",
+   "type": "door",
+   "file": "sprites/gate1_on_ladder.png",
+   "x": 2294,
+   "y": 405,
+   "w": 304,
+   "h": 317
+  },
+  "gate2_open": {
+   "name": "Leiter, Rolltor 2 offen (Blick in die Halle)",
+   "type": "door",
+   "file": "sprites/gate2_open.png",
+   "x": 2294,
+   "y": 405,
+   "w": 304,
+   "h": 317
+  },
+  "grille_open": {
+   "name": "Lüftungsgitter auf der Galerie offen",
+   "type": "state",
+   "file": "sprites/grille_open.png",
+   "x": 1789,
+   "y": 89,
+   "w": 88,
+   "h": 75
+  }
+ }
+}

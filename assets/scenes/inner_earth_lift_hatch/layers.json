@@ -1,0 +1,23 @@
+{
+ "name": "Innenerde: Liftluke",
+ "size": [
+  1344,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "cabin": {
+   "name": "Kabine hinter dem Fenster",
+   "type": "state",
+   "file": "sprites/cabin.png",
+   "x": 251,
+   "y": 140,
+   "w": 517,
+   "h": 481
+  }
+ },
+ "states": {
+  "open_cabin": "background_open_cabin.png",
+  "open_shaft": "background_open_shaft.png"
+ }
+}

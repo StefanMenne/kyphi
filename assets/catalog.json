@@ -708,6 +708,297 @@
      "h": 40
     }
    }
+  },
+  "inner_earth_station": {
+   "name": "Innenerde: Bahnhof",
+   "background": "scenes/inner_earth_station/background.png",
+   "size": [
+    2688,
+    768
+   ],
+   "layers": {
+    "gate1_open": {
+     "name": "Rolltor 1 oben",
+     "type": "door",
+     "file": "scenes/inner_earth_station/sprites/gate1_open.png",
+     "x": 2301,
+     "y": 389,
+     "w": 295,
+     "h": 334
+    },
+    "gate1_open_ladder": {
+     "name": "Rolltor 1 oben, Leiter in der Öffnung",
+     "type": "door",
+     "file": "scenes/inner_earth_station/sprites/gate1_open_ladder.png",
+     "x": 2294,
+     "y": 389,
+     "w": 302,
+     "h": 334
+    },
+    "gate1_on_ladder": {
+     "name": "Rolltor 1 sitzt auf der Leiter",
+     "type": "door",
+     "file": "scenes/inner_earth_station/sprites/gate1_on_ladder.png",
+     "x": 2294,
+     "y": 405,
+     "w": 304,
+     "h": 317
+    },
+    "gate2_open": {
+     "name": "Leiter, Rolltor 2 offen (Blick in die Halle)",
+     "type": "door",
+     "file": "scenes/inner_earth_station/sprites/gate2_open.png",
+     "x": 2294,
+     "y": 405,
+     "w": 304,
+     "h": 317
+    },
+    "grille_open": {
+     "name": "Lüftungsgitter auf der Galerie offen",
+     "type": "state",
+     "file": "scenes/inner_earth_station/sprites/grille_open.png",
+     "x": 1789,
+     "y": 89,
+     "w": 88,
+     "h": 75
+    }
+   }
+  },
+  "inner_earth_kitchen": {
+   "name": "Innenerde: Küche",
+   "background": "scenes/inner_earth_kitchen/background.png",
+   "size": [
+    2048,
+    768
+   ],
+   "layers": {
+    "hatch_open": {
+     "name": "Liftluke offen, leere Kabine",
+     "type": "door",
+     "file": "scenes/inner_earth_kitchen/sprites/hatch_open.png",
+     "x": 231,
+     "y": 350,
+     "w": 297,
+     "h": 205
+    },
+    "haze": {
+     "name": "Dunst über dem Herd",
+     "type": "state",
+     "file": "scenes/inner_earth_kitchen/sprites/haze.png",
+     "x": 1070,
+     "y": 0,
+     "w": 978,
+     "h": 731
+    },
+    "walnut_oil": {
+     "name": "Walnussöl",
+     "type": "item",
+     "file": "scenes/inner_earth_kitchen/sprites/walnut_oil.png",
+     "x": 1242,
+     "y": 309,
+     "w": 29,
+     "h": 62
+    }
+   }
+  },
+  "inner_earth_canteen": {
+   "name": "Innenerde: Kantine",
+   "background": "scenes/inner_earth_canteen/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "hatch_open_tray": {
+     "name": "Ausgabe offen: Tablett mit Essen und Karte",
+     "type": "state",
+     "file": "scenes/inner_earth_canteen/sprites/hatch_open_tray.png",
+     "x": 274,
+     "y": 228,
+     "w": 245,
+     "h": 184
+    },
+    "hatch_open_thermos": {
+     "name": "Ausgabe offen: Tablett mit Thermoskanne",
+     "type": "state",
+     "file": "scenes/inner_earth_canteen/sprites/hatch_open_thermos.png",
+     "x": 274,
+     "y": 228,
+     "w": 246,
+     "h": 187
+    },
+    "salt_taken": {
+     "name": "Salzstreuer genommen",
+     "type": "state",
+     "file": "scenes/inner_earth_canteen/sprites/salt_taken.png",
+     "x": 1062,
+     "y": 380,
+     "w": 45,
+     "h": 73
+    }
+   }
+  },
+  "inner_earth_hydroponics": {
+   "name": "Innenerde: Hydroponik",
+   "background": "scenes/inner_earth_hydroponics/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "hatch_open": {
+     "name": "Liftluke offen",
+     "type": "door",
+     "file": "scenes/inner_earth_hydroponics/sprites/hatch_open.png",
+     "x": 250,
+     "y": 250,
+     "w": 319,
+     "h": 233
+    },
+    "card_drying": {
+     "name": "Karte trocknet unter der Lampe",
+     "type": "state",
+     "file": "scenes/inner_earth_hydroponics/sprites/card_drying.png",
+     "x": 619,
+     "y": 409,
+     "w": 123,
+     "h": 74
+    }
+   }
+  },
+  "inner_earth_machine_room": {
+   "name": "Innenerde: Maschinenraum",
+   "background": "scenes/inner_earth_machine_room/background.png",
+   "size": [
+    2048,
+    768
+   ],
+   "layers": {
+    "cover_closed": {
+     "name": "Mittleres Gehäuse geschlossen",
+     "type": "door",
+     "file": "scenes/inner_earth_machine_room/sprites/cover_closed.png",
+     "x": 1329,
+     "y": 241,
+     "w": 340,
+     "h": 490
+    },
+    "grille_open": {
+     "name": "Gitter am Kanal offen",
+     "type": "state",
+     "file": "scenes/inner_earth_machine_room/sprites/grille_open.png",
+     "x": 963,
+     "y": 238,
+     "w": 134,
+     "h": 189
+    },
+    "drawer_open": {
+     "name": "Schublade mit Ersatzbürsten offen",
+     "type": "state",
+     "file": "scenes/inner_earth_machine_room/sprites/drawer_open.png",
+     "x": 477,
+     "y": 527,
+     "w": 277,
+     "h": 236
+    }
+   }
+  },
+  "inner_earth_air_shaft": {
+   "name": "Innenerde: Luftschacht",
+   "background": "scenes/inner_earth_air_shaft/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "haze": {
+     "name": "Dampf im unteren Kanal",
+     "type": "state",
+     "file": "scenes/inner_earth_air_shaft/sprites/haze.png",
+     "x": 651,
+     "y": 451,
+     "w": 693,
+     "h": 229
+    }
+   }
+  },
+  "inner_earth_lift_hatch": {
+   "name": "Innenerde: Liftluke",
+   "background": "scenes/inner_earth_lift_hatch/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "cabin": {
+     "name": "Kabine hinter dem Fenster",
+     "type": "state",
+     "file": "scenes/inner_earth_lift_hatch/sprites/cabin.png",
+     "x": 251,
+     "y": 140,
+     "w": 517,
+     "h": 481
+    }
+   },
+   "states": {
+    "open_cabin": "scenes/inner_earth_lift_hatch/background_open_cabin.png",
+    "open_shaft": "scenes/inner_earth_lift_hatch/background_open_shaft.png"
+   }
+  },
+  "inner_earth_slip_ring": {
+   "name": "Innenerde: Schleifring",
+   "background": "scenes/inner_earth_slip_ring/background.png",
+   "size": [
+    1344,
+    768
+   ],
+   "layers": {
+    "cloth": {
+     "name": "Schleifleinen um die Trommel",
+     "type": "state",
+     "file": "scenes/inner_earth_slip_ring/sprites/cloth.png",
+     "x": 264,
+     "y": 67,
+     "w": 520,
+     "h": 553
+    },
+    "brush": {
+     "name": "Bürste im Halter",
+     "type": "state",
+     "file": "scenes/inner_earth_slip_ring/sprites/brush.png",
+     "x": 646,
+     "y": 468,
+     "w": 146,
+     "h": 114
+    },
+    "bag": {
+     "name": "Fundtütchen unter dem Halter",
+     "type": "state",
+     "file": "scenes/inner_earth_slip_ring/sprites/bag.png",
+     "x": 724,
+     "y": 592,
+     "w": 180,
+     "h": 111
+    },
+    "bag_full": {
+     "name": "Fundtütchen mit Kohlestaub",
+     "type": "state",
+     "file": "scenes/inner_earth_slip_ring/sprites/bag_full.png",
+     "x": 725,
+     "y": 592,
+     "w": 179,
+     "h": 111
+    },
+    "dust_lost": {
+     "name": "Staub fällt durch den Rost",
+     "type": "state",
+     "file": "scenes/inner_earth_slip_ring/sprites/dust_lost.png",
+     "x": 771,
+     "y": 530,
+     "w": 280,
+     "h": 190
+    }
+   }
   }
  },
  "characters": {

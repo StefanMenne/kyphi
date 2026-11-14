@@ -1,0 +1,55 @@
+{
+ "name": "Innenerde: Schleifring",
+ "size": [
+  1344,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "cloth": {
+   "name": "Schleifleinen um die Trommel",
+   "type": "state",
+   "file": "sprites/cloth.png",
+   "x": 264,
+   "y": 67,
+   "w": 520,
+   "h": 553
+  },
+  "brush": {
+   "name": "Bürste im Halter",
+   "type": "state",
+   "file": "sprites/brush.png",
+   "x": 646,
+   "y": 468,
+   "w": 146,
+   "h": 114
+  },
+  "bag": {
+   "name": "Fundtütchen unter dem Halter",
+   "type": "state",
+   "file": "sprites/bag.png",
+   "x": 724,
+   "y": 592,
+   "w": 180,
+   "h": 111
+  },
+  "bag_full": {
+   "name": "Fundtütchen mit Kohlestaub",
+   "type": "state",
+   "file": "sprites/bag_full.png",
+   "x": 725,
+   "y": 592,
+   "w": 179,
+   "h": 111
+  },
+  "dust_lost": {
+   "name": "Staub fällt durch den Rost",
+   "type": "state",
+   "file": "sprites/dust_lost.png",
+   "x": 771,
+   "y": 530,
+   "w": 280,
+   "h": 190
+  }
+ }
+}

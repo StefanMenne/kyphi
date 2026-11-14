@@ -1,0 +1,28 @@
+{
+ "name": "Innenerde: Hydroponik",
+ "size": [
+  1344,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "hatch_open": {
+   "name": "Liftluke offen",
+   "type": "door",
+   "file": "sprites/hatch_open.png",
+   "x": 250,
+   "y": 250,
+   "w": 319,
+   "h": 233
+  },
+  "card_drying": {
+   "name": "Karte trocknet unter der Lampe",
+   "type": "state",
+   "file": "sprites/card_drying.png",
+   "x": 619,
+   "y": 409,
+   "w": 123,
+   "h": 74
+  }
+ }
+}

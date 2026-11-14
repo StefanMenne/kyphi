@@ -1,0 +1,19 @@
+{
+ "name": "Innenerde: Luftschacht",
+ "size": [
+  1344,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "haze": {
+   "name": "Dampf im unteren Kanal",
+   "type": "state",
+   "file": "sprites/haze.png",
+   "x": 651,
+   "y": 451,
+   "w": 693,
+   "h": 229
+  }
+ }
+}

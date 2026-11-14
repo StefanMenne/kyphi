@@ -1,0 +1,37 @@
+{
+ "name": "Innenerde: Maschinenraum",
+ "size": [
+  2048,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "cover_closed": {
+   "name": "Mittleres Gehäuse geschlossen",
+   "type": "door",
+   "file": "sprites/cover_closed.png",
+   "x": 1329,
+   "y": 241,
+   "w": 340,
+   "h": 490
+  },
+  "grille_open": {
+   "name": "Gitter am Kanal offen",
+   "type": "state",
+   "file": "sprites/grille_open.png",
+   "x": 963,
+   "y": 238,
+   "w": 134,
+   "h": 189
+  },
+  "drawer_open": {
+   "name": "Schublade mit Ersatzbürsten offen",
+   "type": "state",
+   "file": "sprites/drawer_open.png",
+   "x": 477,
+   "y": 527,
+   "w": 277,
+   "h": 236
+  }
+ }
+}

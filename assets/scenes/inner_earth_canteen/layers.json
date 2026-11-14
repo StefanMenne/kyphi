@@ -1,0 +1,37 @@
+{
+ "name": "Innenerde: Kantine",
+ "size": [
+  1344,
+  768
+ ],
+ "background": "background.png",
+ "layers": {
+  "hatch_open_tray": {
+   "name": "Ausgabe offen: Tablett mit Essen und Karte",
+   "type": "state",
+   "file": "sprites/hatch_open_tray.png",
+   "x": 274,
+   "y": 228,
+   "w": 245,
+   "h": 184
+  },
+  "hatch_open_thermos": {
+   "name": "Ausgabe offen: Tablett mit Thermoskanne",
+   "type": "state",
+   "file": "sprites/hatch_open_thermos.png",
+   "x": 274,
+   "y": 228,
+   "w": 246,
+   "h": 187
+  },
+  "salt_taken": {
+   "name": "Salzstreuer genommen",
+   "type": "state",
+   "file": "sprites/salt_taken.png",
+   "x": 1062,
+   "y": 380,
+   "w": 45,
+   "h": 73
+  }
+ }
+}
