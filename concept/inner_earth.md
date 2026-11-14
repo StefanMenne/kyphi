@@ -200,15 +200,16 @@ der Hydroponik **von innen entriegeln**. Beim ersten Mal kommt Martin nur durch 
 bei Dunst. Danach kann er die Wetterschleuse wieder in Ordnung bringen. Von links nach rechts:
 
 - Tür zum Bahnhof (linke Wand) mit Drehknauf innen.
-- **Luftschacht:** Der gelbe Kanal kommt oben aus der linken Wand und endet nach kurzem Stück an der Rückwand mit
-  einem Gitter, direkt über der Werkbank. Martin steigt über die Werkbank hinab und wieder hinauf.
+- **Luftschacht:** Der gelbe Kanal läuft oben an der Rückwand entlang und endet mit einem Gitter rechts neben
+  der Werkbank. Martin steigt dort hinab und wieder hinauf.
 - **Werkbank** mit Schublade (**Ersatzbürsten**) und einer Rolle **Schleifleinen**, daneben ein Abfalleimer mit
   gebrauchten Streifen.
 - Drei **Scheibenantriebe** nebeneinander an der Rückwand: Aus der Wand kommt je ein Wellenende mit einem
   radgroßen kupfernen Schleifring, davor **Kohlebürsten** (Kupfergraphit), darum ein Blechgehäuse mit Tür und
   Sichtfenster. Der Abrieb der Bürsten ist ein echtes schwarzes Pigment. Der linke und der rechte Antrieb laufen,
   ihre Türen sind verriegelt.
-- Der mittlere Antrieb steht: „Scheibe 3 – Revision“. Seine Tür geht auf, die Bürstenhalter sind leer. Er hat eine
+- Der mittlere Antrieb steht. Am Gehäuse hängt ein Anhänger, zu klein, um ihn im Raum zu entziffern; mit
+  „Lesen“ sagt Martin, was draufsteht: „Scheibe 3 – Revision“. Seine Tür geht auf, die Bürstenhalter sind leer. Er hat eine
   **Drehvorrichtung** mit Taster, die die Welle langsam dreht (Nahansicht).
 - Vor und unter den Antrieben Gitterrost, unter jedem Ring eine Wanne mit altem Staub, verklebt mit Lagerfett.
 
