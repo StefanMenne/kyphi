@@ -143,6 +143,7 @@ func toggle_hatch() -> void:
 		Lift.close_hatch(HERE)
 		refresh()
 		await narrate("[Klack.]")
+		await watch_order()
 		return
 	var warn := Lift.open_hatch(HERE)
 	refresh()
@@ -173,6 +174,28 @@ func press(target: String) -> void:
 			else:
 				refresh()
 				await narrate("[Die Kabine fährt davon.]")
+
+
+## Eine wartende Bestellung läuft los: Die Kabine fährt zur Kantine und mit Tablett und Karte am Fenster vorbei
+## hinunter in die Küche; die Anzeige ist dabei zu lesen.
+func watch_order() -> void:
+	var r := Lift.run_order()
+	if r.is_empty():
+		return
+	refresh()
+	await narrate("[Surren. Die Kabine fährt hinauf zur Kantine.]")
+	await narrate("[Kurz darauf gleitet sie wieder herunter, am Fenster vorbei: ein Tablett, darauf eine Karte. Die Anzeige: %s.]" % r["down"])
+	await narrate("[Wenig später fährt sie beladen wieder hinauf.]")
+	var key: String = "weight_seen_black" if r["card"] == "guest_card" else "weight_seen_" + r["card"]
+	Game.set_flag(key, r["down"])
+	if r["card"] == "guest_card":
+		await say("Tablett und schwarze Karte: %s." % r["down"])
+	elif r["card"] == "id_card":
+		await say("Tablett und meine graue Karte: %s." % r["down"])
+	if Game.value("weight_seen_black", "") != "" and Game.value("weight_seen_id_card", "") != "" \
+			and not Game.flag("black_weight_known"):
+		Game.set_flag("black_weight_known")
+		await say("Ein Gramm. So viel schwerer ist die schwarze Karte.")
 
 
 func put_item(item: String) -> void:

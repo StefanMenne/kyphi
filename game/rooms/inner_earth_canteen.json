@@ -1,0 +1,20 @@
+{
+ "floor": [[150, 768], [175, 700], [260, 545], [930, 545], [1000, 620], [1180, 768]],
+ "depth": [[545, 325], [768, 480]],
+ "entries": {
+  "": {"pos": [260, 650], "face": "right", "door": ""},
+  "inner_earth_station": {"pos": [260, 650], "face": "right", "door": ""}
+ },
+ "sprites": {"guest": [640, 300]},
+ "hotspots": {
+  "door": {"area": [30, 120, 155, 500], "walk": [240, 655], "face": "left"},
+  "hatch": {"area": [340, 228, 180, 170], "walk": [430, 560], "face": "back"},
+  "display": {"area": [535, 165, 120, 92], "walk": [590, 560], "face": "back"},
+  "slot": {"area": [572, 283, 46, 92], "walk": [590, 560], "face": "back"},
+  "guest": {"area": [640, 300, 140, 245], "walk": [600, 610], "face": "right"},
+  "small_table": {"area": [700, 395, 150, 140], "walk": [790, 560], "face": "back"},
+  "long_tables": {"area": [930, 395, 414, 330], "walk": [960, 620], "face": "right"},
+  "salt": {"area": [1062, 378, 45, 50], "walk": [990, 610], "face": "right"},
+  "clock": {"area": [1150, 135, 60, 75], "walk": [900, 560], "face": "right"}
+ }
+}

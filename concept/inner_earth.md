@@ -393,7 +393,15 @@ echten Grund:
   „Nicht betriebsbereit“ und Tafel als Schrift im Spiel, Walnussöl als Gegenstand. Öl hinausschmuggeln wie oben;
   der Koch nimmt die Flasche an der Tür ab, die Küchenluke piept bei betriebsbereitem Lift, und er schickt Martin
   weg. Im Wetteralarm Dunst über Herd und Haube, der Koch verschwindet darin.
-- **Übergang:** Die Kantine bleibt zu (Martin nennt einen Grund).
+- **Kantine** (`inner_earth_canteen.gd`): Gast als einfache Figur mit zwei Haltungen (sitzend mit eigenem Stuhl,
+  stehend am Kartenschlitz; `assets/characters/guest/`). Er bestellt, wenn Martin ihm das Gericht von der Tafel
+  nennt (auch mehrmals). Bestellungen laufen über das Liftmodell (`Lift.order`, `Lift.run_order`): Ist eine Luke
+  offen, wartet der Automat; wird die Luke in der Hydroponik geschlossen, fährt die Kabine am Fenster vorbei, die
+  Anzeige zeigt Tablett und Karte (Tablett 412,3 g: schwarz 418,9 g, grau 417,9 g). Martins Karte: grau gibt das
+  Standardmenü, schwarz mit richtigem Gewicht das bessere mit Thermoskanne, falsches Gewicht weist der Koch ab.
+  Was in der Kabine lag, stellt der Automat auf die Ablage (Martin holt es an der Ausgabe). Salzstreuer zum
+  Mitnehmen.
+- Damit ist die ganze Innenerde (ohne Scheibenhalle und Zeitkammer) spielbar.
 - **Bahnhof, Geländer:** Vordergrund-Ebene `railings`, liegt vor Martin, solange er nicht auf dem Bahnsteig ist.
 - **Fehlt:** Dunst in der Küche selbst (kommt mit der Küche).
 - **Karte umarbeiten** (Hydroponik, Pikiertisch): Walnussöl und Kohlestaub (oder Ruß, falsche Fährte) auf dem

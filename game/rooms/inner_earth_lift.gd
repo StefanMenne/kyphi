@@ -122,3 +122,55 @@ static func item_weight(item: String) -> float:
 
 static func weight_text() -> String:
 	return ("%.1f g" % weight()).replace(".", ",")
+
+
+# Bestellung am Automaten der Kantine (concept/inner_earth.md, „Ablauf einer Bestellung“): Karte einstecken; der
+# Automat holt den Lift, räumt ihn aus (Inhalt auf die Ablage der Kantine), stellt ein Tablett mit der Karte hinein
+# und schickt ihn in die Küche. Der Koch prüft Karte und Gewicht, kocht und schickt ihn zurück. Ist eine Luke offen,
+# wartet der Automat; der ganze Ablauf läuft, sobald die letzte Luke zugeht (run_order).
+
+## leeres Tablett auf der Waage
+const TRAY := 412.3
+
+
+## Bestellung aufgeben: who "guest" (Gast mit schwarzer Karte) oder "martin" (card: id_card oder id_card_black)
+static func order(who: String, card: String) -> void:
+	Game.set_flag("lift_order", {"who": who, "card": card})
+
+
+static func pending() -> bool:
+	return not (Game.value("lift_order", {}) as Dictionary).is_empty()
+
+
+static func card_weight(card: String) -> float:
+	return BLACK_CARD if card == "guest_card" else item_weight(card)
+
+
+## Läuft eine wartende Bestellung, wenn der Lift bereit ist. Ergebnis {} oder {"who", "card", "down" (Gewicht auf
+## dem Weg in die Küche, Text), "result" ("better", "standard", "rejected"), "cleared" (Gegenstände aus der Kabine)}
+static func run_order() -> Dictionary:
+	if not pending() or not ready():
+		return {}
+	var o: Dictionary = Game.value("lift_order")
+	var card: String = "guest_card" if o["who"] == "guest" else o["card"]
+	var cleared := clear()
+	if not cleared.is_empty():
+		var shelf: Array = (Game.value("canteen_shelf", []) as Array).duplicate()
+		shelf.append_array(cleared)
+		Game.set_flag("canteen_shelf", shelf)
+	var w := TRAY + card_weight(card)
+	var result := "standard"
+	if card == "guest_card":
+		result = "better"
+	elif card == "id_card_black":
+		result = "better" if absf(card_weight(card) - BLACK_CARD) < 0.05 else "rejected"
+	Game.set_flag("lift_order", {})
+	Game.set_flag("lift_at", "canteen")
+	if o["who"] == "guest":
+		Game.set_flag("guest_state", "eating")
+	else:
+		Game.set_flag("canteen_tray", result)
+		Game.set_flag("canteen_tray_card", card)
+	return {"who": o["who"], "card": card, "down": ("%.1f g" % w).replace(".", ","), "result": result,
+		"cleared": cleared}
+

@@ -204,6 +204,10 @@ func toggle_hatch() -> void:
 		Lift.close_hatch(HERE)
 		refresh()
 		await narrate("[Klack.]")
+		var r := Lift.run_order()
+		if not r.is_empty():
+			refresh()
+			await narrate("[Der Lift kommt mit Tablett und Karte. Der Koch wirft einen Blick auf die Karte und auf die Waage, kocht und schickt ihn wieder hinauf.]")
 		return
 	var warn := Lift.open_hatch(HERE)
 	refresh()

@@ -22,6 +22,7 @@ const ROOMS := {
 	"inner_earth_machine_room": preload("res://game/rooms/inner_earth_machine_room.gd"),
 	"inner_earth_slip_ring": preload("res://game/rooms/inner_earth_slip_ring.gd"),
 	"inner_earth_kitchen": preload("res://game/rooms/inner_earth_kitchen.gd"),
+	"inner_earth_canteen": preload("res://game/rooms/inner_earth_canteen.gd"),
 }
 const SPEAKER_COLORS := {
 	"martin": Color("f4e8c8"),
@@ -31,6 +32,7 @@ const SPEAKER_COLORS := {
 	"elder": Color("a3e3c4"),
 	"pjotr": Color("ffd27a"),
 	"cook": Color("f0f0e0"),
+	"guest": Color("c8d4ff"),
 	"": Color("d8d8d8"),
 }
 
