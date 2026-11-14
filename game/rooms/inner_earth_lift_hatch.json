@@ -1,0 +1,16 @@
+{
+ "floor": [[600, 740], [700, 740], [700, 768], [600, 768]],
+ "depth": [[740, 300], [768, 320]],
+ "entries": {
+  "": {"pos": [650, 760], "face": "back", "door": ""}
+ },
+ "hotspots": {
+  "back": {"area": [1200, 0, 144, 768], "walk": [650, 760], "face": "back"},
+  "hatch": {"area": [153, 33, 707, 687], "walk": [650, 760], "face": "back"},
+  "cabin": {"area": [260, 140, 500, 470], "walk": [650, 760], "face": "back"},
+  "lamp": {"area": [1051, 33, 80, 80], "walk": [650, 760], "face": "back"},
+  "btn_canteen": {"area": [1024, 187, 134, 134], "walk": [650, 760], "face": "back"},
+  "btn_hydroponics": {"area": [1024, 347, 134, 134], "walk": [650, 760], "face": "back"},
+  "btn_kitchen": {"area": [1024, 507, 134, 134], "walk": [650, 760], "face": "back"}
+ }
+}

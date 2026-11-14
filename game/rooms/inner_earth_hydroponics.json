@@ -1,0 +1,20 @@
+{
+ "floor": [[150, 768], [215, 700], [290, 615], [848, 615], [860, 705], [1100, 705], [1110, 768]],
+ "depth": [[615, 270], [768, 420]],
+ "entries": {
+  "": {"pos": [300, 700], "face": "right", "door": ""},
+  "train_cabin": {"pos": [260, 710], "face": "right", "door": ""},
+  "inner_earth_lift_hatch": {"pos": [400, 625], "face": "front", "door": ""}
+ },
+ "hotspots": {
+  "door": {"area": [27, 80, 153, 660], "walk": [240, 705], "face": "left"},
+  "duct": {"area": [253, 93, 747, 120], "walk": [640, 640], "face": "back"},
+  "duct_down": {"area": [1107, 73, 187, 673], "walk": [1040, 715], "face": "right"},
+  "flap": {"area": [840, 100, 74, 140], "walk": [900, 715], "face": "back"},
+  "racks": {"area": [853, 240, 254, 460], "walk": [960, 720], "face": "back"},
+  "lift_hatch": {"area": [304, 260, 173, 180], "walk": [400, 625], "face": "back"},
+  "lift_buttons": {"area": [487, 262, 47, 145], "walk": [500, 625], "face": "back"},
+  "table": {"area": [496, 440, 270, 167], "walk": [640, 628], "face": "back"},
+  "lamp": {"area": [673, 300, 87, 140], "walk": [700, 628], "face": "back"}
+ }
+}

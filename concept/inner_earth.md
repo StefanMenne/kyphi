@@ -373,6 +373,16 @@ echten Grund:
   beschleunigen das Trocknen von Öl. Schwerer ist er auch, was zum Gewicht passt.
 - Martin benennt nach dem Fehlversuch nur das Problem (die Farbe trocknet nicht), nicht die Lösung.
 
+## Stand im Spiel
+
+- **Gebaut (14.11.2026):** Hydroponik (`game/rooms/inner_earth_hydroponics.gd`) und die Nahansicht der Liftluke
+  (`inner_earth_lift_hatch.gd`); der Essenslift mit allen Regeln als gemeinsames Modell (`inner_earth_lift.gd`,
+  Klasse `Lift`) für Kantine und Küche. Gegenstände lassen sich in die Kabine legen und wiegen.
+- **Übergang:** Solange Bahnhof und Luftschacht fehlen, hält der Zug direkt an der Hydroponik, und ihre Tür führt
+  zurück in den Zug. Klappe und Regalsprossen zum Luftschacht tun noch nichts.
+- **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die
+  Gegenstände dazu), Trocknen unter der Lampe.
+
 ## Offen
 
 - **Engine:** mehrere Laufflächen je Raum mit eigener Figurgröße, Verbindungsstrecken (Treppe, Schacht) und

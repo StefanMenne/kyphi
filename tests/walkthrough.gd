@@ -1,5 +1,5 @@
 extends Node
-## Spielt Teil 1 ohne Wartezeiten vom Prolog bis zum Ende durch, dann den Anfang von Teil 2: Zug in die Antarktis und zurück ins Museum.
+## Spielt Teil 1 ohne Wartezeiten vom Prolog bis zum Ende durch, dann den Anfang von Teil 2: Zug in die Antarktis und zurück ins Museum, dann der Lift in der Hydroponik der Innenerde.
 ## godot --headless --path . res://tests/walkthrough.tscn
 
 var main: Node
@@ -20,7 +20,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	check_facing()
 	await run()
-	print("\nERGEBNIS: ", "FEHLER" if failed or facing_failed or not Game.flag("medal_found") else "OK – Ende von Teil 1 erreicht, in Teil 2 Antarktis bis zur Medaille und zurück")
+	print("\nERGEBNIS: ", "FEHLER" if failed or facing_failed or not Game.flag("medal_found") else "OK – Ende von Teil 1 erreicht, in Teil 2 Antarktis bis zur Medaille und zurück, Lift der Innenerde")
 	get_tree().quit(1 if failed or facing_failed or not Game.flag("medal_found") else 0)
 
 
@@ -308,3 +308,30 @@ func run() -> void:
 	await act("steel_door")
 	in_room("museum_station")
 	check(Game.flag("antarctica_seen"), "in der Antarktis gewesen")
+	# Innenerde (Übergang: der Zug hält an der Hydroponik)
+	await act("train_door")
+	in_room("train_cabin")
+	await act("st_inner_earth")
+	in_room("inner_earth_hydroponics")
+	await act("lift_buttons")
+	in_room("inner_earth_lift_hatch")
+	await act("btn_hydroponics")
+	check(Lift.at() == "hydroponics", "Kabine geholt")
+	await act("hatch")
+	check(Lift.alarm() == "hydroponics", "Warnton beim Öffnen")
+	await act("cabin", "masking_tape")
+	check(not Game.has("masking_tape") and is_equal_approx(Lift.weight(), 112.4), "Kreppband gewogen")
+	await act("btn_kitchen")
+	check(Lift.at() == "hydroponics", "Lift fährt nicht bei offener Luke")
+	await act("cabin")
+	check(Game.has("masking_tape"), "Kreppband zurück")
+	await act("hatch")
+	check(Lift.ready() and Lift.alarm() == "", "Luke zu, Lift bereit")
+	await act("btn_canteen")
+	await act("btn_kitchen")
+	check(Lift.at() == "kitchen", "Kabine in der Küche")
+	await act("back")
+	in_room("inner_earth_hydroponics")
+	await act("door")
+	in_room("train_cabin")
+	check(Game.flag("hydroponics_door_unlocked"), "Tür der Hydroponik entriegelt")
