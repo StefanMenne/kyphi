@@ -51,6 +51,12 @@ func build() -> void:
 	hotspot("gate", "Rolltor")
 	hotspot("beacon", "Rundumleuchte")
 	set_verbs({"train_door": "go", "kitchen_door": "go", "hydro_door": "go", "canteen_door": "go"})
+	# Geländer vor Martin, solange er auf Treppe, Balkon oder Galerie ist (auf dem Bahnsteig steht er davor)
+	layers["railings"].z_index = 1
+
+
+func _process(_dt: float) -> void:
+	layers["railings"].visible = cur_link >= 0 or cur_area != "platform"
 
 
 func refresh() -> void:

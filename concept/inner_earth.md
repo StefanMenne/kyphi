@@ -382,8 +382,8 @@ echten Grund:
   für Kantine und Küche. Gegenstände lassen sich in die Kabine legen und wiegen.
 - **Übergang:** Solange der Luftschacht fehlt, führt das Gitter auf der Galerie direkt in die Hydroponik (über
   das Regal) und von dort zurück. Küche, Kantine und Maschinenraum bleiben zu (Martin nennt einen Grund).
-- **Fehlt im Bahnhof:** Geländer als Vordergrund-Ebene vor Martin (auf Balkon, Galerie und Treppe steht er noch
-  davor); Folgen des Wetteralarms in Küche und Luftschacht (Dunst).
+- **Bahnhof, Geländer:** Vordergrund-Ebene `railings`, liegt vor Martin, solange er nicht auf dem Bahnsteig ist.
+- **Fehlt im Bahnhof:** Folgen des Wetteralarms in Küche und Luftschacht (Dunst).
 - **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die
   Gegenstände dazu), Trocknen unter der Lampe.
 

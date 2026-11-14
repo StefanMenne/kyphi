@@ -120,7 +120,23 @@
     "grille_open",
     "state",
     "work/assets/scenes/inner_earth_station/draft_grille_open.png",
-    "Lüftungsgitter auf der Galerie offen"
+    "Lüftungsgitter auf der Galerie offen",
+    "--fg",
+    "railings",
+    "work/assets/scenes/inner_earth_station/draft_no_railings.png",
+    "Geländer von Treppen, Balkon und Galerie",
+    "--fg-exclude",
+    "railings",
+    "1795",
+    "85",
+    "1875",
+    "158",
+    "--fg-exclude",
+    "railings",
+    "1300",
+    "700",
+    "1480",
+    "768"
    ],
    "inputs": [
     "work/assets/scenes/inner_earth_station/draft.png",
@@ -128,11 +144,12 @@
     "work/assets/scenes/inner_earth_station/draft_gate1_open_ladder.png",
     "work/assets/scenes/inner_earth_station/draft_gate1_on_ladder.png",
     "work/assets/scenes/inner_earth_station/draft_gate2_open.png",
-    "work/assets/scenes/inner_earth_station/draft_grille_open.png"
+    "work/assets/scenes/inner_earth_station/draft_grille_open.png",
+    "work/assets/scenes/inner_earth_station/draft_no_railings.png"
    ],
    "output": "assets/scenes/inner_earth_station/",
    "date": "2026-11-14",
-   "note": "Fixpunkt-Drafts in work/assets/scenes/; ihre Entstehung (Prompts, Seeds, Ausschnitte, patch.py) steht in work/concept/inner_earth_images.md, Runden 1-18."
+   "note": "Fixpunkt-Drafts in work/assets/scenes/; ihre Entstehung (Prompts, Seeds, Ausschnitte, patch.py) steht in work/concept/inner_earth_images.md, Runden 1-18. draft_no_railings.png: Fassade ohne Geländer (edit_image Seed 17000, Ausschnitt (1000, 30, 1580, 560) im Draft, hart eingesetzt), nur für die Geländer-Ebene."
   },
   "inner_earth_kitchen": {
    "tool": "script",

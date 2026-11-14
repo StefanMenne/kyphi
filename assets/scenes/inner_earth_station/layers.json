@@ -50,6 +50,15 @@
    "y": 89,
    "w": 88,
    "h": 75
+  },
+  "railings": {
+   "name": "Geländer von Treppen, Balkon und Galerie",
+   "type": "foreground",
+   "file": "sprites/railings.png",
+   "x": 1367,
+   "y": 73,
+   "w": 676,
+   "h": 641
   }
  }
 }
