@@ -1318,10 +1318,6 @@
      "file": "voices/martin/der_depotschlussel_ordnungsgemass_eingetragen.wav",
      "text": "Der Depotschlüssel. Ordnungsgemäß eingetragen."
     },
-    "eine_schwarze_karte_mit_chip": {
-     "file": "voices/martin/eine_schwarze_karte_mit_chip.wav",
-     "text": "Eine schwarze Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666."
-    },
     "frau_ackermanns_feuerzeug_offiziell_besitzt": {
      "file": "voices/martin/frau_ackermanns_feuerzeug_offiziell_besitzt.wav",
      "text": "Frau Ackermanns Feuerzeug. Offiziell besitzt sie keins."
@@ -1569,10 +1565,6 @@
     "wozu_da_ist_nur_werkzeug": {
      "file": "voices/martin/wozu_da_ist_nur_werkzeug.wav",
      "text": "Wozu? Da ist nur Werkzeug drin."
-    },
-    "eine_schwarze_karte_mit_einer": {
-     "file": "voices/martin/eine_schwarze_karte_mit_einer.wav",
-     "text": "Eine schwarze Karte mit einer roten 666. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit."
     },
     "den_schlussel_muss_ich_frau": {
      "file": "voices/martin/den_schlussel_muss_ich_frau.wav",
@@ -2525,6 +2517,14 @@
     "p2_pjotr_bye": {
      "file": "voices/martin/p2_pjotr_bye.wav",
      "text": "Bis später."
+    },
+    "eine_graue_karte_mit_chip": {
+     "file": "voices/martin/eine_graue_karte_mit_chip.wav",
+     "text": "Eine graue Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666."
+    },
+    "eine_graue_karte_mit_einer": {
+     "file": "voices/martin/eine_graue_karte_mit_einer.wav",
+     "text": "Eine graue Karte mit einer roten 666. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit."
     }
    }
   },

@@ -705,6 +705,105 @@
    "output": "assets/items/id_card_black.png",
    "date": "2026-11-14",
    "note": "bisheriges Icon der Karte (Altbestand, schwarz) als Fixpunkt; die Karte selbst ist jetzt grau"
+  },
+  "id_card_grey_draft": {
+   "tool": "gb10-assets/edit_image",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "model": "qwen-image-edit-2511",
+    "prompt": "Make the card a plain matt medium grey plastic card instead of black, with the same soft shading. Keep the red number 666, the rounded shape, the black outline, the drawing style and the plain magenta background exactly unchanged.",
+    "images": [
+     "work/assets/items/id_card/black_magenta.png"
+    ],
+    "width": 1024,
+    "height": 1024,
+    "seed": 20001,
+    "count": 1
+   },
+   "inputs": [
+    "work/assets/items/id_card/black_magenta.png"
+   ],
+   "output": "work/cache/items/id_card/grey_draft.png",
+   "date": "2026-11-14",
+   "note": "Hollmanns Karte grau (wie im Museumskonzept); Eingabe = altes schwarzes Icon auf Magenta, 1024 px (Fixpunkt); gewählt aus Seed 20000 count 3"
+  },
+  "id_card_grey_cut": {
+   "tool": "script",
+   "script": "work/scripts/alpha_from.py",
+   "args": [
+    "--dark",
+    "0"
+   ],
+   "inputs": [
+    "id_card_grey_draft",
+    "work/assets/items/id_card/black.png"
+   ],
+   "output": "work/cache/items/id_card/grey_cut.png",
+   "date": "2026-11-14",
+   "note": "Form (Alpha) des alten Icons"
+  },
+  "id_card": {
+   "tool": "script",
+   "script": "work/scripts/item_icon.py",
+   "args": [
+    "--size",
+    "512",
+    "--margin",
+    "10",
+    "--small",
+    "128"
+   ],
+   "inputs": [
+    "id_card_grey_cut"
+   ],
+   "output": "assets/items/id_card.png",
+   "date": "2026-11-14",
+   "note": "schreibt auch id_card_128.png"
+  },
+  "voice_grey_card": {
+   "tool": "gb10-assets/speak",
+   "version": "gb10-assets 1.3.1",
+   "request": {
+    "texts": [
+     "Eine graue Karte mit Chip. Kein Name, kein Foto. Nur eine rote 666.",
+     "Eine graue Karte mit einer roten 666. Ein Notizbuch. Ein Räucherkegel. Und ein merkwürdiger Bit."
+    ],
+    "reference_audio": "assets/voices/martin/reference.wav",
+    "reference_text": "Asche auf dem Altar und Ruß an der Decke. Offenes Feuer ist hier streng verboten. Und der Rauchmelder hat nichts gemerkt? Interessant.",
+    "language": "de",
+    "seed": 2000,
+    "count": 1
+   },
+   "inputs": [],
+   "output": "work/cache/voices/martin/grey_card/",
+   "date": "2026-11-14",
+   "note": "ersetzt die beiden Sätze mit „schwarze Karte“. Referenz wie beim Altbestand (provenance_old.json, voices.martin)."
+  },
+  "voice_eine_graue_karte_mit_chip": {
+   "tool": "script",
+   "script": "work/scripts/pick.py",
+   "args": [
+    "--name",
+    "speech_01_2000.wav"
+   ],
+   "inputs": [
+    "voice_grey_card"
+   ],
+   "output": "assets/voices/martin/eine_graue_karte_mit_chip.wav",
+   "date": "2026-11-14"
+  },
+  "voice_eine_graue_karte_mit_einer": {
+   "tool": "script",
+   "script": "work/scripts/pick.py",
+   "args": [
+    "--name",
+    "speech_02_2000.wav"
+   ],
+   "inputs": [
+    "voice_grey_card"
+   ],
+   "output": "assets/voices/martin/eine_graue_karte_mit_einer.wav",
+   "date": "2026-11-14"
   }
  }
 }
