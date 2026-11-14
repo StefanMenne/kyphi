@@ -15,6 +15,7 @@ const ROOMS := {
 	"antarctica_observation": preload("res://game/rooms/antarctica_observation.gd"),
 	"antarctica_airlock": preload("res://game/rooms/antarctica_airlock.gd"),
 	"antarctica_antenna": preload("res://game/rooms/antarctica_antenna.gd"),
+	"inner_earth_station": preload("res://game/rooms/inner_earth_station.gd"),
 	"inner_earth_hydroponics": preload("res://game/rooms/inner_earth_hydroponics.gd"),
 	"inner_earth_lift_hatch": preload("res://game/rooms/inner_earth_lift_hatch.gd"),
 }

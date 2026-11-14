@@ -7,8 +7,7 @@ const STATIONS := {
 	"museum": ["Museum", "museum_station", Vector2(811, 137)],
 	"abc": ["ABC GmbH", "", Vector2(1027, 133)],
 	"area52": ["Area 52", "", Vector2(1243, 137)],
-	# Übergang: hält direkt an der Hydroponik, bis der Bahnhof der Innenerde gebaut ist
-	"inner_earth": ["Innenerde", "inner_earth_hydroponics", Vector2(811, 340)],
+	"inner_earth": ["Innenerde", "inner_earth_station", Vector2(811, 340)],
 	"antarctica": ["Antarktis", "antarctica_platform", Vector2(1242, 339)],
 }
 const DOT_R := 22.0

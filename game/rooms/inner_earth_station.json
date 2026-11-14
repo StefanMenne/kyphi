@@ -1,0 +1,31 @@
+{
+ "areas": {
+  "platform": {"floor": [[60, 698], [2660, 698], [2660, 748], [60, 748]], "depth": [[698, 165], [748, 180]]},
+  "balcony": {"floor": [[1380, 426], [2040, 426], [2040, 436], [1380, 436]], "depth": [[426, 158], [436, 158]]},
+  "gallery": {"floor": [[1365, 146], [2040, 146], [2040, 156], [1365, 156]], "depth": [[146, 148], [156, 148]]}
+ },
+ "links": [
+  {"a": "platform", "b": "balcony", "points": [[1495, 700], [1665, 590], [1495, 432]], "heights": [165, 161, 158]},
+  {"a": "balcony", "b": "gallery", "points": [[1495, 430], [1665, 300], [1495, 152]], "heights": [158, 153, 148]}
+ ],
+ "entries": {
+  "": {"pos": [700, 720], "face": "right", "door": ""},
+  "train_cabin": {"pos": [920, 715], "face": "front", "door": ""},
+  "inner_earth_hydroponics": {"pos": [1925, 432], "face": "front", "door": ""},
+  "air_shaft": {"pos": [1830, 152], "face": "front", "door": ""}
+ },
+ "hotspots": {
+  "tube": {"area": [55, 430, 360, 260], "walk": [300, 715], "face": "back"},
+  "train": {"area": [415, 450, 470, 200], "walk": [650, 715], "face": "back"},
+  "train_door": {"area": [887, 520, 70, 127], "walk": [920, 715], "face": "back"},
+  "kitchen_door": {"area": [1885, 510, 85, 188], "walk": [1925, 705], "face": "back"},
+  "hydro_door": {"area": [1885, 252, 85, 180], "walk": [1925, 432], "face": "back"},
+  "canteen_door": {"area": [1885, 0, 85, 150], "walk": [1925, 152], "face": "back"},
+  "locked_door": {"area": [1440, 0, 90, 150], "walk": [1485, 152], "face": "back"},
+  "grille": {"area": [1800, 97, 65, 55], "walk": [1830, 152], "face": "back"},
+  "machine_door": {"area": [2115, 465, 115, 232], "walk": [2172, 705], "face": "back"},
+  "control_box": {"area": [2235, 490, 42, 56], "walk": [2255, 705], "face": "back"},
+  "gate": {"area": [2300, 360, 300, 337], "walk": [2450, 708], "face": "back"},
+  "beacon": {"area": [2425, 305, 45, 45], "walk": [2450, 708], "face": "back"}
+ }
+}

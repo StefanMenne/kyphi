@@ -3,8 +3,10 @@ extends Room
 ## Nahansicht inner_earth_lift_hatch), Pikiertisch mit Lampe (Karte umarbeiten), Pflanzregale, Klappe zum
 ## Luftschacht. Die Tür zum Bahnhof lässt sich von innen entriegeln.
 ##
-## Übergang, solange Bahnhof und Luftschacht fehlen: Der Zug hält direkt hier (train_cabin), und die Tür führt
-## zurück in den Zug.
+## Übergang, solange der Luftschacht fehlt: Klappe und Regal führen direkt zum Gitter auf der Galerie des
+## Bahnhofs (und umgekehrt).
+
+const STATION := preload("res://game/rooms/inner_earth_station.gd")
 
 
 func _init() -> void:
@@ -78,7 +80,9 @@ func use(hid: String) -> void:
 		"lift_hatch", "lift_buttons":
 			await go("inner_earth_lift_hatch")
 		"flap", "racks":
-			await refuse("Über die Sprossen käme ich zur Klappe hinauf. Aber wohin dann?")
+			await Game.main.flush_gesture()
+			await narrate("[Martin klettert über die Regalsprossen in den Kanal und kriecht zurück zum Gitter am Bahnhof.]")
+			await Game.main.change_room("inner_earth_station", "air_shaft")
 		"duct", "duct_down":
 			await refuse("Zu hoch. Und von außen ist ein Kanal nur ein Kanal.")
 		"table":
@@ -100,9 +104,11 @@ func use_item(hid: String, item: String) -> void:
 
 
 func use_door() -> void:
+	if STATION.weather_alarm():
+		await refuse("Gesperrt. Über der Tür blinkt es rot.")
+		return
 	if not Game.flag("hydroponics_door_unlocked"):
 		await Game.main.flush_gesture()
 		Game.set_flag("hydroponics_door_unlocked")
 		await say("Ein Dreh am Knauf. Offen.")
-	Game.set_flag("station", "inner_earth")
-	await go("train_cabin")
+	await go("inner_earth_station")

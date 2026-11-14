@@ -1,5 +1,5 @@
 extends Node
-## Spielt Teil 1 ohne Wartezeiten vom Prolog bis zum Ende durch, dann den Anfang von Teil 2: Zug in die Antarktis und zurück ins Museum, dann der Lift in der Hydroponik der Innenerde.
+## Spielt Teil 1 ohne Wartezeiten vom Prolog bis zum Ende durch, dann den Anfang von Teil 2: Zug in die Antarktis und zurück ins Museum, dann Innenerde: Bahnhof, Hydroponik mit Lift, Wetterschleuse mit der Leiter.
 ## godot --headless --path . res://tests/walkthrough.tscn
 
 var main: Node
@@ -20,7 +20,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	check_facing()
 	await run()
-	print("\nERGEBNIS: ", "FEHLER" if failed or facing_failed or not Game.flag("medal_found") else "OK – Ende von Teil 1 erreicht, in Teil 2 Antarktis bis zur Medaille und zurück, Lift der Innenerde")
+	print("\nERGEBNIS: ", "FEHLER" if failed or facing_failed or not Game.flag("medal_found") else "OK – Ende von Teil 1 erreicht, in Teil 2 Antarktis bis zur Medaille und zurück, Lift und Wetterschleuse der Innenerde")
 	get_tree().quit(1 if failed or facing_failed or not Game.flag("medal_found") else 0)
 
 
@@ -308,10 +308,16 @@ func run() -> void:
 	await act("steel_door")
 	in_room("museum_station")
 	check(Game.flag("antarctica_seen"), "in der Antarktis gewesen")
-	# Innenerde (Übergang: der Zug hält an der Hydroponik)
+	# Innenerde: Bahnhof, durch das Gitter in die Hydroponik (Übergang ohne Luftschacht), Lift
 	await act("train_door")
 	in_room("train_cabin")
 	await act("st_inner_earth")
+	in_room("inner_earth_station")
+	await act("hydro_door")
+	in_room("inner_earth_station")
+	await act("grille")
+	check(Game.flag("station_grille_open"), "Gitter offen")
+	await act("grille")
 	in_room("inner_earth_hydroponics")
 	await act("lift_buttons")
 	in_room("inner_earth_lift_hatch")
@@ -333,5 +339,47 @@ func run() -> void:
 	await act("back")
 	in_room("inner_earth_hydroponics")
 	await act("door")
+	in_room("inner_earth_station")
+	check(Game.flag("hydroponics_door_unlocked") and main.room.cur_area == "balcony", "durch die Tür auf den Balkon")
+	# Wetterschleuse mit der Leiter
+	if not Game.has("ladder"):
+		Game.add_item("ladder")
+	Game.choice_script = ["Tor 2"]
+	await act("control_box")
+	check(main.room.cur_area == "platform", "über die Treppe zum Steuerkasten")
+	check(main.room.gate2_open() and not main.room.weather_alarm(), "normale Schleuse: Tor 2 auf, Tor 1 zu, kein Alarm")
+	Game.choice_script = ["Tor 1"]
+	await act("control_box")
+	check(main.room.gate1() == "closed", "Tor 1 bleibt zu, solange Tor 2 offen ist")
+	Game.choice_script = ["Tor 2"]
+	await act("control_box")
+	check(not main.room.gate2_open(), "Tor 2 wieder zu")
+	Game.choice_script = ["Tor 1"]
+	await act("control_box")
+	check(main.room.gate1() == "open", "Tor 1 offen")
+	await act("gate", "ladder")
+	check(Game.flag("ladder_in_gate") and not Game.has("ladder"), "Leiter im Tor")
+	Game.choice_script = ["Tor 1"]
+	await act("control_box")
+	check(main.room.gate1() == "on_ladder", "Tor 1 auf der Leiter")
+	Game.choice_script = ["Tor 2"]
+	await act("control_box")
+	check(main.room.weather_alarm(), "Wetteralarm")
+	await act("hydro_door")
+	in_room("inner_earth_station")
+	Game.choice_script = ["Tor 2"]
+	await act("control_box")
+	check(not main.room.weather_alarm(), "Tor 2 zu, Alarm vorbei")
+	Game.choice_script = ["Tor 1"]
+	await act("control_box")
+	await act("gate")
+	check(Game.has("ladder") and not Game.flag("ladder_in_gate"), "Leiter wieder eingepackt")
+	Game.choice_script = ["Tor 1"]
+	await act("control_box")
+	check(main.room.gate1() == "closed", "Tor 1 zu")
+	await act("hydro_door")
+	in_room("inner_earth_hydroponics")
+	await act("door")
+	in_room("inner_earth_station")
+	await act("train_door")
 	in_room("train_cabin")
-	check(Game.flag("hydroponics_door_unlocked"), "Tür der Hydroponik entriegelt")

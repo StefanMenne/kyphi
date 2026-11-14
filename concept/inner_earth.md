@@ -375,11 +375,15 @@ echten Grund:
 
 ## Stand im Spiel
 
-- **Gebaut (14.11.2026):** Hydroponik (`game/rooms/inner_earth_hydroponics.gd`) und die Nahansicht der Liftluke
-  (`inner_earth_lift_hatch.gd`); der Essenslift mit allen Regeln als gemeinsames Modell (`inner_earth_lift.gd`,
-  Klasse `Lift`) für Kantine und Küche. Gegenstände lassen sich in die Kabine legen und wiegen.
-- **Übergang:** Solange Bahnhof und Luftschacht fehlen, hält der Zug direkt an der Hydroponik, und ihre Tür führt
-  zurück in den Zug. Klappe und Regalsprossen zum Luftschacht tun noch nichts.
+- **Gebaut (14.11.2026):** Bahnhof (`game/rooms/inner_earth_station.gd`) mit Bahnsteig, Balkon, Galerie und den
+  zwei Treppen als Laufflächen und Strecken; Wetterschleuse mit Rolltoren, Leiter und Wetteralarm (rote
+  Türleuchten, alle Türen gesperrt). Hydroponik (`inner_earth_hydroponics.gd`) und die Nahansicht der Liftluke
+  (`inner_earth_lift_hatch.gd`); der Essenslift als gemeinsames Modell (`inner_earth_lift.gd`, Klasse `Lift`)
+  für Kantine und Küche. Gegenstände lassen sich in die Kabine legen und wiegen.
+- **Übergang:** Solange der Luftschacht fehlt, führt das Gitter auf der Galerie direkt in die Hydroponik (über
+  das Regal) und von dort zurück. Küche, Kantine und Maschinenraum bleiben zu (Martin nennt einen Grund).
+- **Fehlt im Bahnhof:** Geländer als Vordergrund-Ebene vor Martin (auf Balkon, Galerie und Treppe steht er noch
+  davor); Folgen des Wetteralarms in Küche und Luftschacht (Dunst).
 - **Fehlt in der Hydroponik:** Karte umarbeiten am Pikiertisch (braucht Kohlestaub, Walnussöl und die
   Gegenstände dazu), Trocknen unter der Lampe.
 
